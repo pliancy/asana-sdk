@@ -25,7 +25,10 @@
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
         "outDir": "./dist",
-        "types": ["node", "jest"]
+        "types": ["node", "jest"],
+       
+        
     },
     "include": ["src"]
+
 }
