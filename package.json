@@ -10,6 +10,7 @@
         }
     },
     "dependencies": {
+        "axios": "^0.24.0",
         "tslib": "2.3.1"
     },
     "description": "Wrapper around the Asana node SDK",
@@ -18,7 +19,6 @@
         "@pliancy/eslint-config-ts": "0.0.5",
         "@pliancy/semantic-release-config-npm": "2.1.0",
         "@types/got": "9.6.12",
-        "@types/jest": "27.0.2",
         "@types/jest": "26.0.24",
         "@types/node": "16.11.6",
         "commitizen": "4.2.4",
@@ -38,7 +38,7 @@
     "homepage": "https://github.com/pliancy/asana-sdk",
     "keywords": [],
     "license": "MIT",
-    "main": "src/index.ts",
+    "main": "./dist/index.js",
     "name": "@pliancy/asana-sdk",
     "repository": {
         "type": "git",
