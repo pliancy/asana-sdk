@@ -24,6 +24,10 @@ npm install -g @openapitools/openapi-generator-cli
 openapi-generator-cli generate -p apiPackage=api -p modelPackage=types -p withSeparateModelsAndApi=true -p modelPropertyNaming=original -p supportsES6=true -i https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml -g typescript-axios -o /asanaClient --skip-validate-spec
 ```
 
+
+
+
+
 ### Test
 
 ```bash

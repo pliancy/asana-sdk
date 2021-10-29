@@ -1,15 +1,14 @@
 import {
+    AddCustomFieldSettingRequest,
+    AddMembersRequest,
     Configuration,
     ConfigurationParameters,
-    InlineObject17,
-    InlineObject18,
-    InlineObject19,
-    InlineObject20,
-    InlineObject21,
-    InlineObject22,
-    InlineObject23,
-    InlineObject24,
+    PortfolioAddItemRequest,
+    PortfolioRemoveItemRequest,
+    PortfolioRequest,
     PortfoliosApi,
+    RemoveCustomFieldSettingRequest,
+    RemoveMembersRequest,
 } from '../asanaClient'
 
 export class Portfolios {
@@ -21,13 +20,13 @@ export class Portfolios {
 
     async addCustomFieldSettingForPortfolio(
         portfolioGid: string,
-        inlineObject21: InlineObject21,
+        data: AddCustomFieldSettingRequest,
         optPretty?: boolean,
         options?: any,
     ) {
         const res = await this.portfoliosApi.addCustomFieldSettingForPortfolio(
             portfolioGid,
-            inlineObject21,
+            { data },
             optPretty,
             options,
         )
@@ -36,14 +35,14 @@ export class Portfolios {
 
     async addItemForPortfolio(
         portfolioGid: string,
-        inlineObject19: InlineObject19,
+        data: PortfolioAddItemRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.addItemForPortfolio(
             portfolioGid,
-            inlineObject19,
+            { data },
             optPretty,
             optFields,
             options,
@@ -53,14 +52,14 @@ export class Portfolios {
 
     async addMembersForPortfolio(
         portfolioGid: string,
-        inlineObject23: InlineObject23,
+        data: AddMembersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.addMembersForPortfolio(
             portfolioGid,
-            inlineObject23,
+            { data },
             optPretty,
             optFields,
             options,
@@ -69,13 +68,13 @@ export class Portfolios {
     }
 
     async createPortfolio(
-        inlineObject17: InlineObject17,
+        data: PortfolioRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.createPortfolio(
-            inlineObject17,
+            { data },
             optPretty,
             optFields,
             options,
@@ -155,13 +154,13 @@ export class Portfolios {
 
     async removeCustomFieldSettingForPortfolio(
         portfolioGid: string,
-        inlineObject22: InlineObject22,
+        data: RemoveCustomFieldSettingRequest,
         optPretty?: boolean,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeCustomFieldSettingForPortfolio(
             portfolioGid,
-            inlineObject22,
+            { data },
             optPretty,
             options,
         )
@@ -170,14 +169,14 @@ export class Portfolios {
 
     async removeItemForPortfolio(
         portfolioGid: string,
-        items: InlineObject20,
+        data: PortfolioRemoveItemRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeItemForPortfolio(
             portfolioGid,
-            items,
+            { data },
             optPretty,
             optFields,
             options,
@@ -188,14 +187,14 @@ export class Portfolios {
 
     async removeMembersForPortfolio(
         portfolioGid: string,
-        members: InlineObject24,
+        data: RemoveMembersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeMembersForPortfolio(
             portfolioGid,
-            members,
+            { data },
             optPretty,
             optFields,
             options,
@@ -205,14 +204,14 @@ export class Portfolios {
 
     async updatePortfolio(
         portfolioGid: string,
-        inlineObject18: InlineObject18,
+        data: PortfolioRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.updatePortfolio(
             portfolioGid,
-            inlineObject18,
+            { data },
             optPretty,
             optFields,
             options,

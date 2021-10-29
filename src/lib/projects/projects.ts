@@ -1,18 +1,15 @@
 import {
+    AddCustomFieldSettingRequest,
+    AddFollowersRequest,
+    AddMembersRequest,
     Configuration,
     ConfigurationParameters,
-    InlineObject26,
-    InlineObject27,
-    InlineObject28,
-    InlineObject29,
-    InlineObject30,
-    InlineObject31,
-    InlineObject32,
-    InlineObject33,
-    InlineObject34,
-    InlineObject35,
-    InlineObject36,
+    ProjectDuplicateRequest,
+    ProjectRequest,
     ProjectsApi,
+    RemoveCustomFieldSettingRequest,
+    RemoveFollowersRequest,
+    RemoveMembersRequest,
 } from '../asanaClient'
 
 export class Projects {
@@ -24,13 +21,13 @@ export class Projects {
 
     async addCustomFieldSettingForProject(
         projectGid: string,
-        inlineObject31: InlineObject31,
+        data: AddCustomFieldSettingRequest,
         optPretty?: boolean,
         options?: any,
     ) {
         const res = await this.projectsApi.addCustomFieldSettingForProject(
             projectGid,
-            inlineObject31,
+            { data },
             optPretty,
             options,
         )
@@ -39,14 +36,14 @@ export class Projects {
 
     async addFollowersForProject(
         projectGid: string,
-        inlineObject35: InlineObject35,
+        data: AddFollowersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.addFollowersForProject(
             projectGid,
-            inlineObject35,
+            { data },
             optPretty,
             optFields,
             options,
@@ -56,14 +53,14 @@ export class Projects {
 
     async addMembersForProject(
         projectGid: string,
-        inlineObject33: InlineObject33,
+        data: AddMembersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.addMembersForProject(
             projectGid,
-            inlineObject33,
+            { data },
             optPretty,
             optFields,
             options,
@@ -73,30 +70,25 @@ export class Projects {
     }
 
     async createProject(
-        inlineObject26: InlineObject26,
+        data: ProjectRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
-        const res = await this.projectsApi.createProject(
-            inlineObject26,
-            optPretty,
-            optFields,
-            options,
-        )
+        const res = await this.projectsApi.createProject({ data }, optPretty, optFields, options)
         return res.data.data
     }
 
     async createProjectForTeam(
         teamGid: string,
-        inlineObject29: InlineObject29,
+        data: ProjectRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.createProjectForTeam(
             teamGid,
-            inlineObject29,
+            { data },
             optPretty,
             optFields,
             options,
@@ -106,14 +98,14 @@ export class Projects {
 
     async createProjectForWorkspace(
         workspaceGid: string,
-        inlineObject30: InlineObject30,
+        data: ProjectRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.createProjectForWorkspace(
             workspaceGid,
-            inlineObject30,
+            { data },
             optPretty,
             optFields,
             options,
@@ -133,16 +125,16 @@ export class Projects {
 
     async duplicateProject(
         projectGid: string,
+        data: ProjectDuplicateRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
-        inlineObject28?: InlineObject28,
         options?: any,
     ) {
         const res = await this.projectsApi.duplicateProject(
             projectGid,
             optPretty,
             optFields,
-            inlineObject28,
+            { data },
             options,
         )
         return res.data.data
@@ -263,13 +255,13 @@ export class Projects {
 
     async removeCustomFieldSettingForProject(
         projectGid: string,
-        inlineObject32: InlineObject32,
+        data: RemoveCustomFieldSettingRequest,
         optPretty?: boolean,
         options?: any,
     ) {
         const res = await this.projectsApi.removeCustomFieldSettingForProject(
             projectGid,
-            inlineObject32,
+            { data },
             optPretty,
             options,
         )
@@ -277,14 +269,14 @@ export class Projects {
     }
     async removeFollowersForProject(
         projectGid: string,
-        inlineObject36: InlineObject36,
+        data: RemoveFollowersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.removeFollowersForProject(
             projectGid,
-            inlineObject36,
+            { data },
             optPretty,
             optFields,
             options,
@@ -294,14 +286,14 @@ export class Projects {
 
     async removeMembersForProject(
         projectGid: string,
-        inlineObject34: InlineObject34,
+        data: RemoveMembersRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.removeMembersForProject(
             projectGid,
-            inlineObject34,
+            { data },
             optPretty,
             optFields,
             options,
@@ -311,14 +303,14 @@ export class Projects {
 
     async updateProject(
         projectGid: string,
-        inlineObject27: InlineObject27,
+        data: ProjectRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.updateProject(
             projectGid,
-            inlineObject27,
+            { data },
             optPretty,
             optFields,
             options,

@@ -1,9 +1,9 @@
 import {
     Configuration,
     ConfigurationParameters,
-    InlineObject60,
-    InlineObject61,
-    InlineObject62,
+    TeamAddUserRequest,
+    TeamRemoveUserRequest,
+    TeamRequest,
     TeamsApi,
 } from '../asanaClient'
 
@@ -16,14 +16,14 @@ export class Teams {
 
     async addUserForTeam(
         teamGid: string,
-        inlineObject61: InlineObject61,
+        data: TeamAddUserRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.teamsApi.addUserForTeam(
             teamGid,
-            inlineObject61,
+            { data },
             optPretty,
             optFields,
             options,
@@ -33,7 +33,7 @@ export class Teams {
     }
 
     async createTeam(
-        inlineObject60: InlineObject60,
+        data: TeamRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -41,7 +41,7 @@ export class Teams {
         options?: any,
     ) {
         const res = await this.teamsApi.createTeam(
-            inlineObject60,
+            { data },
             optPretty,
             optFields,
             limit,
@@ -114,14 +114,14 @@ export class Teams {
 
     async removeUserForTeam(
         teamGid: string,
-        inlineObject62: InlineObject62,
+        data: TeamRemoveUserRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.teamsApi.removeUserForTeam(
             teamGid,
-            inlineObject62,
+            { data },
             optPretty,
             optFields,
             options,
