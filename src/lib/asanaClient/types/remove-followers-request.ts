@@ -22,9 +22,9 @@
 export interface RemoveFollowersRequest {
     /**
      * An array of strings identifying users. These can either be the string \"me\", an email, or the gid of a user.
-     * @type {string}
+     * @type [string]
      * @memberof RemoveFollowersRequest
      */
-    'followers': string;
+    'followers': string[];
 }
 

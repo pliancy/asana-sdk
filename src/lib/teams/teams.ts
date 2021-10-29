@@ -2,7 +2,6 @@ import {
     Configuration,
     ConfigurationParameters,
     TeamAddUserRequest,
-    TeamRemoveUserRequest,
     TeamRequest,
     TeamsApi,
 } from '../asanaClient'
@@ -80,7 +79,7 @@ export class Teams {
         offset?: string,
         options?: any,
     ) {
-        const res = await this.teamsApi.getTeamsForOrganization(
+        const res = await this.getTeamsForOrganization(
             workspaceGid,
             optPretty,
             optFields,
@@ -89,7 +88,8 @@ export class Teams {
             options,
         )
 
-        return res.data.data?.find((e) => e.name === teamName)
+        if (res) return res.find((e) => e.name === teamName)
+        else return null
     }
 
     async getTeamsForOrganization(
@@ -135,18 +135,41 @@ export class Teams {
 
     async removeUserForTeam(
         teamGid: string,
-        data: TeamRemoveUserRequest,
+        userGid: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.teamsApi.removeUserForTeam(
             teamGid,
-            { data },
+            { data: { user: userGid } },
             optPretty,
             optFields,
             options,
         )
         return res.data.data
+    }
+
+    async removeUsersForTeam(
+        teamGid: string,
+        userGids: string[],
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        options?: any,
+    ) {
+        const removed = []
+        const errors = []
+        for (const e of userGids) {
+            try {
+                await this.removeUserForTeam(teamGid, e, optPretty, optFields, options)
+                removed.push(e)
+            } catch (error) {
+                errors.push({ userGid: e, error })
+            }
+        }
+        return {
+            removed,
+            errors,
+        }
     }
 }

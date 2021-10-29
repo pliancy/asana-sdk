@@ -8,8 +8,6 @@ import {
     ProjectRequest,
     ProjectsApi,
     RemoveCustomFieldSettingRequest,
-    RemoveFollowersRequest,
-    RemoveMembersRequest,
 } from '../asanaClient'
 
 export class Projects {
@@ -293,14 +291,14 @@ export class Projects {
     }
     async removeFollowersForProject(
         projectGid: string,
-        data: RemoveFollowersRequest,
+        userGids: string[],
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.removeFollowersForProject(
             projectGid,
-            { data },
+            { data: { followers: userGids } },
             optPretty,
             optFields,
             options,
@@ -310,14 +308,14 @@ export class Projects {
 
     async removeMembersForProject(
         projectGid: string,
-        data: RemoveMembersRequest,
+        userGids: string[],
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.removeMembersForProject(
             projectGid,
-            { data },
+            { data: { members: userGids } },
             optPretty,
             optFields,
             options,

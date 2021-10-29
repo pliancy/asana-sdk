@@ -8,7 +8,6 @@ import {
     PortfolioRequest,
     PortfoliosApi,
     RemoveCustomFieldSettingRequest,
-    RemoveMembersRequest,
 } from '../asanaClient'
 
 export class Portfolios {
@@ -209,14 +208,14 @@ export class Portfolios {
 
     async removeMembersForPortfolio(
         portfolioGid: string,
-        data: RemoveMembersRequest,
+        userGids: string[],
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeMembersForPortfolio(
             portfolioGid,
-            { data },
+            { data: { members: userGids } },
             optPretty,
             optFields,
             options,
