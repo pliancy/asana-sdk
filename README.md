@@ -14,10 +14,10 @@ All of the generated api classes are added to exported **Asana** class with the 
 - Teams
 - Users
 
-### To generate the asnanaClient folder from the open-api cli generator:
+##### How the asanaClient was generated from the open-api cli generator:
 
 ```
-npm install -g @openapitools/openapi-generator-cli
+yarn install -g @openapitools/openapi-generator-cli
 ```
 
 ```
@@ -26,20 +26,17 @@ openapi-generator-cli generate -p apiPackage=api -p modelPackage=types -p withSe
 
 
 
+### Install Package
 
-
-### Test
-
-```bash
-yarn test
-# or
-yarn test.watch
+```
+yarn add @pliancy/asana-sdk
 ```
 
-### Test Coverage
 
-```bash
-yarn test.cov
-# then
-yarn cov.view
+
+### PAT Auth
+
 ```
+const asana = new Asana({accessToken: '12345'})
+```
+
