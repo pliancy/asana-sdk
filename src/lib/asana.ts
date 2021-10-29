@@ -1,115 +1,148 @@
-import * as AsanaClient from './asanaClient'
+import {
+    AttachmentsApi,
+    AuditLogAPIApi,
+    BatchAPIApi,
+    Configuration,
+    ConfigurationParameters,
+    CustomFieldsApi,
+    CustomFieldSettingsApi,
+    EventsApi,
+    GoalsApi,
+    JobsApi,
+    OrganizationExportsApi,
+    ProjectStatusesApi,
+    SectionsApi,
+    StoriesApi,
+    TagsApi,
+    TasksApi,
+    TeamMembershipsApi,
+    TimePeriodsApi,
+    TypeaheadApi,
+    UserTaskListsApi,
+    WebhooksApi,
+    WorkspaceMembershipsApi,
+    WorkspacesApi,
+} from './asanaClient'
+import { PortfolioMemberships } from './portfolioMemberships/portfolioMemberships'
+import { Portfolios } from './portfolios/portfolios'
+import { ProjectMemberships } from './projectMemberships/projectMemberships'
+import { Projects } from './projects/projects'
+import { Teams } from './teams/teams'
+import { Users } from './users/users'
 
 export class Asana {
-    readonly attachments: AsanaClient.AttachmentsApi
+    readonly attachments: AttachmentsApi
 
-    readonly auditLog: AsanaClient.AuditLogAPIApi
+    readonly auditLog: AuditLogAPIApi
 
-    readonly batch: AsanaClient.BatchAPIApi
+    readonly batch: BatchAPIApi
 
-    readonly customFieldSettings: AsanaClient.CustomFieldSettingsApi
+    readonly customFieldSettings: CustomFieldSettingsApi
 
-    readonly customFields: AsanaClient.CustomFieldsApi
+    readonly customFields: CustomFieldsApi
 
-    readonly events: AsanaClient.EventsApi
+    readonly events: EventsApi
 
-    readonly goals: AsanaClient.GoalsApi
+    readonly goals: GoalsApi
 
-    readonly jobs: AsanaClient.JobsApi
+    readonly jobs: JobsApi
 
-    readonly organizationExports: AsanaClient.OrganizationExportsApi
+    readonly organizationExports: OrganizationExportsApi
 
-    readonly portfolioMemberships: AsanaClient.PortfolioMembershipsApi
+    readonly projectStatuse: ProjectStatusesApi
 
-    readonly portfolios: AsanaClient.PortfoliosApi
+    readonly sections: SectionsApi
 
-    readonly projectMemberships: AsanaClient.ProjectMembershipsApi
+    readonly stories: StoriesApi
 
-    readonly projectStatuse: AsanaClient.ProjectStatusesApi
+    readonly tags: TagsApi
 
-    readonly projects: AsanaClient.ProjectsApi
+    readonly tasks: TasksApi
 
-    readonly sections: AsanaClient.SectionsApi
+    readonly teamMemberships: TeamMembershipsApi
 
-    readonly stories: AsanaClient.StoriesApi
+    readonly timePeriods: TimePeriodsApi
 
-    readonly tags: AsanaClient.TagsApi
+    readonly typeahead: TypeaheadApi
 
-    readonly tasks: AsanaClient.TasksApi
+    readonly userTaskLists: UserTaskListsApi
 
-    readonly teamMemberships: AsanaClient.TeamMembershipsApi
+    readonly webhook: WebhooksApi
 
-    readonly teams: AsanaClient.TeamsApi
+    readonly workspaceMemberships: WorkspaceMembershipsApi
 
-    readonly timePeriods: AsanaClient.TimePeriodsApi
+    readonly workspaces: WorkspacesApi
 
-    readonly typeahead: AsanaClient.TypeaheadApi
+    // Updated Classes - Updated / destrcutured to return the data property directly from the Asana Api
+    readonly portfolios: Portfolios
 
-    readonly userTaskLists: AsanaClient.UserTaskListsApi
+    readonly portfolioMemberships: PortfolioMemberships
 
-    readonly users: AsanaClient.UsersApi
+    readonly projects: Projects
 
-    readonly webhook: AsanaClient.WebhooksApi
+    readonly projectMemberships: ProjectMemberships
 
-    readonly workspaceMemberships: AsanaClient.WorkspaceMembershipsApi
+    readonly teams: Teams
 
-    readonly workspaces: AsanaClient.WorkspacesApi
+    readonly users: Users
 
-    constructor(private readonly configuration: AsanaClient.ConfigurationParameters) {
-        const config = new AsanaClient.Configuration(this.configuration)
+    constructor(private readonly configuration: ConfigurationParameters) {
+        const config = new Configuration(this.configuration)
 
-        this.attachments = new AsanaClient.AttachmentsApi(config)
+        this.attachments = new AttachmentsApi(config)
 
-        this.auditLog = new AsanaClient.AuditLogAPIApi(config)
+        this.auditLog = new AuditLogAPIApi(config)
 
-        this.batch = new AsanaClient.BatchAPIApi(config)
+        this.batch = new BatchAPIApi(config)
 
-        this.customFieldSettings = new AsanaClient.CustomFieldSettingsApi(config)
+        this.customFieldSettings = new CustomFieldSettingsApi(config)
 
-        this.customFields = new AsanaClient.CustomFieldsApi(config)
+        this.customFields = new CustomFieldsApi(config)
 
-        this.events = new AsanaClient.EventsApi(config)
+        this.events = new EventsApi(config)
 
-        this.goals = new AsanaClient.GoalsApi(config)
+        this.goals = new GoalsApi(config)
 
-        this.jobs = new AsanaClient.JobsApi(config)
+        this.jobs = new JobsApi(config)
 
-        this.organizationExports = new AsanaClient.OrganizationExportsApi(config)
+        this.organizationExports = new OrganizationExportsApi(config)
 
-        this.portfolioMemberships = new AsanaClient.PortfolioMembershipsApi(config)
+        this.projectStatuse = new ProjectStatusesApi(config)
 
-        this.portfolios = new AsanaClient.PortfoliosApi(config)
+        this.sections = new SectionsApi(config)
 
-        this.projectMemberships = new AsanaClient.ProjectMembershipsApi(config)
+        this.stories = new StoriesApi(config)
 
-        this.projectStatuse = new AsanaClient.ProjectStatusesApi(config)
+        this.tags = new TagsApi(config)
 
-        this.projects = new AsanaClient.ProjectsApi(config)
+        this.tasks = new TasksApi(config)
 
-        this.sections = new AsanaClient.SectionsApi(config)
+        this.teamMemberships = new TeamMembershipsApi(config)
 
-        this.stories = new AsanaClient.StoriesApi(config)
+        this.timePeriods = new TimePeriodsApi(config)
 
-        this.tags = new AsanaClient.TagsApi(config)
+        this.typeahead = new TypeaheadApi(config)
 
-        this.tasks = new AsanaClient.TasksApi(config)
+        this.userTaskLists = new UserTaskListsApi(config)
 
-        this.teamMemberships = new AsanaClient.TeamMembershipsApi(config)
+        this.webhook = new WebhooksApi(config)
 
-        this.teams = new AsanaClient.TeamsApi(config)
+        this.workspaceMemberships = new WorkspaceMembershipsApi(config)
 
-        this.timePeriods = new AsanaClient.TimePeriodsApi(config)
+        this.workspaces = new WorkspacesApi(config)
 
-        this.typeahead = new AsanaClient.TypeaheadApi(config)
+        // Updated Classes
 
-        this.userTaskLists = new AsanaClient.UserTaskListsApi(config)
+        this.portfolios = new Portfolios(config)
 
-        this.users = new AsanaClient.UsersApi(config)
+        this.portfolioMemberships = new PortfolioMemberships(config)
 
-        this.webhook = new AsanaClient.WebhooksApi(config)
+        this.projects = new Projects(config)
 
-        this.workspaceMemberships = new AsanaClient.WorkspaceMembershipsApi(config)
+        this.projectMemberships = new ProjectMemberships(config)
 
-        this.workspaces = new AsanaClient.WorkspacesApi(config)
+        this.users = new Users(config)
+
+        this.teams = new Teams(config)
     }
 }
