@@ -71,6 +71,27 @@ export class Teams {
         return res.data.data
     }
 
+    async getTeamByName(
+        teamName: string,
+        workspaceGid: string,
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        limit?: number,
+        offset?: string,
+        options?: any,
+    ) {
+        const res = await this.teamsApi.getTeamsForOrganization(
+            workspaceGid,
+            optPretty,
+            optFields,
+            limit,
+            offset,
+            options,
+        )
+
+        return res.data.data?.find((e) => e.name === teamName)
+    }
+
     async getTeamsForOrganization(
         workspaceGid: string,
         optPretty?: boolean,

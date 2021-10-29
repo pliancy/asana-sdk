@@ -150,6 +150,30 @@ export class Projects {
         return res.data.data
     }
 
+    async getProjectByName(
+        projectName: string,
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        limit?: number,
+        offset?: string,
+        workspace?: string,
+        team?: string,
+        archived?: boolean,
+        options?: any,
+    ) {
+        const res = await this.projectsApi.getProjects(
+            optPretty,
+            optFields,
+            limit,
+            offset,
+            workspace,
+            team,
+            archived,
+            options,
+        )
+        return res.data.data?.find((e) => e.name === projectName)
+    }
+
     async getProjects(
         optPretty?: boolean,
         optFields?: Array<string>,

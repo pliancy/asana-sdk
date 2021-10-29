@@ -131,6 +131,28 @@ export class Portfolios {
         return res.data.data
     }
 
+    async getPortfoliosByName(
+        portfolioName: string,
+        workspace: string,
+        owner: string,
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        limit?: number,
+        offset?: string,
+        options?: any,
+    ) {
+        const res = await this.portfoliosApi.getPortfolios(
+            workspace,
+            owner,
+            optPretty,
+            optFields,
+            limit,
+            offset,
+            options,
+        )
+        return res.data.data?.find((e) => e.name === portfolioName)
+    }
+
     async getPortfolios(
         workspace: string,
         owner: string,

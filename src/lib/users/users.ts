@@ -37,6 +37,28 @@ export class Users {
         return res.data.data
     }
 
+    async getUserByName(
+        nameOfUser: string,
+        workspace?: string,
+        team?: string,
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        limit?: number,
+        offset?: string,
+        options: AxiosRequestConfig = {},
+    ) {
+        const res = await this.usersApi.getUsers(
+            workspace,
+            team,
+            optPretty,
+            optFields,
+            limit,
+            offset,
+            options,
+        )
+        return res.data.data?.find((e) => e.name === nameOfUser)
+    }
+
     async getUsers(
         workspace?: string,
         team?: string,
