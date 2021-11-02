@@ -47,13 +47,14 @@
         "url": "https://github.com/pliancy/asana-sdk"
     },
     "scripts": {
-        "build": "run-s -l clean test tsc copy",
+        "build": "run-s -l clean openapi:generate test tsc copy",
         "build:check": "tsc --noEmit",
-        "clean": "rimraf coverage dist tmp",
+        "clean": "rimraf coverage dist tmp src/lib/asanaClient",
         "copy": "pinst --disable && cpy package.json dist && cpy README.md dist && pinst --enable",
+        "dev": "run-s -l clean openapi:generate",
         "lint": "eslint \"src/**/*.ts\" --fix",
         "postinstall": "husky install",
-        "qa": "run-s -l lint test clean build:check",
+        "qa": "run-s -l lint clean openapi:generate test build:check",
         "semantic-release": "semantic-release",
         "test": "jest",
         "tsc": "tsc -p tsconfig.build.json",

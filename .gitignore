@@ -31,3 +31,4 @@ logs
 
 #Asana Client
 /src/lib/asanaClient
+/openapitools.json
