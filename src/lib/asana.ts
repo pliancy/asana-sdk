@@ -15,7 +15,6 @@ import {
     StoriesApi,
     TagsApi,
     TasksApi,
-    TeamMembershipsApi,
     TimePeriodsApi,
     TypeaheadApi,
     UserTaskListsApi,
@@ -27,6 +26,7 @@ import { PortfolioMemberships } from './portfolioMemberships/portfolioMembership
 import { Portfolios } from './portfolios/portfolios'
 import { ProjectMemberships } from './projectMemberships/projectMemberships'
 import { Projects } from './projects/projects'
+import { TeamMemberships } from './teamMemberships/teamMemberships'
 import { Teams } from './teams/teams'
 import { Users } from './users/users'
 
@@ -59,8 +59,6 @@ export class Asana {
 
     readonly tasks: TasksApi
 
-    readonly teamMemberships: TeamMembershipsApi
-
     readonly timePeriods: TimePeriodsApi
 
     readonly typeahead: TypeaheadApi
@@ -84,9 +82,15 @@ export class Asana {
 
     readonly teams: Teams
 
+    readonly teamMemberships: TeamMemberships
+
     readonly users: Users
 
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+        private readonly ownerGid: string,
+    ) {
         const config = new Configuration(this.configuration)
 
         this.attachments = new AttachmentsApi(config)
@@ -117,8 +121,6 @@ export class Asana {
 
         this.tasks = new TasksApi(config)
 
-        this.teamMemberships = new TeamMembershipsApi(config)
-
         this.timePeriods = new TimePeriodsApi(config)
 
         this.typeahead = new TypeaheadApi(config)
@@ -133,16 +135,18 @@ export class Asana {
 
         // Updated Classes
 
-        this.portfolios = new Portfolios(config)
+        this.portfolios = new Portfolios(config, this.workspaceGid, this.ownerGid)
 
-        this.portfolioMemberships = new PortfolioMemberships(config)
+        this.portfolioMemberships = new PortfolioMemberships(config, this.workspaceGid)
 
-        this.projects = new Projects(config)
+        this.projects = new Projects(config, this.workspaceGid)
 
         this.projectMemberships = new ProjectMemberships(config)
 
-        this.users = new Users(config)
+        this.teams = new Teams(config, this.workspaceGid)
 
-        this.teams = new Teams(config)
+        this.teamMemberships = new TeamMemberships(config, this.workspaceGid)
+
+        this.users = new Users(config, this.workspaceGid)
     }
 }

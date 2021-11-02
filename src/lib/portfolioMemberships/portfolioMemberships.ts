@@ -2,7 +2,10 @@ import { Configuration, ConfigurationParameters, PortfolioMembershipsApi } from 
 
 export class PortfolioMemberships {
     readonly portfolioMembershipsApi: PortfolioMembershipsApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.portfolioMembershipsApi = new PortfolioMembershipsApi(config)
     }
@@ -24,7 +27,6 @@ export class PortfolioMemberships {
 
     async getPortfolioMemberships(
         portfolio?: string,
-        workspace?: string,
         user?: string,
         optPretty?: boolean,
         optFields?: Array<string>,
@@ -34,7 +36,7 @@ export class PortfolioMemberships {
     ) {
         const res = await this.portfolioMembershipsApi.getPortfolioMemberships(
             portfolio,
-            workspace,
+            this.workspaceGid,
             user,
             optPretty,
             optFields,

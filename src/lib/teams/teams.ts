@@ -8,7 +8,10 @@ import {
 
 export class Teams {
     readonly teamsApi: TeamsApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.teamsApi = new TeamsApi(config)
     }
@@ -72,28 +75,19 @@ export class Teams {
 
     async getTeamByName(
         teamName: string,
-        workspaceGid: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
         offset?: string,
         options?: any,
     ) {
-        const res = await this.getTeamsForOrganization(
-            workspaceGid,
-            optPretty,
-            optFields,
-            limit,
-            offset,
-            options,
-        )
+        const res = await this.getTeamsForOrganization(optPretty, optFields, limit, offset, options)
 
         if (res) return res.find((e) => e.name === teamName)
         else return null
     }
 
     async getTeamsForOrganization(
-        workspaceGid: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -101,7 +95,7 @@ export class Teams {
         options?: any,
     ) {
         const res = await this.teamsApi.getTeamsForOrganization(
-            workspaceGid,
+            this.workspaceGid,
             optPretty,
             optFields,
             limit,

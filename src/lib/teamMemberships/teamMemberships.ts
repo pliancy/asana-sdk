@@ -2,7 +2,10 @@ import { Configuration, ConfigurationParameters, TeamMembershipsApi } from '../a
 
 export class TeamMemberships {
     readonly teamMembershipsApi: TeamMembershipsApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.teamMembershipsApi = new TeamMembershipsApi(config)
     }
@@ -30,7 +33,6 @@ export class TeamMemberships {
         offset?: string,
         team?: string,
         user?: string,
-        workspace?: string,
         options?: any,
     ) {
         const res = await this.teamMembershipsApi.getTeamMemberships(
@@ -40,7 +42,7 @@ export class TeamMemberships {
             offset,
             team,
             user,
-            workspace,
+            this.workspaceGid,
             options,
         )
         return res.data.data
@@ -67,7 +69,6 @@ export class TeamMemberships {
 
     async getTeamMembershipsForUser(
         userGid: string,
-        workspace: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -76,7 +77,7 @@ export class TeamMemberships {
     ) {
         const res = await this.teamMembershipsApi.getTeamMembershipsForUser(
             userGid,
-            workspace,
+            this.workspaceGid,
             optPretty,
             optFields,
             limit,

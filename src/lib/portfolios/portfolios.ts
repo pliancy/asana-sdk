@@ -12,7 +12,11 @@ import {
 
 export class Portfolios {
     readonly portfoliosApi: PortfoliosApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+        private readonly ownerGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.portfoliosApi = new PortfoliosApi(config)
     }
@@ -130,10 +134,8 @@ export class Portfolios {
         return res.data.data
     }
 
-    async getPortfoliosByName(
+    async getPortfolioByName(
         portfolioName: string,
-        workspace: string,
-        owner: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -141,8 +143,8 @@ export class Portfolios {
         options?: any,
     ) {
         const res = await this.portfoliosApi.getPortfolios(
-            workspace,
-            owner,
+            this.workspaceGid,
+            this.ownerGid,
             optPretty,
             optFields,
             limit,
@@ -153,8 +155,6 @@ export class Portfolios {
     }
 
     async getPortfolios(
-        workspace: string,
-        owner: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -162,8 +162,8 @@ export class Portfolios {
         options?: any,
     ) {
         const res = await this.portfoliosApi.getPortfolios(
-            workspace,
-            owner,
+            this.workspaceGid,
+            this.ownerGid,
             optPretty,
             optFields,
             limit,

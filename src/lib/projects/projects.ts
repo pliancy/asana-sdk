@@ -12,7 +12,10 @@ import {
 
 export class Projects {
     readonly projectsApi: ProjectsApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.projectsApi = new ProjectsApi(config)
     }
@@ -95,14 +98,13 @@ export class Projects {
     }
 
     async createProjectForWorkspace(
-        workspaceGid: string,
         data: ProjectRequest,
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.projectsApi.createProjectForWorkspace(
-            workspaceGid,
+            this.workspaceGid,
             { data },
             optPretty,
             optFields,
@@ -154,7 +156,6 @@ export class Projects {
         optFields?: Array<string>,
         limit?: number,
         offset?: string,
-        workspace?: string,
         team?: string,
         archived?: boolean,
         options?: any,
@@ -164,7 +165,7 @@ export class Projects {
             optFields,
             limit,
             offset,
-            workspace,
+            this.workspaceGid,
             team,
             archived,
             options,
@@ -177,7 +178,6 @@ export class Projects {
         optFields?: Array<string>,
         limit?: number,
         offset?: string,
-        workspace?: string,
         team?: string,
         archived?: boolean,
         options?: any,
@@ -187,7 +187,7 @@ export class Projects {
             optFields,
             limit,
             offset,
-            workspace,
+            this.workspaceGid,
             team,
             archived,
             options,
@@ -236,7 +236,6 @@ export class Projects {
     }
 
     async getProjectsForWorkspace(
-        workspaceGid: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         limit?: number,
@@ -245,7 +244,7 @@ export class Projects {
         options?: any,
     ) {
         const res = await this.projectsApi.getProjectsForWorkspace(
-            workspaceGid,
+            this.workspaceGid,
             optPretty,
             optFields,
             limit,

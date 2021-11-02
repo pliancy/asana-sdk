@@ -3,7 +3,10 @@ import { Configuration, ConfigurationParameters, UsersApi } from '../asanaClient
 
 export class Users {
     readonly usersApi: UsersApi
-    constructor(private readonly configuration: ConfigurationParameters) {
+    constructor(
+        private readonly configuration: ConfigurationParameters,
+        private readonly workspaceGid: string,
+    ) {
         const config = new Configuration(this.configuration)
         this.usersApi = new UsersApi(config)
     }
@@ -11,7 +14,6 @@ export class Users {
     async getFavoritesForUser(
         userGid: string,
         resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user',
-        workspace: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         options: AxiosRequestConfig = {},
@@ -19,7 +21,7 @@ export class Users {
         const res = await this.usersApi.getFavoritesForUser(
             userGid,
             resourceType,
-            workspace,
+            this.workspaceGid,
             optPretty,
             optFields,
             options,
@@ -39,7 +41,6 @@ export class Users {
 
     async getUserByName(
         nameOfUser: string,
-        workspace?: string,
         team?: string,
         optPretty?: boolean,
         optFields?: Array<string>,
@@ -48,7 +49,7 @@ export class Users {
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUsers(
-            workspace,
+            this.workspaceGid,
             team,
             optPretty,
             optFields,
@@ -60,7 +61,6 @@ export class Users {
     }
 
     async getUsers(
-        workspace?: string,
         team?: string,
         optPretty?: boolean,
         optFields?: Array<string>,
@@ -69,7 +69,7 @@ export class Users {
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUsers(
-            workspace,
+            this.workspaceGid,
             team,
             optPretty,
             optFields,
@@ -98,14 +98,13 @@ export class Users {
     }
 
     async getUsersForWorkspace(
-        workspaceGid: string,
         optPretty?: boolean,
         optFields?: Array<string>,
         offset?: string,
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUsersForWorkspace(
-            workspaceGid,
+            this.workspaceGid,
             optPretty,
             optFields,
             offset,
