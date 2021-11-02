@@ -30,5 +30,4 @@ logs
 !.vscode/extensions.json
 
 #Asana Client
-/src/lib/asanaClient
 /openapitools.json
