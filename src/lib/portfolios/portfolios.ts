@@ -215,7 +215,7 @@ export class Portfolios {
     ) {
         const res = await this.portfoliosApi.removeMembersForPortfolio(
             portfolioGid,
-            { data: { members: userGids } },
+            { data: { members: `${userGids}` } },
             optPretty,
             optFields,
             options,

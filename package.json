@@ -16,6 +16,7 @@
     "description": "Wrapper around the Asana node SDK",
     "devDependencies": {
         "@digitalroute/cz-conventional-changelog-for-jira": "6.6.0",
+        "@openapitools/openapi-generator-cli": "^2.4.13",
         "@pliancy/eslint-config-ts": "0.0.5",
         "@pliancy/semantic-release-config-npm": "2.1.0",
         "@types/got": "9.6.12",
@@ -55,7 +56,8 @@
         "qa": "run-s -l lint test clean build:check",
         "semantic-release": "semantic-release",
         "test": "jest",
-        "tsc": "tsc -p tsconfig.build.json"
+        "tsc": "tsc -p tsconfig.build.json",
+        "openapi:generate": "openapi-generator-cli generate -p apiPackage=api -p modelPackage=types -p withSeparateModelsAndApi=true -p modelPropertyNaming=original -p supportsES6=true -i https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml -g typescript-axios -o \"src/lib/asanaClient\" --skip-validate-spec"
     },
     "version": "0.0.0",
     "volta": {

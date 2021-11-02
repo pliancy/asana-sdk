@@ -297,7 +297,7 @@ export class Projects {
     ) {
         const res = await this.projectsApi.removeFollowersForProject(
             projectGid,
-            { data: { followers: userGids } },
+            { data: { followers: `${userGids}` } },
             optPretty,
             optFields,
             options,
@@ -314,7 +314,7 @@ export class Projects {
     ) {
         const res = await this.projectsApi.removeMembersForProject(
             projectGid,
-            { data: { members: userGids } },
+            { data: { members: `${userGids}` } },
             optPretty,
             optFields,
             options,
