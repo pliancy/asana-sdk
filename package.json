@@ -60,7 +60,7 @@
         "tsc": "tsc -p tsconfig.build.json",
         "openapi:generate": "openapi-generator-cli generate -p apiPackage=api -p modelPackage=types -p withSeparateModelsAndApi=true -p modelPropertyNaming=original -p supportsES6=true -i https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml -g typescript-axios -o \"src/lib/asanaClient\" --skip-validate-spec"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "volta": {
         "node": "16.13.0",
         "yarn": "1.22.17"
