@@ -76,6 +76,7 @@ export class Portfolios {
         optFields?: Array<string>,
         options?: any,
     ) {
+        if (!data.workspace) data.workspace = this.workspaceGid
         const res = await this.portfoliosApi.createPortfolio(
             { data },
             optPretty,
@@ -230,6 +231,7 @@ export class Portfolios {
         optFields?: Array<string>,
         options?: any,
     ) {
+        if (!data.workspace) data.workspace = this.workspaceGid
         const res = await this.portfoliosApi.updatePortfolio(
             portfolioGid,
             { data },

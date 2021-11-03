@@ -42,6 +42,7 @@ export class Teams {
         offset?: string,
         options?: any,
     ) {
+        if (!data.organization) data.organization = this.workspaceGid
         const res = await this.teamsApi.createTeam(
             { data },
             optPretty,
