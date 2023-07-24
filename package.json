@@ -15,7 +15,7 @@
   },
   "description": "Wrapper around the Asana node SDK",
   "devDependencies": {
-    "@digitalroute/cz-conventional-changelog-for-jira": "6.6.0",
+    "@digitalroute/cz-conventional-changelog-for-jira": "8.0.1",
     "@openapitools/openapi-generator-cli": "2.7.0",
     "@pliancy/eslint-config-ts": "0.1.0",
     "@pliancy/semantic-release-config-npm": "2.2.0",
