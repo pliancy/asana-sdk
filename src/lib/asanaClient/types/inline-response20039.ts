@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceMembershipResponse } from './workspace-membership-response';
+import { TimePeriodCompact } from './time-period-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceMembershipResponse } from './workspace-membership-response';
 export interface InlineResponse20039 {
     /**
      * 
-     * @type {WorkspaceMembershipResponse}
+     * @type {Array<TimePeriodCompact>}
      * @memberof InlineResponse20039
      */
-    'data'?: WorkspaceMembershipResponse;
+    'data'?: Array<TimePeriodCompact>;
 }
 

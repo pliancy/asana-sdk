@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRequest } from './task-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRequest } from './task-request';
 export interface InlineObject45 {
     /**
      * 
-     * @type {TaskRequest}
+     * @type {StoryBase}
      * @memberof InlineObject45
      */
-    'data'?: TaskRequest;
+    'data'?: StoryBase;
 }
 

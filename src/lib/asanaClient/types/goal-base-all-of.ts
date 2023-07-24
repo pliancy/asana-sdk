@@ -13,8 +13,6 @@
  */
 
 
-import { GoalMetricBase } from './goal-metric-base';
-import { TimePeriodCompact } from './time-period-compact';
 
 /**
  * 
@@ -22,6 +20,12 @@ import { TimePeriodCompact } from './time-period-compact';
  * @interface GoalBaseAllOf
  */
 export interface GoalBaseAllOf {
+    /**
+     * The name of the goal.
+     * @type {string}
+     * @memberof GoalBaseAllOf
+     */
+    'name'?: string;
     /**
      * The notes of the goal with formatting as HTML.
      * @type {string}
@@ -52,18 +56,6 @@ export interface GoalBaseAllOf {
      * @memberof GoalBaseAllOf
      */
     'status'?: string | null;
-    /**
-     * 
-     * @type {TimePeriodCompact & object}
-     * @memberof GoalBaseAllOf
-     */
-    'time_period'?: TimePeriodCompact & object;
-    /**
-     * 
-     * @type {GoalMetricBase & object}
-     * @memberof GoalBaseAllOf
-     */
-    'metric'?: GoalMetricBase & object;
     /**
      * *Conditional*. This property is only present when the `workspace` provided is an organization. Whether the goal belongs to the `workspace` (and is listed as part of the workspace’s goals) or not. If it isn’t a workspace-level goal, it is a team-level goal, and is associated with the goal’s team.
      * @type {boolean}

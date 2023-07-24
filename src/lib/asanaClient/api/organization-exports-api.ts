@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject16 } from '../types';
+import { InlineObject15 } from '../types';
 // @ts-ignore
 import { InlineResponse2012 } from '../types';
 /**
@@ -35,7 +35,7 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -43,9 +43,9 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationExport: async (inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject16' is not null or undefined
-            assertParamExists('createOrganizationExport', 'inlineObject16', inlineObject16)
+        createOrganizationExport: async (inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject15' is not null or undefined
+            assertParamExists('createOrganizationExport', 'inlineObject15', inlineObject15)
             const localVarPath = `/organization_exports`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -89,7 +89,7 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject16, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject15, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -161,7 +161,7 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -169,8 +169,8 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOrganizationExport(inlineObject16, optPretty, optFields, limit, offset, options);
+        async createOrganizationExport(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOrganizationExport(inlineObject15, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -199,7 +199,7 @@ export const OrganizationExportsApiFactory = function (configuration?: Configura
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -207,8 +207,8 @@ export const OrganizationExportsApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2012> {
-            return localVarFp.createOrganizationExport(inlineObject16, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        createOrganizationExport(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2012> {
+            return localVarFp.createOrganizationExport(inlineObject15, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns details of a previously-requested Organization export.
@@ -235,7 +235,7 @@ export class OrganizationExportsApi extends BaseAPI {
     /**
      * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
      * @summary Create an organization export request
-     * @param {InlineObject16} inlineObject16 
+     * @param {InlineObject15} inlineObject15 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -244,8 +244,8 @@ export class OrganizationExportsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrganizationExportsApi
      */
-    public createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return OrganizationExportsApiFp(this.configuration).createOrganizationExport(inlineObject16, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public createOrganizationExport(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
+        return OrganizationExportsApiFp(this.configuration).createOrganizationExport(inlineObject15, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

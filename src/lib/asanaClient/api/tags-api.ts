@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject43 } from '../types';
+import { InlineObject47 } from '../types';
 // @ts-ignore
-import { InlineObject44 } from '../types';
+import { InlineObject48 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20025 } from '../types';
+import { InlineResponse20032 } from '../types';
 // @ts-ignore
 import { InlineResponse2015 } from '../types';
 /**
@@ -41,15 +41,15 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject43} inlineObject43 
+         * @param {InlineObject47} inlineObject47 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag: async (inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject43' is not null or undefined
-            assertParamExists('createTag', 'inlineObject43', inlineObject43)
+        createTag: async (inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject47' is not null or undefined
+            assertParamExists('createTag', 'inlineObject47', inlineObject47)
             const localVarPath = `/tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject43, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject47, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -96,17 +96,17 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject48} inlineObject48 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace: async (workspaceGid: string, inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createTagForWorkspace: async (workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('createTagForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject44' is not null or undefined
-            assertParamExists('createTagForWorkspace', 'inlineObject44', inlineObject44)
+            // verify required parameter 'inlineObject48' is not null or undefined
+            assertParamExists('createTagForWorkspace', 'inlineObject48', inlineObject48)
             const localVarPath = `/workspaces/{workspace_gid}/tags`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -143,7 +143,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject44, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject48, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -536,28 +536,28 @@ export const TagsApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject43} inlineObject43 
+         * @param {InlineObject47} inlineObject47 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTag(inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject43, optPretty, optFields, options);
+        async createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject47, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject48} inlineObject48 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTagForWorkspace(workspaceGid: string, inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject44>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject44, optPretty, optFields, options);
+        async createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject48>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -601,7 +601,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTags(optPretty, optFields, limit, offset, workspace, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -616,7 +616,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -631,7 +631,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -663,27 +663,27 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject43} inlineObject43 
+         * @param {InlineObject47} inlineObject47 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag(inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2015> {
-            return localVarFp.createTag(inlineObject43, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2015> {
+            return localVarFp.createTag(inlineObject47, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject48} inlineObject48 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace(workspaceGid: string, inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineObject44> {
-            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject44, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineObject48> {
+            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing tag can be deleted by making a DELETE request on the URL for that tag.  Returns an empty data record.
@@ -724,7 +724,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20025> {
+        getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.getTags(optPretty, optFields, limit, offset, workspace, options).then((request) => request(axios, basePath));
         },
         /**
@@ -738,7 +738,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20025> {
+        getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.getTagsForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -752,7 +752,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20025> {
+        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.getTagsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -782,30 +782,30 @@ export class TagsApi extends BaseAPI {
     /**
      * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag
-     * @param {InlineObject43} inlineObject43 
+     * @param {InlineObject47} inlineObject47 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTag(inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTag(inlineObject43, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTag(inlineObject47, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject44} inlineObject44 
+     * @param {InlineObject48} inlineObject48 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTagForWorkspace(workspaceGid: string, inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject44, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

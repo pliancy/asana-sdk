@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { RemoveFollowersRequest } from './remove-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject38 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {RemoveFollowersRequest}
      * @memberof InlineObject38
      */
-    'data'?: SectionRequest;
+    'data'?: RemoveFollowersRequest;
 }
 

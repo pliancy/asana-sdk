@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceCompact } from './workspace-compact';
+import { UserTaskListCompact } from './user-task-list-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineResponse20041 {
     /**
      * 
-     * @type {Array<WorkspaceCompact>}
+     * @type {UserTaskListCompact}
      * @memberof InlineResponse20041
      */
-    'data'?: Array<WorkspaceCompact>;
+    'data'?: UserTaskListCompact;
 }
 

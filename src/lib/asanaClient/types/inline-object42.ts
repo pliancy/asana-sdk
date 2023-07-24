@@ -13,7 +13,7 @@
  */
 
 
-import { StoryBase } from './story-base';
+import { SectionTaskInsertRequest } from './section-task-insert-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryBase } from './story-base';
 export interface InlineObject42 {
     /**
      * 
-     * @type {StoryBase}
+     * @type {SectionTaskInsertRequest}
      * @memberof InlineObject42
      */
-    'data'?: StoryBase;
+    'data'?: SectionTaskInsertRequest;
 }
 

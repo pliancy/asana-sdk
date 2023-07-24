@@ -13,7 +13,7 @@
  */
 
 
-import { TeamCompact } from './team-compact';
+import { StoryResponse } from './story-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamCompact } from './team-compact';
 export interface InlineResponse20030 {
     /**
      * 
-     * @type {Array<TeamCompact>}
+     * @type {StoryResponse}
      * @memberof InlineResponse20030
      */
-    'data'?: Array<TeamCompact>;
+    'data'?: StoryResponse;
 }
 

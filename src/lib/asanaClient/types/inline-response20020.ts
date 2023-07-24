@@ -13,7 +13,7 @@
  */
 
 
-import { TaskCountResponse } from './task-count-response';
+import { ProjectMembershipCompact } from './project-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskCountResponse } from './task-count-response';
 export interface InlineResponse20020 {
     /**
      * 
-     * @type {TaskCountResponse}
+     * @type {Array<ProjectMembershipCompact>}
      * @memberof InlineResponse20020
      */
-    'data'?: TaskCountResponse;
+    'data'?: Array<ProjectMembershipCompact>;
 }
 

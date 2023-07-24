@@ -33,23 +33,13 @@ import { InlineObject13 } from '../types';
 // @ts-ignore
 import { InlineObject14 } from '../types';
 // @ts-ignore
-import { InlineObject15 } from '../types';
-// @ts-ignore
-import { InlineObject6 } from '../types';
-// @ts-ignore
-import { InlineObject7 } from '../types';
-// @ts-ignore
-import { InlineObject8 } from '../types';
-// @ts-ignore
 import { InlineObject9 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
 import { InlineResponse20010 } from '../types';
 // @ts-ignore
-import { InlineResponse2008 } from '../types';
-// @ts-ignore
-import { InlineResponse2009 } from '../types';
+import { InlineResponse20011 } from '../types';
 /**
  * GoalsApi - axios parameter creator
  * @export
@@ -59,16 +49,20 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds followers to a goal. Returns the goal the followers were added to. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Add a collaborator to a goal
-         * @param {InlineObject12} inlineObject12 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFollowers: async (inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject12' is not null or undefined
-            assertParamExists('addFollowers', 'inlineObject12', inlineObject12)
-            const localVarPath = `/goals/{goal_gid}/addFollowers`;
+        addFollowers: async (goalGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalGid' is not null or undefined
+            assertParamExists('addFollowers', 'goalGid', goalGid)
+            // verify required parameter 'inlineObject13' is not null or undefined
+            assertParamExists('addFollowers', 'inlineObject13', inlineObject13)
+            const localVarPath = `/goals/{goal_gid}/addFollowers`
+                .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -103,115 +97,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject12, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds a subgoal to a parent goal. *A goal can have at most 100 subgoals, and a subgoal can have at most 4 parent goals.  Returns an empty data block.
-         * @summary Add a subgoal to a parent goal
-         * @param {InlineObject10} inlineObject10 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addSubgoal: async (inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject10' is not null or undefined
-            assertParamExists('addSubgoal', 'inlineObject10', inlineObject10)
-            const localVarPath = `/goals/{goal_gid}/addSubgoal`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject10, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds a project or portfolio as supporting work for a goal. *A goal can have at most 10 supporting projects/portfolios, and a project/portfolio can support at most 10 goals*.
-         * @summary Add a project/portfolio as supporting work for a goal.
-         * @param {InlineObject14} inlineObject14 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addSupportingWorkForGoal: async (inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject14' is not null or undefined
-            assertParamExists('addSupportingWorkForGoal', 'inlineObject14', inlineObject14)
-            const localVarPath = `/goals/{goal_gid}/addSupportingWork`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject14, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject13, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -221,7 +107,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creates a new goal in a workspace or team.  Returns the full record of the newly created goal.
          * @summary Create a goal
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject10} inlineObject10 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -229,9 +115,9 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createGoal: async (inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject7' is not null or undefined
-            assertParamExists('createGoal', 'inlineObject7', inlineObject7)
+        createGoal: async (inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject10' is not null or undefined
+            assertParamExists('createGoal', 'inlineObject10', inlineObject10)
             const localVarPath = `/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -275,7 +161,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject7, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject10, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -285,16 +171,20 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creates and adds a goal metric to a specified goal. Note that this replaces an existing goal metric if one already exists.
          * @summary Create a goal metric
-         * @param {InlineObject8} inlineObject8 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject11} inlineObject11 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createGoalMetric: async (inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject8' is not null or undefined
-            assertParamExists('createGoalMetric', 'inlineObject8', inlineObject8)
-            const localVarPath = `/goals/{goal_gid}/setMetric`;
+        createGoalMetric: async (goalGid: string, inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalGid' is not null or undefined
+            assertParamExists('createGoalMetric', 'goalGid', goalGid)
+            // verify required parameter 'inlineObject11' is not null or undefined
+            assertParamExists('createGoalMetric', 'inlineObject11', inlineObject11)
+            const localVarPath = `/goals/{goal_gid}/setMetric`
+                .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -329,7 +219,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject8, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject11, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -531,61 +421,17 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Returns a compact representation of all of the parent goals of a goal.
          * @summary Get parent goals from a goal
+         * @param {string} goalGid Globally unique identifier for the goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getParentGoalsForGoal: async (optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/goals/{goal_gid}/parentGoals`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns a compact representation of all of the subgoals of a goal.
-         * @summary Get subgoals from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSubgoalsForGoal: async (optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/goals/{goal_gid}/subgoals`;
+        getParentGoalsForGoal: async (goalGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalGid' is not null or undefined
+            assertParamExists('getParentGoalsForGoal', 'goalGid', goalGid)
+            const localVarPath = `/goals/{goal_gid}/parentGoals`
+                .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -627,16 +473,20 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Removes followers from a goal. Returns the goal the followers were removed from. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Remove a collaborator from a goal
-         * @param {InlineObject13} inlineObject13 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFollowers: async (inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject13' is not null or undefined
-            assertParamExists('removeFollowers', 'inlineObject13', inlineObject13)
-            const localVarPath = `/goals/{goal_gid}/removeFollowers`;
+        removeFollowers: async (goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalGid' is not null or undefined
+            assertParamExists('removeFollowers', 'goalGid', goalGid)
+            // verify required parameter 'inlineObject14' is not null or undefined
+            assertParamExists('removeFollowers', 'inlineObject14', inlineObject14)
+            const localVarPath = `/goals/{goal_gid}/removeFollowers`
+                .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -671,163 +521,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject13, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Removes a goal as a subgoal of a specified parent goal.
-         * @summary Remove a subgoal from a goal
-         * @param {InlineObject11} inlineObject11 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeSubgoal: async (inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject11' is not null or undefined
-            assertParamExists('removeSubgoal', 'inlineObject11', inlineObject11)
-            const localVarPath = `/goals/{goal_gid}/removeSubgoal`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject11, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Removes a project or portfolio as supporting work for a goal.
-         * @summary Remove a project/portfolio as supporting work for a goal.
-         * @param {InlineObject15} inlineObject15 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeSupportingWorkForGoal: async (inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject15' is not null or undefined
-            assertParamExists('removeSupportingWorkForGoal', 'inlineObject15', inlineObject15)
-            const localVarPath = `/goals/{goal_gid}/removeSupportingWork`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject15, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns any portfolios or projects associated with specified goal.
-         * @summary Get supporting work from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        supportingWork: async (optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/goals/{goal_gid}/supportingWork`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject14, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -838,17 +532,17 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * An existing goal can be updated by making a PUT request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal record.
          * @summary Update a goal
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject6} inlineObject6 
+         * @param {InlineObject9} inlineObject9 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoal: async (goalGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateGoal: async (goalGid: string, inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalGid' is not null or undefined
             assertParamExists('updateGoal', 'goalGid', goalGid)
-            // verify required parameter 'inlineObject6' is not null or undefined
-            assertParamExists('updateGoal', 'inlineObject6', inlineObject6)
+            // verify required parameter 'inlineObject9' is not null or undefined
+            assertParamExists('updateGoal', 'inlineObject9', inlineObject9)
             const localVarPath = `/goals/{goal_gid}`
                 .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -885,7 +579,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject6, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject9, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -895,16 +589,20 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
          * @summary Update a goal metric
-         * @param {InlineObject9} inlineObject9 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject12} inlineObject12 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalMetric: async (inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject9' is not null or undefined
-            assertParamExists('updateGoalMetric', 'inlineObject9', inlineObject9)
-            const localVarPath = `/goals/{goal_gid}/setMetricCurrentValue`;
+        updateGoalMetric: async (goalGid: string, inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalGid' is not null or undefined
+            assertParamExists('updateGoalMetric', 'goalGid', goalGid)
+            // verify required parameter 'inlineObject12' is not null or undefined
+            assertParamExists('updateGoalMetric', 'inlineObject12', inlineObject12)
+            const localVarPath = `/goals/{goal_gid}/setMetricCurrentValue`
+                .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -939,7 +637,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject9, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject12, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -959,46 +657,21 @@ export const GoalsApiFp = function(configuration?: Configuration) {
         /**
          * Adds followers to a goal. Returns the goal the followers were added to. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Add a collaborator to a goal
-         * @param {InlineObject12} inlineObject12 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addFollowers(inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowers(inlineObject12, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds a subgoal to a parent goal. *A goal can have at most 100 subgoals, and a subgoal can have at most 4 parent goals.  Returns an empty data block.
-         * @summary Add a subgoal to a parent goal
-         * @param {InlineObject10} inlineObject10 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addSubgoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addSubgoal(inlineObject10, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds a project or portfolio as supporting work for a goal. *A goal can have at most 10 supporting projects/portfolios, and a project/portfolio can support at most 10 goals*.
-         * @summary Add a project/portfolio as supporting work for a goal.
-         * @param {InlineObject14} inlineObject14 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addSupportingWorkForGoal(inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addSupportingWorkForGoal(inlineObject14, optPretty, optFields, options);
+        async addFollowers(goalGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowers(goalGid, inlineObject13, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new goal in a workspace or team.  Returns the full record of the newly created goal.
          * @summary Create a goal
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject10} inlineObject10 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -1006,21 +679,22 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createGoal(inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createGoal(inlineObject7, optPretty, optFields, limit, offset, options);
+        async createGoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createGoal(inlineObject10, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates and adds a goal metric to a specified goal. Note that this replaces an existing goal metric if one already exists.
          * @summary Create a goal metric
-         * @param {InlineObject8} inlineObject8 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject11} inlineObject11 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createGoalMetric(inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createGoalMetric(inlineObject8, optPretty, optFields, options);
+        async createGoalMetric(goalGid: string, inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createGoalMetric(goalGid, inlineObject11, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1045,7 +719,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async getGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoal(goalGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1065,110 +739,63 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoals(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
+        async getGoals(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoals(optPretty, optFields, limit, offset, portfolio, project, isWorkspaceLevel, team, workspace, timePeriods, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns a compact representation of all of the parent goals of a goal.
          * @summary Get parent goals from a goal
+         * @param {string} goalGid Globally unique identifier for the goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getParentGoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getParentGoalsForGoal(optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns a compact representation of all of the subgoals of a goal.
-         * @summary Get subgoals from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSubgoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubgoalsForGoal(optPretty, optFields, options);
+        async getParentGoalsForGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getParentGoalsForGoal(goalGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Removes followers from a goal. Returns the goal the followers were removed from. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Remove a collaborator from a goal
-         * @param {InlineObject13} inlineObject13 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeFollowers(inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowers(inlineObject13, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes a goal as a subgoal of a specified parent goal.
-         * @summary Remove a subgoal from a goal
-         * @param {InlineObject11} inlineObject11 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeSubgoal(inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSubgoal(inlineObject11, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes a project or portfolio as supporting work for a goal.
-         * @summary Remove a project/portfolio as supporting work for a goal.
-         * @param {InlineObject15} inlineObject15 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeSupportingWorkForGoal(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSupportingWorkForGoal(inlineObject15, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns any portfolios or projects associated with specified goal.
-         * @summary Get supporting work from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async supportingWork(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.supportingWork(optPretty, optFields, options);
+        async removeFollowers(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowers(goalGid, inlineObject14, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * An existing goal can be updated by making a PUT request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal record.
          * @summary Update a goal
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject6} inlineObject6 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateGoal(goalGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoal(goalGid, inlineObject6, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
-         * @summary Update a goal metric
          * @param {InlineObject9} inlineObject9 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateGoalMetric(inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoalMetric(inlineObject9, optPretty, optFields, options);
+        async updateGoal(goalGid: string, inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoal(goalGid, inlineObject9, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
+         * @summary Update a goal metric
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject12} inlineObject12 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateGoalMetric(goalGid: string, inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoalMetric(goalGid, inlineObject12, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1184,43 +811,20 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
         /**
          * Adds followers to a goal. Returns the goal the followers were added to. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Add a collaborator to a goal
-         * @param {InlineObject12} inlineObject12 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFollowers(inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.addFollowers(inlineObject12, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds a subgoal to a parent goal. *A goal can have at most 100 subgoals, and a subgoal can have at most 4 parent goals.  Returns an empty data block.
-         * @summary Add a subgoal to a parent goal
-         * @param {InlineObject10} inlineObject10 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addSubgoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addSubgoal(inlineObject10, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds a project or portfolio as supporting work for a goal. *A goal can have at most 10 supporting projects/portfolios, and a project/portfolio can support at most 10 goals*.
-         * @summary Add a project/portfolio as supporting work for a goal.
-         * @param {InlineObject14} inlineObject14 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addSupportingWorkForGoal(inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addSupportingWorkForGoal(inlineObject14, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addFollowers(goalGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.addFollowers(goalGid, inlineObject13, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new goal in a workspace or team.  Returns the full record of the newly created goal.
          * @summary Create a goal
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject10} inlineObject10 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -1228,20 +832,21 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createGoal(inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.createGoal(inlineObject7, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        createGoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.createGoal(inlineObject10, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates and adds a goal metric to a specified goal. Note that this replaces an existing goal metric if one already exists.
          * @summary Create a goal metric
-         * @param {InlineObject8} inlineObject8 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject11} inlineObject11 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createGoalMetric(inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.createGoalMetric(inlineObject8, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createGoalMetric(goalGid: string, inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.createGoalMetric(goalGid, inlineObject11, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing goal can be deleted by making a DELETE request on the URL for that goal.  Returns an empty data record.
@@ -1264,7 +869,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
+        getGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
             return localVarFp.getGoal(goalGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1283,102 +888,59 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoals(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, options?: any): AxiosPromise<InlineResponse2009> {
+        getGoals(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, options?: any): AxiosPromise<InlineResponse20011> {
             return localVarFp.getGoals(optPretty, optFields, limit, offset, portfolio, project, isWorkspaceLevel, team, workspace, timePeriods, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns a compact representation of all of the parent goals of a goal.
          * @summary Get parent goals from a goal
+         * @param {string} goalGid Globally unique identifier for the goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getParentGoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2009> {
-            return localVarFp.getParentGoalsForGoal(optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns a compact representation of all of the subgoals of a goal.
-         * @summary Get subgoals from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSubgoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2009> {
-            return localVarFp.getSubgoalsForGoal(optPretty, optFields, options).then((request) => request(axios, basePath));
+        getParentGoalsForGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20011> {
+            return localVarFp.getParentGoalsForGoal(goalGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes followers from a goal. Returns the goal the followers were removed from. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
          * @summary Remove a collaborator from a goal
-         * @param {InlineObject13} inlineObject13 
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFollowers(inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.removeFollowers(inlineObject13, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes a goal as a subgoal of a specified parent goal.
-         * @summary Remove a subgoal from a goal
-         * @param {InlineObject11} inlineObject11 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeSubgoal(inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeSubgoal(inlineObject11, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes a project or portfolio as supporting work for a goal.
-         * @summary Remove a project/portfolio as supporting work for a goal.
-         * @param {InlineObject15} inlineObject15 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeSupportingWorkForGoal(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeSupportingWorkForGoal(inlineObject15, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns any portfolios or projects associated with specified goal.
-         * @summary Get supporting work from a goal
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        supportingWork(optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
-            return localVarFp.supportingWork(optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeFollowers(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.removeFollowers(goalGid, inlineObject14, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing goal can be updated by making a PUT request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal record.
          * @summary Update a goal
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject6} inlineObject6 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateGoal(goalGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.updateGoal(goalGid, inlineObject6, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
-         * @summary Update a goal metric
          * @param {InlineObject9} inlineObject9 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalMetric(inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.updateGoalMetric(inlineObject9, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateGoal(goalGid: string, inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.updateGoal(goalGid, inlineObject9, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
+         * @summary Update a goal metric
+         * @param {string} goalGid Globally unique identifier for the goal.
+         * @param {InlineObject12} inlineObject12 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalMetric(goalGid: string, inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20010> {
+            return localVarFp.updateGoalMetric(goalGid, inlineObject12, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1393,49 +955,22 @@ export class GoalsApi extends BaseAPI {
     /**
      * Adds followers to a goal. Returns the goal the followers were added to. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
      * @summary Add a collaborator to a goal
-     * @param {InlineObject12} inlineObject12 
+     * @param {string} goalGid Globally unique identifier for the goal.
+     * @param {InlineObject13} inlineObject13 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public addFollowers(inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).addFollowers(inlineObject12, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds a subgoal to a parent goal. *A goal can have at most 100 subgoals, and a subgoal can have at most 4 parent goals.  Returns an empty data block.
-     * @summary Add a subgoal to a parent goal
-     * @param {InlineObject10} inlineObject10 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public addSubgoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).addSubgoal(inlineObject10, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds a project or portfolio as supporting work for a goal. *A goal can have at most 10 supporting projects/portfolios, and a project/portfolio can support at most 10 goals*.
-     * @summary Add a project/portfolio as supporting work for a goal.
-     * @param {InlineObject14} inlineObject14 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public addSupportingWorkForGoal(inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).addSupportingWorkForGoal(inlineObject14, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addFollowers(goalGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).addFollowers(goalGid, inlineObject13, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new goal in a workspace or team.  Returns the full record of the newly created goal.
      * @summary Create a goal
-     * @param {InlineObject7} inlineObject7 
+     * @param {InlineObject10} inlineObject10 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -1444,22 +979,23 @@ export class GoalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public createGoal(inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).createGoal(inlineObject7, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public createGoal(inlineObject10: InlineObject10, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).createGoal(inlineObject10, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates and adds a goal metric to a specified goal. Note that this replaces an existing goal metric if one already exists.
      * @summary Create a goal metric
-     * @param {InlineObject8} inlineObject8 
+     * @param {string} goalGid Globally unique identifier for the goal.
+     * @param {InlineObject11} inlineObject11 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public createGoalMetric(inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).createGoalMetric(inlineObject8, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createGoalMetric(goalGid: string, inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).createGoalMetric(goalGid, inlineObject11, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1514,102 +1050,36 @@ export class GoalsApi extends BaseAPI {
     /**
      * Returns a compact representation of all of the parent goals of a goal.
      * @summary Get parent goals from a goal
+     * @param {string} goalGid Globally unique identifier for the goal.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public getParentGoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).getParentGoalsForGoal(optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns a compact representation of all of the subgoals of a goal.
-     * @summary Get subgoals from a goal
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public getSubgoalsForGoal(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).getSubgoalsForGoal(optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getParentGoalsForGoal(goalGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).getParentGoalsForGoal(goalGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Removes followers from a goal. Returns the goal the followers were removed from. Each goal can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated goal record, described above.
      * @summary Remove a collaborator from a goal
-     * @param {InlineObject13} inlineObject13 
+     * @param {string} goalGid Globally unique identifier for the goal.
+     * @param {InlineObject14} inlineObject14 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public removeFollowers(inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).removeFollowers(inlineObject13, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes a goal as a subgoal of a specified parent goal.
-     * @summary Remove a subgoal from a goal
-     * @param {InlineObject11} inlineObject11 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public removeSubgoal(inlineObject11: InlineObject11, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).removeSubgoal(inlineObject11, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes a project or portfolio as supporting work for a goal.
-     * @summary Remove a project/portfolio as supporting work for a goal.
-     * @param {InlineObject15} inlineObject15 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public removeSupportingWorkForGoal(inlineObject15: InlineObject15, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).removeSupportingWorkForGoal(inlineObject15, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns any portfolios or projects associated with specified goal.
-     * @summary Get supporting work from a goal
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public supportingWork(optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).supportingWork(optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeFollowers(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).removeFollowers(goalGid, inlineObject14, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * An existing goal can be updated by making a PUT request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal record.
      * @summary Update a goal
      * @param {string} goalGid Globally unique identifier for the goal.
-     * @param {InlineObject6} inlineObject6 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GoalsApi
-     */
-    public updateGoal(goalGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).updateGoal(goalGid, inlineObject6, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
-     * @summary Update a goal metric
      * @param {InlineObject9} inlineObject9 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -1617,7 +1087,22 @@ export class GoalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public updateGoalMetric(inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).updateGoalMetric(inlineObject9, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateGoal(goalGid: string, inlineObject9: InlineObject9, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).updateGoal(goalGid, inlineObject9, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates a goal\'s existing metric\'s `current_number_value` if one exists, otherwise responds with a 400 status code.  Returns the complete updated goal metric record.
+     * @summary Update a goal metric
+     * @param {string} goalGid Globally unique identifier for the goal.
+     * @param {InlineObject12} inlineObject12 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public updateGoalMetric(goalGid: string, inlineObject12: InlineObject12, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).updateGoalMetric(goalGid, inlineObject12, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

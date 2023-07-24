@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
+import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
 export interface InlineObject20 {
     /**
      * 
-     * @type {PortfolioRemoveItemRequest}
+     * @type {AddCustomFieldSettingRequest}
      * @memberof InlineObject20
      */
-    'data'?: PortfolioRemoveItemRequest;
+    'data'?: AddCustomFieldSettingRequest;
 }
 

@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject63 } from '../types';
+import { InlineObject68 } from '../types';
 // @ts-ignore
-import { InlineObject64 } from '../types';
+import { InlineObject69 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20038 } from '../types';
+import { InlineResponse20045 } from '../types';
 // @ts-ignore
-import { InlineResponse2018 } from '../types';
+import { InlineResponse2017 } from '../types';
 /**
  * WebhooksApi - axios parameter creator
  * @export
@@ -41,15 +41,15 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject63} inlineObject63 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createWebhook: async (inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject63' is not null or undefined
-            assertParamExists('createWebhook', 'inlineObject63', inlineObject63)
+        createWebhook: async (inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject68' is not null or undefined
+            assertParamExists('createWebhook', 'inlineObject68', inlineObject68)
             const localVarPath = `/webhooks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject63, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -267,20 +267,20 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request. 
+         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWebhook: async (webhookGid: string, inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWebhook: async (webhookGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'webhookGid' is not null or undefined
             assertParamExists('updateWebhook', 'webhookGid', webhookGid)
-            // verify required parameter 'inlineObject64' is not null or undefined
-            assertParamExists('updateWebhook', 'inlineObject64', inlineObject64)
+            // verify required parameter 'inlineObject69' is not null or undefined
+            assertParamExists('updateWebhook', 'inlineObject69', inlineObject69)
             const localVarPath = `/webhooks/{webhook_gid}`
                 .replace(`{${"webhook_gid"}}`, encodeURIComponent(String(webhookGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -317,7 +317,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject64, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject69, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -337,14 +337,14 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject63} inlineObject63 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createWebhook(inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWebhook(inlineObject63, optPretty, optFields, options);
+        async createWebhook(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWebhook(inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -369,7 +369,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
+        async getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhook(webhookGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -385,22 +385,22 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWebhooks(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, resource?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+        async getWebhooks(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, resource?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks(workspace, optPretty, optFields, limit, offset, resource, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request. 
+         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWebhook(webhookGid: string, inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWebhook(webhookGid, inlineObject64, optPretty, optFields, options);
+        async updateWebhook(webhookGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWebhook(webhookGid, inlineObject69, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -416,14 +416,14 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject63} inlineObject63 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createWebhook(inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2018> {
-            return localVarFp.createWebhook(inlineObject63, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createWebhook(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.createWebhook(inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.
@@ -446,7 +446,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2018> {
+        getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2017> {
             return localVarFp.getWebhook(webhookGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -461,21 +461,21 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWebhooks(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, resource?: string, options?: any): AxiosPromise<InlineResponse20038> {
+        getWebhooks(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, resource?: string, options?: any): AxiosPromise<InlineResponse20045> {
             return localVarFp.getWebhooks(workspace, optPretty, optFields, limit, offset, resource, options).then((request) => request(axios, basePath));
         },
         /**
-         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request. 
+         * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWebhook(webhookGid: string, inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2018> {
-            return localVarFp.updateWebhook(webhookGid, inlineObject64, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateWebhook(webhookGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.updateWebhook(webhookGid, inlineObject69, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -490,15 +490,15 @@ export class WebhooksApi extends BaseAPI {
     /**
      * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
      * @summary Establish a webhook
-     * @param {InlineObject63} inlineObject63 
+     * @param {InlineObject68} inlineObject68 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhooksApi
      */
-    public createWebhook(inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return WebhooksApiFp(this.configuration).createWebhook(inlineObject63, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createWebhook(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return WebhooksApiFp(this.configuration).createWebhook(inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -547,17 +547,17 @@ export class WebhooksApi extends BaseAPI {
     }
 
     /**
-     * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request. 
+     * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
      * @summary Update a webhook
      * @param {string} webhookGid Globally unique identifier for the webhook.
-     * @param {InlineObject64} inlineObject64 
+     * @param {InlineObject69} inlineObject69 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhooksApi
      */
-    public updateWebhook(webhookGid: string, inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return WebhooksApiFp(this.configuration).updateWebhook(webhookGid, inlineObject64, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateWebhook(webhookGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return WebhooksApiFp(this.configuration).updateWebhook(webhookGid, inlineObject69, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

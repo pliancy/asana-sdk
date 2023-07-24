@@ -13,7 +13,7 @@
  */
 
 
-import { TeamMembershipCompact } from './team-membership-compact';
+import { StatusUpdateResponse } from './status-update-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20028 {
     /**
      * 
-     * @type {TeamMembershipCompact}
+     * @type {StatusUpdateResponse}
      * @memberof InlineResponse20028
      */
-    'data'?: TeamMembershipCompact;
+    'data'?: StatusUpdateResponse;
 }
 

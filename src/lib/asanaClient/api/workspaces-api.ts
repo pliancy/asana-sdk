@@ -23,19 +23,19 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject65 } from '../types';
+import { InlineObject70 } from '../types';
 // @ts-ignore
-import { InlineObject66 } from '../types';
+import { InlineObject71 } from '../types';
 // @ts-ignore
-import { InlineObject67 } from '../types';
+import { InlineObject72 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20036 } from '../types';
+import { InlineResponse20048 } from '../types';
 // @ts-ignore
-import { InlineResponse20041 } from '../types';
+import { InlineResponse20049 } from '../types';
 // @ts-ignore
-import { InlineResponse20042 } from '../types';
+import { InlineResponse20050 } from '../types';
 /**
  * WorkspacesApi - axios parameter creator
  * @export
@@ -46,17 +46,17 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForWorkspace: async (workspaceGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addUserForWorkspace: async (workspaceGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('addUserForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject66' is not null or undefined
-            assertParamExists('addUserForWorkspace', 'inlineObject66', inlineObject66)
+            // verify required parameter 'inlineObject71' is not null or undefined
+            assertParamExists('addUserForWorkspace', 'inlineObject71', inlineObject71)
             const localVarPath = `/workspaces/{workspace_gid}/addUser`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -93,7 +93,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject66, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject71, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -214,17 +214,17 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
          * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForWorkspace: async (workspaceGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeUserForWorkspace: async (workspaceGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('removeUserForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject67' is not null or undefined
-            assertParamExists('removeUserForWorkspace', 'inlineObject67', inlineObject67)
+            // verify required parameter 'inlineObject72' is not null or undefined
+            assertParamExists('removeUserForWorkspace', 'inlineObject72', inlineObject72)
             const localVarPath = `/workspaces/{workspace_gid}/removeUser`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -261,7 +261,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject67, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject72, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -272,17 +272,17 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject65} inlineObject65 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkspace: async (workspaceGid: string, inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWorkspace: async (workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('updateWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject65' is not null or undefined
-            assertParamExists('updateWorkspace', 'inlineObject65', inlineObject65)
+            // verify required parameter 'inlineObject70' is not null or undefined
+            assertParamExists('updateWorkspace', 'inlineObject70', inlineObject70)
             const localVarPath = `/workspaces/{workspace_gid}`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -319,7 +319,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject65, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject70, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -340,14 +340,14 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForWorkspace(workspaceGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForWorkspace(workspaceGid, inlineObject66, optPretty, optFields, options);
+        async addUserForWorkspace(workspaceGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForWorkspace(workspaceGid, inlineObject71, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -359,7 +359,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspace(workspaceGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaces(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async getWorkspaces(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaces(optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -381,28 +381,28 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeUserForWorkspace(workspaceGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForWorkspace(workspaceGid, inlineObject67, optPretty, optFields, options);
+        async removeUserForWorkspace(workspaceGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForWorkspace(workspaceGid, inlineObject72, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject65} inlineObject65 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkspace(workspaceGid: string, inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkspace(workspaceGid, inlineObject65, optPretty, optFields, options);
+        async updateWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -419,14 +419,14 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForWorkspace(workspaceGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20036> {
-            return localVarFp.addUserForWorkspace(workspaceGid, inlineObject66, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addUserForWorkspace(workspaceGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20050> {
+            return localVarFp.addUserForWorkspace(workspaceGid, inlineObject71, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the full workspace record for a single workspace.
@@ -437,7 +437,7 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20042> {
+        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20049> {
             return localVarFp.getWorkspace(workspaceGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -450,34 +450,34 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaces(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20041> {
+        getWorkspaces(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20048> {
             return localVarFp.getWorkspaces(optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForWorkspace(workspaceGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeUserForWorkspace(workspaceGid, inlineObject67, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeUserForWorkspace(workspaceGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeUserForWorkspace(workspaceGid, inlineObject72, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject65} inlineObject65 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkspace(workspaceGid: string, inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20042> {
-            return localVarFp.updateWorkspace(workspaceGid, inlineObject65, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20049> {
+            return localVarFp.updateWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -493,15 +493,15 @@ export class WorkspacesApi extends BaseAPI {
      * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
      * @summary Add a user to a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject66} inlineObject66 
+     * @param {InlineObject71} inlineObject71 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public addUserForWorkspace(workspaceGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).addUserForWorkspace(workspaceGid, inlineObject66, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addUserForWorkspace(workspaceGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).addUserForWorkspace(workspaceGid, inlineObject71, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -537,29 +537,29 @@ export class WorkspacesApi extends BaseAPI {
      * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
      * @summary Remove a user from a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject67} inlineObject67 
+     * @param {InlineObject72} inlineObject72 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public removeUserForWorkspace(workspaceGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).removeUserForWorkspace(workspaceGid, inlineObject67, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeUserForWorkspace(workspaceGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).removeUserForWorkspace(workspaceGid, inlineObject72, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
      * @summary Update a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject65} inlineObject65 
+     * @param {InlineObject70} inlineObject70 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public updateWorkspace(workspaceGid: string, inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).updateWorkspace(workspaceGid, inlineObject65, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).updateWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -80,7 +80,7 @@ export interface TaskBaseAllOf {
      */
     'due_at'?: string | null;
     /**
-     * The localized date on which this task is due, or null if the task has no due date. This takes a date with `YYYY-MM-DD` format and should not be used together with due_at.
+     * The localized date on which this task is due, or null if the task has no due date. This takes a date with `YYYY-MM-DD` format and should not be used together with `due_at`.
      * @type {string}
      * @memberof TaskBaseAllOf
      */
@@ -170,17 +170,23 @@ export interface TaskBaseAllOf {
      */
     'num_subtasks'?: number;
     /**
-     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning. The resource_subtype `milestone` represent a single moment in time. This means tasks with this subtype cannot have a start_date.
+     * Date and time on which work begins for the task, or null if the task has no start time. This takes an ISO 8601 date string in UTC and should not be used together with `start_on`. *Note: `due_at` must be present in the request when setting or unsetting the `start_at` parameter.*
      * @type {string}
      * @memberof TaskBaseAllOf
      */
-    'resource_subtype'?: TaskBaseAllOfResourceSubtypeEnum;
+    'start_at'?: string | null;
     /**
-     * The day on which work begins for the task , or null if the task has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` or `due_at` must be present in the request when setting or unsetting the `start_on` parameter.*
+     * The day on which work begins for the task , or null if the task has no start date. This takes a date with `YYYY-MM-DD` format and should not be used together with `start_at`. *Note: `due_on` or `due_at` must be present in the request when setting or unsetting the `start_on` parameter.*
      * @type {string}
      * @memberof TaskBaseAllOf
      */
     'start_on'?: string | null;
+    /**
+     * This value represents the sum of all the Time Tracking entries in the Actual Time field on a given Task. It is represented as a nullable long value.
+     * @type {number}
+     * @memberof TaskBaseAllOf
+     */
+    'actual_time_minutes'?: number | null;
 }
 
 /**
@@ -203,16 +209,6 @@ export enum TaskBaseAllOfAssigneeStatusEnum {
     Later = 'later',
     New = 'new',
     Inbox = 'inbox'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TaskBaseAllOfResourceSubtypeEnum {
-    DefaultTask = 'default_task',
-    Milestone = 'milestone',
-    Section = 'section',
-    Approval = 'approval'
 }
 
 

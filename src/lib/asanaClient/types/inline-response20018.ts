@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectStatusCompact } from './project-status-compact';
+import { ProjectBriefResponse } from './project-brief-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectStatusCompact } from './project-status-compact';
 export interface InlineResponse20018 {
     /**
      * 
-     * @type {Array<ProjectStatusCompact>}
+     * @type {ProjectBriefResponse}
      * @memberof InlineResponse20018
      */
-    'data'?: Array<ProjectStatusCompact>;
+    'data'?: ProjectBriefResponse;
 }
 

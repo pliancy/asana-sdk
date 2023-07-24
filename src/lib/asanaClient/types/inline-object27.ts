@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectRequest } from './project-request';
+import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectRequest } from './project-request';
 export interface InlineObject27 {
     /**
      * 
-     * @type {ProjectRequest}
+     * @type {ProjectTemplateInstantiateProjectRequest}
      * @memberof InlineObject27
      */
-    'data'?: ProjectRequest;
+    'data'?: ProjectTemplateInstantiateProjectRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { SectionResponse } from './section-response';
+import { ProjectStatusResponse } from './project-status-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionResponse } from './section-response';
 export interface InlineResponse20021 {
     /**
      * 
-     * @type {SectionResponse}
+     * @type {ProjectStatusResponse}
      * @memberof InlineResponse20021
      */
-    'data'?: SectionResponse;
+    'data'?: ProjectStatusResponse;
 }
 

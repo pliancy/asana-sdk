@@ -13,7 +13,7 @@
  */
 
 
-import { GoalMetricBase } from './goal-metric-base';
+import { GoalRemoveSupportingRelationshipRequest } from './goal-remove-supporting-relationship-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalMetricBase } from './goal-metric-base';
 export interface InlineObject8 {
     /**
      * 
-     * @type {GoalMetricBase}
+     * @type {GoalRemoveSupportingRelationshipRequest}
      * @memberof InlineObject8
      */
-    'data'?: GoalMetricBase;
+    'data'?: GoalRemoveSupportingRelationshipRequest;
 }
 

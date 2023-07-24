@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { TaskAddProjectRequest } from './task-add-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject58 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {TaskAddProjectRequest}
      * @memberof InlineObject58
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: TaskAddProjectRequest;
 }
 

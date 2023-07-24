@@ -23,6 +23,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
+import { InlineObject16 } from '../types';
+// @ts-ignore
 import { InlineObject17 } from '../types';
 // @ts-ignore
 import { InlineObject18 } from '../types';
@@ -37,13 +39,13 @@ import { InlineObject22 } from '../types';
 // @ts-ignore
 import { InlineObject23 } from '../types';
 // @ts-ignore
-import { InlineObject24 } from '../types';
-// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20010 } from '../types';
+import { InlineResponse20015 } from '../types';
 // @ts-ignore
-import { InlineResponse20014 } from '../types';
+import { InlineResponse20016 } from '../types';
+// @ts-ignore
+import { InlineResponse20017 } from '../types';
 // @ts-ignore
 import { InlineResponse2013 } from '../types';
 /**
@@ -56,16 +58,16 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.
          * @summary Add a custom field to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject21} inlineObject21 
+         * @param {InlineObject20} inlineObject20 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCustomFieldSettingForPortfolio: async (portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addCustomFieldSettingForPortfolio: async (portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('addCustomFieldSettingForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject21' is not null or undefined
-            assertParamExists('addCustomFieldSettingForPortfolio', 'inlineObject21', inlineObject21)
+            // verify required parameter 'inlineObject20' is not null or undefined
+            assertParamExists('addCustomFieldSettingForPortfolio', 'inlineObject20', inlineObject20)
             const localVarPath = `/portfolios/{portfolio_gid}/addCustomFieldSetting`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -98,7 +100,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject21, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject20, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -109,17 +111,17 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Add an item to a portfolio. Returns an empty data block.
          * @summary Add a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject19} inlineObject19 
+         * @param {InlineObject18} inlineObject18 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addItemForPortfolio: async (portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addItemForPortfolio: async (portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('addItemForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject19' is not null or undefined
-            assertParamExists('addItemForPortfolio', 'inlineObject19', inlineObject19)
+            // verify required parameter 'inlineObject18' is not null or undefined
+            assertParamExists('addItemForPortfolio', 'inlineObject18', inlineObject18)
             const localVarPath = `/portfolios/{portfolio_gid}/addItem`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -156,7 +158,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject19, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject18, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -167,17 +169,17 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Adds the specified list of users as members of the portfolio. Returns the updated portfolio record.
          * @summary Add users to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject23} inlineObject23 
+         * @param {InlineObject22} inlineObject22 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addMembersForPortfolio: async (portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addMembersForPortfolio: async (portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('addMembersForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject23' is not null or undefined
-            assertParamExists('addMembersForPortfolio', 'inlineObject23', inlineObject23)
+            // verify required parameter 'inlineObject22' is not null or undefined
+            assertParamExists('addMembersForPortfolio', 'inlineObject22', inlineObject22)
             const localVarPath = `/portfolios/{portfolio_gid}/addMembers`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -214,7 +216,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject23, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject22, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -224,15 +226,15 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.
          * @summary Create a portfolio
-         * @param {InlineObject17} inlineObject17 
+         * @param {InlineObject16} inlineObject16 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPortfolio: async (inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject17' is not null or undefined
-            assertParamExists('createPortfolio', 'inlineObject17', inlineObject17)
+        createPortfolio: async (inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject16' is not null or undefined
+            assertParamExists('createPortfolio', 'inlineObject16', inlineObject16)
             const localVarPath = `/portfolios`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -268,7 +270,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject17, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject16, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -517,16 +519,16 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Removes a custom field setting from a portfolio.
          * @summary Remove a custom field from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject22} inlineObject22 
+         * @param {InlineObject21} inlineObject21 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCustomFieldSettingForPortfolio: async (portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeCustomFieldSettingForPortfolio: async (portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('removeCustomFieldSettingForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject22' is not null or undefined
-            assertParamExists('removeCustomFieldSettingForPortfolio', 'inlineObject22', inlineObject22)
+            // verify required parameter 'inlineObject21' is not null or undefined
+            assertParamExists('removeCustomFieldSettingForPortfolio', 'inlineObject21', inlineObject21)
             const localVarPath = `/portfolios/{portfolio_gid}/removeCustomFieldSetting`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -559,7 +561,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject22, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject21, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -570,17 +572,17 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Remove an item from a portfolio. Returns an empty data block.
          * @summary Remove a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject20} inlineObject20 
+         * @param {InlineObject19} inlineObject19 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeItemForPortfolio: async (portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeItemForPortfolio: async (portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('removeItemForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject20' is not null or undefined
-            assertParamExists('removeItemForPortfolio', 'inlineObject20', inlineObject20)
+            // verify required parameter 'inlineObject19' is not null or undefined
+            assertParamExists('removeItemForPortfolio', 'inlineObject19', inlineObject19)
             const localVarPath = `/portfolios/{portfolio_gid}/removeItem`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -617,7 +619,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject20, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject19, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -628,17 +630,17 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * Removes the specified list of users from members of the portfolio. Returns the updated portfolio record.
          * @summary Remove users from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject24} inlineObject24 
+         * @param {InlineObject23} inlineObject23 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeMembersForPortfolio: async (portfolioGid: string, inlineObject24: InlineObject24, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeMembersForPortfolio: async (portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('removeMembersForPortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject24' is not null or undefined
-            assertParamExists('removeMembersForPortfolio', 'inlineObject24', inlineObject24)
+            // verify required parameter 'inlineObject23' is not null or undefined
+            assertParamExists('removeMembersForPortfolio', 'inlineObject23', inlineObject23)
             const localVarPath = `/portfolios/{portfolio_gid}/removeMembers`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -675,7 +677,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject24, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject23, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -686,17 +688,17 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
          * An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.
          * @summary Update a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject17} inlineObject17 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updatePortfolio: async (portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updatePortfolio: async (portfolioGid: string, inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'portfolioGid' is not null or undefined
             assertParamExists('updatePortfolio', 'portfolioGid', portfolioGid)
-            // verify required parameter 'inlineObject18' is not null or undefined
-            assertParamExists('updatePortfolio', 'inlineObject18', inlineObject18)
+            // verify required parameter 'inlineObject17' is not null or undefined
+            assertParamExists('updatePortfolio', 'inlineObject17', inlineObject17)
             const localVarPath = `/portfolios/{portfolio_gid}`
                 .replace(`{${"portfolio_gid"}}`, encodeURIComponent(String(portfolioGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -733,7 +735,7 @@ export const PortfoliosApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject18, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject17, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -754,54 +756,54 @@ export const PortfoliosApiFp = function(configuration?: Configuration) {
          * Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.
          * @summary Add a custom field to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject21} inlineObject21 
+         * @param {InlineObject20} inlineObject20 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options);
+        async addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addCustomFieldSettingForPortfolio(portfolioGid, inlineObject20, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Add an item to a portfolio. Returns an empty data block.
          * @summary Add a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject19} inlineObject19 
+         * @param {InlineObject18} inlineObject18 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options);
+        async addItemForPortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addItemForPortfolio(portfolioGid, inlineObject18, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Adds the specified list of users as members of the portfolio. Returns the updated portfolio record.
          * @summary Add users to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject23} inlineObject23 
+         * @param {InlineObject22} inlineObject22 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options);
+        async addMembersForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addMembersForPortfolio(portfolioGid, inlineObject22, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.
          * @summary Create a portfolio
-         * @param {InlineObject17} inlineObject17 
+         * @param {InlineObject16} inlineObject16 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createPortfolio(inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPortfolio(inlineObject17, optPretty, optFields, options);
+        async createPortfolio(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPortfolio(inlineObject16, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -828,7 +830,7 @@ export const PortfoliosApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsForPortfolio(portfolioGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getItemsForPortfolio(portfolioGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsForPortfolio(portfolioGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -857,7 +859,7 @@ export const PortfoliosApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPortfolios(workspace: string, owner: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
+        async getPortfolios(workspace: string, owner: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPortfolios(workspace, owner, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -865,55 +867,55 @@ export const PortfoliosApiFp = function(configuration?: Configuration) {
          * Removes a custom field setting from a portfolio.
          * @summary Remove a custom field from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject22} inlineObject22 
+         * @param {InlineObject21} inlineObject21 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject22, optPretty, options);
+        async removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Remove an item from a portfolio. Returns an empty data block.
          * @summary Remove a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject20} inlineObject20 
+         * @param {InlineObject19} inlineObject19 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeItemForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeItemForPortfolio(portfolioGid, inlineObject20, optPretty, optFields, options);
+        async removeItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Removes the specified list of users from members of the portfolio. Returns the updated portfolio record.
          * @summary Remove users from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject24} inlineObject24 
+         * @param {InlineObject23} inlineObject23 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeMembersForPortfolio(portfolioGid: string, inlineObject24: InlineObject24, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeMembersForPortfolio(portfolioGid, inlineObject24, optPretty, optFields, options);
+        async removeMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.
          * @summary Update a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject17} inlineObject17 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePortfolio(portfolioGid, inlineObject18, optPretty, optFields, options);
+        async updatePortfolio(portfolioGid: string, inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePortfolio(portfolioGid, inlineObject17, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -930,51 +932,51 @@ export const PortfoliosApiFactory = function (configuration?: Configuration, bas
          * Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.
          * @summary Add a custom field to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject21} inlineObject21 
+         * @param {InlineObject20} inlineObject20 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options).then((request) => request(axios, basePath));
+        addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse20017> {
+            return localVarFp.addCustomFieldSettingForPortfolio(portfolioGid, inlineObject20, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Add an item to a portfolio. Returns an empty data block.
          * @summary Add a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject19} inlineObject19 
+         * @param {InlineObject18} inlineObject18 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addItemForPortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addItemForPortfolio(portfolioGid, inlineObject18, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Adds the specified list of users as members of the portfolio. Returns the updated portfolio record.
          * @summary Add users to a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject23} inlineObject23 
+         * @param {InlineObject22} inlineObject22 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addMembersForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
+            return localVarFp.addMembersForPortfolio(portfolioGid, inlineObject22, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.
          * @summary Create a portfolio
-         * @param {InlineObject17} inlineObject17 
+         * @param {InlineObject16} inlineObject16 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPortfolio(inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
-            return localVarFp.createPortfolio(inlineObject17, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createPortfolio(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
+            return localVarFp.createPortfolio(inlineObject16, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing portfolio can be deleted by making a DELETE request on the URL for that portfolio.  Returns an empty data record.
@@ -999,7 +1001,7 @@ export const PortfoliosApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsForPortfolio(portfolioGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20010> {
+        getItemsForPortfolio(portfolioGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getItemsForPortfolio(portfolioGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1026,59 +1028,59 @@ export const PortfoliosApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPortfolios(workspace: string, owner: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20014> {
+        getPortfolios(workspace: string, owner: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20015> {
             return localVarFp.getPortfolios(workspace, owner, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes a custom field setting from a portfolio.
          * @summary Remove a custom field from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject22} inlineObject22 
+         * @param {InlineObject21} inlineObject21 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject22, optPretty, options).then((request) => request(axios, basePath));
+        removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an item from a portfolio. Returns an empty data block.
          * @summary Remove a portfolio item
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject20} inlineObject20 
+         * @param {InlineObject19} inlineObject19 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeItemForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeItemForPortfolio(portfolioGid, inlineObject20, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes the specified list of users from members of the portfolio. Returns the updated portfolio record.
          * @summary Remove users from a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject24} inlineObject24 
+         * @param {InlineObject23} inlineObject23 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeMembersForPortfolio(portfolioGid: string, inlineObject24: InlineObject24, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeMembersForPortfolio(portfolioGid, inlineObject24, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
+            return localVarFp.removeMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.
          * @summary Update a portfolio
          * @param {string} portfolioGid Globally unique identifier for the portfolio.
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject17} inlineObject17 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updatePortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
-            return localVarFp.updatePortfolio(portfolioGid, inlineObject18, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updatePortfolio(portfolioGid: string, inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2013> {
+            return localVarFp.updatePortfolio(portfolioGid, inlineObject17, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1094,58 +1096,58 @@ export class PortfoliosApi extends BaseAPI {
      * Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.
      * @summary Add a custom field to a portfolio
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject21} inlineObject21 
+     * @param {InlineObject20} inlineObject20 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).addCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public addCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).addCustomFieldSettingForPortfolio(portfolioGid, inlineObject20, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Add an item to a portfolio. Returns an empty data block.
      * @summary Add a portfolio item
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject19} inlineObject19 
+     * @param {InlineObject18} inlineObject18 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public addItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).addItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addItemForPortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).addItemForPortfolio(portfolioGid, inlineObject18, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Adds the specified list of users as members of the portfolio. Returns the updated portfolio record.
      * @summary Add users to a portfolio
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject23} inlineObject23 
+     * @param {InlineObject22} inlineObject22 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public addMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).addMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addMembersForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).addMembersForPortfolio(portfolioGid, inlineObject22, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.
      * @summary Create a portfolio
-     * @param {InlineObject17} inlineObject17 
+     * @param {InlineObject16} inlineObject16 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public createPortfolio(inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).createPortfolio(inlineObject17, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createPortfolio(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).createPortfolio(inlineObject16, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1213,58 +1215,58 @@ export class PortfoliosApi extends BaseAPI {
      * Removes a custom field setting from a portfolio.
      * @summary Remove a custom field from a portfolio
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject22} inlineObject22 
+     * @param {InlineObject21} inlineObject21 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject22: InlineObject22, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject22, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public removeCustomFieldSettingForPortfolio(portfolioGid: string, inlineObject21: InlineObject21, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).removeCustomFieldSettingForPortfolio(portfolioGid, inlineObject21, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Remove an item from a portfolio. Returns an empty data block.
      * @summary Remove a portfolio item
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject20} inlineObject20 
+     * @param {InlineObject19} inlineObject19 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public removeItemForPortfolio(portfolioGid: string, inlineObject20: InlineObject20, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).removeItemForPortfolio(portfolioGid, inlineObject20, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeItemForPortfolio(portfolioGid: string, inlineObject19: InlineObject19, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).removeItemForPortfolio(portfolioGid, inlineObject19, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Removes the specified list of users from members of the portfolio. Returns the updated portfolio record.
      * @summary Remove users from a portfolio
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject24} inlineObject24 
+     * @param {InlineObject23} inlineObject23 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public removeMembersForPortfolio(portfolioGid: string, inlineObject24: InlineObject24, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).removeMembersForPortfolio(portfolioGid, inlineObject24, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeMembersForPortfolio(portfolioGid: string, inlineObject23: InlineObject23, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).removeMembersForPortfolio(portfolioGid, inlineObject23, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.
      * @summary Update a portfolio
      * @param {string} portfolioGid Globally unique identifier for the portfolio.
-     * @param {InlineObject18} inlineObject18 
+     * @param {InlineObject17} inlineObject17 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PortfoliosApi
      */
-    public updatePortfolio(portfolioGid: string, inlineObject18: InlineObject18, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return PortfoliosApiFp(this.configuration).updatePortfolio(portfolioGid, inlineObject18, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updatePortfolio(portfolioGid: string, inlineObject17: InlineObject17, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return PortfoliosApiFp(this.configuration).updatePortfolio(portfolioGid, inlineObject17, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

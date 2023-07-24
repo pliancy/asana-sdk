@@ -13,8 +13,11 @@
  */
 
 
+import { GoalMetricBase } from './goal-metric-base';
 import { Like } from './like';
+import { StatusUpdateCompact } from './status-update-compact';
 import { TeamCompact } from './team-compact';
+import { TimePeriodCompact } from './time-period-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
@@ -49,10 +52,34 @@ export interface GoalResponseAllOf {
      */
     'workspace'?: WorkspaceCompact & object;
     /**
-     * Array of users following this goal.
+     * Array of users who are members of this goal.
      * @type {Array<UserCompact>}
      * @memberof GoalResponseAllOf
      */
     'followers'?: Array<UserCompact>;
+    /**
+     * 
+     * @type {TimePeriodCompact & object}
+     * @memberof GoalResponseAllOf
+     */
+    'time_period'?: TimePeriodCompact & object;
+    /**
+     * 
+     * @type {GoalMetricBase & object}
+     * @memberof GoalResponseAllOf
+     */
+    'metric'?: GoalMetricBase & object;
+    /**
+     * 
+     * @type {UserCompact & object}
+     * @memberof GoalResponseAllOf
+     */
+    'owner'?: UserCompact & object;
+    /**
+     * The latest `status_update` posted to this goal.
+     * @type {StatusUpdateCompact}
+     * @memberof GoalResponseAllOf
+     */
+    'current_status_update'?: StatusUpdateCompact | null;
 }
 

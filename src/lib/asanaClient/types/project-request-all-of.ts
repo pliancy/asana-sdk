@@ -21,7 +21,7 @@
  */
 export interface ProjectRequestAllOf {
     /**
-     * An object where each key is a Custom Field gid and each value is an enum gid, string, or number.
+     * An object where each key is a Custom Field GID and each value is an enum GID, string, number, or object.
      * @type {{ [key: string]: string; }}
      * @memberof ProjectRequestAllOf
      */
@@ -39,7 +39,7 @@ export interface ProjectRequestAllOf {
      */
     'owner'?: string | null;
     /**
-     * *Create-only*. The team that this project is shared with. This field only exists for projects in organizations.
+     * The team that this project is shared with.
      * @type {string}
      * @memberof ProjectRequestAllOf
      */

@@ -13,7 +13,7 @@
  */
 
 
-import { GoalAddSupportingWorkRequest } from './goal-add-supporting-work-request';
+import { OrganizationExportRequest } from './organization-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalAddSupportingWorkRequest } from './goal-add-supporting-work-request
 export interface InlineObject15 {
     /**
      * 
-     * @type {GoalAddSupportingWorkRequest}
+     * @type {OrganizationExportRequest}
      * @memberof InlineObject15
      */
-    'data'?: GoalAddSupportingWorkRequest;
+    'data'?: OrganizationExportRequest;
 }
 

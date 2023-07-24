@@ -32,5 +32,11 @@ export interface PortfolioRequestAllOf {
      * @memberof PortfolioRequestAllOf
      */
     'workspace'?: string;
+    /**
+     * True if the portfolio is public to its workspace members.
+     * @type {boolean}
+     * @memberof PortfolioRequestAllOf
+     */
+    'public'?: boolean;
 }
 

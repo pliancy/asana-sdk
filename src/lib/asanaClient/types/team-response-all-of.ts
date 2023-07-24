@@ -45,5 +45,22 @@ export interface TeamResponseAllOf {
      * @memberof TeamResponseAllOf
      */
     'permalink_url'?: string;
+    /**
+     * The visibility of the team to users in the same organization 
+     * @type {string}
+     * @memberof TeamResponseAllOf
+     */
+    'visibility'?: TeamResponseAllOfVisibilityEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamResponseAllOfVisibilityEnum {
+    Secret = 'secret',
+    RequestToJoin = 'request_to_join',
+    Public = 'public'
+}
+
 

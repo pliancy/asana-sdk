@@ -13,9 +13,11 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
 import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { PortfolioBase } from './portfolio-base';
 import { PortfolioResponseAllOf } from './portfolio-response-all-of';
+import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 

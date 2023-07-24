@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectCompact } from './project-compact';
+import { GoalResponse } from './goal-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectCompact } from './project-compact';
 export interface InlineResponse20010 {
     /**
      * 
-     * @type {Array<ProjectCompact>}
+     * @type {GoalResponse}
      * @memberof InlineResponse20010
      */
-    'data'?: Array<ProjectCompact>;
+    'data'?: GoalResponse;
 }
 

@@ -33,10 +33,27 @@ export interface TeamRequestAllOf {
      */
     'html_description'?: string;
     /**
-     * The organization/workspace the team belongs to. 
+     * The organization/workspace the team belongs to. This must be the same organization you are in and cannot be changed once set. 
      * @type {string}
      * @memberof TeamRequestAllOf
      */
     'organization'?: string;
+    /**
+     * The visibility of the team to users in the same organization 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'visibility'?: TeamRequestAllOfVisibilityEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfVisibilityEnum {
+    Secret = 'secret',
+    RequestToJoin = 'request_to_join',
+    Public = 'public'
+}
+
 

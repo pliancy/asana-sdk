@@ -13,15 +13,15 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { UserBaseResponse } from './user-base-response';
+import { UserBaseResponseAllOfPhoto } from './user-base-response-all-of-photo';
 import { UserResponseAllOf } from './user-response-all-of';
-import { UserResponseAllOfPhoto } from './user-response-all-of-photo';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * @type UserResponse
  * @export
  */
-export type UserResponse = UserCompact & UserResponseAllOf;
+export type UserResponse = UserBaseResponse & UserResponseAllOf;
 
 

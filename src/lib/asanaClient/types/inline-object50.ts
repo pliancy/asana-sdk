@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependenciesRequest } from './modify-dependencies-request';
+import { TaskRequest } from './task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependenciesRequest } from './modify-dependencies-request';
 export interface InlineObject50 {
     /**
      * 
-     * @type {ModifyDependenciesRequest}
+     * @type {TaskRequest}
      * @memberof InlineObject50
      */
-    'data'?: ModifyDependenciesRequest;
+    'data'?: TaskRequest;
 }
 

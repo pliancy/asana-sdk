@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectDuplicateRequest } from './project-duplicate-request';
+import { ProjectRequest } from './project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectDuplicateRequest } from './project-duplicate-request';
 export interface InlineObject28 {
     /**
      * 
-     * @type {ProjectDuplicateRequest}
+     * @type {ProjectRequest}
      * @memberof InlineObject28
      */
-    'data'?: ProjectDuplicateRequest;
+    'data'?: ProjectRequest;
 }
 

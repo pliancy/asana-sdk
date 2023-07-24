@@ -23,11 +23,11 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20035 } from '../types';
+import { InlineResponse20042 } from '../types';
 // @ts-ignore
-import { InlineResponse20036 } from '../types';
+import { InlineResponse20043 } from '../types';
 // @ts-ignore
-import { InlineResponse20037 } from '../types';
+import { InlineResponse20044 } from '../types';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -38,14 +38,14 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
-         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user'} resourceType The resource type of favorites to be returned.
+         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser: async (userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user', workspace: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFavoritesForUser: async (userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getFavoritesForUser', 'userGid', userGid)
             // verify required parameter 'resourceType' is not null or undefined
@@ -348,14 +348,14 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
-         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user'} resourceType The resource type of favorites to be returned.
+         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -368,7 +368,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -384,7 +384,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(workspace, team, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -398,7 +398,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForTeam(teamGid, optPretty, optFields, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -412,7 +412,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForWorkspace(workspaceGid, optPretty, optFields, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -430,14 +430,14 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
-         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user'} resourceType The resource type of favorites to be returned.
+         * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20037> {
+        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20044> {
             return localVarFp.getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -449,7 +449,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20036> {
+        getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20043> {
             return localVarFp.getUser(userGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -464,7 +464,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
+        getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getUsers(workspace, team, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -477,7 +477,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
+        getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getUsersForTeam(teamGid, optPretty, optFields, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -490,7 +490,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
+        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getUsersForWorkspace(workspaceGid, optPretty, optFields, offset, options).then((request) => request(axios, basePath));
         },
     };
@@ -507,7 +507,7 @@ export class UsersApi extends BaseAPI {
      * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
      * @summary Get a user\'s favorites
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
-     * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user'} resourceType The resource type of favorites to be returned.
+     * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
      * @param {string} workspace The workspace in which to get favorites.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -515,7 +515,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 

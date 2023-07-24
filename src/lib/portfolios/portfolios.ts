@@ -241,4 +241,5 @@ export class Portfolios {
         )
         return res.data.data
     }
+
 }

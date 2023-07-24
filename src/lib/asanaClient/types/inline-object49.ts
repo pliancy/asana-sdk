@@ -13,7 +13,7 @@
  */
 
 
-import { TaskSetParentRequest } from './task-set-parent-request';
+import { TaskRequest } from './task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskSetParentRequest } from './task-set-parent-request';
 export interface InlineObject49 {
     /**
      * 
-     * @type {TaskSetParentRequest}
+     * @type {TaskRequest}
      * @memberof InlineObject49
      */
-    'data'?: TaskSetParentRequest;
+    'data'?: TaskRequest;
 }
 

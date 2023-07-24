@@ -13,7 +13,7 @@
  */
 
 
-import { TagResponse } from './tag-response';
+import { StatusUpdateRequest } from './status-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagResponse } from './tag-response';
 export interface InlineObject44 {
     /**
      * 
-     * @type {TagResponse}
+     * @type {StatusUpdateRequest}
      * @memberof InlineObject44
      */
-    'data'?: TagResponse;
+    'data'?: StatusUpdateRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { GoalCompact } from './goal-compact';
+import { GoalRelationshipCompact } from './goal-relationship-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalCompact } from './goal-compact';
 export interface InlineResponse2009 {
     /**
      * 
-     * @type {Array<GoalCompact>}
+     * @type {Array<GoalRelationshipCompact>}
      * @memberof InlineResponse2009
      */
-    'data'?: Array<GoalCompact>;
+    'data'?: Array<GoalRelationshipCompact>;
 }
 

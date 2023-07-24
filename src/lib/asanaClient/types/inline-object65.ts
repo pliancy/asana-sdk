@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceCompact } from './workspace-compact';
+import { TeamRequest } from './team-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineObject65 {
     /**
      * 
-     * @type {WorkspaceCompact}
+     * @type {TeamRequest}
      * @memberof InlineObject65
      */
-    'data'?: WorkspaceCompact;
+    'data'?: TeamRequest;
 }
 

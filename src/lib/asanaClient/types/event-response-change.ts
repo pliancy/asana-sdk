@@ -33,19 +33,19 @@ export interface EventResponseChange {
      */
     'action'?: string;
     /**
-     * *Conditional.* This property is only present when the **field\'s** `action` is `changed` and the `new_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) resource.
+     * *Conditional.* This property is only present when the **field\'s** `action` is `changed` _and_ the `new_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) endpoint.
      * @type {any}
      * @memberof EventResponseChange
      */
     'new_value'?: any;
     /**
-     * *Conditional.* This property is only present when the **field\'s** `action` is `added` and the `added_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) resource.
+     * *Conditional.* This property is only present when the **field\'s** `action` is `added` _and_ the `added_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) endpoint.
      * @type {any}
      * @memberof EventResponseChange
      */
     'added_value'?: any;
     /**
-     * *Conditional.* This property is only present when the **field\'s** `action` is `removed` and the `removed_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) resource.
+     * *Conditional.* This property is only present when the **field\'s** `action` is `removed` _and_ the `removed_value` is an Asana resource. This will be only the `gid` and `resource_type` of the resource when the events come from webhooks; this will be the compact representation (and can have fields expanded with [opt_fields](/docs/input-output-options)) when using the [Events](/docs/asana-events) endpoint.
      * @type {any}
      * @memberof EventResponseChange
      */

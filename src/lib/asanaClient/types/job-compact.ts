@@ -16,6 +16,7 @@
 import { AsanaResource } from './asana-resource';
 import { JobCompactAllOf } from './job-compact-all-of';
 import { ProjectCompact } from './project-compact';
+import { ProjectTemplateCompact } from './project-template-compact';
 import { TaskCompact } from './task-compact';
 
 /**

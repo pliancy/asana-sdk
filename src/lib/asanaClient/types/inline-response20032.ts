@@ -13,7 +13,7 @@
  */
 
 
-import { TimePeriodCompact } from './time-period-compact';
+import { TagCompact } from './tag-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimePeriodCompact } from './time-period-compact';
 export interface InlineResponse20032 {
     /**
      * 
-     * @type {Array<TimePeriodCompact>}
+     * @type {Array<TagCompact>}
      * @memberof InlineResponse20032
      */
-    'data'?: Array<TimePeriodCompact>;
+    'data'?: Array<TagCompact>;
 }
 

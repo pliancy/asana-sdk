@@ -13,7 +13,7 @@
  */
 
 
-import { GoalAddSubgoalRequest } from './goal-add-subgoal-request';
+import { GoalRequest } from './goal-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalAddSubgoalRequest } from './goal-add-subgoal-request';
 export interface InlineObject10 {
     /**
      * 
-     * @type {GoalAddSubgoalRequest}
+     * @type {GoalRequest}
      * @memberof InlineObject10
      */
-    'data'?: GoalAddSubgoalRequest;
+    'data'?: GoalRequest;
 }
 

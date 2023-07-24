@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRequest } from './task-request';
+import { TagResponse } from './tag-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRequest } from './task-request';
 export interface InlineObject48 {
     /**
      * 
-     * @type {TaskRequest}
+     * @type {TagResponse}
      * @memberof InlineObject48
      */
-    'data'?: TaskRequest;
+    'data'?: TagResponse;
 }
 

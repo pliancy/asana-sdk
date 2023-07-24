@@ -15,6 +15,7 @@
 
 import { AsanaResource } from './asana-resource';
 import { CustomFieldCompactAllOf } from './custom-field-compact-all-of';
+import { CustomFieldCompactAllOfDateValue } from './custom-field-compact-all-of-date-value';
 import { EnumOption } from './enum-option';
 
 /**

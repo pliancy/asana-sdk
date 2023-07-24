@@ -34,6 +34,12 @@ export interface AttachmentResponseAllOf {
      */
     'download_url'?: string | null;
     /**
+     * 
+     * @type {string}
+     * @memberof AttachmentResponseAllOf
+     */
+    'permanent_url'?: string | null;
+    /**
      * The service hosting the attachment. Valid values are `asana`, `dropbox`, `gdrive`, `box`, and `vimeo`.
      * @type {string}
      * @memberof AttachmentResponseAllOf
@@ -46,10 +52,22 @@ export interface AttachmentResponseAllOf {
      */
     'parent'?: TaskCompact & object;
     /**
+     * The size of the attachment in bytes. Only present when the `resource_subtype` is `asana`.
+     * @type {number}
+     * @memberof AttachmentResponseAllOf
+     */
+    'size'?: number;
+    /**
      * The URL where the attachment can be viewed, which may be friendlier to users in a browser than just directing them to a raw file. May be null if no view URL exists for the service.
      * @type {string}
      * @memberof AttachmentResponseAllOf
      */
     'view_url'?: string | null;
+    /**
+     * Whether the attachment is connected to the app making the request for the purposes of showing an app components widget. Only present when the `resource_subtype` is `external` or `gdrive`.
+     * @type {boolean}
+     * @memberof AttachmentResponseAllOf
+     */
+    'connected_to_app'?: boolean;
 }
 

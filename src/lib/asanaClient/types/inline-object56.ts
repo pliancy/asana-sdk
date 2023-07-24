@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddTagRequest } from './task-add-tag-request';
+import { ModifyDependentsRequest } from './modify-dependents-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddTagRequest } from './task-add-tag-request';
 export interface InlineObject56 {
     /**
      * 
-     * @type {TaskAddTagRequest}
+     * @type {ModifyDependentsRequest}
      * @memberof InlineObject56
      */
-    'data'?: TaskAddTagRequest;
+    'data'?: ModifyDependentsRequest;
 }
 

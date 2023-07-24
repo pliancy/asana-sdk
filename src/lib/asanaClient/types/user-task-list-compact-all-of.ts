@@ -17,7 +17,7 @@ import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
- * A user task list represents the tasks assigned to a particular user. It provides API access to a user’s “My Tasks” view in Asana.
+ * A user task list represents the tasks assigned to a particular user. It provides API access to a user’s [My Tasks](https://asana.com/guide/help/fundamentals/my-tasks) view in Asana.
  * @export
  * @interface UserTaskListCompactAllOf
  */

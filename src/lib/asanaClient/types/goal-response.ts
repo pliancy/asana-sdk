@@ -17,6 +17,7 @@ import { GoalBase } from './goal-base';
 import { GoalMetricBase } from './goal-metric-base';
 import { GoalResponseAllOf } from './goal-response-all-of';
 import { Like } from './like';
+import { StatusUpdateCompact } from './status-update-compact';
 import { TeamCompact } from './team-compact';
 import { TimePeriodCompact } from './time-period-compact';
 import { UserCompact } from './user-compact';

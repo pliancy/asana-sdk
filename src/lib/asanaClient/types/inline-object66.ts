@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceAddUserRequest } from './workspace-add-user-request';
+import { TeamAddUserRequest } from './team-add-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 export interface InlineObject66 {
     /**
      * 
-     * @type {WorkspaceAddUserRequest}
+     * @type {TeamAddUserRequest}
      * @memberof InlineObject66
      */
-    'data'?: WorkspaceAddUserRequest;
+    'data'?: TeamAddUserRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { StoryCompact } from './story-compact';
+import { ProjectTemplateCompact } from './project-template-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryCompact } from './story-compact';
 export interface InlineResponse20024 {
     /**
      * 
-     * @type {Array<StoryCompact>}
+     * @type {Array<ProjectTemplateCompact>}
      * @memberof InlineResponse20024
      */
-    'data'?: Array<StoryCompact>;
+    'data'?: Array<ProjectTemplateCompact>;
 }
 

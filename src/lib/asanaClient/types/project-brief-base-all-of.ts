@@ -13,19 +13,24 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
 
 /**
  * 
  * @export
- * @interface InlineResponse2018
+ * @interface ProjectBriefBaseAllOf
  */
-export interface InlineResponse2018 {
+export interface ProjectBriefBaseAllOf {
     /**
-     * 
-     * @type {WebhookResponse}
-     * @memberof InlineResponse2018
+     * The title of the project brief.
+     * @type {string}
+     * @memberof ProjectBriefBaseAllOf
      */
-    'data'?: WebhookResponse;
+    'title'?: string;
+    /**
+     * HTML formatted text for the project brief.
+     * @type {string}
+     * @memberof ProjectBriefBaseAllOf
+     */
+    'html_text'?: string;
 }
 

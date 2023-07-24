@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { AddFollowersRequest } from './add-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject37 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {AddFollowersRequest}
      * @memberof InlineObject37
      */
-    'data'?: SectionRequest;
+    'data'?: AddFollowersRequest;
 }
 

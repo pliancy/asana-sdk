@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject25 } from '../types';
+import { InlineObject26 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20017 } from '../types';
+import { InlineResponse20021 } from '../types';
 // @ts-ignore
-import { InlineResponse20018 } from '../types';
+import { InlineResponse20022 } from '../types';
 /**
  * ProjectStatusesApi - axios parameter creator
  * @export
@@ -37,20 +37,20 @@ import { InlineResponse20018 } from '../types';
 export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new status update on the project. Returns the full record of the newly created project status update.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject26} inlineObject26 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectStatusForProject: async (projectGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProjectStatusForProject: async (projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('createProjectStatusForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject25' is not null or undefined
-            assertParamExists('createProjectStatusForProject', 'inlineObject25', inlineObject25)
+            // verify required parameter 'inlineObject26' is not null or undefined
+            assertParamExists('createProjectStatusForProject', 'inlineObject26', inlineObject26)
             const localVarPath = `/projects/{project_gid}/project_statuses`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -87,7 +87,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject25, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject26, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -95,7 +95,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Deletes a specific, existing project status update.  Returns an empty data record.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Deletes a specific, existing project status update.  Returns an empty data record.
          * @summary Delete a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -147,7 +147,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Returns the complete record for a single status update.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Returns the complete record for a single status update.
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -199,7 +199,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Returns the compact project status update records for all updates on the project.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Returns the compact project status update records for all updates on the project.
          * @summary Get statuses from a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -271,21 +271,21 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProjectStatusesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new status update on the project. Returns the full record of the newly created project status update.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject26} inlineObject26 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectStatusForProject(projectGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectStatusForProject(projectGid, inlineObject25, optPretty, optFields, options);
+        async createProjectStatusForProject(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectStatusForProject(projectGid, inlineObject26, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Deletes a specific, existing project status update.  Returns an empty data record.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Deletes a specific, existing project status update.  Returns an empty data record.
          * @summary Delete a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -298,7 +298,7 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the complete record for a single status update.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Returns the complete record for a single status update.
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -306,12 +306,12 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatus(projectStatusGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact project status update records for all updates on the project.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Returns the compact project status update records for all updates on the project.
          * @summary Get statuses from a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -321,7 +321,7 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
+        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatusesForProject(projectGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -336,20 +336,20 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
     const localVarFp = ProjectStatusesApiFp(configuration)
     return {
         /**
-         * Creates a new status update on the project. Returns the full record of the newly created project status update.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject26} inlineObject26 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectStatusForProject(projectGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20017> {
-            return localVarFp.createProjectStatusForProject(projectGid, inlineObject25, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProjectStatusForProject(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20021> {
+            return localVarFp.createProjectStatusForProject(projectGid, inlineObject26, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes a specific, existing project status update.  Returns an empty data record.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Deletes a specific, existing project status update.  Returns an empty data record.
          * @summary Delete a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -361,7 +361,7 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
             return localVarFp.deleteProjectStatus(projectStatusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the complete record for a single status update.
+         * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Returns the complete record for a single status update.
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -369,11 +369,11 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20017> {
+        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20021> {
             return localVarFp.getProjectStatus(projectStatusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact project status update records for all updates on the project.
+         * *Deprecated: new integrations should prefer the `/status_updates` route.*  Returns the compact project status update records for all updates on the project.
          * @summary Get statuses from a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -383,7 +383,7 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20018> {
+        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.getProjectStatusesForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
@@ -397,22 +397,22 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
  */
 export class ProjectStatusesApi extends BaseAPI {
     /**
-     * Creates a new status update on the project. Returns the full record of the newly created project status update.
+     * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
      * @summary Create a project status
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject25} inlineObject25 
+     * @param {InlineObject26} inlineObject26 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectStatusesApi
      */
-    public createProjectStatusForProject(projectGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectStatusesApiFp(this.configuration).createProjectStatusForProject(projectGid, inlineObject25, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProjectStatusForProject(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectStatusesApiFp(this.configuration).createProjectStatusForProject(projectGid, inlineObject26, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Deletes a specific, existing project status update.  Returns an empty data record.
+     * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Deletes a specific, existing project status update.  Returns an empty data record.
      * @summary Delete a project status
      * @param {string} projectStatusGid The project status update to get.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -426,7 +426,7 @@ export class ProjectStatusesApi extends BaseAPI {
     }
 
     /**
-     * Returns the complete record for a single status update.
+     * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Returns the complete record for a single status update.
      * @summary Get a project status
      * @param {string} projectStatusGid The project status update to get.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -440,7 +440,7 @@ export class ProjectStatusesApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact project status update records for all updates on the project.
+     * *Deprecated: new integrations should prefer the `/status_updates` route.*  Returns the compact project status update records for all updates on the project.
      * @summary Get statuses from a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.

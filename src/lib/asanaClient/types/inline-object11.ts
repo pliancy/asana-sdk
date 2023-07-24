@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRemoveSubgoalRequest } from './goal-remove-subgoal-request';
+import { GoalMetricBase } from './goal-metric-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRemoveSubgoalRequest } from './goal-remove-subgoal-request';
 export interface InlineObject11 {
     /**
      * 
-     * @type {GoalRemoveSubgoalRequest}
+     * @type {GoalMetricBase}
      * @memberof InlineObject11
      */
-    'data'?: GoalRemoveSubgoalRequest;
+    'data'?: GoalMetricBase;
 }
 

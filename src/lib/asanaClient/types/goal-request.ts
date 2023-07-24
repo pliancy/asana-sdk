@@ -14,10 +14,7 @@
 
 
 import { GoalBase } from './goal-base';
-import { GoalMetricBase } from './goal-metric-base';
 import { GoalRequestAllOf } from './goal-request-all-of';
-import { TimePeriodCompact } from './time-period-compact';
-import { UserCompact } from './user-compact';
 
 /**
  * @type GoalRequest

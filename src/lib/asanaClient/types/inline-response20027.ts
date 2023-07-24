@@ -13,6 +13,7 @@
  */
 
 
+import { SectionCompact } from './section-compact';
 
 /**
  * 
@@ -22,9 +23,9 @@
 export interface InlineResponse20027 {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<SectionCompact>}
      * @memberof InlineResponse20027
      */
-    'data'?: Array<object>;
+    'data'?: Array<SectionCompact>;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { ProjectMembershipResponse } from './project-membership-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CustomFieldSettingResponse } from './custom-field-setting-response';
 export interface InlineResponse20019 {
     /**
      * 
-     * @type {CustomFieldSettingResponse}
+     * @type {ProjectMembershipResponse}
      * @memberof InlineResponse20019
      */
-    'data'?: CustomFieldSettingResponse;
+    'data'?: ProjectMembershipResponse;
 }
 
