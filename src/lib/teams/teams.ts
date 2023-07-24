@@ -174,12 +174,14 @@ export class Teams {
         optPretty?: boolean,
         optFields?: Array<string>,
         options?: any,
-    ){
+    ) {
         const res = await this.teamsApi.updateTeam(
-            { data: {
-                ...data,
-                gid,
-            }},
+            {
+                data: {
+                    ...data,
+                    gid,
+                },
+            },
             optPretty,
             optFields,
             options,
