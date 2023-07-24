@@ -13,7 +13,7 @@
  */
 
 
-import { GoalMetricCurrentValueRequest } from './goal-metric-current-value-request';
+import { GoalRequest } from './goal-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalMetricCurrentValueRequest } from './goal-metric-current-value-reque
 export interface InlineObject9 {
     /**
      * 
-     * @type {GoalMetricCurrentValueRequest}
+     * @type {GoalRequest}
      * @memberof InlineObject9
      */
-    'data'?: GoalMetricCurrentValueRequest;
+    'data'?: GoalRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { GoalMetricCurrentValueRequest } from './goal-metric-current-value-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject12 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {GoalMetricCurrentValueRequest}
      * @memberof InlineObject12
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: GoalMetricCurrentValueRequest;
 }
 

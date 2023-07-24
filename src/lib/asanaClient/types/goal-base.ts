@@ -13,16 +13,13 @@
  */
 
 
+import { AsanaResource } from './asana-resource';
 import { GoalBaseAllOf } from './goal-base-all-of';
-import { GoalCompact } from './goal-compact';
-import { GoalMetricBase } from './goal-metric-base';
-import { TimePeriodCompact } from './time-period-compact';
-import { UserCompact } from './user-compact';
 
 /**
  * @type GoalBase
  * @export
  */
-export type GoalBase = GoalBaseAllOf & GoalCompact;
+export type GoalBase = AsanaResource & GoalBaseAllOf;
 
 

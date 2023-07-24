@@ -38,6 +38,18 @@ export interface StoryResponseAllOf {
      */
     'created_by'?: UserCompact;
     /**
+     * 
+     * @type {string}
+     * @memberof StoryResponseAllOf
+     */
+    'type'?: StoryResponseAllOfTypeEnum;
+    /**
+     * *Conditional*. Whether the text of the story can be edited after creation.
+     * @type {boolean}
+     * @memberof StoryResponseAllOf
+     */
+    'is_editable'?: boolean;
+    /**
      * *Conditional*. Whether the text of the story has been edited after creation.
      * @type {boolean}
      * @memberof StoryResponseAllOf
@@ -212,25 +224,49 @@ export interface StoryResponseAllOf {
      */
     'new_enum_value'?: EnumOption;
     /**
-     * *Conditional*
+     * 
+     * @type {StoryResponseDates}
+     * @memberof StoryResponseAllOf
+     */
+    'old_date_value'?: StoryResponseDates;
+    /**
+     * 
+     * @type {StoryResponseDates}
+     * @memberof StoryResponseAllOf
+     */
+    'new_date_value'?: StoryResponseDates;
+    /**
+     * *Conditional*. The old value of a people custom field story.
+     * @type {Array<UserCompact>}
+     * @memberof StoryResponseAllOf
+     */
+    'old_people_value'?: Array<UserCompact>;
+    /**
+     * *Conditional*. The new value of a people custom field story.
+     * @type {Array<UserCompact>}
+     * @memberof StoryResponseAllOf
+     */
+    'new_people_value'?: Array<UserCompact>;
+    /**
+     * *Conditional*. The old value of a multi-enum custom field story.
      * @type {Array<EnumOption>}
      * @memberof StoryResponseAllOf
      */
     'old_multi_enum_values'?: Array<EnumOption>;
     /**
-     * *Conditional*
+     * *Conditional*. The new value of a multi-enum custom field story.
      * @type {Array<EnumOption>}
      * @memberof StoryResponseAllOf
      */
     'new_multi_enum_values'?: Array<EnumOption>;
     /**
-     * *Conditional*
+     * *Conditional*. The new value of approval status.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
     'new_approval_status'?: string;
     /**
-     * *Conditional*
+     * *Conditional*. The old value of approval status.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
@@ -260,13 +296,21 @@ export interface StoryResponseAllOf {
      */
     'source'?: StoryResponseAllOfSourceEnum;
     /**
-     * The object this story is associated with. Currently may only be a task.
-     * @type {object}
+     * 
+     * @type {TaskCompact & object}
      * @memberof StoryResponseAllOf
      */
-    'target'?: object;
+    'target'?: TaskCompact & object;
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StoryResponseAllOfTypeEnum {
+    Comment = 'comment',
+    System = 'system'
+}
 /**
     * @export
     * @enum {string}

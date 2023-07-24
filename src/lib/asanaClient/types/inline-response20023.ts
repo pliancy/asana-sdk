@@ -13,7 +13,7 @@
  */
 
 
-import { StoryResponse } from './story-response';
+import { ProjectTemplateResponse } from './project-template-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryResponse } from './story-response';
 export interface InlineResponse20023 {
     /**
      * 
-     * @type {StoryResponse}
+     * @type {ProjectTemplateResponse}
      * @memberof InlineResponse20023
      */
-    'data'?: StoryResponse;
+    'data'?: ProjectTemplateResponse;
 }
 

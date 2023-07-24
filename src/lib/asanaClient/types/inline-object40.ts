@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectSectionInsertRequest } from './project-section-insert-request';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectSectionInsertRequest } from './project-section-insert-request';
 export interface InlineObject40 {
     /**
      * 
-     * @type {ProjectSectionInsertRequest}
+     * @type {SectionRequest}
      * @memberof InlineObject40
      */
-    'data'?: ProjectSectionInsertRequest;
+    'data'?: SectionRequest;
 }
 

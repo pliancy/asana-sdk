@@ -13,7 +13,6 @@
  */
 
 
-import { UserResponseAllOfPhoto } from './user-response-all-of-photo';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
@@ -22,18 +21,6 @@ import { WorkspaceCompact } from './workspace-compact';
  * @interface UserResponseAllOf
  */
 export interface UserResponseAllOf {
-    /**
-     * The user\'s email address.
-     * @type {string}
-     * @memberof UserResponseAllOf
-     */
-    'email'?: string;
-    /**
-     * 
-     * @type {UserResponseAllOfPhoto}
-     * @memberof UserResponseAllOf
-     */
-    'photo'?: UserResponseAllOfPhoto | null;
     /**
      * Workspaces and organizations this user may access. Note\\: The API will only return workspaces and organizations that also contain the authenticated user.
      * @type {Array<WorkspaceCompact>}

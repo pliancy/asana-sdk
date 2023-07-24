@@ -13,7 +13,7 @@
  */
 
 
-import { TimePeriodResponse } from './time-period-response';
+import { StoryCompact } from './story-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimePeriodResponse } from './time-period-response';
 export interface InlineResponse20031 {
     /**
      * 
-     * @type {TimePeriodResponse}
+     * @type {Array<StoryCompact>}
      * @memberof InlineResponse20031
      */
-    'data'?: TimePeriodResponse;
+    'data'?: Array<StoryCompact>;
 }
 

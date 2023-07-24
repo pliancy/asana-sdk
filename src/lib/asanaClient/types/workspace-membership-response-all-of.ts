@@ -14,6 +14,7 @@
 
 
 import { UserTaskListCompact } from './user-task-list-compact';
+import { WorkspaceMembershipResponseAllOfVacationDates } from './workspace-membership-response-all-of-vacation-dates';
 
 /**
  * 
@@ -45,5 +46,11 @@ export interface WorkspaceMembershipResponseAllOf {
      * @memberof WorkspaceMembershipResponseAllOf
      */
     'is_guest'?: boolean;
+    /**
+     * 
+     * @type {WorkspaceMembershipResponseAllOfVacationDates}
+     * @memberof WorkspaceMembershipResponseAllOf
+     */
+    'vacation_dates'?: WorkspaceMembershipResponseAllOfVacationDates | null;
 }
 

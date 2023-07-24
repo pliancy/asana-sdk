@@ -13,7 +13,7 @@
  */
 
 
-import { TagRequest } from './tag-request';
+import { ProjectSectionInsertRequest } from './project-section-insert-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagRequest } from './tag-request';
 export interface InlineObject43 {
     /**
      * 
-     * @type {TagRequest}
+     * @type {ProjectSectionInsertRequest}
      * @memberof InlineObject43
      */
-    'data'?: TagRequest;
+    'data'?: ProjectSectionInsertRequest;
 }
 

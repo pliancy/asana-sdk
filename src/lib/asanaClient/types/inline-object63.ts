@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookRequest } from './webhook-request';
+import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookRequest } from './webhook-request';
 export interface InlineObject63 {
     /**
      * 
-     * @type {WebhookRequest}
+     * @type {TaskRemoveFollowersRequest}
      * @memberof InlineObject63
      */
-    'data'?: WebhookRequest;
+    'data'?: TaskRemoveFollowersRequest;
 }
 

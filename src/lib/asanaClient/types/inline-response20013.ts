@@ -23,9 +23,9 @@ import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 export interface InlineResponse20013 {
     /**
      * 
-     * @type {PortfolioMembershipCompact}
+     * @type {Array<PortfolioMembershipCompact>}
      * @memberof InlineResponse20013
      */
-    'data'?: PortfolioMembershipCompact;
+    'data'?: Array<PortfolioMembershipCompact>;
 }
 

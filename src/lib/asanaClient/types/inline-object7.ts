@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRequest } from './goal-request';
+import { GoalAddSupportingRelationshipRequest } from './goal-add-supporting-relationship-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRequest } from './goal-request';
 export interface InlineObject7 {
     /**
      * 
-     * @type {GoalRequest}
+     * @type {GoalAddSupportingRelationshipRequest}
      * @memberof InlineObject7
      */
-    'data'?: GoalRequest;
+    'data'?: GoalAddSupportingRelationshipRequest;
 }
 

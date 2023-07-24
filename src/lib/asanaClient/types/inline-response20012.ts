@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioMembershipCompact } from './portfolio-membership-compact';
+import { JobCompact } from './job-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 export interface InlineResponse20012 {
     /**
      * 
-     * @type {Array<PortfolioMembershipCompact>}
+     * @type {JobCompact}
      * @memberof InlineResponse20012
      */
-    'data'?: Array<PortfolioMembershipCompact>;
+    'data'?: JobCompact;
 }
 

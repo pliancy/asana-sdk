@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookUpdateRequest } from './webhook-update-request';
+import { TeamRequest } from './team-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookUpdateRequest } from './webhook-update-request';
 export interface InlineObject64 {
     /**
      * 
-     * @type {WebhookUpdateRequest}
+     * @type {TeamRequest}
      * @memberof InlineObject64
      */
-    'data'?: WebhookUpdateRequest;
+    'data'?: TeamRequest;
 }
 

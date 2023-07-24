@@ -13,7 +13,7 @@
  */
 
 
-import { AddFollowersRequest } from './add-followers-request';
+import { AddMembersRequest } from './add-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AddFollowersRequest } from './add-followers-request';
 export interface InlineObject35 {
     /**
      * 
-     * @type {AddFollowersRequest}
+     * @type {AddMembersRequest}
      * @memberof InlineObject35
      */
-    'data'?: AddFollowersRequest;
+    'data'?: AddMembersRequest;
 }
 

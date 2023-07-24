@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject41 } from '../types';
+import { InlineObject45 } from '../types';
 // @ts-ignore
-import { InlineObject42 } from '../types';
+import { InlineObject46 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20023 } from '../types';
+import { InlineResponse20030 } from '../types';
 // @ts-ignore
-import { InlineResponse20024 } from '../types';
+import { InlineResponse20031 } from '../types';
 /**
  * StoriesApi - axios parameter creator
  * @export
@@ -42,17 +42,17 @@ export const StoriesApiAxiosParamCreator = function (configuration?: Configurati
          * Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
          * @summary Create a story on a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject42} inlineObject42 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStoryForTask: async (taskGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createStoryForTask: async (taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('createStoryForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject42' is not null or undefined
-            assertParamExists('createStoryForTask', 'inlineObject42', inlineObject42)
+            // verify required parameter 'inlineObject46' is not null or undefined
+            assertParamExists('createStoryForTask', 'inlineObject46', inlineObject46)
             const localVarPath = `/tasks/{task_gid}/stories`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -89,7 +89,7 @@ export const StoriesApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject42, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject46, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -276,17 +276,17 @@ export const StoriesApiAxiosParamCreator = function (configuration?: Configurati
          * Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
          * @summary Update a story
          * @param {string} storyGid Globally unique identifier for the story.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject45} inlineObject45 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateStory: async (storyGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateStory: async (storyGid: string, inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'storyGid' is not null or undefined
             assertParamExists('updateStory', 'storyGid', storyGid)
-            // verify required parameter 'inlineObject41' is not null or undefined
-            assertParamExists('updateStory', 'inlineObject41', inlineObject41)
+            // verify required parameter 'inlineObject45' is not null or undefined
+            assertParamExists('updateStory', 'inlineObject45', inlineObject45)
             const localVarPath = `/stories/{story_gid}`
                 .replace(`{${"story_gid"}}`, encodeURIComponent(String(storyGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -323,7 +323,7 @@ export const StoriesApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject41, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject45, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -344,14 +344,14 @@ export const StoriesApiFp = function(configuration?: Configuration) {
          * Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
          * @summary Create a story on a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject42} inlineObject42 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStoryForTask(taskGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStoryForTask(taskGid, inlineObject42, optPretty, optFields, options);
+        async createStoryForTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createStoryForTask(taskGid, inlineObject46, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -378,7 +378,7 @@ export const StoriesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStoriesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+        async getStoriesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStoriesForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -393,7 +393,7 @@ export const StoriesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStory(storyGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+        async getStory(storyGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStory(storyGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -401,14 +401,14 @@ export const StoriesApiFp = function(configuration?: Configuration) {
          * Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
          * @summary Update a story
          * @param {string} storyGid Globally unique identifier for the story.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject45} inlineObject45 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStory(storyGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStory(storyGid, inlineObject41, optPretty, optFields, options);
+        async updateStory(storyGid: string, inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStory(storyGid, inlineObject45, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -425,14 +425,14 @@ export const StoriesApiFactory = function (configuration?: Configuration, basePa
          * Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
          * @summary Create a story on a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject42} inlineObject42 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStoryForTask(taskGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20023> {
-            return localVarFp.createStoryForTask(taskGid, inlineObject42, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createStoryForTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20030> {
+            return localVarFp.createStoryForTask(taskGid, inlineObject46, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a story. A user can only delete stories they have created.  Returns an empty data record.
@@ -457,7 +457,7 @@ export const StoriesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStoriesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20024> {
+        getStoriesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20031> {
             return localVarFp.getStoriesForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -471,21 +471,21 @@ export const StoriesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStory(storyGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20023> {
+        getStory(storyGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.getStory(storyGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
          * @summary Update a story
          * @param {string} storyGid Globally unique identifier for the story.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject45} inlineObject45 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateStory(storyGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20023> {
-            return localVarFp.updateStory(storyGid, inlineObject41, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateStory(storyGid: string, inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20030> {
+            return localVarFp.updateStory(storyGid, inlineObject45, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -501,15 +501,15 @@ export class StoriesApi extends BaseAPI {
      * Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
      * @summary Create a story on a task
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject42} inlineObject42 
+     * @param {InlineObject46} inlineObject46 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StoriesApi
      */
-    public createStoryForTask(taskGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return StoriesApiFp(this.configuration).createStoryForTask(taskGid, inlineObject42, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createStoryForTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return StoriesApiFp(this.configuration).createStoryForTask(taskGid, inlineObject46, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -562,14 +562,14 @@ export class StoriesApi extends BaseAPI {
      * Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
      * @summary Update a story
      * @param {string} storyGid Globally unique identifier for the story.
-     * @param {InlineObject41} inlineObject41 
+     * @param {InlineObject45} inlineObject45 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StoriesApi
      */
-    public updateStory(storyGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return StoriesApiFp(this.configuration).updateStory(storyGid, inlineObject41, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateStory(storyGid: string, inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return StoriesApiFp(this.configuration).updateStory(storyGid, inlineObject45, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

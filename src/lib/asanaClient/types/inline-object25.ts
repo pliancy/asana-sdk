@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectStatusBase } from './project-status-base';
+import { ProjectBriefRequest } from './project-brief-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectStatusBase } from './project-status-base';
 export interface InlineObject25 {
     /**
      * 
-     * @type {ProjectStatusBase}
+     * @type {ProjectBriefRequest}
      * @memberof InlineObject25
      */
-    'data'?: ProjectStatusBase;
+    'data'?: ProjectBriefRequest;
 }
 

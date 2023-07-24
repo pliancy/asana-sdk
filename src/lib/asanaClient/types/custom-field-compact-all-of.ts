@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldCompactAllOfDateValue } from './custom-field-compact-all-of-date-value';
 import { EnumOption } from './enum-option';
 
 /**
@@ -52,13 +53,31 @@ export interface CustomFieldCompactAllOf {
      */
     'enabled'?: boolean;
     /**
-     * *Conditional*. This number is the value of a number custom field.
+     * 
+     * @type {CustomFieldCompactAllOfDateValue}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'date_value'?: CustomFieldCompactAllOfDateValue;
+    /**
+     * 
+     * @type {EnumOption & object}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'enum_value'?: EnumOption & object;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `multi_enum`. This object is the chosen values of a `multi_enum` custom field.
+     * @type {Array<EnumOption>}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'multi_enum_values'?: Array<EnumOption>;
+    /**
+     * *Conditional*. This number is the value of a `number` custom field.
      * @type {number}
      * @memberof CustomFieldCompactAllOf
      */
     'number_value'?: number;
     /**
-     * *Conditional*. This string is the value of a text custom field.
+     * *Conditional*. This string is the value of a `text` custom field.
      * @type {string}
      * @memberof CustomFieldCompactAllOf
      */
@@ -68,7 +87,7 @@ export interface CustomFieldCompactAllOf {
      * @type {string}
      * @memberof CustomFieldCompactAllOf
      */
-    'display_value'?: string;
+    'display_value'?: string | null;
 }
 
 /**
@@ -79,7 +98,9 @@ export enum CustomFieldCompactAllOfResourceSubtypeEnum {
     Text = 'text',
     Enum = 'enum',
     MultiEnum = 'multi_enum',
-    Number = 'number'
+    Number = 'number',
+    Date = 'date',
+    People = 'people'
 }
 /**
     * @export

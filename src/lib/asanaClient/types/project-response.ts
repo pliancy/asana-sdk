@@ -14,10 +14,13 @@
 
 
 import { CustomFieldCompact } from './custom-field-compact';
-import { CustomFieldSettingCompact } from './custom-field-setting-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { ProjectBase } from './project-base';
+import { ProjectBriefCompact } from './project-brief-compact';
 import { ProjectResponseAllOf } from './project-response-all-of';
 import { ProjectStatusResponse } from './project-status-response';
+import { ProjectTemplateCompact } from './project-template-compact';
+import { StatusUpdateCompact } from './status-update-compact';
 import { TeamCompact } from './team-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';

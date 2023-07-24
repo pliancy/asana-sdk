@@ -23,14 +23,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject45 } from '../types';
-// @ts-ignore
-import { InlineObject46 } from '../types';
-// @ts-ignore
-import { InlineObject47 } from '../types';
-// @ts-ignore
-import { InlineObject48 } from '../types';
-// @ts-ignore
 import { InlineObject49 } from '../types';
 // @ts-ignore
 import { InlineObject50 } from '../types';
@@ -53,13 +45,19 @@ import { InlineObject58 } from '../types';
 // @ts-ignore
 import { InlineObject59 } from '../types';
 // @ts-ignore
+import { InlineObject60 } from '../types';
+// @ts-ignore
+import { InlineObject61 } from '../types';
+// @ts-ignore
+import { InlineObject62 } from '../types';
+// @ts-ignore
+import { InlineObject63 } from '../types';
+// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20011 } from '../types';
+import { InlineResponse20012 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
-// @ts-ignore
-import { InlineResponse20027 } from '../types';
+import { InlineResponse20033 } from '../types';
 // @ts-ignore
 import { InlineResponse2016 } from '../types';
 /**
@@ -69,182 +67,8 @@ import { InlineResponse2016 } from '../types';
 export const TasksApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 15 dependencies*.
+         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
          * @summary Set dependencies for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject50} inlineObject50 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addDependenciesForTask: async (taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('addDependenciesForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject50' is not null or undefined
-            assertParamExists('addDependenciesForTask', 'inlineObject50', inlineObject50)
-            const localVarPath = `/tasks/{task_gid}/addDependencies`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject50, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents*.
-         * @summary Set dependents for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject52} inlineObject52 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addDependentsForTask: async (taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('addDependentsForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject52' is not null or undefined
-            assertParamExists('addDependentsForTask', 'inlineObject52', inlineObject52)
-            const localVarPath = `/tasks/{task_gid}/addDependents`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject52, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
-         * @summary Add followers to a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject58} inlineObject58 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addFollowersForTask: async (taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('addFollowersForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject58' is not null or undefined
-            assertParamExists('addFollowersForTask', 'inlineObject58', inlineObject58)
-            const localVarPath = `/tasks/{task_gid}/addFollowers`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject58, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
-         * @summary Add a project to a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject54} inlineObject54 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -252,12 +76,12 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addProjectForTask: async (taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addDependenciesForTask: async (taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('addProjectForTask', 'taskGid', taskGid)
+            assertParamExists('addDependenciesForTask', 'taskGid', taskGid)
             // verify required parameter 'inlineObject54' is not null or undefined
-            assertParamExists('addProjectForTask', 'inlineObject54', inlineObject54)
-            const localVarPath = `/tasks/{task_gid}/addProject`
+            assertParamExists('addDependenciesForTask', 'inlineObject54', inlineObject54)
+            const localVarPath = `/tasks/{task_gid}/addDependencies`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -301,8 +125,8 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Adds a tag to a task. Returns an empty data block.
-         * @summary Add a tag to a task
+         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
+         * @summary Set dependents for a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject56} inlineObject56 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -310,12 +134,12 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTagForTask: async (taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addDependentsForTask: async (taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('addTagForTask', 'taskGid', taskGid)
+            assertParamExists('addDependentsForTask', 'taskGid', taskGid)
             // verify required parameter 'inlineObject56' is not null or undefined
-            assertParamExists('addTagForTask', 'inlineObject56', inlineObject56)
-            const localVarPath = `/tasks/{task_gid}/addTag`
+            assertParamExists('addDependentsForTask', 'inlineObject56', inlineObject56)
+            const localVarPath = `/tasks/{task_gid}/addDependents`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -359,20 +183,194 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
-         * @summary Create a subtask
+         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
+         * @summary Add followers to a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject62} inlineObject62 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSubtaskForTask: async (taskGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addFollowersForTask: async (taskGid: string, inlineObject62: InlineObject62, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('addFollowersForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject62' is not null or undefined
+            assertParamExists('addFollowersForTask', 'inlineObject62', inlineObject62)
+            const localVarPath = `/tasks/{task_gid}/addFollowers`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject62, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
+         * @summary Add a project to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject58} inlineObject58 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addProjectForTask: async (taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('addProjectForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject58' is not null or undefined
+            assertParamExists('addProjectForTask', 'inlineObject58', inlineObject58)
+            const localVarPath = `/tasks/{task_gid}/addProject`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject58, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds a tag to a task. Returns an empty data block.
+         * @summary Add a tag to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject60} inlineObject60 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addTagForTask: async (taskGid: string, inlineObject60: InlineObject60, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('addTagForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject60' is not null or undefined
+            assertParamExists('addTagForTask', 'inlineObject60', inlineObject60)
+            const localVarPath = `/tasks/{task_gid}/addTag`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject60, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
+         * @summary Create a subtask
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject52} inlineObject52 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubtaskForTask: async (taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('createSubtaskForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject48' is not null or undefined
-            assertParamExists('createSubtaskForTask', 'inlineObject48', inlineObject48)
+            // verify required parameter 'inlineObject52' is not null or undefined
+            assertParamExists('createSubtaskForTask', 'inlineObject52', inlineObject52)
             const localVarPath = `/tasks/{task_gid}/subtasks`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -409,7 +407,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject48, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject52, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -419,15 +417,15 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
          * @summary Create a task
-         * @param {InlineObject45} inlineObject45 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTask: async (inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject45' is not null or undefined
-            assertParamExists('createTask', 'inlineObject45', inlineObject45)
+        createTask: async (inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject49' is not null or undefined
+            assertParamExists('createTask', 'inlineObject49', inlineObject49)
             const localVarPath = `/tasks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -463,7 +461,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject45, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject49, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -526,17 +524,17 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * Creates and returns a job that will asynchronously handle the duplication.
          * @summary Duplicate a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject51} inlineObject51 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        duplicateTask: async (taskGid: string, inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        duplicateTask: async (taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('duplicateTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject47' is not null or undefined
-            assertParamExists('duplicateTask', 'inlineObject47', inlineObject47)
+            // verify required parameter 'inlineObject51' is not null or undefined
+            assertParamExists('duplicateTask', 'inlineObject51', inlineObject51)
             const localVarPath = `/tasks/{task_gid}/duplicate`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -573,7 +571,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject47, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject51, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -825,7 +823,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {string} [assignee] The assignee to filter tasks on. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
+         * @param {string} [assignee] The assignee to filter tasks on. If searching for unassigned tasks, assignee.any &#x3D; null can be specified. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
          * @param {string} [project] The project to filter tasks on.
          * @param {string} [section] The section to filter tasks on. *Note: Currently, this is only supported in board views.*
          * @param {string} [workspace] The workspace to filter tasks on. *Note: If you specify &#x60;workspace&#x60;, you must also specify the &#x60;assignee&#x60; to filter on.*
@@ -914,6 +912,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
          * @summary Get tasks from a project
          * @param {string} projectGid Globally unique identifier for the project.
+         * @param {string} [completedSince] Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -921,7 +920,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksForProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTasksForProject: async (projectGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('getTasksForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/tasks`
@@ -944,6 +943,10 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             // authentication personalAccessToken required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (completedSince !== undefined) {
+                localVarQueryParameter['completed_since'] = completedSince;
+            }
 
             if (optPretty !== undefined) {
                 localVarQueryParameter['opt_pretty'] = optPretty;
@@ -1167,192 +1170,18 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * Unlinks a set of dependencies from this task.
          * @summary Unlink dependencies from a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject51} inlineObject51 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeDependenciesForTask: async (taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('removeDependenciesForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject51' is not null or undefined
-            assertParamExists('removeDependenciesForTask', 'inlineObject51', inlineObject51)
-            const localVarPath = `/tasks/{task_gid}/removeDependencies`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject51, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Unlinks a set of dependents from this task.
-         * @summary Unlink dependents from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject53} inlineObject53 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeDependentsForTask: async (taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('removeDependentsForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject53' is not null or undefined
-            assertParamExists('removeDependentsForTask', 'inlineObject53', inlineObject53)
-            const localVarPath = `/tasks/{task_gid}/removeDependents`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject53, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
-         * @summary Remove followers from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject59} inlineObject59 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeFollowerForTask: async (taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('removeFollowerForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject59' is not null or undefined
-            assertParamExists('removeFollowerForTask', 'inlineObject59', inlineObject59)
-            const localVarPath = `/tasks/{task_gid}/removeFollowers`
-                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject59, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
-         * @summary Remove a project from a task
-         * @param {string} taskGid The task to operate on.
          * @param {InlineObject55} inlineObject55 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeProjectForTask: async (taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeDependenciesForTask: async (taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('removeProjectForTask', 'taskGid', taskGid)
+            assertParamExists('removeDependenciesForTask', 'taskGid', taskGid)
             // verify required parameter 'inlineObject55' is not null or undefined
-            assertParamExists('removeProjectForTask', 'inlineObject55', inlineObject55)
-            const localVarPath = `/tasks/{task_gid}/removeProject`
+            assertParamExists('removeDependenciesForTask', 'inlineObject55', inlineObject55)
+            const localVarPath = `/tasks/{task_gid}/removeDependencies`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1396,8 +1225,8 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Removes a tag from a task. Returns an empty data block.
-         * @summary Remove a tag from a task
+         * Unlinks a set of dependents from this task.
+         * @summary Unlink dependents from a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1405,12 +1234,12 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeTagForTask: async (taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeDependentsForTask: async (taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
-            assertParamExists('removeTagForTask', 'taskGid', taskGid)
+            assertParamExists('removeDependentsForTask', 'taskGid', taskGid)
             // verify required parameter 'inlineObject57' is not null or undefined
-            assertParamExists('removeTagForTask', 'inlineObject57', inlineObject57)
-            const localVarPath = `/tasks/{task_gid}/removeTag`
+            assertParamExists('removeDependentsForTask', 'inlineObject57', inlineObject57)
+            const localVarPath = `/tasks/{task_gid}/removeDependents`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1454,7 +1283,181 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  Searching for multiple exact matches of a custom field is not supported.  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
+         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
+         * @summary Remove followers from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject63} inlineObject63 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeFollowerForTask: async (taskGid: string, inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('removeFollowerForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject63' is not null or undefined
+            assertParamExists('removeFollowerForTask', 'inlineObject63', inlineObject63)
+            const localVarPath = `/tasks/{task_gid}/removeFollowers`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject63, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
+         * @summary Remove a project from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject59} inlineObject59 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeProjectForTask: async (taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('removeProjectForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject59' is not null or undefined
+            assertParamExists('removeProjectForTask', 'inlineObject59', inlineObject59)
+            const localVarPath = `/tasks/{task_gid}/removeProject`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject59, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Removes a tag from a task. Returns an empty data block.
+         * @summary Remove a tag from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject61} inlineObject61 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeTagForTask: async (taskGid: string, inlineObject61: InlineObject61, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskGid' is not null or undefined
+            assertParamExists('removeTagForTask', 'taskGid', taskGid)
+            // verify required parameter 'inlineObject61' is not null or undefined
+            assertParamExists('removeTagForTask', 'inlineObject61', inlineObject61)
+            const localVarPath = `/tasks/{task_gid}/removeTag`
+                .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject61, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
          * @summary Search tasks in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1815,17 +1818,17 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
          * @summary Set the parent of a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject53} inlineObject53 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        setParentForTask: async (taskGid: string, inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setParentForTask: async (taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('setParentForTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject49' is not null or undefined
-            assertParamExists('setParentForTask', 'inlineObject49', inlineObject49)
+            // verify required parameter 'inlineObject53' is not null or undefined
+            assertParamExists('setParentForTask', 'inlineObject53', inlineObject53)
             const localVarPath = `/tasks/{task_gid}/setParent`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1862,7 +1865,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject49, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject53, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1873,17 +1876,17 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
          * @summary Update a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject46} inlineObject46 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTask: async (taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTask: async (taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('updateTask', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject46' is not null or undefined
-            assertParamExists('updateTask', 'inlineObject46', inlineObject46)
+            // verify required parameter 'inlineObject50' is not null or undefined
+            assertParamExists('updateTask', 'inlineObject50', inlineObject50)
             const localVarPath = `/tasks/{task_gid}`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1920,7 +1923,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject46, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject50, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1938,50 +1941,8 @@ export const TasksApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TasksApiAxiosParamCreator(configuration)
     return {
         /**
-         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 15 dependencies*.
+         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
          * @summary Set dependencies for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject50} inlineObject50 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addDependenciesForTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addDependenciesForTask(taskGid, inlineObject50, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents*.
-         * @summary Set dependents for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject52} inlineObject52 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addDependentsForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addDependentsForTask(taskGid, inlineObject52, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
-         * @summary Add followers to a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject58} inlineObject58 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addFollowersForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowersForTask(taskGid, inlineObject58, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
-         * @summary Add a project to a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject54} inlineObject54 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1989,13 +1950,13 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addProjectForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectForTask(taskGid, inlineObject54, optPretty, optFields, options);
+        async addDependenciesForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDependenciesForTask(taskGid, inlineObject54, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds a tag to a task. Returns an empty data block.
-         * @summary Add a tag to a task
+         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
+         * @summary Set dependents for a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject56} inlineObject56 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2003,35 +1964,77 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addTagForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addTagForTask(taskGid, inlineObject56, optPretty, optFields, options);
+        async addDependentsForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDependentsForTask(taskGid, inlineObject56, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
+         * @summary Add followers to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject62} inlineObject62 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addFollowersForTask(taskGid: string, inlineObject62: InlineObject62, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowersForTask(taskGid, inlineObject62, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
+         * @summary Add a project to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject58} inlineObject58 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addProjectForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectForTask(taskGid, inlineObject58, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds a tag to a task. Returns an empty data block.
+         * @summary Add a tag to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject60} inlineObject60 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addTagForTask(taskGid: string, inlineObject60: InlineObject60, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTagForTask(taskGid, inlineObject60, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
          * @summary Create a subtask
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject52} inlineObject52 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createSubtaskForTask(taskGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubtaskForTask(taskGid, inlineObject48, optPretty, optFields, options);
+        async createSubtaskForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubtaskForTask(taskGid, inlineObject52, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
          * @summary Create a task
-         * @param {InlineObject45} inlineObject45 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTask(inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTask(inlineObject45, optPretty, optFields, options);
+        async createTask(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTask(inlineObject49, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2051,14 +2054,14 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * Creates and returns a job that will asynchronously handle the duplication.
          * @summary Duplicate a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject51} inlineObject51 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async duplicateTask(taskGid: string, inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateTask(taskGid, inlineObject47, optPretty, optFields, options);
+        async duplicateTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateTask(taskGid, inlineObject51, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2072,7 +2075,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDependenciesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getDependenciesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDependenciesForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2087,7 +2090,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDependentsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getDependentsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDependentsForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2102,7 +2105,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSubtasksForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getSubtasksForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSubtasksForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2126,7 +2129,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {string} [assignee] The assignee to filter tasks on. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
+         * @param {string} [assignee] The assignee to filter tasks on. If searching for unassigned tasks, assignee.any &#x3D; null can be specified. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
          * @param {string} [project] The project to filter tasks on.
          * @param {string} [section] The section to filter tasks on. *Note: Currently, this is only supported in board views.*
          * @param {string} [workspace] The workspace to filter tasks on. *Note: If you specify &#x60;workspace&#x60;, you must also specify the &#x60;assignee&#x60; to filter on.*
@@ -2135,7 +2138,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasks(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, assignee?: string, project?: string, section?: string, workspace?: string, completedSince?: string, modifiedSince?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getTasks(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, assignee?: string, project?: string, section?: string, workspace?: string, completedSince?: string, modifiedSince?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasks(optPretty, optFields, limit, offset, assignee, project, section, workspace, completedSince, modifiedSince, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2143,6 +2146,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
          * @summary Get tasks from a project
          * @param {string} projectGid Globally unique identifier for the project.
+         * @param {string} [completedSince] Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -2150,8 +2154,8 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksForProject(projectGid, optPretty, optFields, limit, offset, options);
+        async getTasksForProject(projectGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksForProject(projectGid, completedSince, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2165,7 +2169,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksForSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getTasksForSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksForSection(sectionGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2180,7 +2184,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksForTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getTasksForTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksForTag(tagGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2196,7 +2200,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksForUserTaskList(userTaskListGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getTasksForUserTaskList(userTaskListGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksForUserTaskList(userTaskListGid, completedSince, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2204,61 +2208,19 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * Unlinks a set of dependencies from this task.
          * @summary Unlink dependencies from a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject51} inlineObject51 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeDependenciesForTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeDependenciesForTask(taskGid, inlineObject51, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Unlinks a set of dependents from this task.
-         * @summary Unlink dependents from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject53} inlineObject53 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeDependentsForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeDependentsForTask(taskGid, inlineObject53, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
-         * @summary Remove followers from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject59} inlineObject59 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeFollowerForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowerForTask(taskGid, inlineObject59, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
-         * @summary Remove a project from a task
-         * @param {string} taskGid The task to operate on.
          * @param {InlineObject55} inlineObject55 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeProjectForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeProjectForTask(taskGid, inlineObject55, optPretty, optFields, options);
+        async removeDependenciesForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeDependenciesForTask(taskGid, inlineObject55, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Removes a tag from a task. Returns an empty data block.
-         * @summary Remove a tag from a task
+         * Unlinks a set of dependents from this task.
+         * @summary Unlink dependents from a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2266,12 +2228,54 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeTagForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeTagForTask(taskGid, inlineObject57, optPretty, optFields, options);
+        async removeDependentsForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeDependentsForTask(taskGid, inlineObject57, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  Searching for multiple exact matches of a custom field is not supported.  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
+         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
+         * @summary Remove followers from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject63} inlineObject63 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeFollowerForTask(taskGid: string, inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowerForTask(taskGid, inlineObject63, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
+         * @summary Remove a project from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject59} inlineObject59 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeProjectForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeProjectForTask(taskGid, inlineObject59, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Removes a tag from a task. Returns an empty data block.
+         * @summary Remove a tag from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject61} inlineObject61 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeTagForTask(taskGid: string, inlineObject61: InlineObject61, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeTagForTask(taskGid, inlineObject61, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
          * @summary Search tasks in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2331,7 +2335,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchTasksForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, text?: string, resourceSubtype?: 'default_task' | 'milestone', assigneeAny?: string, assigneeNot?: string, portfoliosAny?: string, projectsAny?: string, projectsNot?: string, projectsAll?: string, sectionsAny?: string, sectionsNot?: string, sectionsAll?: string, tagsAny?: string, tagsNot?: string, tagsAll?: string, teamsAny?: string, followersNot?: string, createdByAny?: string, createdByNot?: string, assignedByAny?: string, assignedByNot?: string, likedByNot?: string, commentedOnByNot?: string, dueOnBefore?: string, dueOnAfter?: string, dueOn?: string, dueAtBefore?: string, dueAtAfter?: string, startOnBefore?: string, startOnAfter?: string, startOn?: string, createdOnBefore?: string, createdOnAfter?: string, createdOn?: string, createdAtBefore?: string, createdAtAfter?: string, completedOnBefore?: string, completedOnAfter?: string, completedOn?: string, completedAtBefore?: string, completedAtAfter?: string, modifiedOnBefore?: string, modifiedOnAfter?: string, modifiedOn?: string, modifiedAtBefore?: string, modifiedAtAfter?: string, isBlocking?: boolean, isBlocked?: boolean, hasAttachment?: boolean, completed?: boolean, isSubtask?: boolean, sortBy?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at', sortAscending?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async searchTasksForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, text?: string, resourceSubtype?: 'default_task' | 'milestone', assigneeAny?: string, assigneeNot?: string, portfoliosAny?: string, projectsAny?: string, projectsNot?: string, projectsAll?: string, sectionsAny?: string, sectionsNot?: string, sectionsAll?: string, tagsAny?: string, tagsNot?: string, tagsAll?: string, teamsAny?: string, followersNot?: string, createdByAny?: string, createdByNot?: string, assignedByAny?: string, assignedByNot?: string, likedByNot?: string, commentedOnByNot?: string, dueOnBefore?: string, dueOnAfter?: string, dueOn?: string, dueAtBefore?: string, dueAtAfter?: string, startOnBefore?: string, startOnAfter?: string, startOn?: string, createdOnBefore?: string, createdOnAfter?: string, createdOn?: string, createdAtBefore?: string, createdAtAfter?: string, completedOnBefore?: string, completedOnAfter?: string, completedOn?: string, completedAtBefore?: string, completedAtAfter?: string, modifiedOnBefore?: string, modifiedOnAfter?: string, modifiedOn?: string, modifiedAtBefore?: string, modifiedAtAfter?: string, isBlocking?: boolean, isBlocked?: boolean, hasAttachment?: boolean, completed?: boolean, isSubtask?: boolean, sortBy?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at', sortAscending?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchTasksForWorkspace(workspaceGid, optPretty, optFields, text, resourceSubtype, assigneeAny, assigneeNot, portfoliosAny, projectsAny, projectsNot, projectsAll, sectionsAny, sectionsNot, sectionsAll, tagsAny, tagsNot, tagsAll, teamsAny, followersNot, createdByAny, createdByNot, assignedByAny, assignedByNot, likedByNot, commentedOnByNot, dueOnBefore, dueOnAfter, dueOn, dueAtBefore, dueAtAfter, startOnBefore, startOnAfter, startOn, createdOnBefore, createdOnAfter, createdOn, createdAtBefore, createdAtAfter, completedOnBefore, completedOnAfter, completedOn, completedAtBefore, completedAtAfter, modifiedOnBefore, modifiedOnAfter, modifiedOn, modifiedAtBefore, modifiedAtAfter, isBlocking, isBlocked, hasAttachment, completed, isSubtask, sortBy, sortAscending, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2339,28 +2343,28 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
          * @summary Set the parent of a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject53} inlineObject53 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async setParentForTask(taskGid: string, inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setParentForTask(taskGid, inlineObject49, optPretty, optFields, options);
+        async setParentForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setParentForTask(taskGid, inlineObject53, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
          * @summary Update a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject46} inlineObject46 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(taskGid, inlineObject46, optPretty, optFields, options);
+        async updateTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(taskGid, inlineObject50, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2374,47 +2378,8 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = TasksApiFp(configuration)
     return {
         /**
-         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 15 dependencies*.
+         * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
          * @summary Set dependencies for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject50} inlineObject50 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addDependenciesForTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addDependenciesForTask(taskGid, inlineObject50, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents*.
-         * @summary Set dependents for a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject52} inlineObject52 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addDependentsForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20026> {
-            return localVarFp.addDependentsForTask(taskGid, inlineObject52, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
-         * @summary Add followers to a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject58} inlineObject58 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addFollowersForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addFollowersForTask(taskGid, inlineObject58, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
-         * @summary Add a project to a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject54} inlineObject54 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2422,12 +2387,12 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addProjectForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addProjectForTask(taskGid, inlineObject54, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addDependenciesForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addDependenciesForTask(taskGid, inlineObject54, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Adds a tag to a task. Returns an empty data block.
-         * @summary Add a tag to a task
+         * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
+         * @summary Set dependents for a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject56} inlineObject56 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2435,33 +2400,72 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTagForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addTagForTask(taskGid, inlineObject56, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addDependentsForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addDependentsForTask(taskGid, inlineObject56, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
+         * @summary Add followers to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject62} inlineObject62 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFollowersForTask(taskGid: string, inlineObject62: InlineObject62, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.addFollowersForTask(taskGid, inlineObject62, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
+         * @summary Add a project to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject58} inlineObject58 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addProjectForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addProjectForTask(taskGid, inlineObject58, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds a tag to a task. Returns an empty data block.
+         * @summary Add a tag to a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject60} inlineObject60 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addTagForTask(taskGid: string, inlineObject60: InlineObject60, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addTagForTask(taskGid, inlineObject60, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
          * @summary Create a subtask
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject52} inlineObject52 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSubtaskForTask(taskGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.createSubtaskForTask(taskGid, inlineObject48, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createSubtaskForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.createSubtaskForTask(taskGid, inlineObject52, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
          * @summary Create a task
-         * @param {InlineObject45} inlineObject45 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTask(inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.createTask(inlineObject45, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTask(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.createTask(inlineObject49, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.
@@ -2479,14 +2483,14 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * Creates and returns a job that will asynchronously handle the duplication.
          * @summary Duplicate a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject51} inlineObject51 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        duplicateTask(taskGid: string, inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20011> {
-            return localVarFp.duplicateTask(taskGid, inlineObject47, optPretty, optFields, options).then((request) => request(axios, basePath));
+        duplicateTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20012> {
+            return localVarFp.duplicateTask(taskGid, inlineObject51, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact representations of all of the dependencies of a task.
@@ -2499,7 +2503,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDependenciesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getDependenciesForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getDependenciesForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2513,7 +2517,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDependentsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getDependentsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getDependentsForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2527,7 +2531,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubtasksForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getSubtasksForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getSubtasksForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2549,7 +2553,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {string} [assignee] The assignee to filter tasks on. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
+         * @param {string} [assignee] The assignee to filter tasks on. If searching for unassigned tasks, assignee.any &#x3D; null can be specified. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
          * @param {string} [project] The project to filter tasks on.
          * @param {string} [section] The section to filter tasks on. *Note: Currently, this is only supported in board views.*
          * @param {string} [workspace] The workspace to filter tasks on. *Note: If you specify &#x60;workspace&#x60;, you must also specify the &#x60;assignee&#x60; to filter on.*
@@ -2558,13 +2562,14 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasks(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, assignee?: string, project?: string, section?: string, workspace?: string, completedSince?: string, modifiedSince?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getTasks(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, assignee?: string, project?: string, section?: string, workspace?: string, completedSince?: string, modifiedSince?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getTasks(optPretty, optFields, limit, offset, assignee, project, section, workspace, completedSince, modifiedSince, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
          * @summary Get tasks from a project
          * @param {string} projectGid Globally unique identifier for the project.
+         * @param {string} [completedSince] Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -2572,8 +2577,8 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
-            return localVarFp.getTasksForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTasksForProject(projectGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
+            return localVarFp.getTasksForProject(projectGid, completedSince, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * *Board view only*: Returns the compact section records for all tasks within the given section.
@@ -2586,7 +2591,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksForSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getTasksForSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getTasksForSection(sectionGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2600,7 +2605,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksForTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getTasksForTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getTasksForTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2615,51 +2620,12 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksForUserTaskList(userTaskListGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20026> {
+        getTasksForUserTaskList(userTaskListGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getTasksForUserTaskList(userTaskListGid, completedSince, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Unlinks a set of dependencies from this task.
          * @summary Unlink dependencies from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject51} inlineObject51 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeDependenciesForTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20027> {
-            return localVarFp.removeDependenciesForTask(taskGid, inlineObject51, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Unlinks a set of dependents from this task.
-         * @summary Unlink dependents from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject53} inlineObject53 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeDependentsForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20027> {
-            return localVarFp.removeDependentsForTask(taskGid, inlineObject53, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
-         * @summary Remove followers from a task
-         * @param {string} taskGid The task to operate on.
-         * @param {InlineObject59} inlineObject59 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeFollowerForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeFollowerForTask(taskGid, inlineObject59, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
-         * @summary Remove a project from a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject55} inlineObject55 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2667,12 +2633,12 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeProjectForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeProjectForTask(taskGid, inlineObject55, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeDependenciesForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeDependenciesForTask(taskGid, inlineObject55, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Removes a tag from a task. Returns an empty data block.
-         * @summary Remove a tag from a task
+         * Unlinks a set of dependents from this task.
+         * @summary Unlink dependents from a task
          * @param {string} taskGid The task to operate on.
          * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2680,11 +2646,50 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeTagForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeTagForTask(taskGid, inlineObject57, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeDependentsForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeDependentsForTask(taskGid, inlineObject57, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  Searching for multiple exact matches of a custom field is not supported.  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
+         * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
+         * @summary Remove followers from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject63} inlineObject63 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeFollowerForTask(taskGid: string, inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.removeFollowerForTask(taskGid, inlineObject63, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
+         * @summary Remove a project from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject59} inlineObject59 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeProjectForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeProjectForTask(taskGid, inlineObject59, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Removes a tag from a task. Returns an empty data block.
+         * @summary Remove a tag from a task
+         * @param {string} taskGid The task to operate on.
+         * @param {InlineObject61} inlineObject61 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeTagForTask(taskGid: string, inlineObject61: InlineObject61, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeTagForTask(taskGid, inlineObject61, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
          * @summary Search tasks in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2744,34 +2749,34 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchTasksForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, text?: string, resourceSubtype?: 'default_task' | 'milestone', assigneeAny?: string, assigneeNot?: string, portfoliosAny?: string, projectsAny?: string, projectsNot?: string, projectsAll?: string, sectionsAny?: string, sectionsNot?: string, sectionsAll?: string, tagsAny?: string, tagsNot?: string, tagsAll?: string, teamsAny?: string, followersNot?: string, createdByAny?: string, createdByNot?: string, assignedByAny?: string, assignedByNot?: string, likedByNot?: string, commentedOnByNot?: string, dueOnBefore?: string, dueOnAfter?: string, dueOn?: string, dueAtBefore?: string, dueAtAfter?: string, startOnBefore?: string, startOnAfter?: string, startOn?: string, createdOnBefore?: string, createdOnAfter?: string, createdOn?: string, createdAtBefore?: string, createdAtAfter?: string, completedOnBefore?: string, completedOnAfter?: string, completedOn?: string, completedAtBefore?: string, completedAtAfter?: string, modifiedOnBefore?: string, modifiedOnAfter?: string, modifiedOn?: string, modifiedAtBefore?: string, modifiedAtAfter?: string, isBlocking?: boolean, isBlocked?: boolean, hasAttachment?: boolean, completed?: boolean, isSubtask?: boolean, sortBy?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at', sortAscending?: boolean, options?: any): AxiosPromise<InlineResponse20026> {
+        searchTasksForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, text?: string, resourceSubtype?: 'default_task' | 'milestone', assigneeAny?: string, assigneeNot?: string, portfoliosAny?: string, projectsAny?: string, projectsNot?: string, projectsAll?: string, sectionsAny?: string, sectionsNot?: string, sectionsAll?: string, tagsAny?: string, tagsNot?: string, tagsAll?: string, teamsAny?: string, followersNot?: string, createdByAny?: string, createdByNot?: string, assignedByAny?: string, assignedByNot?: string, likedByNot?: string, commentedOnByNot?: string, dueOnBefore?: string, dueOnAfter?: string, dueOn?: string, dueAtBefore?: string, dueAtAfter?: string, startOnBefore?: string, startOnAfter?: string, startOn?: string, createdOnBefore?: string, createdOnAfter?: string, createdOn?: string, createdAtBefore?: string, createdAtAfter?: string, completedOnBefore?: string, completedOnAfter?: string, completedOn?: string, completedAtBefore?: string, completedAtAfter?: string, modifiedOnBefore?: string, modifiedOnAfter?: string, modifiedOn?: string, modifiedAtBefore?: string, modifiedAtAfter?: string, isBlocking?: boolean, isBlocked?: boolean, hasAttachment?: boolean, completed?: boolean, isSubtask?: boolean, sortBy?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at', sortAscending?: boolean, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.searchTasksForWorkspace(workspaceGid, optPretty, optFields, text, resourceSubtype, assigneeAny, assigneeNot, portfoliosAny, projectsAny, projectsNot, projectsAll, sectionsAny, sectionsNot, sectionsAll, tagsAny, tagsNot, tagsAll, teamsAny, followersNot, createdByAny, createdByNot, assignedByAny, assignedByNot, likedByNot, commentedOnByNot, dueOnBefore, dueOnAfter, dueOn, dueAtBefore, dueAtAfter, startOnBefore, startOnAfter, startOn, createdOnBefore, createdOnAfter, createdOn, createdAtBefore, createdAtAfter, completedOnBefore, completedOnAfter, completedOn, completedAtBefore, completedAtAfter, modifiedOnBefore, modifiedOnAfter, modifiedOn, modifiedAtBefore, modifiedAtAfter, isBlocking, isBlocked, hasAttachment, completed, isSubtask, sortBy, sortAscending, options).then((request) => request(axios, basePath));
         },
         /**
          * parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
          * @summary Set the parent of a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject53} inlineObject53 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        setParentForTask(taskGid: string, inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.setParentForTask(taskGid, inlineObject49, optPretty, optFields, options).then((request) => request(axios, basePath));
+        setParentForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.setParentForTask(taskGid, inlineObject53, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
          * @summary Update a task
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject46} inlineObject46 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.updateTask(taskGid, inlineObject46, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.updateTask(taskGid, inlineObject50, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2784,53 +2789,8 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
  */
 export class TasksApi extends BaseAPI {
     /**
-     * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 15 dependencies*.
+     * Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
      * @summary Set dependencies for a task
-     * @param {string} taskGid The task to operate on.
-     * @param {InlineObject50} inlineObject50 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public addDependenciesForTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).addDependenciesForTask(taskGid, inlineObject50, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents*.
-     * @summary Set dependents for a task
-     * @param {string} taskGid The task to operate on.
-     * @param {InlineObject52} inlineObject52 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public addDependentsForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).addDependentsForTask(taskGid, inlineObject52, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
-     * @summary Add followers to a task
-     * @param {string} taskGid The task to operate on.
-     * @param {InlineObject58} inlineObject58 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public addFollowersForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).addFollowersForTask(taskGid, inlineObject58, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
-     * @summary Add a project to a task
      * @param {string} taskGid The task to operate on.
      * @param {InlineObject54} inlineObject54 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2839,13 +2799,13 @@ export class TasksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public addProjectForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).addProjectForTask(taskGid, inlineObject54, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addDependenciesForTask(taskGid: string, inlineObject54: InlineObject54, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).addDependenciesForTask(taskGid, inlineObject54, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Adds a tag to a task. Returns an empty data block.
-     * @summary Add a tag to a task
+     * Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
+     * @summary Set dependents for a task
      * @param {string} taskGid The task to operate on.
      * @param {InlineObject56} inlineObject56 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2854,37 +2814,82 @@ export class TasksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public addTagForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).addTagForTask(taskGid, inlineObject56, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addDependentsForTask(taskGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).addDependentsForTask(taskGid, inlineObject56, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
+     * @summary Add followers to a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject62} inlineObject62 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public addFollowersForTask(taskGid: string, inlineObject62: InlineObject62, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).addFollowersForTask(taskGid, inlineObject62, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  Returns an empty data block.
+     * @summary Add a project to a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject58} inlineObject58 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public addProjectForTask(taskGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).addProjectForTask(taskGid, inlineObject58, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds a tag to a task. Returns an empty data block.
+     * @summary Add a tag to a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject60} inlineObject60 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public addTagForTask(taskGid: string, inlineObject60: InlineObject60, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).addTagForTask(taskGid, inlineObject60, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
      * @summary Create a subtask
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject48} inlineObject48 
+     * @param {InlineObject52} inlineObject52 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public createSubtaskForTask(taskGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).createSubtaskForTask(taskGid, inlineObject48, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createSubtaskForTask(taskGid: string, inlineObject52: InlineObject52, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).createSubtaskForTask(taskGid, inlineObject52, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
      * @summary Create a task
-     * @param {InlineObject45} inlineObject45 
+     * @param {InlineObject49} inlineObject49 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public createTask(inlineObject45: InlineObject45, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).createTask(inlineObject45, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTask(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).createTask(inlineObject49, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2905,15 +2910,15 @@ export class TasksApi extends BaseAPI {
      * Creates and returns a job that will asynchronously handle the duplication.
      * @summary Duplicate a task
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject47} inlineObject47 
+     * @param {InlineObject51} inlineObject51 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public duplicateTask(taskGid: string, inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).duplicateTask(taskGid, inlineObject47, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public duplicateTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).duplicateTask(taskGid, inlineObject51, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2985,7 +2990,7 @@ export class TasksApi extends BaseAPI {
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {string} [assignee] The assignee to filter tasks on. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
+     * @param {string} [assignee] The assignee to filter tasks on. If searching for unassigned tasks, assignee.any &#x3D; null can be specified. *Note: If you specify &#x60;assignee&#x60;, you must also specify the &#x60;workspace&#x60; to filter on.*
      * @param {string} [project] The project to filter tasks on.
      * @param {string} [section] The section to filter tasks on. *Note: Currently, this is only supported in board views.*
      * @param {string} [workspace] The workspace to filter tasks on. *Note: If you specify &#x60;workspace&#x60;, you must also specify the &#x60;assignee&#x60; to filter on.*
@@ -3003,6 +3008,7 @@ export class TasksApi extends BaseAPI {
      * Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
      * @summary Get tasks from a project
      * @param {string} projectGid Globally unique identifier for the project.
+     * @param {string} [completedSince] Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -3011,8 +3017,8 @@ export class TasksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public getTasksForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).getTasksForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTasksForProject(projectGid: string, completedSince?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).getTasksForProject(projectGid, completedSince, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3068,51 +3074,6 @@ export class TasksApi extends BaseAPI {
      * Unlinks a set of dependencies from this task.
      * @summary Unlink dependencies from a task
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject51} inlineObject51 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public removeDependenciesForTask(taskGid: string, inlineObject51: InlineObject51, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).removeDependenciesForTask(taskGid, inlineObject51, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Unlinks a set of dependents from this task.
-     * @summary Unlink dependents from a task
-     * @param {string} taskGid The task to operate on.
-     * @param {InlineObject53} inlineObject53 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public removeDependentsForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).removeDependentsForTask(taskGid, inlineObject53, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
-     * @summary Remove followers from a task
-     * @param {string} taskGid The task to operate on.
-     * @param {InlineObject59} inlineObject59 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TasksApi
-     */
-    public removeFollowerForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).removeFollowerForTask(taskGid, inlineObject59, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
-     * @summary Remove a project from a task
-     * @param {string} taskGid The task to operate on.
      * @param {InlineObject55} inlineObject55 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -3120,13 +3081,13 @@ export class TasksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public removeProjectForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).removeProjectForTask(taskGid, inlineObject55, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeDependenciesForTask(taskGid: string, inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).removeDependenciesForTask(taskGid, inlineObject55, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Removes a tag from a task. Returns an empty data block.
-     * @summary Remove a tag from a task
+     * Unlinks a set of dependents from this task.
+     * @summary Unlink dependents from a task
      * @param {string} taskGid The task to operate on.
      * @param {InlineObject57} inlineObject57 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -3135,12 +3096,57 @@ export class TasksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public removeTagForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).removeTagForTask(taskGid, inlineObject57, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeDependentsForTask(taskGid: string, inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).removeDependentsForTask(taskGid, inlineObject57, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  Searching for multiple exact matches of a custom field is not supported.  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
+     * Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
+     * @summary Remove followers from a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject63} inlineObject63 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public removeFollowerForTask(taskGid: string, inlineObject63: InlineObject63, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).removeFollowerForTask(taskGid, inlineObject63, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
+     * @summary Remove a project from a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject59} inlineObject59 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public removeProjectForTask(taskGid: string, inlineObject59: InlineObject59, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).removeProjectForTask(taskGid, inlineObject59, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Removes a tag from a task. Returns an empty data block.
+     * @summary Remove a tag from a task
+     * @param {string} taskGid The task to operate on.
+     * @param {InlineObject61} inlineObject61 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public removeTagForTask(taskGid: string, inlineObject61: InlineObject61, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).removeTagForTask(taskGid, inlineObject61, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * To mirror the functionality of the Asana web app\'s advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product\'s advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you\'re looking for only tasks in a section, omit the `projects.any` from the request.*
      * @summary Search tasks in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -3209,29 +3215,29 @@ export class TasksApi extends BaseAPI {
      * parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
      * @summary Set the parent of a task
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject49} inlineObject49 
+     * @param {InlineObject53} inlineObject53 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public setParentForTask(taskGid: string, inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).setParentForTask(taskGid, inlineObject49, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public setParentForTask(taskGid: string, inlineObject53: InlineObject53, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).setParentForTask(taskGid, inlineObject53, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
      * @summary Update a task
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject46} inlineObject46 
+     * @param {InlineObject50} inlineObject50 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TasksApi
      */
-    public updateTask(taskGid: string, inlineObject46: InlineObject46, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TasksApiFp(this.configuration).updateTask(taskGid, inlineObject46, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTask(taskGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).updateTask(taskGid, inlineObject50, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

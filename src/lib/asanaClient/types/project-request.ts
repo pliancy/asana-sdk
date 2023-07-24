@@ -13,10 +13,11 @@
  */
 
 
-import { CustomFieldSettingCompact } from './custom-field-setting-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { ProjectBase } from './project-base';
 import { ProjectRequestAllOf } from './project-request-all-of';
 import { ProjectStatusResponse } from './project-status-response';
+import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 

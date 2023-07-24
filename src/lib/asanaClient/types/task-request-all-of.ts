@@ -33,7 +33,7 @@ export interface TaskRequestAllOf {
      */
     'assignee_section'?: string | null;
     /**
-     * An object where each key is a Custom Field gid and each value is an enum gid, string, or number.
+     * An object where each key is a Custom Field GID and each value is an enum GID, string, number, object, or array.
      * @type {{ [key: string]: string; }}
      * @memberof TaskRequestAllOf
      */

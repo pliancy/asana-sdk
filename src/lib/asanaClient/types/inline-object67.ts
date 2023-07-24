@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
+import { TeamRemoveUserRequest } from './team-remove-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
 export interface InlineObject67 {
     /**
      * 
-     * @type {WorkspaceRemoveUserRequest}
+     * @type {TeamRemoveUserRequest}
      * @memberof InlineObject67
      */
-    'data'?: WorkspaceRemoveUserRequest;
+    'data'?: TeamRemoveUserRequest;
 }
 

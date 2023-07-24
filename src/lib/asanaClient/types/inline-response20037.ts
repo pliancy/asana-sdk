@@ -13,7 +13,7 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
+import { TeamCompact } from './team-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AsanaNamedResource } from './asana-named-resource';
 export interface InlineResponse20037 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {Array<TeamCompact>}
      * @memberof InlineResponse20037
      */
-    'data'?: Array<AsanaNamedResource>;
+    'data'?: Array<TeamCompact>;
 }
 

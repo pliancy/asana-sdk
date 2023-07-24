@@ -13,7 +13,6 @@
  */
 
 
-import { EnumOption } from './enum-option';
 import { UserCompact } from './user-compact';
 
 /**
@@ -24,21 +23,15 @@ import { UserCompact } from './user-compact';
 export interface CustomFieldResponseAllOf {
     /**
      * 
-     * @type {EnumOption & object}
-     * @memberof CustomFieldResponseAllOf
-     */
-    'enum_value'?: EnumOption & object;
-    /**
-     * *Conditional*. Only relevant for custom fields of type `multi_enum`. This object is the chosen values of a multi_enum custom field.
-     * @type {Array<EnumOption>}
-     * @memberof CustomFieldResponseAllOf
-     */
-    'multi_enum_values'?: Array<EnumOption>;
-    /**
-     * 
      * @type {UserCompact}
      * @memberof CustomFieldResponseAllOf
      */
     'created_by'?: UserCompact;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `people`. This array of [compact user](/docs/user-compact) objects reflects the values of a `people` custom field.
+     * @type {Array<UserCompact>}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'people_value'?: Array<UserCompact>;
 }
 

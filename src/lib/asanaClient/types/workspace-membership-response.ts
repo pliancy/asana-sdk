@@ -18,6 +18,7 @@ import { UserTaskListCompact } from './user-task-list-compact';
 import { WorkspaceCompact } from './workspace-compact';
 import { WorkspaceMembershipCompact } from './workspace-membership-compact';
 import { WorkspaceMembershipResponseAllOf } from './workspace-membership-response-all-of';
+import { WorkspaceMembershipResponseAllOfVacationDates } from './workspace-membership-response-all-of-vacation-dates';
 
 /**
  * @type WorkspaceMembershipResponse

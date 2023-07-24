@@ -26,5 +26,11 @@ export interface CustomFieldRequestAllOf {
      * @memberof CustomFieldRequestAllOf
      */
     'workspace': string;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `people`. This array of user GIDs reflects the users to be written to a `people` custom field. Note that *write* operations will replace existing users (if any) in the custom field with the users specified in this array.
+     * @type {Array<string>}
+     * @memberof CustomFieldRequestAllOf
+     */
+    'people_value'?: Array<string>;
 }
 

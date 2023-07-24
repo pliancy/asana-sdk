@@ -13,7 +13,7 @@
  */
 
 
-import { UserTaskListCompact } from './user-task-list-compact';
+import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserTaskListCompact } from './user-task-list-compact';
 export interface InlineResponse20034 {
     /**
      * 
-     * @type {UserTaskListCompact}
+     * @type {TeamMembershipCompact}
      * @memberof InlineResponse20034
      */
-    'data'?: UserTaskListCompact;
+    'data'?: TeamMembershipCompact;
 }
 

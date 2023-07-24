@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { TimePeriodResponse } from './time-period-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20038 {
     /**
      * 
-     * @type {Array<WebhookResponse>}
+     * @type {TimePeriodResponse}
      * @memberof InlineResponse20038
      */
-    'data'?: Array<WebhookResponse>;
+    'data'?: TimePeriodResponse;
 }
 

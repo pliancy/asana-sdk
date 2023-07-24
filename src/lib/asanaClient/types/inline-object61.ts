@@ -13,7 +13,7 @@
  */
 
 
-import { TeamAddUserRequest } from './team-add-user-request';
+import { TaskRemoveTagRequest } from './task-remove-tag-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamAddUserRequest } from './team-add-user-request';
 export interface InlineObject61 {
     /**
      * 
-     * @type {TeamAddUserRequest}
+     * @type {TaskRemoveTagRequest}
      * @memberof InlineObject61
      */
-    'data'?: TeamAddUserRequest;
+    'data'?: TaskRemoveTagRequest;
 }
 

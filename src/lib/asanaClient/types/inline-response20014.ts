@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioCompact } from './portfolio-compact';
+import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioCompact } from './portfolio-compact';
 export interface InlineResponse20014 {
     /**
      * 
-     * @type {Array<PortfolioCompact>}
+     * @type {PortfolioMembershipCompact}
      * @memberof InlineResponse20014
      */
-    'data'?: Array<PortfolioCompact>;
+    'data'?: PortfolioMembershipCompact;
 }
 

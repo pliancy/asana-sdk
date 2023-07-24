@@ -13,7 +13,7 @@
  */
 
 
-import { JobCompact } from './job-compact';
+import { GoalCompact } from './goal-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { JobCompact } from './job-compact';
 export interface InlineResponse20011 {
     /**
      * 
-     * @type {JobCompact}
+     * @type {Array<GoalCompact>}
      * @memberof InlineResponse20011
      */
-    'data'?: JobCompact;
+    'data'?: Array<GoalCompact>;
 }
 

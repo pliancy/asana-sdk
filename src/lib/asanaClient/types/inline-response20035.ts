@@ -13,7 +13,7 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserCompact } from './user-compact';
 export interface InlineResponse20035 {
     /**
      * 
-     * @type {Array<UserCompact>}
+     * @type {Array<TeamMembershipCompact>}
      * @memberof InlineResponse20035
      */
-    'data'?: Array<UserCompact>;
+    'data'?: Array<TeamMembershipCompact>;
 }
 

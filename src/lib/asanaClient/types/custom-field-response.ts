@@ -14,6 +14,7 @@
 
 
 import { CustomFieldBase } from './custom-field-base';
+import { CustomFieldCompactAllOfDateValue } from './custom-field-compact-all-of-date-value';
 import { CustomFieldResponseAllOf } from './custom-field-response-all-of';
 import { EnumOption } from './enum-option';
 import { UserCompact } from './user-compact';

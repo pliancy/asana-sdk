@@ -14,6 +14,8 @@
 
 
 import { CustomFieldCompact } from './custom-field-compact';
+import { ProjectBriefCompact } from './project-brief-compact';
+import { ProjectTemplateCompact } from './project-template-compact';
 import { TeamCompact } from './team-compact';
 import { UserCompact } from './user-compact';
 
@@ -29,6 +31,24 @@ export interface ProjectResponseAllOf {
      * @memberof ProjectResponseAllOf
      */
     'custom_fields'?: Array<CustomFieldCompact>;
+    /**
+     * True if the project is currently marked complete, false if not.
+     * @type {boolean}
+     * @memberof ProjectResponseAllOf
+     */
+    'completed'?: boolean;
+    /**
+     * The time at which this project was completed, or null if the project is not completed.
+     * @type {string}
+     * @memberof ProjectResponseAllOf
+     */
+    'completed_at'?: string | null;
+    /**
+     * 
+     * @type {UserCompact}
+     * @memberof ProjectResponseAllOf
+     */
+    'completed_by'?: UserCompact;
     /**
      * Array of users following this project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project.
      * @type {Array<UserCompact>}
@@ -59,6 +79,18 @@ export interface ProjectResponseAllOf {
      * @memberof ProjectResponseAllOf
      */
     'permalink_url'?: string;
+    /**
+     * 
+     * @type {ProjectBriefCompact & object}
+     * @memberof ProjectResponseAllOf
+     */
+    'project_brief'?: ProjectBriefCompact & object;
+    /**
+     * 
+     * @type {ProjectTemplateCompact & object}
+     * @memberof ProjectResponseAllOf
+     */
+    'created_from_template'?: ProjectTemplateCompact & object;
 }
 
 /**

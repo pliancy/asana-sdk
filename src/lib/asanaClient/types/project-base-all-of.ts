@@ -13,8 +13,9 @@
  */
 
 
-import { CustomFieldSettingCompact } from './custom-field-setting-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { ProjectStatusResponse } from './project-status-response';
+import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
@@ -43,17 +44,23 @@ export interface ProjectBaseAllOf {
      */
     'created_at'?: string;
     /**
-     * 
+     * *Deprecated: new integrations should prefer the `current_status_update` resource.*
      * @type {ProjectStatusResponse}
      * @memberof ProjectBaseAllOf
      */
     'current_status'?: ProjectStatusResponse | null;
     /**
-     * Array of Custom Field Settings (in compact form).
-     * @type {Array<CustomFieldSettingCompact>}
+     * The latest `status_update` posted to this project.
+     * @type {StatusUpdateCompact}
      * @memberof ProjectBaseAllOf
      */
-    'custom_field_settings'?: Array<CustomFieldSettingCompact>;
+    'current_status_update'?: StatusUpdateCompact | null;
+    /**
+     * Array of Custom Field Settings (in compact form).
+     * @type {Array<CustomFieldSettingResponse>}
+     * @memberof ProjectBaseAllOf
+     */
+    'custom_field_settings'?: Array<CustomFieldSettingResponse>;
     /**
      * The default view (list, board, calendar, or timeline) of a project.
      * @type {string}
@@ -61,7 +68,7 @@ export interface ProjectBaseAllOf {
      */
     'default_view'?: ProjectBaseAllOfDefaultViewEnum;
     /**
-     * *Deprecated: new integrations should prefer the due_on field.*
+     * *Deprecated: new integrations should prefer the `due_on` field.*
      * @type {string}
      * @memberof ProjectBaseAllOf
      */
@@ -79,7 +86,7 @@ export interface ProjectBaseAllOf {
      */
     'html_notes'?: string;
     /**
-     * [Opt In](/docs/input-output-options). Determines if the project is a template.
+     * [Opt In](/docs/input-output-options). *Deprecated - please use a project template endpoint instead (more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432)).* Determines if the project is a template.
      * @type {boolean}
      * @memberof ProjectBaseAllOf
      */
@@ -103,13 +110,13 @@ export interface ProjectBaseAllOf {
      */
     'notes'?: string;
     /**
-     * True if the project is public to the organization. If false, do not share this project with other users in this organization without explicitly checking to see if they have access.
+     * True if the project is public to its team.
      * @type {boolean}
      * @memberof ProjectBaseAllOf
      */
     'public'?: boolean;
     /**
-     * The day on which work for this project begins, or null if the project has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` or `due_at` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, start_on and due_on cannot be the same date.*
+     * The day on which work for this project begins, or null if the project has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` or `due_at` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, `start_on` and `due_on` cannot be the same date.*
      * @type {string}
      * @memberof ProjectBaseAllOf
      */

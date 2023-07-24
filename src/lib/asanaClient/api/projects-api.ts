@@ -23,10 +23,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject26 } from '../types';
-// @ts-ignore
-import { InlineObject27 } from '../types';
-// @ts-ignore
 import { InlineObject28 } from '../types';
 // @ts-ignore
 import { InlineObject29 } from '../types';
@@ -45,15 +41,21 @@ import { InlineObject35 } from '../types';
 // @ts-ignore
 import { InlineObject36 } from '../types';
 // @ts-ignore
+import { InlineObject37 } from '../types';
+// @ts-ignore
+import { InlineObject38 } from '../types';
+// @ts-ignore
+import { InlineObject39 } from '../types';
+// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20010 } from '../types';
+import { InlineResponse20012 } from '../types';
 // @ts-ignore
-import { InlineResponse20011 } from '../types';
+import { InlineResponse20016 } from '../types';
 // @ts-ignore
-import { InlineResponse20019 } from '../types';
+import { InlineResponse20017 } from '../types';
 // @ts-ignore
-import { InlineResponse20020 } from '../types';
+import { InlineResponse20025 } from '../types';
 // @ts-ignore
 import { InlineResponse2014 } from '../types';
 /**
@@ -66,16 +68,16 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.
          * @summary Add a custom field to a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject31} inlineObject31 
+         * @param {InlineObject33} inlineObject33 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCustomFieldSettingForProject: async (projectGid: string, inlineObject31: InlineObject31, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addCustomFieldSettingForProject: async (projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('addCustomFieldSettingForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject31' is not null or undefined
-            assertParamExists('addCustomFieldSettingForProject', 'inlineObject31', inlineObject31)
+            // verify required parameter 'inlineObject33' is not null or undefined
+            assertParamExists('addCustomFieldSettingForProject', 'inlineObject33', inlineObject33)
             const localVarPath = `/projects/{project_gid}/addCustomFieldSetting`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -108,7 +110,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject31, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject33, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -116,8 +118,66 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\"  notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
+         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
          * @summary Add followers to a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject37} inlineObject37 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFollowersForProject: async (projectGid: string, inlineObject37: InlineObject37, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'projectGid' is not null or undefined
+            assertParamExists('addFollowersForProject', 'projectGid', projectGid)
+            // verify required parameter 'inlineObject37' is not null or undefined
+            assertParamExists('addFollowersForProject', 'inlineObject37', inlineObject37)
+            const localVarPath = `/projects/{project_gid}/addFollowers`
+                .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject37, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
+         * @summary Add users to a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject35} inlineObject35 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -125,12 +185,12 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFollowersForProject: async (projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addMembersForProject: async (projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
-            assertParamExists('addFollowersForProject', 'projectGid', projectGid)
+            assertParamExists('addMembersForProject', 'projectGid', projectGid)
             // verify required parameter 'inlineObject35' is not null or undefined
-            assertParamExists('addFollowersForProject', 'inlineObject35', inlineObject35)
-            const localVarPath = `/projects/{project_gid}/addFollowers`
+            assertParamExists('addMembersForProject', 'inlineObject35', inlineObject35)
+            const localVarPath = `/projects/{project_gid}/addMembers`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -174,75 +234,17 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
-         * @summary Add users to a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject33} inlineObject33 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addMembersForProject: async (projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'projectGid' is not null or undefined
-            assertParamExists('addMembersForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject33' is not null or undefined
-            assertParamExists('addMembersForProject', 'inlineObject33', inlineObject33)
-            const localVarPath = `/projects/{project_gid}/addMembers`
-                .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject33, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProject: async (inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject26' is not null or undefined
-            assertParamExists('createProject', 'inlineObject26', inlineObject26)
+        createProject: async (inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject28' is not null or undefined
+            assertParamExists('createProject', 'inlineObject28', inlineObject28)
             const localVarPath = `/projects`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -278,7 +280,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject26, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject28, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -289,17 +291,17 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * Creates a project shared with the given team.  Returns the full record of the newly created project.
          * @summary Create a project in a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject29} inlineObject29 
+         * @param {InlineObject31} inlineObject31 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectForTeam: async (teamGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProjectForTeam: async (teamGid: string, inlineObject31: InlineObject31, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('createProjectForTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject29' is not null or undefined
-            assertParamExists('createProjectForTeam', 'inlineObject29', inlineObject29)
+            // verify required parameter 'inlineObject31' is not null or undefined
+            assertParamExists('createProjectForTeam', 'inlineObject31', inlineObject31)
             const localVarPath = `/teams/{team_gid}/projects`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -336,7 +338,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject29, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject31, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -347,17 +349,17 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * Returns the compact project records for all projects in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject30} inlineObject30 
+         * @param {InlineObject32} inlineObject32 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectForWorkspace: async (workspaceGid: string, inlineObject30: InlineObject30, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProjectForWorkspace: async (workspaceGid: string, inlineObject32: InlineObject32, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('createProjectForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject30' is not null or undefined
-            assertParamExists('createProjectForWorkspace', 'inlineObject30', inlineObject30)
+            // verify required parameter 'inlineObject32' is not null or undefined
+            assertParamExists('createProjectForWorkspace', 'inlineObject32', inlineObject32)
             const localVarPath = `/workspaces/{workspace_gid}/projects`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -394,7 +396,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject30, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject32, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -459,11 +461,11 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {InlineObject30} [inlineObject30] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        duplicateProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject28?: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        duplicateProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject30?: InlineObject30, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('duplicateProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/duplicate`
@@ -502,7 +504,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject28, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject30, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -893,19 +895,77 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won\'t be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).
+         * @summary Create a project template from a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject39} inlineObject39 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        projectSaveAsTemplate: async (projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'projectGid' is not null or undefined
+            assertParamExists('projectSaveAsTemplate', 'projectGid', projectGid)
+            // verify required parameter 'inlineObject39' is not null or undefined
+            assertParamExists('projectSaveAsTemplate', 'inlineObject39', inlineObject39)
+            const localVarPath = `/projects/{project_gid}/saveAsTemplate`
+                .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject39, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Removes a custom field setting from a project.
          * @summary Remove a custom field from a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject32} inlineObject32 
+         * @param {InlineObject34} inlineObject34 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCustomFieldSettingForProject: async (projectGid: string, inlineObject32: InlineObject32, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeCustomFieldSettingForProject: async (projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('removeCustomFieldSettingForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject32' is not null or undefined
-            assertParamExists('removeCustomFieldSettingForProject', 'inlineObject32', inlineObject32)
+            // verify required parameter 'inlineObject34' is not null or undefined
+            assertParamExists('removeCustomFieldSettingForProject', 'inlineObject34', inlineObject34)
             const localVarPath = `/projects/{project_gid}/removeCustomFieldSetting`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -938,7 +998,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject32, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject34, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -949,18 +1009,76 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * Removes the specified list of users from following the project, this will not affect project membership status. Returns the updated project record.
          * @summary Remove followers from a project
          * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject38} inlineObject38 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeFollowersForProject: async (projectGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'projectGid' is not null or undefined
+            assertParamExists('removeFollowersForProject', 'projectGid', projectGid)
+            // verify required parameter 'inlineObject38' is not null or undefined
+            assertParamExists('removeFollowersForProject', 'inlineObject38', inlineObject38)
+            const localVarPath = `/projects/{project_gid}/removeFollowers`
+                .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject38, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Removes the specified list of users from members of the project. Returns the updated project record.
+         * @summary Remove users from a project
+         * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject36} inlineObject36 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFollowersForProject: async (projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeMembersForProject: async (projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
-            assertParamExists('removeFollowersForProject', 'projectGid', projectGid)
+            assertParamExists('removeMembersForProject', 'projectGid', projectGid)
             // verify required parameter 'inlineObject36' is not null or undefined
-            assertParamExists('removeFollowersForProject', 'inlineObject36', inlineObject36)
-            const localVarPath = `/projects/{project_gid}/removeFollowers`
+            assertParamExists('removeMembersForProject', 'inlineObject36', inlineObject36)
+            const localVarPath = `/projects/{project_gid}/removeMembers`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1004,78 +1122,20 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Removes the specified list of users from members of the project. Returns the updated project record.
-         * @summary Remove users from a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject34} inlineObject34 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeMembersForProject: async (projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'projectGid' is not null or undefined
-            assertParamExists('removeMembersForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject34' is not null or undefined
-            assertParamExists('removeMembersForProject', 'inlineObject34', inlineObject34)
-            const localVarPath = `/projects/{project_gid}/removeMembers`
-                .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject34, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.
          * @summary Update a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProject: async (projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateProject: async (projectGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('updateProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject27' is not null or undefined
-            assertParamExists('updateProject', 'inlineObject27', inlineObject27)
+            // verify required parameter 'inlineObject29' is not null or undefined
+            assertParamExists('updateProject', 'inlineObject29', inlineObject29)
             const localVarPath = `/projects/{project_gid}`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1112,7 +1172,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject27, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject29, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1133,18 +1193,32 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.
          * @summary Add a custom field to a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject31} inlineObject31 
+         * @param {InlineObject33} inlineObject33 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCustomFieldSettingForProject(projectGid: string, inlineObject31: InlineObject31, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addCustomFieldSettingForProject(projectGid, inlineObject31, optPretty, options);
+        async addCustomFieldSettingForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addCustomFieldSettingForProject(projectGid, inlineObject33, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\"  notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
+         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
          * @summary Add followers to a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject37} inlineObject37 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addFollowersForProject(projectGid: string, inlineObject37: InlineObject37, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowersForProject(projectGid, inlineObject37, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
+         * @summary Add users to a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject35} inlineObject35 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1152,63 +1226,49 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addFollowersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addFollowersForProject(projectGid, inlineObject35, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
-         * @summary Add users to a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject33} inlineObject33 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addMembersForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addMembersForProject(projectGid, inlineObject33, optPretty, optFields, options);
+        async addMembersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addMembersForProject(projectGid, inlineObject35, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProject(inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProject(inlineObject26, optPretty, optFields, options);
+        async createProject(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProject(inlineObject28, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a project shared with the given team.  Returns the full record of the newly created project.
          * @summary Create a project in a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject29} inlineObject29 
+         * @param {InlineObject31} inlineObject31 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectForTeam(teamGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectForTeam(teamGid, inlineObject29, optPretty, optFields, options);
+        async createProjectForTeam(teamGid: string, inlineObject31: InlineObject31, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectForTeam(teamGid, inlineObject31, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns the compact project records for all projects in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject30} inlineObject30 
+         * @param {InlineObject32} inlineObject32 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectForWorkspace(workspaceGid: string, inlineObject30: InlineObject30, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectForWorkspace(workspaceGid, inlineObject30, optPretty, optFields, options);
+        async createProjectForWorkspace(workspaceGid: string, inlineObject32: InlineObject32, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectForWorkspace(workspaceGid, inlineObject32, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1230,12 +1290,12 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {InlineObject30} [inlineObject30] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateProject(projectGid, optPretty, optFields, inlineObject28, options);
+        async duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject30?: InlineObject30, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateProject(projectGid, optPretty, optFields, inlineObject30, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1264,7 +1324,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjects(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, team?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getProjects(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, team?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjects(optPretty, optFields, limit, offset, workspace, team, archived, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1279,7 +1339,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getProjectsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsForTask(taskGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1295,7 +1355,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getProjectsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsForTeam(teamGid, optPretty, optFields, limit, offset, archived, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1311,7 +1371,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getProjectsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, archived, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1326,26 +1386,54 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskCountsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20020>> {
+        async getTaskCountsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskCountsForProject(projectGid, optPretty, optFields, limit, offset, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won\'t be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).
+         * @summary Create a project template from a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject39} inlineObject39 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async projectSaveAsTemplate(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.projectSaveAsTemplate(projectGid, inlineObject39, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Removes a custom field setting from a project.
          * @summary Remove a custom field from a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject32} inlineObject32 
+         * @param {InlineObject34} inlineObject34 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeCustomFieldSettingForProject(projectGid: string, inlineObject32: InlineObject32, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCustomFieldSettingForProject(projectGid, inlineObject32, optPretty, options);
+        async removeCustomFieldSettingForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCustomFieldSettingForProject(projectGid, inlineObject34, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Removes the specified list of users from following the project, this will not affect project membership status. Returns the updated project record.
          * @summary Remove followers from a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject38} inlineObject38 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeFollowersForProject(projectGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowersForProject(projectGid, inlineObject38, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Removes the specified list of users from members of the project. Returns the updated project record.
+         * @summary Remove users from a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject36} inlineObject36 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1353,36 +1441,22 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeFollowersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFollowersForProject(projectGid, inlineObject36, optPretty, optFields, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes the specified list of users from members of the project. Returns the updated project record.
-         * @summary Remove users from a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject34} inlineObject34 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async removeMembersForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeMembersForProject(projectGid, inlineObject34, optPretty, optFields, options);
+        async removeMembersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeMembersForProject(projectGid, inlineObject36, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.
          * @summary Update a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProject(projectGid, inlineObject27, optPretty, optFields, options);
+        async updateProject(projectGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2014>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProject(projectGid, inlineObject29, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1399,17 +1473,30 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.
          * @summary Add a custom field to a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject31} inlineObject31 
+         * @param {InlineObject33} inlineObject33 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCustomFieldSettingForProject(projectGid: string, inlineObject31: InlineObject31, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse20019> {
-            return localVarFp.addCustomFieldSettingForProject(projectGid, inlineObject31, optPretty, options).then((request) => request(axios, basePath));
+        addCustomFieldSettingForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse20017> {
+            return localVarFp.addCustomFieldSettingForProject(projectGid, inlineObject33, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\"  notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
+         * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
          * @summary Add followers to a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject37} inlineObject37 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFollowersForProject(projectGid: string, inlineObject37: InlineObject37, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.addFollowersForProject(projectGid, inlineObject37, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
+         * @summary Add users to a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject35} inlineObject35 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1417,59 +1504,46 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFollowersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addFollowersForProject(projectGid, inlineObject35, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
-         * @summary Add users to a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject33} inlineObject33 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addMembersForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addMembersForProject(projectGid, inlineObject33, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addMembersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.addMembersForProject(projectGid, inlineObject35, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProject(inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
-            return localVarFp.createProject(inlineObject26, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProject(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.createProject(inlineObject28, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a project shared with the given team.  Returns the full record of the newly created project.
          * @summary Create a project in a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject29} inlineObject29 
+         * @param {InlineObject31} inlineObject31 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectForTeam(teamGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
-            return localVarFp.createProjectForTeam(teamGid, inlineObject29, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProjectForTeam(teamGid: string, inlineObject31: InlineObject31, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.createProjectForTeam(teamGid, inlineObject31, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact project records for all projects in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.
          * @summary Create a project in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject30} inlineObject30 
+         * @param {InlineObject32} inlineObject32 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectForWorkspace(workspaceGid: string, inlineObject30: InlineObject30, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
-            return localVarFp.createProjectForWorkspace(workspaceGid, inlineObject30, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProjectForWorkspace(workspaceGid: string, inlineObject32: InlineObject32, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.createProjectForWorkspace(workspaceGid, inlineObject32, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing project can be deleted by making a DELETE request on the URL for that project.  Returns an empty data record.
@@ -1489,12 +1563,12 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {InlineObject30} [inlineObject30] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject28?: InlineObject28, options?: any): AxiosPromise<InlineResponse20011> {
-            return localVarFp.duplicateProject(projectGid, optPretty, optFields, inlineObject28, options).then((request) => request(axios, basePath));
+        duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject30?: InlineObject30, options?: any): AxiosPromise<InlineResponse20012> {
+            return localVarFp.duplicateProject(projectGid, optPretty, optFields, inlineObject30, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the complete project record for a single project.
@@ -1521,7 +1595,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjects(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, team?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20010> {
+        getProjects(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, team?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getProjects(optPretty, optFields, limit, offset, workspace, team, archived, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1535,7 +1609,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20010> {
+        getProjectsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getProjectsForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1550,7 +1624,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20010> {
+        getProjectsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getProjectsForTeam(teamGid, optPretty, optFields, limit, offset, archived, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1565,7 +1639,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20010> {
+        getProjectsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, archived?: boolean, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getProjectsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, archived, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1579,24 +1653,50 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskCountsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20020> {
+        getTaskCountsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20025> {
             return localVarFp.getTaskCountsForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won\'t be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).
+         * @summary Create a project template from a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject39} inlineObject39 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        projectSaveAsTemplate(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20012> {
+            return localVarFp.projectSaveAsTemplate(projectGid, inlineObject39, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes a custom field setting from a project.
          * @summary Remove a custom field from a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject32} inlineObject32 
+         * @param {InlineObject34} inlineObject34 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCustomFieldSettingForProject(projectGid: string, inlineObject32: InlineObject32, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeCustomFieldSettingForProject(projectGid, inlineObject32, optPretty, options).then((request) => request(axios, basePath));
+        removeCustomFieldSettingForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeCustomFieldSettingForProject(projectGid, inlineObject34, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes the specified list of users from following the project, this will not affect project membership status. Returns the updated project record.
          * @summary Remove followers from a project
+         * @param {string} projectGid Globally unique identifier for the project.
+         * @param {InlineObject38} inlineObject38 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeFollowersForProject(projectGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.removeFollowersForProject(projectGid, inlineObject38, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Removes the specified list of users from members of the project. Returns the updated project record.
+         * @summary Remove users from a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {InlineObject36} inlineObject36 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1604,34 +1704,21 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFollowersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeFollowersForProject(projectGid, inlineObject36, optPretty, optFields, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes the specified list of users from members of the project. Returns the updated project record.
-         * @summary Remove users from a project
-         * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject34} inlineObject34 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeMembersForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeMembersForProject(projectGid, inlineObject34, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeMembersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.removeMembersForProject(projectGid, inlineObject36, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.
          * @summary Update a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
-            return localVarFp.updateProject(projectGid, inlineObject27, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateProject(projectGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2014> {
+            return localVarFp.updateProject(projectGid, inlineObject29, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1647,19 +1734,34 @@ export class ProjectsApi extends BaseAPI {
      * Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.
      * @summary Add a custom field to a project
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject31} inlineObject31 
+     * @param {InlineObject33} inlineObject33 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public addCustomFieldSettingForProject(projectGid: string, inlineObject31: InlineObject31, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).addCustomFieldSettingForProject(projectGid, inlineObject31, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public addCustomFieldSettingForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).addCustomFieldSettingForProject(projectGid, inlineObject33, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\"  notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
+     * Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation. Returns the updated project record.
      * @summary Add followers to a project
+     * @param {string} projectGid Globally unique identifier for the project.
+     * @param {InlineObject37} inlineObject37 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public addFollowersForProject(projectGid: string, inlineObject37: InlineObject37, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).addFollowersForProject(projectGid, inlineObject37, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
+     * @summary Add users to a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {InlineObject35} inlineObject35 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1668,67 +1770,52 @@ export class ProjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public addFollowersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).addFollowersForProject(projectGid, inlineObject35, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user\'s default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint\'s default behavior of setting \"Tasks added\" notifications to `false`. Returns the updated project record.
-     * @summary Add users to a project
-     * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject33} inlineObject33 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ProjectsApi
-     */
-    public addMembersForProject(projectGid: string, inlineObject33: InlineObject33, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).addMembersForProject(projectGid, inlineObject33, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addMembersForProject(projectGid: string, inlineObject35: InlineObject35, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).addMembersForProject(projectGid, inlineObject35, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.
      * @summary Create a project
-     * @param {InlineObject26} inlineObject26 
+     * @param {InlineObject28} inlineObject28 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public createProject(inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).createProject(inlineObject26, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProject(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).createProject(inlineObject28, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a project shared with the given team.  Returns the full record of the newly created project.
      * @summary Create a project in a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject29} inlineObject29 
+     * @param {InlineObject31} inlineObject31 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public createProjectForTeam(teamGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).createProjectForTeam(teamGid, inlineObject29, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProjectForTeam(teamGid: string, inlineObject31: InlineObject31, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).createProjectForTeam(teamGid, inlineObject31, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the compact project records for all projects in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.
      * @summary Create a project in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject30} inlineObject30 
+     * @param {InlineObject32} inlineObject32 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public createProjectForWorkspace(workspaceGid: string, inlineObject30: InlineObject30, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).createProjectForWorkspace(workspaceGid, inlineObject30, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProjectForWorkspace(workspaceGid: string, inlineObject32: InlineObject32, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).createProjectForWorkspace(workspaceGid, inlineObject32, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1751,13 +1838,13 @@ export class ProjectsApi extends BaseAPI {
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {InlineObject28} [inlineObject28] 
+     * @param {InlineObject30} [inlineObject30] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).duplicateProject(projectGid, optPretty, optFields, inlineObject28, options).then((request) => request(this.axios, this.basePath));
+    public duplicateProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject30?: InlineObject30, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).duplicateProject(projectGid, optPretty, optFields, inlineObject30, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1859,22 +1946,52 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won\'t be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).
+     * @summary Create a project template from a project
+     * @param {string} projectGid Globally unique identifier for the project.
+     * @param {InlineObject39} inlineObject39 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public projectSaveAsTemplate(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).projectSaveAsTemplate(projectGid, inlineObject39, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes a custom field setting from a project.
      * @summary Remove a custom field from a project
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject32} inlineObject32 
+     * @param {InlineObject34} inlineObject34 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public removeCustomFieldSettingForProject(projectGid: string, inlineObject32: InlineObject32, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).removeCustomFieldSettingForProject(projectGid, inlineObject32, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public removeCustomFieldSettingForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).removeCustomFieldSettingForProject(projectGid, inlineObject34, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Removes the specified list of users from following the project, this will not affect project membership status. Returns the updated project record.
      * @summary Remove followers from a project
+     * @param {string} projectGid Globally unique identifier for the project.
+     * @param {InlineObject38} inlineObject38 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public removeFollowersForProject(projectGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).removeFollowersForProject(projectGid, inlineObject38, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Removes the specified list of users from members of the project. Returns the updated project record.
+     * @summary Remove users from a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {InlineObject36} inlineObject36 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -1883,37 +2000,22 @@ export class ProjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public removeFollowersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).removeFollowersForProject(projectGid, inlineObject36, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes the specified list of users from members of the project. Returns the updated project record.
-     * @summary Remove users from a project
-     * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject34} inlineObject34 
-     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ProjectsApi
-     */
-    public removeMembersForProject(projectGid: string, inlineObject34: InlineObject34, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).removeMembersForProject(projectGid, inlineObject34, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeMembersForProject(projectGid: string, inlineObject36: InlineObject36, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).removeMembersForProject(projectGid, inlineObject36, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.
      * @summary Update a project
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject27} inlineObject27 
+     * @param {InlineObject29} inlineObject29 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    public updateProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return ProjectsApiFp(this.configuration).updateProject(projectGid, inlineObject27, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateProject(projectGid: string, inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+        return ProjectsApiFp(this.configuration).updateProject(projectGid, inlineObject29, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

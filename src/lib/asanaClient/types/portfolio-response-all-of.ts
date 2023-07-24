@@ -13,7 +13,9 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
 import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
@@ -42,11 +44,23 @@ export interface PortfolioResponseAllOf {
      */
     'custom_field_settings'?: Array<CustomFieldSettingResponse>;
     /**
+     * The latest `status_update` posted to this portfolio.
+     * @type {StatusUpdateCompact}
+     * @memberof PortfolioResponseAllOf
+     */
+    'current_status_update'?: StatusUpdateCompact | null;
+    /**
      * The localized day on which this portfolio is due. This takes a date with format YYYY-MM-DD.
      * @type {string}
      * @memberof PortfolioResponseAllOf
      */
     'due_on'?: string | null;
+    /**
+     * Array of Custom Fields.
+     * @type {Array<CustomFieldCompact>}
+     * @memberof PortfolioResponseAllOf
+     */
+    'custom_fields'?: Array<CustomFieldCompact>;
     /**
      * 
      * @type {Array<UserCompact>}
@@ -60,7 +74,7 @@ export interface PortfolioResponseAllOf {
      */
     'owner'?: UserCompact;
     /**
-     * The day on which work for this portfolio begins, or null if the portfolio has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, start_on and due_on cannot be the same date.*
+     * The day on which work for this portfolio begins, or null if the portfolio has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, `start_on` and `due_on` cannot be the same date.*
      * @type {string}
      * @memberof PortfolioResponseAllOf
      */
@@ -77,5 +91,11 @@ export interface PortfolioResponseAllOf {
      * @memberof PortfolioResponseAllOf
      */
     'permalink_url'?: string;
+    /**
+     * True if the portfolio is public to its workspace members.
+     * @type {boolean}
+     * @memberof PortfolioResponseAllOf
+     */
+    'public'?: boolean;
 }
 

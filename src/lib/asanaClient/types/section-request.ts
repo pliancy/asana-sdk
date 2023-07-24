@@ -21,12 +21,6 @@
  */
 export interface SectionRequest {
     /**
-     * *Create-Only* The project to create the section in
-     * @type {string}
-     * @memberof SectionRequest
-     */
-    'project': string;
-    /**
      * The text to be displayed as the section name. This cannot be an empty string.
      * @type {string}
      * @memberof SectionRequest

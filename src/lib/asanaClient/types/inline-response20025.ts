@@ -13,7 +13,7 @@
  */
 
 
-import { TagCompact } from './tag-compact';
+import { TaskCountResponse } from './task-count-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagCompact } from './tag-compact';
 export interface InlineResponse20025 {
     /**
      * 
-     * @type {Array<TagCompact>}
+     * @type {TaskCountResponse}
      * @memberof InlineResponse20025
      */
-    'data'?: Array<TagCompact>;
+    'data'?: TaskCountResponse;
 }
 

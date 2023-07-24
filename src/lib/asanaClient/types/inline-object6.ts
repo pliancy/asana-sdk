@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRequest } from './goal-request';
+import { GoalRelationshipRequest } from './goal-relationship-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRequest } from './goal-request';
 export interface InlineObject6 {
     /**
      * 
-     * @type {GoalRequest}
+     * @type {GoalRelationshipRequest}
      * @memberof InlineObject6
      */
-    'data'?: GoalRequest;
+    'data'?: GoalRelationshipRequest;
 }
 

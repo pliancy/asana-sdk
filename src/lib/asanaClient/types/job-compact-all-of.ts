@@ -14,6 +14,7 @@
 
 
 import { ProjectCompact } from './project-compact';
+import { ProjectTemplateCompact } from './project-template-compact';
 import { TaskCompact } from './task-compact';
 
 /**
@@ -29,7 +30,7 @@ export interface JobCompactAllOf {
      */
     'resource_subtype'?: string;
     /**
-     * The current status of this job. The value is one of: `not_started`, `in_progress`, `completed`, or `failed`.
+     * The current status of this job. The value is one of: `not_started`, `in_progress`, `succeeded`, or `failed`.
      * @type {string}
      * @memberof JobCompactAllOf
      */
@@ -46,6 +47,12 @@ export interface JobCompactAllOf {
      * @memberof JobCompactAllOf
      */
     'new_task'?: TaskCompact;
+    /**
+     * 
+     * @type {ProjectTemplateCompact}
+     * @memberof JobCompactAllOf
+     */
+    'new_project_template'?: ProjectTemplateCompact;
 }
 
 /**
@@ -55,7 +62,7 @@ export interface JobCompactAllOf {
 export enum JobCompactAllOfStatusEnum {
     NotStarted = 'not_started',
     InProgress = 'in_progress',
-    Completed = 'completed',
+    Succeeded = 'succeeded',
     Failed = 'failed'
 }
 

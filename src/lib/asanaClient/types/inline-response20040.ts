@@ -13,19 +13,19 @@
  */
 
 
-import { WorkspaceMembershipCompact } from './workspace-membership-compact';
+import { AsanaNamedResource } from './asana-named-resource';
 
 /**
- * 
+ * A generic list of objects, such as those returned by the typeahead search endpoint.
  * @export
  * @interface InlineResponse20040
  */
 export interface InlineResponse20040 {
     /**
      * 
-     * @type {Array<WorkspaceMembershipCompact>}
+     * @type {Array<AsanaNamedResource>}
      * @memberof InlineResponse20040
      */
-    'data'?: Array<WorkspaceMembershipCompact>;
+    'data'?: Array<AsanaNamedResource>;
 }
 

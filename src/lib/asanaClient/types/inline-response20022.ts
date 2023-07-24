@@ -13,7 +13,7 @@
  */
 
 
-import { SectionCompact } from './section-compact';
+import { ProjectStatusCompact } from './project-status-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionCompact } from './section-compact';
 export interface InlineResponse20022 {
     /**
      * 
-     * @type {Array<SectionCompact>}
+     * @type {Array<ProjectStatusCompact>}
      * @memberof InlineResponse20022
      */
-    'data'?: Array<SectionCompact>;
+    'data'?: Array<ProjectStatusCompact>;
 }
 

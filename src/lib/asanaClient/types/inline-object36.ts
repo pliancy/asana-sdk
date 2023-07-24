@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveFollowersRequest } from './remove-followers-request';
+import { RemoveMembersRequest } from './remove-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveFollowersRequest } from './remove-followers-request';
 export interface InlineObject36 {
     /**
      * 
-     * @type {RemoveFollowersRequest}
+     * @type {RemoveMembersRequest}
      * @memberof InlineObject36
      */
-    'data'?: RemoveFollowersRequest;
+    'data'?: RemoveMembersRequest;
 }
 

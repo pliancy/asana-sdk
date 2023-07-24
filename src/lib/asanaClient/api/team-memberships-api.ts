@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20028 } from '../types';
+import { InlineResponse20034 } from '../types';
 // @ts-ignore
-import { InlineResponse20029 } from '../types';
+import { InlineResponse20035 } from '../types';
 /**
  * TeamMembershipsApi - axios parameter creator
  * @export
@@ -307,7 +307,7 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
+        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembership(teamMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -324,7 +324,7 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+        async getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMemberships(optPretty, optFields, limit, offset, team, user, workspace, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -339,7 +339,7 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForTeam(teamGid, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -355,7 +355,7 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForUser(userGid, workspace, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -378,7 +378,7 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20028> {
+        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20034> {
             return localVarFp.getTeamMembership(teamMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -394,7 +394,7 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20029> {
+        getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20035> {
             return localVarFp.getTeamMemberships(optPretty, optFields, limit, offset, team, user, workspace, options).then((request) => request(axios, basePath));
         },
         /**
@@ -408,7 +408,7 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20029> {
+        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
             return localVarFp.getTeamMembershipsForTeam(teamGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -423,7 +423,7 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20029> {
+        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
             return localVarFp.getTeamMembershipsForUser(userGid, workspace, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
     };

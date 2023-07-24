@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveTagRequest } from './task-remove-tag-request';
+import { ModifyDependentsRequest } from './modify-dependents-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveTagRequest } from './task-remove-tag-request';
 export interface InlineObject57 {
     /**
      * 
-     * @type {TaskRemoveTagRequest}
+     * @type {ModifyDependentsRequest}
      * @memberof InlineObject57
      */
-    'data'?: TaskRemoveTagRequest;
+    'data'?: ModifyDependentsRequest;
 }
 

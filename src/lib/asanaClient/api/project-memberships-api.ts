@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20015 } from '../types';
+import { InlineResponse20019 } from '../types';
 // @ts-ignore
-import { InlineResponse20016 } from '../types';
+import { InlineResponse20020 } from '../types';
 /**
  * ProjectMembershipsApi - axios parameter creator
  * @export
@@ -170,7 +170,7 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
+        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembership(projectMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -186,7 +186,7 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20020>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembershipsForProject(projectGid, user, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -209,7 +209,7 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20015> {
+        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20019> {
             return localVarFp.getProjectMembership(projectMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -224,7 +224,7 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20016> {
+        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20020> {
             return localVarFp.getProjectMembershipsForProject(projectGid, user, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
     };

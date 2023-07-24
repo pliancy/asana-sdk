@@ -95,7 +95,7 @@ export class Teams {
         offset?: string,
         options?: any,
     ) {
-        const res = await this.teamsApi.getTeamsForOrganization(
+        const res = await this.teamsApi.getTeamsForWorkspace(
             this.workspaceGid,
             optPretty,
             optFields,
@@ -166,5 +166,26 @@ export class Teams {
             removed,
             errors,
         }
+    }
+
+    async updateTeam(
+        gid: string,
+        data: Partial<TeamRequest>,
+        optPretty?: boolean,
+        optFields?: Array<string>,
+        options?: any,
+    ) {
+        const res = await this.teamsApi.updateTeam(
+            {
+                data: {
+                    ...data,
+                    gid,
+                },
+            },
+            optPretty,
+            optFields,
+            options,
+        )
+        return res.data.data
     }
 }

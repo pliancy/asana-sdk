@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20012 } from '../types';
-// @ts-ignore
 import { InlineResponse20013 } from '../types';
+// @ts-ignore
+import { InlineResponse20014 } from '../types';
 /**
  * PortfolioMembershipsApi - axios parameter creator
  * @export
@@ -243,7 +243,7 @@ export const PortfolioMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPortfolioMembership(portfolioMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
+        async getPortfolioMembership(portfolioMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPortfolioMembership(portfolioMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -260,7 +260,7 @@ export const PortfolioMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPortfolioMemberships(portfolio?: string, workspace?: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+        async getPortfolioMemberships(portfolio?: string, workspace?: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPortfolioMemberships(portfolio, workspace, user, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -276,7 +276,7 @@ export const PortfolioMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPortfolioMembershipsForPortfolio(portfolioGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
+        async getPortfolioMembershipsForPortfolio(portfolioGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPortfolioMembershipsForPortfolio(portfolioGid, user, optPretty, optFields, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -299,7 +299,7 @@ export const PortfolioMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPortfolioMembership(portfolioMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20013> {
+        getPortfolioMembership(portfolioMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20014> {
             return localVarFp.getPortfolioMembership(portfolioMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -315,7 +315,7 @@ export const PortfolioMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPortfolioMemberships(portfolio?: string, workspace?: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20012> {
+        getPortfolioMemberships(portfolio?: string, workspace?: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20013> {
             return localVarFp.getPortfolioMemberships(portfolio, workspace, user, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -330,7 +330,7 @@ export const PortfolioMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPortfolioMembershipsForPortfolio(portfolioGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20012> {
+        getPortfolioMembershipsForPortfolio(portfolioGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20013> {
             return localVarFp.getPortfolioMembershipsForPortfolio(portfolioGid, user, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
         },
     };

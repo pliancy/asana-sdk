@@ -13,7 +13,7 @@
  */
 
 
-import { UserResponse } from './user-response';
+import { TeamResponse } from './team-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserResponse } from './user-response';
 export interface InlineResponse20036 {
     /**
      * 
-     * @type {UserResponse}
+     * @type {TeamResponse}
      * @memberof InlineResponse20036
      */
-    'data'?: UserResponse;
+    'data'?: TeamResponse;
 }
 

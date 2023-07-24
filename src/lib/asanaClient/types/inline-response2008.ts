@@ -13,7 +13,7 @@
  */
 
 
-import { GoalResponse } from './goal-response';
+import { GoalRelationshipResponse } from './goal-relationship-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalResponse } from './goal-response';
 export interface InlineResponse2008 {
     /**
      * 
-     * @type {GoalResponse}
+     * @type {GoalRelationshipResponse}
      * @memberof InlineResponse2008
      */
-    'data'?: GoalResponse;
+    'data'?: GoalRelationshipResponse;
 }
 

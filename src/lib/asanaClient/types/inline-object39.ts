@@ -13,7 +13,7 @@
  */
 
 
-import { SectionTaskInsertRequest } from './section-task-insert-request';
+import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionTaskInsertRequest } from './section-task-insert-request';
 export interface InlineObject39 {
     /**
      * 
-     * @type {SectionTaskInsertRequest}
+     * @type {ProjectSaveAsTemplateRequest}
      * @memberof InlineObject39
      */
-    'data'?: SectionTaskInsertRequest;
+    'data'?: ProjectSaveAsTemplateRequest;
 }
 

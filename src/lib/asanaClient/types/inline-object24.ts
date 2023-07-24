@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveMembersRequest } from './remove-members-request';
+import { ProjectBriefRequest } from './project-brief-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveMembersRequest } from './remove-members-request';
 export interface InlineObject24 {
     /**
      * 
-     * @type {RemoveMembersRequest}
+     * @type {ProjectBriefRequest}
      * @memberof InlineObject24
      */
-    'data'?: RemoveMembersRequest;
+    'data'?: ProjectBriefRequest;
 }
 

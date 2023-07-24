@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceResponse } from './workspace-response';
+import { UserCompact } from './user-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceResponse } from './workspace-response';
 export interface InlineResponse20042 {
     /**
      * 
-     * @type {WorkspaceResponse}
+     * @type {Array<UserCompact>}
      * @memberof InlineResponse20042
      */
-    'data'?: WorkspaceResponse;
+    'data'?: Array<UserCompact>;
 }
 
