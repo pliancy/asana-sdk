@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,6 +23,7 @@ export * from './api/events-api';
 export * from './api/goal-relationships-api';
 export * from './api/goals-api';
 export * from './api/jobs-api';
+export * from './api/memberships-api';
 export * from './api/organization-exports-api';
 export * from './api/portfolio-memberships-api';
 export * from './api/portfolios-api';
@@ -31,6 +32,7 @@ export * from './api/project-memberships-api';
 export * from './api/project-statuses-api';
 export * from './api/project-templates-api';
 export * from './api/projects-api';
+export * from './api/rules-api';
 export * from './api/sections-api';
 export * from './api/status-updates-api';
 export * from './api/stories-api';
@@ -39,6 +41,7 @@ export * from './api/tasks-api';
 export * from './api/team-memberships-api';
 export * from './api/teams-api';
 export * from './api/time-periods-api';
+export * from './api/time-tracking-entries-api';
 export * from './api/typeahead-api';
 export * from './api/user-task-lists-api';
 export * from './api/users-api';

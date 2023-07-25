@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
+import { ProjectStatusBase } from './project-status-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectTemplateInstantiateProjectRequest } from './project-template-ins
 export interface InlineObject27 {
     /**
      * 
-     * @type {ProjectTemplateInstantiateProjectRequest}
+     * @type {ProjectStatusBase}
      * @memberof InlineObject27
      */
-    'data'?: ProjectTemplateInstantiateProjectRequest;
+    'data'?: ProjectStatusBase;
 }
 

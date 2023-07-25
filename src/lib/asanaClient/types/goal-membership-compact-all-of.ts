@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { GoalCompact } from './goal-compact';
+import { MemberCompact } from './member-compact';
 
 /**
  * This object represents a user\'s connection to a goal.
@@ -23,18 +24,24 @@ import { UserCompact } from './user-compact';
 export interface GoalMembershipCompactAllOf {
     /**
      * 
-     * @type {UserCompact}
+     * @type {MemberCompact}
      * @memberof GoalMembershipCompactAllOf
      */
-    'member'?: UserCompact;
+    'member'?: MemberCompact;
     /**
-     * Describes if the user is comment only in goal.
+     * 
+     * @type {GoalCompact}
+     * @memberof GoalMembershipCompactAllOf
+     */
+    'goal'?: GoalCompact;
+    /**
+     * Describes if the member is comment only in goal.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
      */
     'is_commenter'?: boolean;
     /**
-     * Describes if the user is editor in goal.
+     * Describes if the member is editor in goal.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
      */

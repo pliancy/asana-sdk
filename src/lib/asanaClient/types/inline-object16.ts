@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { OrganizationExportRequest } from './organization-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject16 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {OrganizationExportRequest}
      * @memberof InlineObject16
      */
-    'data'?: PortfolioRequest;
+    'data'?: OrganizationExportRequest;
 }
 

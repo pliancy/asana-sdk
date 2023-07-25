@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -50,14 +50,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.
          * @summary Create a custom field
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject1} [inlineObject1] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomField: async (optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject1?: InlineObject1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createCustomField: async (optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject1?: InlineObject1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/custom_fields`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -86,14 +84,6 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -113,14 +103,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Create an enum option
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject3} [inlineObject3] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createEnumOptionForCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject3?: InlineObject3, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createEnumOptionForCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject3?: InlineObject3, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customFieldGid' is not null or undefined
             assertParamExists('createEnumOptionForCustomField', 'customFieldGid', customFieldGid)
             const localVarPath = `/custom_fields/{custom_field_gid}/enum_options`
@@ -152,14 +140,6 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -179,11 +159,10 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Delete a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteCustomField: async (customFieldGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customFieldGid' is not null or undefined
             assertParamExists('deleteCustomField', 'customFieldGid', customFieldGid)
             const localVarPath = `/custom_fields/{custom_field_gid}`
@@ -211,10 +190,6 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -231,11 +206,11 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Get a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customFieldGid' is not null or undefined
             assertParamExists('getCustomField', 'customFieldGid', customFieldGid)
             const localVarPath = `/custom_fields/{custom_field_gid}`
@@ -283,13 +258,13 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Get a workspace\'s custom fields
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomFieldsForWorkspace: async (workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomFieldsForWorkspace: async (workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('getCustomFieldsForWorkspace', 'workspaceGid', workspaceGid)
             const localVarPath = `/workspaces/{workspace_gid}/custom_fields`
@@ -317,16 +292,16 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -345,12 +320,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Reorder a custom field\'s enum
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject4} [inlineObject4] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertEnumOptionForCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject4?: InlineObject4, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        insertEnumOptionForCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject4?: InlineObject4, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customFieldGid' is not null or undefined
             assertParamExists('insertEnumOptionForCustomField', 'customFieldGid', customFieldGid)
             const localVarPath = `/custom_fields/{custom_field_gid}/enum_options/insert`
@@ -401,12 +376,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Update a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject2?: InlineObject2, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCustomField: async (customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject2?: InlineObject2, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customFieldGid' is not null or undefined
             assertParamExists('updateCustomField', 'customFieldGid', customFieldGid)
             const localVarPath = `/custom_fields/{custom_field_gid}`
@@ -457,12 +432,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * @summary Update an enum option
          * @param {string} enumOptionGid Globally unique identifier for the enum option.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject5} [inlineObject5] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEnumOption: async (enumOptionGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject5?: InlineObject5, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateEnumOption: async (enumOptionGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject5?: InlineObject5, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'enumOptionGid' is not null or undefined
             assertParamExists('updateEnumOption', 'enumOptionGid', enumOptionGid)
             const localVarPath = `/enum_options/{enum_option_gid}`
@@ -522,15 +497,13 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.
          * @summary Create a custom field
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject1} [inlineObject1] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomField(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject1?: InlineObject1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomField(optPretty, optFields, limit, offset, inlineObject1, options);
+        async createCustomField(optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject1?: InlineObject1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomField(optPretty, optFields, inlineObject1, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -538,15 +511,13 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Create an enum option
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject3} [inlineObject3] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject3?: InlineObject3, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createEnumOptionForCustomField(customFieldGid, optPretty, optFields, limit, offset, inlineObject3, options);
+        async createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject3?: InlineObject3, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject3, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -554,12 +525,11 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Delete a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomField(customFieldGid, optPretty, optFields, options);
+        async deleteCustomField(customFieldGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomField(customFieldGid, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -567,11 +537,11 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Get a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
+        async getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomField(customFieldGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -580,14 +550,14 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Get a workspace\'s custom fields
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomFieldsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options);
+        async getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomFieldsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -595,12 +565,12 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Reorder a custom field\'s enum
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject4} [inlineObject4] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject4?: InlineObject4, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
+        async insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject4?: InlineObject4, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.insertEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject4, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -609,12 +579,12 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Update a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject2?: InlineObject2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
+        async updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject2?: InlineObject2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCustomField(customFieldGid, optPretty, optFields, inlineObject2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -623,12 +593,12 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * @summary Update an enum option
          * @param {string} enumOptionGid Globally unique identifier for the enum option.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject5} [inlineObject5] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject5?: InlineObject5, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
+        async updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject5?: InlineObject5, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateEnumOption(enumOptionGid, optPretty, optFields, inlineObject5, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -646,53 +616,48 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
          * Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.
          * @summary Create a custom field
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject1} [inlineObject1] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomField(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject1?: InlineObject1, options?: any): AxiosPromise<InlineResponse201> {
-            return localVarFp.createCustomField(optPretty, optFields, limit, offset, inlineObject1, options).then((request) => request(axios, basePath));
+        createCustomField(optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject1?: InlineObject1, options?: any): AxiosPromise<InlineResponse201> {
+            return localVarFp.createCustomField(optPretty, optFields, inlineObject1, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates an enum option and adds it to this custom field’s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field’s list. Locked custom fields can only have enum options added by the user who locked the field. Returns the full record of the newly created enum option.
          * @summary Create an enum option
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject3} [inlineObject3] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject3?: InlineObject3, options?: any): AxiosPromise<InlineResponse2011> {
-            return localVarFp.createEnumOptionForCustomField(customFieldGid, optPretty, optFields, limit, offset, inlineObject3, options).then((request) => request(axios, basePath));
+        createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject3?: InlineObject3, options?: any): AxiosPromise<InlineResponse2011> {
+            return localVarFp.createEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject3, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing custom field can be deleted by making a DELETE request on the URL for that custom field. Locked custom fields can only be deleted by the user who locked the field. Returns an empty data record.
          * @summary Delete a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.deleteCustomField(customFieldGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        deleteCustomField(customFieldGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.deleteCustomField(customFieldGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the complete definition of a custom field’s metadata.  Since custom fields can be defined for one of a number of types, and these types have different data and behaviors, there are fields that are relevant to a particular type. For instance, as noted above, enum_options is only relevant for the enum type and defines the set of choices that the enum could represent. The examples below show some of these type-specific custom field definitions.
          * @summary Get a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse201> {
+        getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, options?: any): AxiosPromise<InlineResponse201> {
             return localVarFp.getCustomField(customFieldGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -700,26 +665,26 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
          * @summary Get a workspace\'s custom fields
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2006> {
-            return localVarFp.getCustomFieldsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>, options?: any): AxiosPromise<InlineResponse2006> {
+            return localVarFp.getCustomFieldsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Moves a particular enum option to be either before or after another specified enum option in the custom field. Locked custom fields can only be reordered by the user who locked the field.
          * @summary Reorder a custom field\'s enum
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject4} [inlineObject4] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject4?: InlineObject4, options?: any): AxiosPromise<InlineResponse2011> {
+        insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject4?: InlineObject4, options?: any): AxiosPromise<InlineResponse2011> {
             return localVarFp.insertEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject4, options).then((request) => request(axios, basePath));
         },
         /**
@@ -727,12 +692,12 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
          * @summary Update a custom field
          * @param {string} customFieldGid Globally unique identifier for the custom field.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject2?: InlineObject2, options?: any): AxiosPromise<InlineResponse201> {
+        updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject2?: InlineObject2, options?: any): AxiosPromise<InlineResponse201> {
             return localVarFp.updateCustomField(customFieldGid, optPretty, optFields, inlineObject2, options).then((request) => request(axios, basePath));
         },
         /**
@@ -740,12 +705,12 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
          * @summary Update an enum option
          * @param {string} enumOptionGid Globally unique identifier for the enum option.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject5} [inlineObject5] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject5?: InlineObject5, options?: any): AxiosPromise<InlineResponse2011> {
+        updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject5?: InlineObject5, options?: any): AxiosPromise<InlineResponse2011> {
             return localVarFp.updateEnumOption(enumOptionGid, optPretty, optFields, inlineObject5, options).then((request) => request(axios, basePath));
         },
     };
@@ -762,16 +727,14 @@ export class CustomFieldsApi extends BaseAPI {
      * Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.
      * @summary Create a custom field
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject1} [inlineObject1] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public createCustomField(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject1?: InlineObject1, options?: AxiosRequestConfig) {
-        return CustomFieldsApiFp(this.configuration).createCustomField(optPretty, optFields, limit, offset, inlineObject1, options).then((request) => request(this.axios, this.basePath));
+    public createCustomField(optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject1?: InlineObject1, options?: AxiosRequestConfig) {
+        return CustomFieldsApiFp(this.configuration).createCustomField(optPretty, optFields, inlineObject1, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -779,16 +742,14 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Create an enum option
      * @param {string} customFieldGid Globally unique identifier for the custom field.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject3} [inlineObject3] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, inlineObject3?: InlineObject3, options?: AxiosRequestConfig) {
-        return CustomFieldsApiFp(this.configuration).createEnumOptionForCustomField(customFieldGid, optPretty, optFields, limit, offset, inlineObject3, options).then((request) => request(this.axios, this.basePath));
+    public createEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject3?: InlineObject3, options?: AxiosRequestConfig) {
+        return CustomFieldsApiFp(this.configuration).createEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject3, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -796,13 +757,12 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Delete a custom field
      * @param {string} customFieldGid Globally unique identifier for the custom field.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public deleteCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return CustomFieldsApiFp(this.configuration).deleteCustomField(customFieldGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public deleteCustomField(customFieldGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return CustomFieldsApiFp(this.configuration).deleteCustomField(customFieldGid, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -810,12 +770,12 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Get a custom field
      * @param {string} customFieldGid Globally unique identifier for the custom field.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, options?: AxiosRequestConfig) {
         return CustomFieldsApiFp(this.configuration).getCustomField(customFieldGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -824,15 +784,15 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Get a workspace\'s custom fields
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return CustomFieldsApiFp(this.configuration).getCustomFieldsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getCustomFieldsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'offset' | 'path' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type' | 'uri'>, options?: AxiosRequestConfig) {
+        return CustomFieldsApiFp(this.configuration).getCustomFieldsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -840,13 +800,13 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Reorder a custom field\'s enum
      * @param {string} customFieldGid Globally unique identifier for the custom field.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject4} [inlineObject4] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject4?: InlineObject4, options?: AxiosRequestConfig) {
+    public insertEnumOptionForCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject4?: InlineObject4, options?: AxiosRequestConfig) {
         return CustomFieldsApiFp(this.configuration).insertEnumOptionForCustomField(customFieldGid, optPretty, optFields, inlineObject4, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -855,13 +815,13 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Update a custom field
      * @param {string} customFieldGid Globally unique identifier for the custom field.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject2} [inlineObject2] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject2?: InlineObject2, options?: AxiosRequestConfig) {
+    public updateCustomField(customFieldGid: string, optPretty?: boolean, optFields?: Array<'asana_created_field' | 'created_by' | 'created_by.name' | 'currency_code' | 'custom_label' | 'custom_label_position' | 'date_value' | 'date_value.date' | 'date_value.date_time' | 'description' | 'display_value' | 'enabled' | 'enum_options' | 'enum_options.color' | 'enum_options.enabled' | 'enum_options.name' | 'enum_value' | 'enum_value.color' | 'enum_value.enabled' | 'enum_value.name' | 'format' | 'has_notifications_enabled' | 'is_formula_field' | 'is_global_to_workspace' | 'is_value_read_only' | 'multi_enum_values' | 'multi_enum_values.color' | 'multi_enum_values.enabled' | 'multi_enum_values.name' | 'name' | 'number_value' | 'people_value' | 'people_value.name' | 'precision' | 'resource_subtype' | 'text_value' | 'type'>, inlineObject2?: InlineObject2, options?: AxiosRequestConfig) {
         return CustomFieldsApiFp(this.configuration).updateCustomField(customFieldGid, optPretty, optFields, inlineObject2, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -870,13 +830,13 @@ export class CustomFieldsApi extends BaseAPI {
      * @summary Update an enum option
      * @param {string} enumOptionGid Globally unique identifier for the enum option.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'color' | 'enabled' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject5} [inlineObject5] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomFieldsApi
      */
-    public updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<string>, inlineObject5?: InlineObject5, options?: AxiosRequestConfig) {
+    public updateEnumOption(enumOptionGid: string, optPretty?: boolean, optFields?: Array<'color' | 'enabled' | 'name'>, inlineObject5?: InlineObject5, options?: AxiosRequestConfig) {
         return CustomFieldsApiFp(this.configuration).updateEnumOption(enumOptionGid, optPretty, optFields, inlineObject5, options).then((request) => request(this.axios, this.basePath));
     }
 }

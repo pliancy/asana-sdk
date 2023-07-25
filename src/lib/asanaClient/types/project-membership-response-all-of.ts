@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,6 +13,7 @@
  */
 
 
+import { MemberCompact } from './member-compact';
 import { ProjectCompact } from './project-compact';
 
 /**
@@ -28,11 +29,29 @@ export interface ProjectMembershipResponseAllOf {
      */
     'project'?: ProjectCompact;
     /**
-     * Whether the user has full access to the project or has comment-only access.
+     * 
+     * @type {MemberCompact}
+     * @memberof ProjectMembershipResponseAllOf
+     */
+    'member'?: MemberCompact;
+    /**
+     * Type of the membership.
+     * @type {string}
+     * @memberof ProjectMembershipResponseAllOf
+     */
+    'resource_type'?: string;
+    /**
+     * Whether the member has full access or comment-only access to the project.
      * @type {string}
      * @memberof ProjectMembershipResponseAllOf
      */
     'write_access'?: ProjectMembershipResponseAllOfWriteAccessEnum;
+    /**
+     * Whether the member has admin, editor, commenter, or viewer access to the project.
+     * @type {string}
+     * @memberof ProjectMembershipResponseAllOf
+     */
+    'access_level'?: ProjectMembershipResponseAllOfAccessLevelEnum;
 }
 
 /**
@@ -42,6 +61,16 @@ export interface ProjectMembershipResponseAllOf {
 export enum ProjectMembershipResponseAllOfWriteAccessEnum {
     FullWrite = 'full_write',
     CommentOnly = 'comment_only'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectMembershipResponseAllOfAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
 }
 
 

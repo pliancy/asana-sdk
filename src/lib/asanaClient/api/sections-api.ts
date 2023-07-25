@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,19 +23,19 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject40 } from '../types';
-// @ts-ignore
-import { InlineObject41 } from '../types';
-// @ts-ignore
 import { InlineObject42 } from '../types';
 // @ts-ignore
 import { InlineObject43 } from '../types';
 // @ts-ignore
+import { InlineObject44 } from '../types';
+// @ts-ignore
+import { InlineObject45 } from '../types';
+// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
+import { InlineResponse20030 } from '../types';
 // @ts-ignore
-import { InlineResponse20027 } from '../types';
+import { InlineResponse20031 } from '../types';
 /**
  * SectionsApi - axios parameter creator
  * @export
@@ -46,17 +46,14 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject44} [inlineObject44] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTaskForSection: async (sectionGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addTaskForSection: async (sectionGid: string, optPretty?: boolean, inlineObject44?: InlineObject44, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('addTaskForSection', 'sectionGid', sectionGid)
-            // verify required parameter 'inlineObject42' is not null or undefined
-            assertParamExists('addTaskForSection', 'inlineObject42', inlineObject42)
             const localVarPath = `/sections/{section_gid}/addTask`
                 .replace(`{${"section_gid"}}`, encodeURIComponent(String(sectionGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -82,10 +79,6 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -93,7 +86,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject42, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject44, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -104,17 +97,15 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject43} [inlineObject43] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSectionForProject: async (projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSectionForProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('createSectionForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject41' is not null or undefined
-            assertParamExists('createSectionForProject', 'inlineObject41', inlineObject41)
             const localVarPath = `/projects/{project_gid}/sections`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -151,7 +142,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject41, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject43, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -163,11 +154,10 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteSection: async (sectionGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('deleteSection', 'sectionGid', sectionGid)
             const localVarPath = `/sections/{section_gid}`
@@ -195,10 +185,6 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -215,11 +201,11 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('getSection', 'sectionGid', sectionGid)
             const localVarPath = `/sections/{section_gid}`
@@ -267,13 +253,13 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSectionsForProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSectionsForProject: async (projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('getSectionsForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/sections`
@@ -301,16 +287,16 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -328,17 +314,14 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject43} inlineObject43 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject45} [inlineObject45] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertSectionForProject: async (projectGid: string, inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        insertSectionForProject: async (projectGid: string, optPretty?: boolean, inlineObject45?: InlineObject45, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('insertSectionForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject43' is not null or undefined
-            assertParamExists('insertSectionForProject', 'inlineObject43', inlineObject43)
             const localVarPath = `/projects/{project_gid}/sections/insert`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -364,10 +347,6 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -375,7 +354,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject43, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject45, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -386,17 +365,15 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject40} inlineObject40 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSection: async (sectionGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('updateSection', 'sectionGid', sectionGid)
-            // verify required parameter 'inlineObject40' is not null or undefined
-            assertParamExists('updateSection', 'inlineObject40', inlineObject40)
             const localVarPath = `/sections/{section_gid}`
                 .replace(`{${"section_gid"}}`, encodeURIComponent(String(sectionGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -433,7 +410,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject40, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject42, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -454,28 +431,27 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject44} [inlineObject44] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addTaskForSection(sectionGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addTaskForSection(sectionGid, inlineObject42, optPretty, optFields, options);
+        async addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject44?: InlineObject44, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTaskForSection(sectionGid, optPretty, inlineObject44, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject43} [inlineObject43] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createSectionForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSectionForProject(projectGid, inlineObject41, optPretty, optFields, options);
+        async createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSectionForProject(projectGid, optPretty, optFields, inlineObject43, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -483,12 +459,11 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSection(sectionGid, optPretty, optFields, options);
+        async deleteSection(sectionGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSection(sectionGid, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -496,11 +471,11 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSection(sectionGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -509,42 +484,41 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSectionsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSectionsForProject(projectGid, optPretty, optFields, limit, offset, options);
+        async getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject43} inlineObject43 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject45} [inlineObject45] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async insertSectionForProject(projectGid: string, inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.insertSectionForProject(projectGid, inlineObject43, optPretty, optFields, options);
+        async insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject45?: InlineObject45, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.insertSectionForProject(projectGid, optPretty, inlineObject45, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject40} inlineObject40 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSection(sectionGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSection(sectionGid, inlineObject40, optPretty, optFields, options);
+        async updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSection(sectionGid, optPretty, optFields, inlineObject42, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -561,50 +535,48 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject44} [inlineObject44] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTaskForSection(sectionGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addTaskForSection(sectionGid, inlineObject42, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject44?: InlineObject44, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addTaskForSection(sectionGid, optPretty, inlineObject44, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject43} [inlineObject43] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSectionForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20026> {
-            return localVarFp.createSectionForProject(projectGid, inlineObject41, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: any): AxiosPromise<InlineResponse20030> {
+            return localVarFp.createSectionForProject(projectGid, optPretty, optFields, inlineObject43, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.deleteSection(sectionGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        deleteSection(sectionGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.deleteSection(sectionGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the complete record for a single section.
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20026> {
+        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.getSection(sectionGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -612,40 +584,39 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSectionsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20027> {
-            return localVarFp.getSectionsForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20031> {
+            return localVarFp.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject43} inlineObject43 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {InlineObject45} [inlineObject45] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertSectionForProject(projectGid: string, inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.insertSectionForProject(projectGid, inlineObject43, optPretty, optFields, options).then((request) => request(axios, basePath));
+        insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject45?: InlineObject45, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.insertSectionForProject(projectGid, optPretty, inlineObject45, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
-         * @param {InlineObject40} inlineObject40 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSection(sectionGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20026> {
-            return localVarFp.updateSection(sectionGid, inlineObject40, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: any): AxiosPromise<InlineResponse20030> {
+            return localVarFp.updateSection(sectionGid, optPretty, optFields, inlineObject42, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -661,30 +632,29 @@ export class SectionsApi extends BaseAPI {
      * Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).
      * @summary Add task to section
      * @param {string} sectionGid The globally unique identifier for the section.
-     * @param {InlineObject42} inlineObject42 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {InlineObject44} [inlineObject44] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public addTaskForSection(sectionGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).addTaskForSection(sectionGid, inlineObject42, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject44?: InlineObject44, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).addTaskForSection(sectionGid, optPretty, inlineObject44, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new section in a project. Returns the full record of the newly created section.
      * @summary Create a section in a project
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject41} inlineObject41 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {InlineObject43} [inlineObject43] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public createSectionForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).createSectionForProject(projectGid, inlineObject41, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).createSectionForProject(projectGid, optPretty, optFields, inlineObject43, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -692,13 +662,12 @@ export class SectionsApi extends BaseAPI {
      * @summary Delete a section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public deleteSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).deleteSection(sectionGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public deleteSection(sectionGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).deleteSection(sectionGid, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -706,12 +675,12 @@ export class SectionsApi extends BaseAPI {
      * @summary Get a section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSection(sectionGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -720,44 +689,43 @@ export class SectionsApi extends BaseAPI {
      * @summary Get sections in a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public getSectionsForProject(projectGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).getSectionsForProject(projectGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
      * @summary Move or Insert sections
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject43} inlineObject43 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {InlineObject45} [inlineObject45] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public insertSectionForProject(projectGid: string, inlineObject43: InlineObject43, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).insertSectionForProject(projectGid, inlineObject43, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject45?: InlineObject45, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).insertSectionForProject(projectGid, optPretty, inlineObject45, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
      * @summary Update a section
      * @param {string} sectionGid The globally unique identifier for the section.
-     * @param {InlineObject40} inlineObject40 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {InlineObject42} [inlineObject42] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public updateSection(sectionGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).updateSection(sectionGid, inlineObject40, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).updateSection(sectionGid, optPretty, optFields, inlineObject42, options).then((request) => request(this.axios, this.basePath));
     }
 }

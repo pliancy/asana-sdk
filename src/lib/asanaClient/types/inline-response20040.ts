@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,19 +13,26 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
+import { NextPage } from './next-page';
+import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
- * A generic list of objects, such as those returned by the typeahead search endpoint.
+ * 
  * @export
  * @interface InlineResponse20040
  */
 export interface InlineResponse20040 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {Array<TeamMembershipCompact>}
      * @memberof InlineResponse20040
      */
-    'data'?: Array<AsanaNamedResource>;
+    'data'?: Array<TeamMembershipCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20040
+     */
+    'next_page'?: NextPage | null;
 }
 

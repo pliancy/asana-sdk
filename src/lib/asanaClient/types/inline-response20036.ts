@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { TeamResponse } from './team-response';
+import { NextPage } from './next-page';
+import { TagCompact } from './tag-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TeamResponse } from './team-response';
 export interface InlineResponse20036 {
     /**
      * 
-     * @type {TeamResponse}
+     * @type {Array<TagCompact>}
      * @memberof InlineResponse20036
      */
-    'data'?: TeamResponse;
+    'data'?: Array<TagCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20036
+     */
+    'next_page'?: NextPage | null;
 }
 

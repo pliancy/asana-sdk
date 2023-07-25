@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -21,34 +21,10 @@
  */
 export interface GoalRequestAllOf {
     /**
-     * *Conditional*. This property is only present when the `workspace` provided is an organization.
-     * @type {string}
-     * @memberof GoalRequestAllOf
-     */
-    'team'?: string | null;
-    /**
-     * The `gid` of a workspace.
-     * @type {string}
-     * @memberof GoalRequestAllOf
-     */
-    'workspace'?: string;
-    /**
      * 
      * @type {Array<string>}
      * @memberof GoalRequestAllOf
      */
     'followers'?: Array<string>;
-    /**
-     * The `gid` of a time period.
-     * @type {string}
-     * @memberof GoalRequestAllOf
-     */
-    'time_period'?: string | null;
-    /**
-     * The `gid` of a user.
-     * @type {string}
-     * @memberof GoalRequestAllOf
-     */
-    'owner'?: string | null;
 }
 

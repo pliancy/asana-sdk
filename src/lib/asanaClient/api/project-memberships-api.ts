@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20019 } from '../types';
+import { InlineResponse20022 } from '../types';
 // @ts-ignore
-import { InlineResponse20020 } from '../types';
+import { InlineResponse20023 } from '../types';
 /**
  * ProjectMembershipsApi - axios parameter creator
  * @export
@@ -37,11 +37,11 @@ export const ProjectMembershipsApiAxiosParamCreator = function (configuration?: 
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembership: async (projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getProjectMembership: async (projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectMembershipGid' is not null or undefined
             assertParamExists('getProjectMembership', 'projectMembershipGid', projectMembershipGid)
             const localVarPath = `/project_memberships/{project_membership_gid}`
@@ -90,13 +90,13 @@ export const ProjectMembershipsApiAxiosParamCreator = function (configuration?: 
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembershipsForProject: async (projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getProjectMembershipsForProject: async (projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('getProjectMembershipsForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/project_memberships`
@@ -128,16 +128,16 @@ export const ProjectMembershipsApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -166,11 +166,11 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20019>> {
+        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembership(projectMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -180,14 +180,14 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20020>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembershipsForProject(projectGid, user, optPretty, optFields, limit, offset, options);
+        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -205,11 +205,11 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20019> {
+        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.getProjectMembership(projectMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -218,14 +218,14 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20020> {
-            return localVarFp.getProjectMembershipsForProject(projectGid, user, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20023> {
+            return localVarFp.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -242,12 +242,12 @@ export class ProjectMembershipsApi extends BaseAPI {
      * @summary Get a project membership
      * @param {string} projectMembershipGid 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectMembershipsApi
      */
-    public getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig) {
         return ProjectMembershipsApiFp(this.configuration).getProjectMembership(projectMembershipGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -257,14 +257,14 @@ export class ProjectMembershipsApi extends BaseAPI {
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectMembershipsApi
      */
-    public getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return ProjectMembershipsApiFp(this.configuration).getProjectMembershipsForProject(projectGid, user, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'path' | 'project' | 'project.name' | 'uri' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig) {
+        return ProjectMembershipsApiFp(this.configuration).getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

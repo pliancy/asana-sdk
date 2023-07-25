@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -37,11 +37,11 @@ export const BatchAPIApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Submit parallel requests
          * @param {InlineObject} inlineObject 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBatchRequest: async (inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createBatchRequest: async (inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'inlineObject' is not null or undefined
             assertParamExists('createBatchRequest', 'inlineObject', inlineObject)
             const localVarPath = `/batch`;
@@ -101,11 +101,11 @@ export const BatchAPIApiFp = function(configuration?: Configuration) {
          * @summary Submit parallel requests
          * @param {InlineObject} inlineObject 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createBatchRequest(inlineObject, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -124,11 +124,11 @@ export const BatchAPIApiFactory = function (configuration?: Configuration, baseP
          * @summary Submit parallel requests
          * @param {InlineObject} inlineObject 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2004> {
+        createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: any): AxiosPromise<InlineResponse2004> {
             return localVarFp.createBatchRequest(inlineObject, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -146,12 +146,12 @@ export class BatchAPIApi extends BaseAPI {
      * @summary Submit parallel requests
      * @param {InlineObject} inlineObject 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BatchAPIApi
      */
-    public createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig) {
         return BatchAPIApiFp(this.configuration).createBatchRequest(inlineObject, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

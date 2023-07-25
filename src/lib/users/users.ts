@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios'
-import { Configuration, ConfigurationParameters, UsersApi } from '../asanaClient'
+import { Configuration, ConfigurationParameters, UserResponse, UsersApi } from '../asanaClient'
 
 export class Users {
     readonly usersApi: UsersApi
@@ -15,7 +15,9 @@ export class Users {
         userGid: string,
         resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user',
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<'name' | 'offset' | 'path' | 'uri'>,
+        limit?: number,
+        offset?: string,
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getFavoritesForUser(
@@ -23,6 +25,8 @@ export class Users {
             resourceType,
             this.workspaceGid,
             optPretty,
+            limit,
+            offset,
             optFields,
             options,
         )
@@ -32,7 +36,7 @@ export class Users {
     async getUser(
         userGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: any,
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUser(userGid, optPretty, optFields, options)
@@ -43,7 +47,7 @@ export class Users {
         nameOfUser: string,
         team?: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options: AxiosRequestConfig = {},
@@ -52,18 +56,34 @@ export class Users {
             this.workspaceGid,
             team,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
-        return res.data.data?.find((e) => e.name === nameOfUser)
+        const { data } = res as never as { data: { data: UserResponse[] } }
+        return data.data?.find((e) => e.name === nameOfUser)
     }
 
     async getUsers(
         team?: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<
+            | 'email'
+            | 'name'
+            | 'offset'
+            | 'path'
+            | 'photo'
+            | 'photo.image_1024x1024'
+            | 'photo.image_128x128'
+            | 'photo.image_21x21'
+            | 'photo.image_27x27'
+            | 'photo.image_36x36'
+            | 'photo.image_60x60'
+            | 'uri'
+            | 'workspaces'
+            | 'workspaces.name'
+        >,
         limit?: number,
         offset?: string,
         options: AxiosRequestConfig = {},
@@ -72,26 +92,29 @@ export class Users {
             this.workspaceGid,
             team,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
-        return res.data.data
+
+        const { data } = res as never as { data: { data: UserResponse[] } }
+
+        return data.data
     }
 
     async getUsersForTeam(
         teamGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         offset?: string,
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUsersForTeam(
             teamGid,
             optPretty,
-            optFields,
             offset,
+            optFields,
             options,
         )
         return res.data.data
@@ -99,15 +122,15 @@ export class Users {
 
     async getUsersForWorkspace(
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         offset?: string,
         options: AxiosRequestConfig = {},
     ) {
         const res = await this.usersApi.getUsersForWorkspace(
             this.workspaceGid,
             optPretty,
-            optFields,
             offset,
+            optFields,
             options,
         )
         return res.data.data

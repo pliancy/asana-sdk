@@ -10,7 +10,7 @@ export class ProjectMemberships {
     async getProjectMembership(
         projectMembershipGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         const res = await this.projectMembershipsApi.getProjectMembership(
@@ -26,7 +26,7 @@ export class ProjectMemberships {
         projectGid: string,
         user?: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -35,9 +35,9 @@ export class ProjectMemberships {
             projectGid,
             user,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data

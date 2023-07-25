@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { TimePeriodBase } from './time-period-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserCompact } from './user-compact';
 export interface InlineResponse20042 {
     /**
      * 
-     * @type {Array<UserCompact>}
+     * @type {TimePeriodBase}
      * @memberof InlineResponse20042
      */
-    'data'?: Array<UserCompact>;
+    'data'?: TimePeriodBase;
 }
 

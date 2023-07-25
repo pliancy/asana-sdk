@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { TaskCountResponse } from './task-count-response';
+import { NextPage } from './next-page';
+import { ProjectStatusCompact } from './project-status-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TaskCountResponse } from './task-count-response';
 export interface InlineResponse20025 {
     /**
      * 
-     * @type {TaskCountResponse}
+     * @type {Array<ProjectStatusCompact>}
      * @memberof InlineResponse20025
      */
-    'data'?: TaskCountResponse;
+    'data'?: Array<ProjectStatusCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20025
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20041 } from '../types';
+import { InlineResponse20046 } from '../types';
 /**
  * UserTaskListsApi - axios parameter creator
  * @export
@@ -35,11 +35,11 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskList: async (userTaskListGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUserTaskList: async (userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userTaskListGid' is not null or undefined
             assertParamExists('getUserTaskList', 'userTaskListGid', userTaskListGid)
             const localVarPath = `/user_task_lists/{user_task_list_gid}`
@@ -88,11 +88,11 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskListForUser: async (userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUserTaskListForUser: async (userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getUserTaskListForUser', 'userGid', userGid)
             // verify required parameter 'workspace' is not null or undefined
@@ -122,12 +122,12 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (workspace !== undefined) {
                 localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -156,11 +156,11 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskList(userTaskListGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -170,11 +170,11 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -193,11 +193,11 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20041> {
+        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.getUserTaskList(userTaskListGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -206,11 +206,11 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20041> {
+        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -228,12 +228,12 @@ export class UserTaskListsApi extends BaseAPI {
      * @summary Get a user task list
      * @param {string} userTaskListGid Globally unique identifier for the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi
      */
-    public getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig) {
         return UserTaskListsApiFp(this.configuration).getUserTaskList(userTaskListGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -243,12 +243,12 @@ export class UserTaskListsApi extends BaseAPI {
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {string} workspace The workspace in which to get the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi
      */
-    public getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig) {
         return UserTaskListsApiFp(this.configuration).getUserTaskListForUser(userGid, workspace, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

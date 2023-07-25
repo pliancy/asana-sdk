@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20038 } from '../types';
+import { InlineResponse20042 } from '../types';
 // @ts-ignore
-import { InlineResponse20039 } from '../types';
+import { InlineResponse20043 } from '../types';
 /**
  * TimePeriodsApi - axios parameter creator
  * @export
@@ -37,11 +37,11 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriod: async (timePeriodGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTimePeriod: async (timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'timePeriodGid' is not null or undefined
             assertParamExists('getTimePeriod', 'timePeriodGid', timePeriodGid)
             const localVarPath = `/time_periods/{time_period_gid}`
@@ -89,15 +89,15 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get time periods
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriods: async (workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, startOn?: string, endOn?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTimePeriods: async (workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspace' is not null or undefined
             assertParamExists('getTimePeriods', 'workspace', workspace)
             const localVarPath = `/time_periods`;
@@ -124,10 +124,6 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -150,6 +146,10 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
 
             if (workspace !== undefined) {
                 localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -178,11 +178,11 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriod(timePeriodGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -191,16 +191,16 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @summary Get time periods
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriods(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, startOn?: string, endOn?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriods(workspace, optPretty, optFields, limit, offset, startOn, endOn, options);
+        async getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -218,11 +218,11 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20038> {
+        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getTimePeriod(timePeriodGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -230,16 +230,16 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @summary Get time periods
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriods(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, startOn?: string, endOn?: string, options?: any): AxiosPromise<InlineResponse20039> {
-            return localVarFp.getTimePeriods(workspace, optPretty, optFields, limit, offset, startOn, endOn, options).then((request) => request(axios, basePath));
+        getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: any): AxiosPromise<InlineResponse20043> {
+            return localVarFp.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -256,12 +256,12 @@ export class TimePeriodsApi extends BaseAPI {
      * @summary Get a time period
      * @param {string} timePeriodGid Globally unique identifier for the time period.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimePeriodsApi
      */
-    public getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig) {
         return TimePeriodsApiFp(this.configuration).getTimePeriod(timePeriodGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -270,16 +270,16 @@ export class TimePeriodsApi extends BaseAPI {
      * @summary Get time periods
      * @param {string} workspace Globally unique identifier for the workspace.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {string} [startOn] ISO 8601 date string
      * @param {string} [endOn] ISO 8601 date string
+     * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimePeriodsApi
      */
-    public getTimePeriods(workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, startOn?: string, endOn?: string, options?: AxiosRequestConfig) {
-        return TimePeriodsApiFp(this.configuration).getTimePeriods(workspace, optPretty, optFields, limit, offset, startOn, endOn, options).then((request) => request(this.axios, this.basePath));
+    public getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig) {
+        return TimePeriodsApiFp(this.configuration).getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

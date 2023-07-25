@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -22,13 +22,13 @@ import { EnumOption } from './enum-option';
  */
 export interface CustomFieldBaseAllOf {
     /**
-     * [Opt In](/docs/input-output-options). The description of the custom field.
+     * [Opt In](/docs/inputoutput-options). The description of the custom field.
      * @type {string}
      * @memberof CustomFieldBaseAllOf
      */
     'description'?: string;
     /**
-     * *Conditional*. Only relevant for custom fields of type `enum`. This array specifies the possible values which an `enum` custom field can adopt. To modify the enum options, refer to [working with enum options](/docs/create-an-enum-option).
+     * *Conditional*. Only relevant for custom fields of type `enum`. This array specifies the possible values which an `enum` custom field can adopt. To modify the enum options, refer to [working with enum options](/reference/createenumoptionforcustomfield).
      * @type {Array<EnumOption>}
      * @memberof CustomFieldBaseAllOf
      */
@@ -92,6 +92,7 @@ export enum CustomFieldBaseAllOfFormatEnum {
     Identifier = 'identifier',
     Percentage = 'percentage',
     Custom = 'custom',
+    Duration = 'duration',
     None = 'none'
 }
 /**
@@ -100,7 +101,8 @@ export enum CustomFieldBaseAllOfFormatEnum {
     */
 export enum CustomFieldBaseAllOfCustomLabelPositionEnum {
     Prefix = 'prefix',
-    Suffix = 'suffix'
+    Suffix = 'suffix',
+    Null = 'null'
 }
 /**
     * @export
@@ -242,7 +244,8 @@ export enum CustomFieldBaseAllOfAsanaCreatedFieldEnum {
     UserName = 'user_name',
     VendorCategory = 'vendor_category',
     VendorType = 'vendor_type',
-    WordCount = 'word_count'
+    WordCount = 'word_count',
+    Null = 'null'
 }
 
 

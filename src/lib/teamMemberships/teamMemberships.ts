@@ -1,5 +1,18 @@
 import { Configuration, ConfigurationParameters, TeamMembershipsApi } from '../asanaClient'
 
+export type TeamMembershipOptionFields = Array<
+    | 'is_admin'
+    | 'is_guest'
+    | 'is_limited_access'
+    | 'offset'
+    | 'path'
+    | 'team'
+    | 'team.name'
+    | 'uri'
+    | 'user'
+    | 'user.name'
+>
+
 export class TeamMemberships {
     readonly teamMembershipsApi: TeamMembershipsApi
     constructor(
@@ -13,7 +26,15 @@ export class TeamMemberships {
     async getTeamMembership(
         teamMembershipGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<
+            | 'is_admin'
+            | 'is_guest'
+            | 'is_limited_access'
+            | 'team'
+            | 'team.name'
+            | 'user'
+            | 'user.name'
+        >,
         options?: any,
     ) {
         const res = await this.teamMembershipsApi.getTeamMembership(
@@ -28,7 +49,7 @@ export class TeamMemberships {
 
     async getTeamMemberships(
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: TeamMembershipOptionFields,
         limit?: number,
         offset?: string,
         team?: string,
@@ -37,12 +58,12 @@ export class TeamMemberships {
     ) {
         const res = await this.teamMembershipsApi.getTeamMemberships(
             optPretty,
-            optFields,
             limit,
             offset,
             team,
             user,
             this.workspaceGid,
+            optFields,
             options,
         )
         return res.data.data
@@ -51,7 +72,7 @@ export class TeamMemberships {
     async getTeamMembershipsForTeam(
         teamGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: TeamMembershipOptionFields,
         limit?: number,
         offset?: string,
         options?: any,
@@ -59,9 +80,9 @@ export class TeamMemberships {
         const res = await this.teamMembershipsApi.getTeamMembershipsForTeam(
             teamGid,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data
@@ -70,7 +91,7 @@ export class TeamMemberships {
     async getTeamMembershipsForUser(
         userGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: TeamMembershipOptionFields,
         limit?: number,
         offset?: string,
         options?: any,
@@ -79,9 +100,9 @@ export class TeamMemberships {
             userGid,
             this.workspaceGid,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data

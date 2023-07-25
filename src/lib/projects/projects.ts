@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios'
 import {
     AddCustomFieldSettingRequest,
     AddFollowersRequest,
@@ -24,7 +25,7 @@ export class Projects {
         projectGid: string,
         data: AddCustomFieldSettingRequest,
         optPretty?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.addCustomFieldSettingForProject(
             projectGid,
@@ -39,8 +40,8 @@ export class Projects {
         projectGid: string,
         data: AddFollowersRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.addFollowersForProject(
             projectGid,
@@ -56,8 +57,8 @@ export class Projects {
         projectGid: string,
         data: AddMembersRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.addMembersForProject(
             projectGid,
@@ -73,8 +74,8 @@ export class Projects {
     async createProject(
         data: ProjectRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.createProject({ data }, optPretty, optFields, options)
         return res.data.data
@@ -84,8 +85,8 @@ export class Projects {
         teamGid: string,
         data: ProjectRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.createProjectForTeam(
             teamGid,
@@ -100,8 +101,8 @@ export class Projects {
     async createProjectForWorkspace(
         data: ProjectRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.createProjectForWorkspace(
             this.workspaceGid,
@@ -113,13 +114,8 @@ export class Projects {
         return res.data.data
     }
 
-    async deleteProject(
-        projectGid: string,
-        optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
-    ) {
-        const res = await this.projectsApi.deleteProject(projectGid, optPretty, optFields, options)
+    async deleteProject(projectGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        const res = await this.projectsApi.deleteProject(projectGid, optPretty, options)
         return res.data.data
     }
 
@@ -127,8 +123,8 @@ export class Projects {
         projectGid: string,
         data: ProjectDuplicateRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.duplicateProject(
             projectGid,
@@ -143,8 +139,8 @@ export class Projects {
     async getProject(
         projectGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProject(projectGid, optPretty, optFields, options)
         return res.data.data
@@ -153,21 +149,21 @@ export class Projects {
     async getProjectByName(
         projectName: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         team?: string,
         archived?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProjects(
             optPretty,
-            optFields,
             limit,
             offset,
             this.workspaceGid,
             team,
             archived,
+            optFields,
             options,
         )
         return res.data.data?.find((e) => e.name === projectName)
@@ -175,21 +171,21 @@ export class Projects {
 
     async getProjects(
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         team?: string,
         archived?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProjects(
             optPretty,
-            optFields,
             limit,
             offset,
             this.workspaceGid,
             team,
             archived,
+            optFields,
             options,
         )
         return res.data.data
@@ -198,17 +194,17 @@ export class Projects {
     async getProjectsForTask(
         taskGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProjectsForTask(
             taskGid,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data
@@ -217,19 +213,19 @@ export class Projects {
     async getProjectsForTeam(
         teamGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         archived?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProjectsForTeam(
             teamGid,
             optPretty,
-            optFields,
             limit,
             offset,
             archived,
+            optFields,
             options,
         )
         return res.data.data
@@ -237,19 +233,19 @@ export class Projects {
 
     async getProjectsForWorkspace(
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         archived?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getProjectsForWorkspace(
             this.workspaceGid,
             optPretty,
-            optFields,
             limit,
             offset,
             archived,
+            optFields,
             options,
         )
         return res.data.data
@@ -258,17 +254,13 @@ export class Projects {
     async getTaskCountsForProject(
         projectGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        limit?: number,
-        offset?: string,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.getTaskCountsForProject(
             projectGid,
             optPretty,
             optFields,
-            limit,
-            offset,
             options,
         )
         return res.data.data
@@ -278,7 +270,7 @@ export class Projects {
         projectGid: string,
         data: RemoveCustomFieldSettingRequest,
         optPretty?: boolean,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.removeCustomFieldSettingForProject(
             projectGid,
@@ -292,8 +284,8 @@ export class Projects {
         projectGid: string,
         userGids: string[],
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.removeFollowersForProject(
             projectGid,
@@ -309,8 +301,8 @@ export class Projects {
         projectGid: string,
         userGids: string[],
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.removeMembersForProject(
             projectGid,
@@ -326,8 +318,8 @@ export class Projects {
         projectGid: string,
         data: ProjectRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<any>,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.projectsApi.updateProject(
             projectGid,

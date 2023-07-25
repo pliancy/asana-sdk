@@ -40,14 +40,12 @@ export class Portfolios {
         portfolioGid: string,
         data: PortfolioAddItemRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.addItemForPortfolio(
             portfolioGid,
             { data },
             optPretty,
-            optFields,
             options,
         )
         return res.data.data
@@ -57,7 +55,7 @@ export class Portfolios {
         portfolioGid: string,
         data: AddMembersRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.addMembersForPortfolio(
@@ -73,7 +71,7 @@ export class Portfolios {
     async createPortfolio(
         data: PortfolioRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         if (!data.workspace) data.workspace = this.workspaceGid
@@ -86,25 +84,15 @@ export class Portfolios {
         return res.data.data
     }
 
-    async deletePortfolio(
-        portfolioGid: string,
-        optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
-    ) {
-        const res = await this.portfoliosApi.deletePortfolio(
-            portfolioGid,
-            optPretty,
-            optFields,
-            options,
-        )
+    async deletePortfolio(portfolioGid: string, optPretty?: boolean, options?: any) {
+        const res = await this.portfoliosApi.deletePortfolio(portfolioGid, optPretty, options)
         return res.data.data
     }
 
     async getItemsForPortfolio(
         portfolioGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -112,9 +100,9 @@ export class Portfolios {
         const res = await this.portfoliosApi.getItemsForPortfolio(
             portfolioGid,
             optPretty,
-            optFields,
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data
@@ -123,7 +111,7 @@ export class Portfolios {
     async getPortfolio(
         portfolioGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.getPortfolio(
@@ -138,18 +126,18 @@ export class Portfolios {
     async getPortfolioByName(
         portfolioName: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
     ) {
         const res = await this.portfoliosApi.getPortfolios(
             this.workspaceGid,
-            this.ownerGid,
             optPretty,
-            optFields,
             limit,
+            this.ownerGid,
             offset,
+            optFields,
             options,
         )
         return res.data.data?.find((e) => e.name === portfolioName)
@@ -157,18 +145,18 @@ export class Portfolios {
 
     async getPortfolios(
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
     ) {
         const res = await this.portfoliosApi.getPortfolios(
             this.workspaceGid,
-            this.ownerGid,
             optPretty,
-            optFields,
             limit,
             offset,
+            this.ownerGid,
+            optFields,
             options,
         )
         return res.data.data
@@ -193,14 +181,12 @@ export class Portfolios {
         portfolioGid: string,
         data: PortfolioRemoveItemRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeItemForPortfolio(
             portfolioGid,
             { data },
             optPretty,
-            optFields,
             options,
         )
 
@@ -211,7 +197,7 @@ export class Portfolios {
         portfolioGid: string,
         userGids: string[],
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         const res = await this.portfoliosApi.removeMembersForPortfolio(
@@ -228,7 +214,7 @@ export class Portfolios {
         portfolioGid: string,
         data: PortfolioRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         if (!data.workspace) data.workspace = this.workspaceGid

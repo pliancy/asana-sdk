@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { SectionTaskInsertRequest } from './section-task-insert-request';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionTaskInsertRequest } from './section-task-insert-request';
 export interface InlineObject42 {
     /**
      * 
-     * @type {SectionTaskInsertRequest}
+     * @type {SectionRequest}
      * @memberof InlineObject42
      */
-    'data'?: SectionTaskInsertRequest;
+    'data'?: SectionRequest;
 }
 

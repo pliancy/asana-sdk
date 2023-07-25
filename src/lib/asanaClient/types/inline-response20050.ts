@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { UserBaseResponse } from './user-base-response';
+import { NextPage } from './next-page';
+import { WebhookResponse } from './webhook-response';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { UserBaseResponse } from './user-base-response';
 export interface InlineResponse20050 {
     /**
      * 
-     * @type {UserBaseResponse}
+     * @type {Array<WebhookResponse>}
      * @memberof InlineResponse20050
      */
-    'data'?: UserBaseResponse;
+    'data'?: Array<WebhookResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20050
+     */
+    'next_page'?: NextPage | null;
 }
 

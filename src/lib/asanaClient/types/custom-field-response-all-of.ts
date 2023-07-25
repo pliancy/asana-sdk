@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -22,13 +22,25 @@ import { UserCompact } from './user-compact';
  */
 export interface CustomFieldResponseAllOf {
     /**
+     * *Conditional*. This flag describes whether a custom field is a formula custom field.
+     * @type {boolean}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'is_formula_field'?: boolean;
+    /**
+     * *Conditional*. This flag describes whether a custom field is read only.
+     * @type {boolean}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'is_value_read_only'?: boolean;
+    /**
      * 
      * @type {UserCompact}
      * @memberof CustomFieldResponseAllOf
      */
     'created_by'?: UserCompact;
     /**
-     * *Conditional*. Only relevant for custom fields of type `people`. This array of [compact user](/docs/user-compact) objects reflects the values of a `people` custom field.
+     * *Conditional*. Only relevant for custom fields of type `people`. This array of [compact user](/reference/users) objects reflects the values of a `people` custom field.
      * @type {Array<UserCompact>}
      * @memberof CustomFieldResponseAllOf
      */

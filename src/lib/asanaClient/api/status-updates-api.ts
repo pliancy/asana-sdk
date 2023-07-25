@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject44 } from '../types';
+import { InlineObject46 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20028 } from '../types';
+import { InlineResponse20032 } from '../types';
 // @ts-ignore
-import { InlineResponse20029 } from '../types';
+import { InlineResponse20033 } from '../types';
 /**
  * StatusUpdatesApi - axios parameter creator
  * @export
@@ -39,17 +39,17 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStatusForObject: async (inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject44' is not null or undefined
-            assertParamExists('createStatusForObject', 'inlineObject44', inlineObject44)
+        createStatusForObject: async (inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject46' is not null or undefined
+            assertParamExists('createStatusForObject', 'inlineObject46', inlineObject46)
             const localVarPath = `/status_updates`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -74,16 +74,16 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -93,7 +93,7 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject44, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject46, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -103,17 +103,16 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStatus: async (statusGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'statusGid' is not null or undefined
-            assertParamExists('deleteStatus', 'statusGid', statusGid)
-            const localVarPath = `/status_updates/{status_gid}`
-                .replace(`{${"status_gid"}}`, encodeURIComponent(String(statusGid)));
+        deleteStatus: async (statusUpdateGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'statusUpdateGid' is not null or undefined
+            assertParamExists('deleteStatus', 'statusUpdateGid', statusUpdateGid)
+            const localVarPath = `/status_updates/{status_update_gid}`
+                .replace(`{${"status_update_gid"}}`, encodeURIComponent(String(statusUpdateGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -137,10 +136,6 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -155,17 +150,17 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatus: async (statusGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'statusGid' is not null or undefined
-            assertParamExists('getStatus', 'statusGid', statusGid)
-            const localVarPath = `/status_updates/{status_gid}`
-                .replace(`{${"status_gid"}}`, encodeURIComponent(String(statusGid)));
+        getStatus: async (statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'statusUpdateGid' is not null or undefined
+            assertParamExists('getStatus', 'statusUpdateGid', statusUpdateGid)
+            const localVarPath = `/status_updates/{status_update_gid}`
+                .replace(`{${"status_update_gid"}}`, encodeURIComponent(String(statusUpdateGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -209,14 +204,14 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get status updates from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a project, portfolio, or goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusesForObject: async (parent: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, createdSince?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStatusesForObject: async (parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'parent' is not null or undefined
             assertParamExists('getStatusesForObject', 'parent', parent)
             const localVarPath = `/status_updates`;
@@ -243,10 +238,6 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -263,6 +254,10 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['created_since'] = (createdSince as any instanceof Date) ?
                     (createdSince as any).toISOString() :
                     createdSince;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -289,42 +284,41 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStatusForObject(inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStatusForObject(inlineObject44, optPretty, optFields, limit, offset, options);
+        async createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createStatusForObject(inlineObject46, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStatus(statusGid, optPretty, optFields, options);
+        async deleteStatus(statusUpdateGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStatus(statusUpdateGid, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatus(statusGid, optPretty, optFields, options);
+        async getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatus(statusUpdateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -332,15 +326,15 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
          * @summary Get status updates from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a project, portfolio, or goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusesForObject(parent: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, createdSince?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusesForObject(parent, optPretty, optFields, limit, offset, createdSince, options);
+        async getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -356,55 +350,54 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject44} inlineObject44 
+         * @param {InlineObject46} inlineObject46 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStatusForObject(inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20028> {
-            return localVarFp.createStatusForObject(inlineObject44, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20032> {
+            return localVarFp.createStatusForObject(inlineObject46, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.deleteStatus(statusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        deleteStatus(statusUpdateGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.deleteStatus(statusUpdateGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusGid The status update to get.
+         * @param {string} statusUpdateGid The status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20028> {
-            return localVarFp.getStatus(statusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20032> {
+            return localVarFp.getStatus(statusUpdateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact status update records for all updates on the object.
          * @summary Get status updates from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a project, portfolio, or goal.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusesForObject(parent: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, createdSince?: string, options?: any): AxiosPromise<InlineResponse20029> {
-            return localVarFp.getStatusesForObject(parent, optPretty, optFields, limit, offset, createdSince, options).then((request) => request(axios, basePath));
+        getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20033> {
+            return localVarFp.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -419,45 +412,44 @@ export class StatusUpdatesApi extends BaseAPI {
     /**
      * Creates a new status update on an object. Returns the full record of the newly created status update.
      * @summary Create a status update
-     * @param {InlineObject44} inlineObject44 
+     * @param {InlineObject46} inlineObject46 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public createStatusForObject(inlineObject44: InlineObject44, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return StatusUpdatesApiFp(this.configuration).createStatusForObject(inlineObject44, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return StatusUpdatesApiFp(this.configuration).createStatusForObject(inlineObject46, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes a specific, existing status update.  Returns an empty data record.
      * @summary Delete a status update
-     * @param {string} statusGid The status update to get.
+     * @param {string} statusUpdateGid The status update to get.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public deleteStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return StatusUpdatesApiFp(this.configuration).deleteStatus(statusGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public deleteStatus(statusUpdateGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return StatusUpdatesApiFp(this.configuration).deleteStatus(statusUpdateGid, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the complete record for a single status update.
      * @summary Get a status update
-     * @param {string} statusGid The status update to get.
+     * @param {string} statusUpdateGid The status update to get.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public getStatus(statusGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return StatusUpdatesApiFp(this.configuration).getStatus(statusGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return StatusUpdatesApiFp(this.configuration).getStatus(statusUpdateGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -465,15 +457,15 @@ export class StatusUpdatesApi extends BaseAPI {
      * @summary Get status updates from an object
      * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a project, portfolio, or goal.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {string} [createdSince] Only return statuses that have been created since the given time.
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public getStatusesForObject(parent: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, createdSince?: string, options?: AxiosRequestConfig) {
-        return StatusUpdatesApiFp(this.configuration).getStatusesForObject(parent, optPretty, optFields, limit, offset, createdSince, options).then((request) => request(this.axios, this.basePath));
+    public getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig) {
+        return StatusUpdatesApiFp(this.configuration).getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

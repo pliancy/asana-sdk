@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject47 } from '../types';
+import { InlineObject49 } from '../types';
 // @ts-ignore
-import { InlineObject48 } from '../types';
+import { InlineObject50 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20032 } from '../types';
+import { InlineResponse20036 } from '../types';
 // @ts-ignore
 import { InlineResponse2015 } from '../types';
 /**
@@ -41,15 +41,15 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag: async (inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject47' is not null or undefined
-            assertParamExists('createTag', 'inlineObject47', inlineObject47)
+        createTag: async (inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject49' is not null or undefined
+            assertParamExists('createTag', 'inlineObject49', inlineObject49)
             const localVarPath = `/tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject47, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject49, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -96,17 +96,17 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace: async (workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createTagForWorkspace: async (workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('createTagForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject48' is not null or undefined
-            assertParamExists('createTagForWorkspace', 'inlineObject48', inlineObject48)
+            // verify required parameter 'inlineObject50' is not null or undefined
+            assertParamExists('createTagForWorkspace', 'inlineObject50', inlineObject50)
             const localVarPath = `/workspaces/{workspace_gid}/tags`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -143,7 +143,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject48, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject50, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -155,13 +155,10 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Delete a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteTag: async (tagGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tagGid' is not null or undefined
             assertParamExists('deleteTag', 'tagGid', tagGid)
             const localVarPath = `/tags/{tag_gid}`
@@ -189,18 +186,6 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -217,13 +202,11 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tagGid' is not null or undefined
             assertParamExists('getTag', 'tagGid', tagGid)
             const localVarPath = `/tags/{tag_gid}`
@@ -255,14 +238,6 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -278,14 +253,14 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [workspace] The workspace to filter tags on.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTags: async (optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTags: async (optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -310,10 +285,6 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -324,6 +295,10 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (workspace !== undefined) {
                 localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -342,13 +317,13 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForTask: async (taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTagsForTask: async (taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('getTagsForTask', 'taskGid', taskGid)
             const localVarPath = `/tasks/{task_gid}/tags`
@@ -376,16 +351,16 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -404,13 +379,13 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForWorkspace: async (workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTagsForWorkspace: async (workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('getTagsForWorkspace', 'workspaceGid', workspaceGid)
             const localVarPath = `/workspaces/{workspace_gid}/tags`
@@ -438,16 +413,16 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -466,13 +441,11 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tagGid' is not null or undefined
             assertParamExists('updateTag', 'tagGid', tagGid)
             const localVarPath = `/tags/{tag_gid}`
@@ -504,14 +477,6 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -536,28 +501,28 @@ export const TagsApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject47, optPretty, optFields, options);
+        async createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject49, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject48>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options);
+        async createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject50>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -565,14 +530,11 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @summary Delete a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTag(tagGid, optPretty, optFields, limit, offset, options);
+        async deleteTag(tagGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTag(tagGid, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -580,29 +542,27 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTag(tagGid, optPretty, optFields, limit, offset, options);
+        async getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTag(tagGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [workspace] The workspace to filter tags on.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTags(optPretty, optFields, limit, offset, workspace, options);
+        async getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTags(optPretty, limit, offset, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -610,14 +570,14 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForTask(taskGid, optPretty, optFields, limit, offset, options);
+        async getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -625,14 +585,14 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options);
+        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -640,14 +600,12 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTag(tagGid, optPretty, optFields, limit, offset, options);
+        async updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2015>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTag(tagGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -663,111 +621,104 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject47} inlineObject47 
+         * @param {InlineObject49} inlineObject49 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2015> {
-            return localVarFp.createTag(inlineObject47, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2015> {
+            return localVarFp.createTag(inlineObject49, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject48} inlineObject48 
+         * @param {InlineObject50} inlineObject50 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineObject48> {
-            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineObject50> {
+            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing tag can be deleted by making a DELETE request on the URL for that tag.  Returns an empty data record.
          * @summary Delete a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.deleteTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        deleteTag(tagGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.deleteTag(tagGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the complete tag record for a single tag.
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2015> {
-            return localVarFp.getTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2015> {
+            return localVarFp.getTag(tagGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [workspace] The workspace to filter tags on.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20032> {
-            return localVarFp.getTags(optPretty, optFields, limit, offset, workspace, options).then((request) => request(axios, basePath));
+        getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+            return localVarFp.getTags(optPretty, limit, offset, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a compact representation of all of the tags the task has.
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20032> {
-            return localVarFp.getTagsForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+            return localVarFp.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20032> {
-            return localVarFp.getTagsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+            return localVarFp.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2015> {
-            return localVarFp.updateTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2015> {
+            return localVarFp.updateTag(tagGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -782,30 +733,30 @@ export class TagsApi extends BaseAPI {
     /**
      * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag
-     * @param {InlineObject47} inlineObject47 
+     * @param {InlineObject49} inlineObject49 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTag(inlineObject47: InlineObject47, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTag(inlineObject47, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTag(inlineObject49, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject48} inlineObject48 
+     * @param {InlineObject50} inlineObject50 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTagForWorkspace(workspaceGid: string, inlineObject48: InlineObject48, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject48, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -813,15 +764,12 @@ export class TagsApi extends BaseAPI {
      * @summary Delete a tag
      * @param {string} tagGid Globally unique identifier for the tag.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public deleteTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).deleteTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public deleteTag(tagGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).deleteTag(tagGid, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -829,31 +777,29 @@ export class TagsApi extends BaseAPI {
      * @summary Get a tag
      * @param {string} tagGid Globally unique identifier for the tag.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public getTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).getTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).getTag(tagGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
      * @summary Get multiple tags
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {string} [workspace] The workspace to filter tags on.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public getTags(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, workspace?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).getTags(optPretty, optFields, limit, offset, workspace, options).then((request) => request(this.axios, this.basePath));
+    public getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).getTags(optPretty, limit, offset, workspace, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -861,15 +807,15 @@ export class TagsApi extends BaseAPI {
      * @summary Get a task\'s tags
      * @param {string} taskGid The task to operate on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public getTagsForTask(taskGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).getTagsForTask(taskGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).getTagsForTask(taskGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -877,15 +823,15 @@ export class TagsApi extends BaseAPI {
      * @summary Get tags in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).getTagsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -893,14 +839,12 @@ export class TagsApi extends BaseAPI {
      * @summary Update a tag
      * @param {string} tagGid Globally unique identifier for the tag.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).updateTag(tagGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).updateTag(tagGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

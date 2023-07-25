@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20034 } from '../types';
+import { InlineResponse20039 } from '../types';
 // @ts-ignore
-import { InlineResponse20035 } from '../types';
+import { InlineResponse20040 } from '../types';
 /**
  * TeamMembershipsApi - axios parameter creator
  * @export
@@ -37,11 +37,11 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembership: async (teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamMembership: async (teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamMembershipGid' is not null or undefined
             assertParamExists('getTeamMembership', 'teamMembershipGid', teamMembershipGid)
             const localVarPath = `/team_memberships/{team_membership_gid}`
@@ -88,16 +88,16 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * Returns compact team membership records.
          * @summary Get team memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMemberships: async (optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamMemberships: async (optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/team_memberships`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -122,10 +122,6 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -146,6 +142,10 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['workspace'] = workspace;
             }
 
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -162,13 +162,13 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @summary Get memberships from a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForTeam: async (teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamMembershipsForTeam: async (teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('getTeamMembershipsForTeam', 'teamGid', teamGid)
             const localVarPath = `/teams/{team_gid}/team_memberships`
@@ -196,16 +196,16 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -225,13 +225,13 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForUser: async (userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamMembershipsForUser: async (userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getTeamMembershipsForUser', 'userGid', userGid)
             // verify required parameter 'workspace' is not null or undefined
@@ -261,10 +261,6 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -275,6 +271,10 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
 
             if (workspace !== undefined) {
                 localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -303,11 +303,11 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembership(teamMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -315,17 +315,17 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * Returns compact team membership records.
          * @summary Get team memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMemberships(optPretty, optFields, limit, offset, team, user, workspace, options);
+        async getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMemberships(optPretty, limit, offset, team, user, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -333,14 +333,14 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @summary Get memberships from a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForTeam(teamGid, optPretty, optFields, limit, offset, options);
+        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForTeam(teamGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -349,14 +349,14 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForUser(userGid, workspace, optPretty, optFields, limit, offset, options);
+        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForUser(userGid, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -374,42 +374,42 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20034> {
+        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.getTeamMembership(teamMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns compact team membership records.
          * @summary Get team memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: any): AxiosPromise<InlineResponse20035> {
-            return localVarFp.getTeamMemberships(optPretty, optFields, limit, offset, team, user, workspace, options).then((request) => request(axios, basePath));
+        getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20040> {
+            return localVarFp.getTeamMemberships(optPretty, limit, offset, team, user, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact team memberships for the team.
          * @summary Get memberships from a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
-            return localVarFp.getTeamMembershipsForTeam(teamGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20040> {
+            return localVarFp.getTeamMembershipsForTeam(teamGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact team membership records for the user.
@@ -417,14 +417,14 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20035> {
-            return localVarFp.getTeamMembershipsForUser(userGid, workspace, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20040> {
+            return localVarFp.getTeamMembershipsForUser(userGid, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -441,12 +441,12 @@ export class TeamMembershipsApi extends BaseAPI {
      * @summary Get a team membership
      * @param {string} teamMembershipGid 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
      */
-    public getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
         return TeamMembershipsApiFp(this.configuration).getTeamMembership(teamMembershipGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -454,18 +454,18 @@ export class TeamMembershipsApi extends BaseAPI {
      * Returns compact team membership records.
      * @summary Get team memberships
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {string} [team] Globally unique identifier for the team.
      * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
      * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
      */
-    public getTeamMemberships(optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, options?: AxiosRequestConfig) {
-        return TeamMembershipsApiFp(this.configuration).getTeamMemberships(optPretty, optFields, limit, offset, team, user, workspace, options).then((request) => request(this.axios, this.basePath));
+    public getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return TeamMembershipsApiFp(this.configuration).getTeamMemberships(optPretty, limit, offset, team, user, workspace, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -473,15 +473,15 @@ export class TeamMembershipsApi extends BaseAPI {
      * @summary Get memberships from a team
      * @param {string} teamGid Globally unique identifier for the team.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
      */
-    public getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamMembershipsApiFp(this.configuration).getTeamMembershipsForTeam(teamGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return TeamMembershipsApiFp(this.configuration).getTeamMembershipsForTeam(teamGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -490,14 +490,14 @@ export class TeamMembershipsApi extends BaseAPI {
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {string} workspace Globally unique identifier for the workspace.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
      */
-    public getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamMembershipsApiFp(this.configuration).getTeamMembershipsForUser(userGid, workspace, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return TeamMembershipsApiFp(this.configuration).getTeamMembershipsForUser(userGid, workspace, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

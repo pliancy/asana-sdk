@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -14,6 +14,7 @@
 
 
 import { DateVariableRequest } from './date-variable-request';
+import { RequestedRoleRequest } from './requested-role-request';
 
 /**
  * 
@@ -28,23 +29,17 @@ export interface ProjectTemplateInstantiateProjectRequest {
      */
     'name': string;
     /**
-     * *Conditional*. Sets the team of the new project. If the project template exists in an _organization_, you must specify a value for `team` and not `workspace`.
+     * *Optional*. Sets the team of the new project. If the project template exists in an _organization_, you may specify a value for `team`. If no value is provided then it defaults to the same team as the project template.
      * @type {string}
      * @memberof ProjectTemplateInstantiateProjectRequest
      */
     'team'?: string;
     /**
-     * *Conditional*. Sets the workspace of the new project. If the project template exists in a _workspace_, you must specify a value for `workspace` and not `team`.
-     * @type {string}
-     * @memberof ProjectTemplateInstantiateProjectRequest
-     */
-    'workspace'?: string;
-    /**
      * Sets the project to public to its team.
      * @type {boolean}
      * @memberof ProjectTemplateInstantiateProjectRequest
      */
-    'public': boolean;
+    'public'?: boolean;
     /**
      * *Optional*. If set to `true`, the endpoint returns an \"Unprocessable Entity\" error if you fail to provide a calendar date value for any date variable. If set to `false`, a default date is used for each unfulfilled date variable (e.g., the current date is used as the Start Date of a project).
      * @type {boolean}
@@ -57,5 +52,11 @@ export interface ProjectTemplateInstantiateProjectRequest {
      * @memberof ProjectTemplateInstantiateProjectRequest
      */
     'requested_dates'?: Array<DateVariableRequest>;
+    /**
+     * Array of mappings of template roles to user ids
+     * @type {Array<RequestedRoleRequest>}
+     * @memberof ProjectTemplateInstantiateProjectRequest
+     */
+    'requested_roles'?: Array<RequestedRoleRequest>;
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -15,6 +15,7 @@
 
 import { DateVariableCompact } from './date-variable-compact';
 import { TeamCompact } from './team-compact';
+import { TemplateRole } from './template-role';
 import { UserCompact } from './user-compact';
 
 /**
@@ -43,10 +44,10 @@ export interface ProjectTemplateBaseAllOf {
     'public'?: boolean;
     /**
      * The current owner of the project template, may be null.
-     * @type {UserCompact}
+     * @type {UserCompact & object}
      * @memberof ProjectTemplateBaseAllOf
      */
-    'owner'?: UserCompact | null;
+    'owner'?: UserCompact & object;
     /**
      * 
      * @type {TeamCompact}
@@ -65,6 +66,12 @@ export interface ProjectTemplateBaseAllOf {
      * @memberof ProjectTemplateBaseAllOf
      */
     'color'?: ProjectTemplateBaseAllOfColorEnum;
+    /**
+     * Array of template roles in this project template. User Ids can be provided for these variables when instantiating a project to assign template tasks to the user.
+     * @type {Array<TemplateRole>}
+     * @memberof ProjectTemplateBaseAllOf
+     */
+    'requested_roles'?: Array<TemplateRole>;
 }
 
 /**
@@ -89,7 +96,8 @@ export enum ProjectTemplateBaseAllOfColorEnum {
     LightBrown = 'light-brown',
     LightOrange = 'light-orange',
     LightPurple = 'light-purple',
-    LightWarmGray = 'light-warm-gray'
+    LightWarmGray = 'light-warm-gray',
+    Null = 'null'
 }
 
 

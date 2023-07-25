@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -32,13 +32,13 @@ export interface TaskResponseAllOf {
      * @type {UserCompact}
      * @memberof TaskResponseAllOf
      */
-    'assignee'?: UserCompact | null;
+    'assignee'?: UserCompact;
     /**
      * 
-     * @type {SectionCompact}
+     * @type {SectionCompact & object}
      * @memberof TaskResponseAllOf
      */
-    'assignee_section'?: SectionCompact | null;
+    'assignee_section'?: SectionCompact & object;
     /**
      * Array of custom field values applied to the task. These represent the custom field values recorded on this project for a particular custom field. For example, these custom field values will contain an `enum_value` property for custom fields of type `enum`, a `text_value` property for custom fields of type `text`, and so on. Please note that the `gid` returned on each custom field value *is identical* to the `gid` of the custom field, which allows referencing the custom field metadata through the `/custom_fields/custom_field-gid` endpoint.
      * @type {Array<CustomFieldResponse>}
