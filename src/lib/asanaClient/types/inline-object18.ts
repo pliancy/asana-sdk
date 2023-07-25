@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { PortfolioAddItemRequest } from './portfolio-add-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject18 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {PortfolioAddItemRequest}
      * @memberof InlineObject18
      */
-    'data'?: PortfolioRequest;
+    'data'?: PortfolioAddItemRequest;
 }
 

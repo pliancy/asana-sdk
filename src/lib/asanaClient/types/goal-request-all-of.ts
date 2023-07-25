@@ -26,5 +26,17 @@ export interface GoalRequestAllOf {
      * @memberof GoalRequestAllOf
      */
     'followers'?: Array<string>;
+    /**
+     * The `gid` of a time period.
+     * @type {string}
+     * @memberof GoalRequestAllOf
+     */
+    'time_period'?: string | null;
+    /**
+     * The `gid` of a user.
+     * @type {string}
+     * @memberof GoalRequestAllOf
+     */
+    'owner'?: string | null;
 }
 
