@@ -13,19 +13,19 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { TimeTrackingEntryBase } from './time-tracking-entry-base';
 
 /**
  * 
  * @export
- * @interface InlineObject18
+ * @interface InlineResponse2018
  */
-export interface InlineObject18 {
+export interface InlineResponse2018 {
     /**
      * 
-     * @type {PortfolioRequest}
-     * @memberof InlineObject18
+     * @type {TimeTrackingEntryBase}
+     * @memberof InlineResponse2018
      */
-    'data'?: PortfolioRequest;
+    'data'?: TimeTrackingEntryBase;
 }
 

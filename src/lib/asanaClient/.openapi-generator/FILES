@@ -1,6 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
 api.ts
 api/attachments-api.ts
 api/audit-log-apiapi.ts

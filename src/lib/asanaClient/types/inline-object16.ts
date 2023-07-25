@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { OrganizationExportRequest } from './organization-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject16 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {OrganizationExportRequest}
      * @memberof InlineObject16
      */
-    'data'?: PortfolioRequest;
+    'data'?: OrganizationExportRequest;
 }
 

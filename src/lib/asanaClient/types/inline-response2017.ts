@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { TeamResponse } from './team-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse2017 {
     /**
      * 
-     * @type {WebhookResponse}
+     * @type {TeamResponse}
      * @memberof InlineResponse2017
      */
-    'data'?: WebhookResponse;
+    'data'?: TeamResponse;
 }
 
