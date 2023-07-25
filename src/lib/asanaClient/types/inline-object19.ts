@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
+import { PortfolioAddItemRequest } from './portfolio-add-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
 export interface InlineObject19 {
     /**
      * 
-     * @type {PortfolioRemoveItemRequest}
+     * @type {PortfolioAddItemRequest}
      * @memberof InlineObject19
      */
-    'data'?: PortfolioRemoveItemRequest;
+    'data'?: PortfolioAddItemRequest;
 }
 

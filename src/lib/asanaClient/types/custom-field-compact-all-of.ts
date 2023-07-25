@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -17,7 +17,7 @@ import { CustomFieldCompactAllOfDateValue } from './custom-field-compact-all-of-
 import { EnumOption } from './enum-option';
 
 /**
- * Custom Fields store the metadata that is used in order to add user-specified information to tasks in Asana. Be sure to reference the [Custom Fields](/docs/asana-custom-fields) developer documentation for more information about how custom fields relate to various resources in Asana.  Users in Asana can [lock custom fields](https://asana.com/guide/help/premium/custom-fields#gl-lock-fields), which will make them read-only when accessed by other users. Attempting to edit a locked custom field will return HTTP error code `403 Forbidden`.
+ * Custom Fields store the metadata that is used in order to add user-specified information to tasks in Asana. Be sure to reference the [custom fields](/reference/custom-fields) developer documentation for more information about how custom fields relate to various resources in Asana.  Users in Asana can [lock custom fields](https://asana.com/guide/help/premium/custom-fields#gl-lock-fields), which will make them read-only when accessed by other users. Attempting to edit a locked custom field will return HTTP error code `403 Forbidden`.
  * @export
  * @interface CustomFieldCompactAllOf
  */
@@ -41,7 +41,7 @@ export interface CustomFieldCompactAllOf {
      */
     'type'?: CustomFieldCompactAllOfTypeEnum;
     /**
-     * *Conditional*. Only relevant for custom fields of type `enum`. This array specifies the possible values which an `enum` custom field can adopt. To modify the enum options, refer to [working with enum options](/docs/create-an-enum-option).
+     * *Conditional*. Only relevant for custom fields of type `enum`. This array specifies the possible values which an `enum` custom field can adopt. To modify the enum options, refer to [working with enum options](/reference/createenumoptionforcustomfield).
      * @type {Array<EnumOption>}
      * @memberof CustomFieldCompactAllOf
      */
@@ -53,11 +53,17 @@ export interface CustomFieldCompactAllOf {
      */
     'enabled'?: boolean;
     /**
+     * *Conditional*. This flag describes whether a custom field is a formula custom field.
+     * @type {boolean}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'is_formula_field'?: boolean;
+    /**
      * 
      * @type {CustomFieldCompactAllOfDateValue}
      * @memberof CustomFieldCompactAllOf
      */
-    'date_value'?: CustomFieldCompactAllOfDateValue;
+    'date_value'?: CustomFieldCompactAllOfDateValue | null;
     /**
      * 
      * @type {EnumOption & object}
@@ -75,13 +81,13 @@ export interface CustomFieldCompactAllOf {
      * @type {number}
      * @memberof CustomFieldCompactAllOf
      */
-    'number_value'?: number;
+    'number_value'?: number | null;
     /**
      * *Conditional*. This string is the value of a `text` custom field.
      * @type {string}
      * @memberof CustomFieldCompactAllOf
      */
-    'text_value'?: string;
+    'text_value'?: string | null;
     /**
      * A string representation for the value of the custom field. Integrations that don\'t require the underlying type should use this field to read values. Using this field will future-proof an app against new custom field types.
      * @type {string}
@@ -110,7 +116,9 @@ export enum CustomFieldCompactAllOfTypeEnum {
     Text = 'text',
     Enum = 'enum',
     MultiEnum = 'multi_enum',
-    Number = 'number'
+    Number = 'number',
+    Date = 'date',
+    People = 'people'
 }
 
 

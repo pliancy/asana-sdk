@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -40,7 +40,7 @@ export interface GoalResponseAllOf {
      */
     'num_likes'?: number;
     /**
-     * *Conditional*. This property is only present when the `workspace` provided is an organization.
+     * 
      * @type {TeamCompact & object}
      * @memberof GoalResponseAllOf
      */
@@ -76,10 +76,16 @@ export interface GoalResponseAllOf {
      */
     'owner'?: UserCompact & object;
     /**
-     * The latest `status_update` posted to this goal.
+     * 
      * @type {StatusUpdateCompact}
      * @memberof GoalResponseAllOf
      */
-    'current_status_update'?: StatusUpdateCompact | null;
+    'current_status_update'?: StatusUpdateCompact;
+    /**
+     * The current status of this goal. When the goal is open, its status can be `green`, `yellow`, and `red` to reflect \"On Track\", \"At Risk\", and \"Off Track\", respectively. When the goal is closed, the value can be `missed`, `achieved`, `partial`, or `dropped`. *Note* you can only write to this property if `metric` is set.
+     * @type {string}
+     * @memberof GoalResponseAllOf
+     */
+    'status'?: string | null;
 }
 

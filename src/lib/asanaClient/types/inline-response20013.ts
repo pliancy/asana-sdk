@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioMembershipCompact } from './portfolio-membership-compact';
+import { JobCompact } from './job-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 export interface InlineResponse20013 {
     /**
      * 
-     * @type {Array<PortfolioMembershipCompact>}
+     * @type {JobCompact}
      * @memberof InlineResponse20013
      */
-    'data'?: Array<PortfolioMembershipCompact>;
+    'data'?: JobCompact;
 }
 

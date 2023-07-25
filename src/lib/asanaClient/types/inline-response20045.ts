@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,19 +13,19 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { AsanaNamedResource } from './asana-named-resource';
 
 /**
- * 
+ * A generic list of objects, such as those returned by the typeahead search endpoint.
  * @export
  * @interface InlineResponse20045
  */
 export interface InlineResponse20045 {
     /**
      * 
-     * @type {Array<WebhookResponse>}
+     * @type {Array<AsanaNamedResource>}
      * @memberof InlineResponse20045
      */
-    'data'?: Array<WebhookResponse>;
+    'data'?: Array<AsanaNamedResource>;
 }
 

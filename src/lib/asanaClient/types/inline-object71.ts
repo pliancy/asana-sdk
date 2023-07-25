@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceAddUserRequest } from './workspace-add-user-request';
+import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 export interface InlineObject71 {
     /**
      * 
-     * @type {WorkspaceAddUserRequest}
+     * @type {UpdateTimeTrackingEntryRequest}
      * @memberof InlineObject71
      */
-    'data'?: WorkspaceAddUserRequest;
+    'data'?: UpdateTimeTrackingEntryRequest;
 }
 

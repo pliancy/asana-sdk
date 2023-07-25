@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -14,6 +14,7 @@
 
 
 import { AttachmentCompact } from './attachment-compact';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -27,5 +28,11 @@ export interface InlineResponse2002 {
      * @memberof InlineResponse2002
      */
     'data'?: Array<AttachmentCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse2002
+     */
+    'next_page'?: NextPage | null;
 }
 

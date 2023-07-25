@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookUpdateRequest } from './webhook-update-request';
+import { TeamRemoveUserRequest } from './team-remove-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookUpdateRequest } from './webhook-update-request';
 export interface InlineObject69 {
     /**
      * 
-     * @type {WebhookUpdateRequest}
+     * @type {TeamRemoveUserRequest}
      * @memberof InlineObject69
      */
-    'data'?: WebhookUpdateRequest;
+    'data'?: TeamRemoveUserRequest;
 }
 

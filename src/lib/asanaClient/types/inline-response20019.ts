@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { ProjectMembershipResponse } from './project-membership-response';
+import { NextPage } from './next-page';
+import { ProjectCompact } from './project-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { ProjectMembershipResponse } from './project-membership-response';
 export interface InlineResponse20019 {
     /**
      * 
-     * @type {ProjectMembershipResponse}
+     * @type {Array<ProjectCompact>}
      * @memberof InlineResponse20019
      */
-    'data'?: ProjectMembershipResponse;
+    'data'?: Array<ProjectCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20019
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { EnumOptionRequest } from './enum-option-request';
+import { EnumOption } from './enum-option';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { EnumOptionRequest } from './enum-option-request';
 export interface InlineObject5 {
     /**
      * 
-     * @type {EnumOptionRequest}
+     * @type {EnumOption}
      * @memberof InlineObject5
      */
-    'data'?: EnumOptionRequest;
+    'data'?: EnumOption;
 }
 

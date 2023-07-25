@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,8 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
+import { NextPage } from './next-page';
+import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { AsanaNamedResource } from './asana-named-resource';
 export interface InlineResponse20044 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {Array<TimeTrackingEntryCompact>}
      * @memberof InlineResponse20044
      */
-    'data'?: Array<AsanaNamedResource>;
+    'data'?: Array<TimeTrackingEntryCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20044
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -44,17 +44,17 @@ export interface ProjectBaseAllOf {
      */
     'created_at'?: string;
     /**
-     * *Deprecated: new integrations should prefer the `current_status_update` resource.*
-     * @type {ProjectStatusResponse}
+     * 
+     * @type {ProjectStatusResponse & object}
      * @memberof ProjectBaseAllOf
      */
-    'current_status'?: ProjectStatusResponse | null;
+    'current_status'?: ProjectStatusResponse & object;
     /**
-     * The latest `status_update` posted to this project.
-     * @type {StatusUpdateCompact}
+     * 
+     * @type {StatusUpdateCompact & object}
      * @memberof ProjectBaseAllOf
      */
-    'current_status_update'?: StatusUpdateCompact | null;
+    'current_status_update'?: StatusUpdateCompact & object;
     /**
      * Array of Custom Field Settings (in compact form).
      * @type {Array<CustomFieldSettingResponse>}
@@ -80,17 +80,11 @@ export interface ProjectBaseAllOf {
      */
     'due_on'?: string | null;
     /**
-     * [Opt In](/docs/input-output-options). The notes of the project with formatting as HTML.
+     * [Opt In](/docs/inputoutput-options). The notes of the project with formatting as HTML.
      * @type {string}
      * @memberof ProjectBaseAllOf
      */
     'html_notes'?: string;
-    /**
-     * [Opt In](/docs/input-output-options). *Deprecated - please use a project template endpoint instead (more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432)).* Determines if the project is a template.
-     * @type {boolean}
-     * @memberof ProjectBaseAllOf
-     */
-    'is_template'?: boolean;
     /**
      * Array of users who are members of this project.
      * @type {Array<UserCompact>}
@@ -151,7 +145,9 @@ export enum ProjectBaseAllOfColorEnum {
     LightBrown = 'light-brown',
     LightOrange = 'light-orange',
     LightPurple = 'light-purple',
-    LightWarmGray = 'light-warm-gray'
+    LightWarmGray = 'light-warm-gray',
+    None = 'none',
+    Null = 'null'
 }
 /**
     * @export

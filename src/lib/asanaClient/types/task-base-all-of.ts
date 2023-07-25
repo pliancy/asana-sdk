@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -62,13 +62,13 @@ export interface TaskBaseAllOf {
      */
     'created_at'?: string;
     /**
-     * [Opt In](/docs/input-output-options). Array of resources referencing tasks that this task depends on. The objects contain only the gid of the dependency.
+     * [Opt In](/docs/inputoutput-options). Array of resources referencing tasks that this task depends on. The objects contain only the gid of the dependency.
      * @type {Array<AsanaResource>}
      * @memberof TaskBaseAllOf
      */
     'dependencies'?: Array<AsanaResource>;
     /**
-     * [Opt In](/docs/input-output-options). Array of resources referencing tasks that depend on this task. The objects contain only the ID of the dependent.
+     * [Opt In](/docs/inputoutput-options). Array of resources referencing tasks that depend on this task. The objects contain only the ID of the dependent.
      * @type {Array<AsanaResource>}
      * @memberof TaskBaseAllOf
      */
@@ -92,7 +92,7 @@ export interface TaskBaseAllOf {
      */
     'external'?: TaskBaseAllOfExternal;
     /**
-     * [Opt In](/docs/input-output-options). The notes of the text with formatting as HTML.
+     * [Opt In](/docs/inputoutput-options). The notes of the text with formatting as HTML.
      * @type {string}
      * @memberof TaskBaseAllOf
      */
@@ -110,7 +110,7 @@ export interface TaskBaseAllOf {
      */
     'hearts'?: Array<Like>;
     /**
-     * [Opt In](/docs/input-output-options). In some contexts tasks can be rendered as a visual separator; for instance, subtasks can appear similar to [sections](/docs/asana-sections) without being true `section` objects. If a `task` object is rendered this way in any context it will have the property `is_rendered_as_separator` set to `true`.
+     * [Opt In](/docs/inputoutput-options). In some contexts tasks can be rendered as a visual separator; for instance, subtasks can appear similar to [sections](/reference/sections) without being true `section` objects. If a `task` object is rendered this way in any context it will have the property `is_rendered_as_separator` set to `true`.
      * @type {boolean}
      * @memberof TaskBaseAllOf
      */
@@ -134,7 +134,7 @@ export interface TaskBaseAllOf {
      */
     'memberships'?: Array<TaskBaseAllOfMemberships>;
     /**
-     * The time at which this task was last modified.  *Note: This does not currently reflect any changes in associations such as projects or comments that may have been added or removed from the task.*
+     * The time at which this task was last modified.  The following conditions will change `modified_at`:  - story is created on a task - story is trashed on a task - attachment is trashed on a task - task is assigned or unassigned - custom field value is changed - the task itself is trashed - Or if any of the following fields are updated:   - completed   - name   - due_date   - description   - attachments   - items   - schedule_status  The following conditions will _not_ change `modified_at`:  - moving to a new container (project, portfolio, etc) - comments being added to the task (but the stories they generate   _will_ affect `modified_at`)
      * @type {string}
      * @memberof TaskBaseAllOf
      */
@@ -164,7 +164,7 @@ export interface TaskBaseAllOf {
      */
     'num_likes'?: number;
     /**
-     * [Opt In](/docs/input-output-options). The number of subtasks on this task. 
+     * [Opt In](/docs/inputoutput-options). The number of subtasks on this task. 
      * @type {number}
      * @memberof TaskBaseAllOf
      */

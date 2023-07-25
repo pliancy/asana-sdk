@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -34,11 +34,11 @@ export interface ProjectDuplicateRequest {
      */
     'team'?: string;
     /**
-     * The elements that will be duplicated to the new project. Tasks are always included.
+     * A comma-separated list of elements that will be duplicated to the new project. Tasks are always included. ##### Fields - forms - members - notes - task_assignee - task_attachments - task_dates - task_dependencies - task_followers - task_notes - task_projects - task_subtasks - task_tags
      * @type {string}
      * @memberof ProjectDuplicateRequest
      */
-    'include'?: ProjectDuplicateRequestIncludeEnum;
+    'include'?: string;
     /**
      * 
      * @type {ProjectDuplicateRequestScheduleDates}
@@ -46,24 +46,4 @@ export interface ProjectDuplicateRequest {
      */
     'schedule_dates'?: ProjectDuplicateRequestScheduleDates;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ProjectDuplicateRequestIncludeEnum {
-    Members = 'members',
-    Notes = 'notes',
-    Forms = 'forms',
-    TaskNotes = 'task_notes',
-    TaskAssignee = 'task_assignee',
-    TaskSubtasks = 'task_subtasks',
-    TaskAttachments = 'task_attachments',
-    TaskDates = 'task_dates',
-    TaskDependencies = 'task_dependencies',
-    TaskFollowers = 'task_followers',
-    TaskTags = 'task_tags',
-    TaskProjects = 'task_projects'
-}
-
 

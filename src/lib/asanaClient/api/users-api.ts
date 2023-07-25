@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,11 +23,11 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20042 } from '../types';
+import { InlineResponse20047 } from '../types';
 // @ts-ignore
-import { InlineResponse20043 } from '../types';
+import { InlineResponse20048 } from '../types';
 // @ts-ignore
-import { InlineResponse20044 } from '../types';
+import { InlineResponse20049 } from '../types';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -41,11 +41,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser: async (userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFavoritesForUser: async (userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getFavoritesForUser', 'userGid', userGid)
             // verify required parameter 'resourceType' is not null or undefined
@@ -77,8 +79,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             if (resourceType !== undefined) {
@@ -87,6 +93,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (workspace !== undefined) {
                 localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -105,11 +115,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser: async (userGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUser: async (userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getUser', 'userGid', userGid)
             const localVarPath = `/users/{user_gid}`
@@ -158,13 +168,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers: async (workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsers: async (workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -197,16 +207,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -225,12 +235,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam: async (teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsersForTeam: async (teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('getUsersForTeam', 'teamGid', teamGid)
             const localVarPath = `/teams/{team_gid}/users`
@@ -258,12 +268,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -282,12 +292,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace: async (workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsersForWorkspace: async (workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('getUsersForWorkspace', 'workspaceGid', workspaceGid)
             const localVarPath = `/workspaces/{workspace_gid}/users`
@@ -315,12 +325,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -351,12 +361,14 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options);
+        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -364,11 +376,11 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -378,14 +390,14 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(workspace, team, optPretty, optFields, limit, offset, options);
+        async getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ErrorResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(workspace, team, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -393,13 +405,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForTeam(teamGid, optPretty, optFields, offset, options);
+        async getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForTeam(teamGid, optPretty, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -407,13 +419,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForWorkspace(workspaceGid, optPretty, optFields, offset, options);
+        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -433,23 +445,25 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20044> {
-            return localVarFp.getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
+        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20048> {
+            return localVarFp.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the full user record for the single user with the provided ID.
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20043> {
+        getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.getUser(userGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -458,40 +472,40 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
-            return localVarFp.getUsers(workspace, team, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<ErrorResponse> {
+            return localVarFp.getUsers(workspace, team, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
-            return localVarFp.getUsersForTeam(teamGid, optPretty, optFields, offset, options).then((request) => request(axios, basePath));
+        getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20049> {
+            return localVarFp.getUsersForTeam(teamGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: any): AxiosPromise<InlineResponse20042> {
-            return localVarFp.getUsersForWorkspace(workspaceGid, optPretty, optFields, offset, options).then((request) => request(axios, basePath));
+        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20049> {
+            return localVarFp.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -510,13 +524,15 @@ export class UsersApi extends BaseAPI {
      * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
      * @param {string} workspace The workspace in which to get favorites.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getFavoritesForUser(userGid, resourceType, workspace, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -524,12 +540,12 @@ export class UsersApi extends BaseAPI {
      * @summary Get a user
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUser(userGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUser(userGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -539,15 +555,15 @@ export class UsersApi extends BaseAPI {
      * @param {string} [workspace] The workspace or organization ID to filter users on.
      * @param {string} [team] The team ID to filter users on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsers(workspace?: string, team?: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUsers(workspace, team, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getUsers(workspace, team, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -555,14 +571,14 @@ export class UsersApi extends BaseAPI {
      * @summary Get users in a team
      * @param {string} teamGid Globally unique identifier for the team.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsersForTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUsersForTeam(teamGid, optPretty, optFields, offset, options).then((request) => request(this.axios, this.basePath));
+    public getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getUsersForTeam(teamGid, optPretty, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -570,13 +586,13 @@ export class UsersApi extends BaseAPI {
      * @summary Get users in a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, offset?: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUsersForWorkspace(workspaceGid, optPretty, optFields, offset, options).then((request) => request(this.axios, this.basePath));
+    public getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

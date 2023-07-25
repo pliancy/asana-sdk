@@ -13,7 +13,7 @@ export class PortfolioMemberships {
     async getPortfolioMembership(
         portfolioMembershipGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         options?: any,
     ) {
         const res = await this.portfolioMembershipsApi.getPortfolioMembership(
@@ -29,7 +29,7 @@ export class PortfolioMemberships {
         portfolio?: string,
         user?: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -39,9 +39,10 @@ export class PortfolioMemberships {
             this.workspaceGid,
             user,
             optPretty,
-            optFields,
+
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data
@@ -51,7 +52,7 @@ export class PortfolioMemberships {
         portfolioGid: string,
         user?: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<any>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -60,9 +61,10 @@ export class PortfolioMemberships {
             portfolioGid,
             user,
             optPretty,
-            optFields,
+
             limit,
             offset,
+            optFields,
             options,
         )
         return res.data.data

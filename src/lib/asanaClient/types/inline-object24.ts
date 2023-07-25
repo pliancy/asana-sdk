@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectBriefRequest } from './project-brief-request';
+import { RemoveMembersRequest } from './remove-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectBriefRequest } from './project-brief-request';
 export interface InlineObject24 {
     /**
      * 
-     * @type {ProjectBriefRequest}
+     * @type {RemoveMembersRequest}
      * @memberof InlineObject24
      */
-    'data'?: ProjectBriefRequest;
+    'data'?: RemoveMembersRequest;
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,21 +23,21 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject64 } from '../types';
-// @ts-ignore
-import { InlineObject65 } from '../types';
-// @ts-ignore
 import { InlineObject66 } from '../types';
 // @ts-ignore
 import { InlineObject67 } from '../types';
 // @ts-ignore
+import { InlineObject68 } from '../types';
+// @ts-ignore
+import { InlineObject69 } from '../types';
+// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20034 } from '../types';
+import { InlineResponse20039 } from '../types';
 // @ts-ignore
-import { InlineResponse20036 } from '../types';
+import { InlineResponse20041 } from '../types';
 // @ts-ignore
-import { InlineResponse20037 } from '../types';
+import { InlineResponse2017 } from '../types';
 /**
  * TeamsApi - axios parameter creator
  * @export
@@ -48,19 +48,73 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForTeam: async (teamGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addUserForTeam: async (teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('addUserForTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject66' is not null or undefined
-            assertParamExists('addUserForTeam', 'inlineObject66', inlineObject66)
+            // verify required parameter 'inlineObject68' is not null or undefined
+            assertParamExists('addUserForTeam', 'inlineObject68', inlineObject68)
             const localVarPath = `/teams/{team_gid}/addUser`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a team within the current workspace.
+         * @summary Create a team
+         * @param {InlineObject66} inlineObject66 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTeam: async (inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject66' is not null or undefined
+            assertParamExists('createTeam', 'inlineObject66', inlineObject66)
+            const localVarPath = `/teams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -103,81 +157,15 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Creates a team within the current workspace.
-         * @summary Create a team
-         * @param {InlineObject65} inlineObject65 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createTeam: async (inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject65' is not null or undefined
-            assertParamExists('createTeam', 'inlineObject65', inlineObject65)
-            const localVarPath = `/teams`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject65, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Returns the full record for a single team.
          * @summary Get a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeam: async (teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeam: async (teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('getTeam', 'teamGid', teamGid)
             const localVarPath = `/teams/{team_gid}`
@@ -209,14 +197,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -234,13 +214,13 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} organization The workspace or organization to filter teams on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForUser: async (userGid: string, organization: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamsForUser: async (userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getTeamsForUser', 'userGid', userGid)
             // verify required parameter 'organization' is not null or undefined
@@ -270,10 +250,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -284,6 +260,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (organization !== undefined) {
                 localVarQueryParameter['organization'] = organization;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -302,13 +282,13 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get teams in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForWorkspace: async (workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamsForWorkspace: async (workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('getTeamsForWorkspace', 'workspaceGid', workspaceGid)
             const localVarPath = `/workspaces/{workspace_gid}/teams`
@@ -336,16 +316,16 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -363,17 +343,16 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForTeam: async (teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeUserForTeam: async (teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('removeUserForTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject67' is not null or undefined
-            assertParamExists('removeUserForTeam', 'inlineObject67', inlineObject67)
+            // verify required parameter 'inlineObject69' is not null or undefined
+            assertParamExists('removeUserForTeam', 'inlineObject69', inlineObject69)
             const localVarPath = `/teams/{team_gid}/removeUser`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -384,6 +363,60 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject69, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates a team within the current workspace.
+         * @summary Update a team
+         * @param {string} teamGid Globally unique identifier for the team.
+         * @param {InlineObject67} inlineObject67 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTeam: async (teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamGid' is not null or undefined
+            assertParamExists('updateTeam', 'teamGid', teamGid)
+            // verify required parameter 'inlineObject67' is not null or undefined
+            assertParamExists('updateTeam', 'inlineObject67', inlineObject67)
+            const localVarPath = `/teams/{team_gid}`
+                .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -417,70 +450,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Updates a team within the current workspace.
-         * @summary Update a team
-         * @param {InlineObject64} inlineObject64 
-         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateTeam: async (inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject64' is not null or undefined
-            assertParamExists('updateTeam', 'inlineObject64', inlineObject64)
-            const localVarPath = `/teams`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication personalAccessToken required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (optPretty !== undefined) {
-                localVarQueryParameter['opt_pretty'] = optPretty;
-            }
-
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject64, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -495,29 +464,27 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForTeam(teamGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForTeam(teamGid, inlineObject66, optPretty, optFields, options);
+        async addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a team within the current workspace.
          * @summary Create a team
-         * @param {InlineObject65} inlineObject65 
+         * @param {InlineObject66} inlineObject66 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTeam(inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTeam(inlineObject65, optPretty, optFields, limit, offset, options);
+        async createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTeam(inlineObject66, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -525,14 +492,12 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @summary Get a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(teamGid, optPretty, optFields, limit, offset, options);
+        async getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(teamGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -541,14 +506,14 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} organization The workspace or organization to filter teams on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForUser(userGid, organization, optPretty, optFields, limit, offset, options);
+        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -556,43 +521,41 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @summary Get teams in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options);
+        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeUserForTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForTeam(teamGid, inlineObject67, optPretty, optFields, options);
+        async removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForTeam(teamGid, inlineObject69, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Updates a team within the current workspace.
          * @summary Update a team
-         * @param {InlineObject64} inlineObject64 
+         * @param {string} teamGid Globally unique identifier for the team.
+         * @param {InlineObject67} inlineObject67 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTeam(inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(inlineObject64, optPretty, optFields, limit, offset, options);
+        async updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(teamGid, inlineObject67, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -609,42 +572,38 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForTeam(teamGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20034> {
-            return localVarFp.addUserForTeam(teamGid, inlineObject66, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20039> {
+            return localVarFp.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a team within the current workspace.
          * @summary Create a team
-         * @param {InlineObject65} inlineObject65 
+         * @param {InlineObject66} inlineObject66 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTeam(inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20036> {
-            return localVarFp.createTeam(inlineObject65, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.createTeam(inlineObject66, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the full record for a single team.
          * @summary Get a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20036> {
-            return localVarFp.getTeam(teamGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.getTeam(teamGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact records for all teams to which the given user is assigned.
@@ -652,55 +611,53 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} organization The workspace or organization to filter teams on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20037> {
-            return localVarFp.getTeamsForUser(userGid, organization, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20041> {
+            return localVarFp.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact records for all teams in the workspace visible to the authorized user.
          * @summary Get teams in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20037> {
-            return localVarFp.getTeamsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20041> {
+            return localVarFp.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeUserForTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeUserForTeam(teamGid, inlineObject69, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates a team within the current workspace.
          * @summary Update a team
-         * @param {InlineObject64} inlineObject64 
+         * @param {string} teamGid Globally unique identifier for the team.
+         * @param {InlineObject67} inlineObject67 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTeam(inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20036> {
-            return localVarFp.updateTeam(inlineObject64, optPretty, optFields, limit, offset, options).then((request) => request(axios, basePath));
+        updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.updateTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -716,31 +673,29 @@ export class TeamsApi extends BaseAPI {
      * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
      * @summary Add a user to a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject66} inlineObject66 
+     * @param {InlineObject68} inlineObject68 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public addUserForTeam(teamGid: string, inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).addUserForTeam(teamGid, inlineObject66, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a team within the current workspace.
      * @summary Create a team
-     * @param {InlineObject65} inlineObject65 
+     * @param {InlineObject66} inlineObject66 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public createTeam(inlineObject65: InlineObject65, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).createTeam(inlineObject65, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).createTeam(inlineObject66, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -748,15 +703,13 @@ export class TeamsApi extends BaseAPI {
      * @summary Get a team
      * @param {string} teamGid Globally unique identifier for the team.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).getTeam(teamGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getTeam(teamGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -765,15 +718,15 @@ export class TeamsApi extends BaseAPI {
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {string} organization The workspace or organization to filter teams on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).getTeamsForUser(userGid, organization, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -781,45 +734,43 @@ export class TeamsApi extends BaseAPI {
      * @summary Get teams in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).getTeamsForWorkspace(workspaceGid, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The user making this call must be a member of the team in order to remove themselves or others.
      * @summary Remove a user from a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject67} inlineObject67 
+     * @param {InlineObject69} inlineObject69 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public removeUserForTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).removeUserForTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).removeUserForTeam(teamGid, inlineObject69, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates a team within the current workspace.
      * @summary Update a team
-     * @param {InlineObject64} inlineObject64 
+     * @param {string} teamGid Globally unique identifier for the team.
+     * @param {InlineObject67} inlineObject67 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public updateTeam(inlineObject64: InlineObject64, optPretty?: boolean, optFields?: Array<string>, limit?: number, offset?: string, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).updateTeam(inlineObject64, optPretty, optFields, limit, offset, options).then((request) => request(this.axios, this.basePath));
+    public updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).updateTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios'
 import {
     Configuration,
     ConfigurationParameters,
@@ -20,7 +21,15 @@ export class Teams {
         teamGid: string,
         data: TeamAddUserRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
+        optFields?: Array<
+            | 'is_admin'
+            | 'is_guest'
+            | 'is_limited_access'
+            | 'team'
+            | 'team.name'
+            | 'user'
+            | 'user.name'
+        >,
         options?: any,
     ) {
         const res = await this.teamsApi.addUserForTeam(
@@ -37,20 +46,25 @@ export class Teams {
     async createTeam(
         data: TeamRequest,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        limit?: number,
-        offset?: string,
+        optFields?: Array<
+            | 'description'
+            | 'edit_team_name_or_description_access_level'
+            | 'edit_team_visibility_or_trash_team_access_level'
+            | 'guest_invite_management_access_level'
+            | 'html_description'
+            | 'join_request_management_access_level'
+            | 'member_invite_management_access_level'
+            | 'name'
+            | 'organization'
+            | 'organization.name'
+            | 'permalink_url'
+            | 'team_member_removal_access_level'
+            | 'visibility'
+        >,
         options?: any,
     ) {
         if (!data.organization) data.organization = this.workspaceGid
-        const res = await this.teamsApi.createTeam(
-            { data },
-            optPretty,
-            optFields,
-            limit,
-            offset,
-            options,
-        )
+        const res = await this.teamsApi.createTeam({ data }, optPretty, optFields, options)
 
         return res.data.data
     }
@@ -58,31 +72,34 @@ export class Teams {
     async getTeam(
         teamGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        limit?: number,
-        offset?: string,
-        options?: any,
+        optFields?: Array<
+            | 'description'
+            | 'edit_team_name_or_description_access_level'
+            | 'edit_team_visibility_or_trash_team_access_level'
+            | 'guest_invite_management_access_level'
+            | 'html_description'
+            | 'join_request_management_access_level'
+            | 'member_invite_management_access_level'
+            | 'name'
+            | 'organization'
+            | 'organization.name'
+            | 'permalink_url'
+            | 'team_member_removal_access_level'
+            | 'visibility'
+        >,
     ) {
-        const res = await this.teamsApi.getTeam(
-            teamGid,
-            optPretty,
-            optFields,
-            limit,
-            offset,
-            options,
-        )
+        const res = await this.teamsApi.getTeam(teamGid, optPretty, optFields)
         return res.data.data
     }
 
     async getTeamByName(
         teamName: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
         limit?: number,
         offset?: string,
         options?: any,
     ) {
-        const res = await this.getTeamsForOrganization(optPretty, optFields, limit, offset, options)
+        const res = await this.getTeamsForOrganization(optPretty, limit, offset, options)
 
         if (res) return res.find((e) => e.name === teamName)
         else return null
@@ -90,7 +107,6 @@ export class Teams {
 
     async getTeamsForOrganization(
         optPretty?: boolean,
-        optFields?: Array<string>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -98,7 +114,6 @@ export class Teams {
         const res = await this.teamsApi.getTeamsForWorkspace(
             this.workspaceGid,
             optPretty,
-            optFields,
             limit,
             offset,
             options,
@@ -110,7 +125,6 @@ export class Teams {
         userGid: string,
         organization: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
         limit?: number,
         offset?: string,
         options?: any,
@@ -119,7 +133,6 @@ export class Teams {
             userGid,
             organization,
             optPretty,
-            optFields,
             limit,
             offset,
             options,
@@ -132,14 +145,12 @@ export class Teams {
         teamGid: string,
         userGid: string,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const res = await this.teamsApi.removeUserForTeam(
             teamGid,
             { data: { user: userGid } },
             optPretty,
-            optFields,
             options,
         )
         return res.data.data
@@ -149,14 +160,13 @@ export class Teams {
         teamGid: string,
         userGids: string[],
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        options?: AxiosRequestConfig,
     ) {
         const removed = []
         const errors = []
         for (const e of userGids) {
             try {
-                await this.removeUserForTeam(teamGid, e, optPretty, optFields, options)
+                await this.removeUserForTeam(teamGid, e, optPretty, options)
                 removed.push(e)
             } catch (error) {
                 errors.push({ userGid: e, error })
@@ -172,20 +182,24 @@ export class Teams {
         gid: string,
         data: Partial<TeamRequest>,
         optPretty?: boolean,
-        optFields?: Array<string>,
-        options?: any,
+        optFields?: Array<
+            | 'description'
+            | 'edit_team_name_or_description_access_level'
+            | 'edit_team_visibility_or_trash_team_access_level'
+            | 'guest_invite_management_access_level'
+            | 'html_description'
+            | 'join_request_management_access_level'
+            | 'member_invite_management_access_level'
+            | 'name'
+            | 'organization'
+            | 'organization.name'
+            | 'permalink_url'
+            | 'team_member_removal_access_level'
+            | 'visibility'
+        >,
+        options?: AxiosRequestConfig,
     ) {
-        const res = await this.teamsApi.updateTeam(
-            {
-                data: {
-                    ...data,
-                    gid,
-                },
-            },
-            optPretty,
-            optFields,
-            options,
-        )
+        const res = await this.teamsApi.updateTeam(gid, { data }, optPretty, optFields, options)
         return res.data.data
     }
 }

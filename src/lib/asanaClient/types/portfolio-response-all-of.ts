@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -15,6 +15,7 @@
 
 import { CustomFieldCompact } from './custom-field-compact';
 import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { ProjectTemplateCompact } from './project-template-compact';
 import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
@@ -44,11 +45,11 @@ export interface PortfolioResponseAllOf {
      */
     'custom_field_settings'?: Array<CustomFieldSettingResponse>;
     /**
-     * The latest `status_update` posted to this portfolio.
+     * 
      * @type {StatusUpdateCompact}
      * @memberof PortfolioResponseAllOf
      */
-    'current_status_update'?: StatusUpdateCompact | null;
+    'current_status_update'?: StatusUpdateCompact;
     /**
      * The localized day on which this portfolio is due. This takes a date with format YYYY-MM-DD.
      * @type {string}
@@ -97,5 +98,11 @@ export interface PortfolioResponseAllOf {
      * @memberof PortfolioResponseAllOf
      */
     'public'?: boolean;
+    /**
+     * Array of project templates that are in the portfolio
+     * @type {Array<ProjectTemplateCompact>}
+     * @memberof PortfolioResponseAllOf
+     */
+    'project_templates'?: Array<ProjectTemplateCompact>;
 }
 

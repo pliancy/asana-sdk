@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -27,28 +27,10 @@ export interface TaskDuplicateRequest {
      */
     'name'?: string;
     /**
-     * The fields that will be duplicated to the new task.
+     * A comma-separated list of fields that will be duplicated to the new task. ##### Fields - assignee - attachments - dates - dependencies - followers - notes - parent - projects - subtasks - tags
      * @type {string}
      * @memberof TaskDuplicateRequest
      */
-    'include'?: TaskDuplicateRequestIncludeEnum;
+    'include'?: string;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TaskDuplicateRequestIncludeEnum {
-    Notes = 'notes',
-    Assignee = 'assignee',
-    Subtasks = 'subtasks',
-    Attachments = 'attachments',
-    Tags = 'tags',
-    Followers = 'followers',
-    Projects = 'projects',
-    Dates = 'dates',
-    Dependencies = 'dependencies',
-    Parent = 'parent'
-}
-
 

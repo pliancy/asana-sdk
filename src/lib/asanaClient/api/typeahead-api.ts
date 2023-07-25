@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20040 } from '../types';
+import { InlineResponse20045 } from '../types';
 /**
  * TypeaheadApi - axios parameter creator
  * @export
@@ -39,11 +39,11 @@ export const TypeaheadApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeaheadForWorkspace: async (workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        typeaheadForWorkspace: async (workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('typeaheadForWorkspace', 'workspaceGid', workspaceGid)
             // verify required parameter 'resourceType' is not null or undefined
@@ -123,11 +123,11 @@ export const TypeaheadApiFp = function(configuration?: Configuration) {
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -150,11 +150,11 @@ export const TypeaheadApiFactory = function (configuration?: Configuration, base
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse20040> {
+        typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: any): AxiosPromise<InlineResponse20045> {
             return localVarFp.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -176,12 +176,12 @@ export class TypeaheadApi extends BaseAPI {
      * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
      * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TypeaheadApi
      */
-    public typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig) {
         return TypeaheadApiFp(this.configuration).typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

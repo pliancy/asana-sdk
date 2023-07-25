@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -44,6 +44,42 @@ export interface TeamRequestAllOf {
      * @memberof TeamRequestAllOf
      */
     'visibility'?: TeamRequestAllOfVisibilityEnum;
+    /**
+     * Controls who can edit team name and description 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'edit_team_name_or_description_access_level'?: TeamRequestAllOfEditTeamNameOrDescriptionAccessLevelEnum;
+    /**
+     * Controls who can edit team visibility and trash teams 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'edit_team_visibility_or_trash_team_access_level'?: TeamRequestAllOfEditTeamVisibilityOrTrashTeamAccessLevelEnum;
+    /**
+     * Controls who can accept or deny member invites for a given team 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'member_invite_management_access_level'?: TeamRequestAllOfMemberInviteManagementAccessLevelEnum;
+    /**
+     * Controls who can accept or deny guest invites for a given team 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'guest_invite_management_access_level'?: TeamRequestAllOfGuestInviteManagementAccessLevelEnum;
+    /**
+     * Controls who can accept or deny join team requests for a Membership by Request team 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'join_request_management_access_level'?: TeamRequestAllOfJoinRequestManagementAccessLevelEnum;
+    /**
+     * Controls who can remove team members 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'team_member_removal_access_level'?: TeamRequestAllOfTeamMemberRemovalAccessLevelEnum;
 }
 
 /**
@@ -54,6 +90,54 @@ export enum TeamRequestAllOfVisibilityEnum {
     Secret = 'secret',
     RequestToJoin = 'request_to_join',
     Public = 'public'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfEditTeamNameOrDescriptionAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfEditTeamVisibilityOrTrashTeamAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfMemberInviteManagementAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfGuestInviteManagementAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfJoinRequestManagementAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfTeamMemberRemovalAccessLevelEnum {
+    AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
 }
 
 

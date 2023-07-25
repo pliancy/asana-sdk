@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -18,7 +18,7 @@ import { AuditLogEventContext } from './audit-log-event-context';
 import { AuditLogEventResource } from './audit-log-event-resource';
 
 /**
- * An object representing a single event within an Asana domain.  Every audit log event is comprised of an `event_type`, `actor`, `resource`, and `context`. Some events will include additional metadata about the event under `details`. See our [currently supported list of events](/docs/supported-auditlogevents) for more details.
+ * An object representing a single event within an Asana domain.  Every audit log event is comprised of an `event_type`, `actor`, `resource`, and `context`. Some events will include additional metadata about the event under `details`. See our [currently supported list of events](/docs/audit-log-events#supported-audit-log-events) for more details.
  * @export
  * @interface AuditLogEvent
  */
@@ -60,7 +60,7 @@ export interface AuditLogEvent {
      */
     'resource'?: AuditLogEventResource;
     /**
-     * 
+     * Event specific details. The schema will vary depending on the `event_type`.
      * @type {object}
      * @memberof AuditLogEvent
      */

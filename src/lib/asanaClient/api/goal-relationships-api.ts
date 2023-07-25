@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Asana
- * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/developer-docs/master/defs/asana_oas.yaml).
+ * This is the interface for interacting with the [Asana Platform](https://developers.asana.com). Our API reference is generated from our [OpenAPI spec] (https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml).
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -46,11 +46,11 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject7} inlineObject7 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSupportingRelationship: async (goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addSupportingRelationship: async (goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalGid' is not null or undefined
             assertParamExists('addSupportingRelationship', 'goalGid', goalGid)
             // verify required parameter 'inlineObject7' is not null or undefined
@@ -103,11 +103,11 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationship: async (goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGoalRelationship: async (goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalRelationshipGid' is not null or undefined
             assertParamExists('getGoalRelationship', 'goalRelationshipGid', goalRelationshipGid)
             const localVarPath = `/goal_relationships/{goal_relationship_gid}`
@@ -155,12 +155,14 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @summary Get goal relationships
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationships: async (supportedGoal: string, optPretty?: boolean, optFields?: Array<string>, resourceSubtype?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGoalRelationships: async (supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'supportedGoal' is not null or undefined
             assertParamExists('getGoalRelationships', 'supportedGoal', supportedGoal)
             const localVarPath = `/goal_relationships`;
@@ -187,8 +189,12 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             if (supportedGoal !== undefined) {
@@ -197,6 +203,10 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
 
             if (resourceSubtype !== undefined) {
                 localVarQueryParameter['resource_subtype'] = resourceSubtype;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -216,11 +226,10 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject8} inlineObject8 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSupportingRelationship: async (goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeSupportingRelationship: async (goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalGid' is not null or undefined
             assertParamExists('removeSupportingRelationship', 'goalGid', goalGid)
             // verify required parameter 'inlineObject8' is not null or undefined
@@ -250,10 +259,6 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -274,11 +279,11 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {InlineObject6} inlineObject6 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalRelationship: async (goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateGoalRelationship: async (goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalRelationshipGid' is not null or undefined
             assertParamExists('updateGoalRelationship', 'goalRelationshipGid', goalRelationshipGid)
             // verify required parameter 'inlineObject6' is not null or undefined
@@ -342,11 +347,11 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject7} inlineObject7 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -355,11 +360,11 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalRelationship(goalRelationshipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -368,13 +373,15 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @summary Get goal relationships
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoalRelationships(supportedGoal: string, optPretty?: boolean, optFields?: Array<string>, resourceSubtype?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalRelationships(supportedGoal, optPretty, optFields, resourceSubtype, options);
+        async getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalRelationships(supportedGoal, optPretty, limit, offset, resourceSubtype, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -383,12 +390,11 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject8} inlineObject8 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSupportingRelationship(goalGid, inlineObject8, optPretty, optFields, options);
+        async removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSupportingRelationship(goalGid, inlineObject8, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -397,11 +403,11 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {InlineObject6} inlineObject6 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -421,11 +427,11 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject7} inlineObject7 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
+        addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
             return localVarFp.addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -433,11 +439,11 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
+        getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
             return localVarFp.getGoalRelationship(goalRelationshipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -445,13 +451,15 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @summary Get goal relationships
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationships(supportedGoal: string, optPretty?: boolean, optFields?: Array<string>, resourceSubtype?: string, options?: any): AxiosPromise<InlineResponse2009> {
-            return localVarFp.getGoalRelationships(supportedGoal, optPretty, optFields, resourceSubtype, options).then((request) => request(axios, basePath));
+        getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse2009> {
+            return localVarFp.getGoalRelationships(supportedGoal, optPretty, limit, offset, resourceSubtype, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes a goal relationship for a given parent goal.
@@ -459,12 +467,11 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @param {string} goalGid Globally unique identifier for the goal.
          * @param {InlineObject8} inlineObject8 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeSupportingRelationship(goalGid, inlineObject8, optPretty, optFields, options).then((request) => request(axios, basePath));
+        removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeSupportingRelationship(goalGid, inlineObject8, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing goal relationship can be updated by making a PUT request on the URL for that goal relationship. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal relationship record.
@@ -472,11 +479,11 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {InlineObject6} inlineObject6 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: any): AxiosPromise<InlineResponse2008> {
+        updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
             return localVarFp.updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -495,12 +502,12 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @param {string} goalGid Globally unique identifier for the goal.
      * @param {InlineObject7} inlineObject7 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
         return GoalRelationshipsApiFp(this.configuration).addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -509,12 +516,12 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @summary Get a goal relationship
      * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
         return GoalRelationshipsApiFp(this.configuration).getGoalRelationship(goalRelationshipGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -523,14 +530,16 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @summary Get goal relationships
      * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
      * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
+     * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public getGoalRelationships(supportedGoal: string, optPretty?: boolean, optFields?: Array<string>, resourceSubtype?: string, options?: AxiosRequestConfig) {
-        return GoalRelationshipsApiFp(this.configuration).getGoalRelationships(supportedGoal, optPretty, optFields, resourceSubtype, options).then((request) => request(this.axios, this.basePath));
+    public getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: AxiosRequestConfig) {
+        return GoalRelationshipsApiFp(this.configuration).getGoalRelationships(supportedGoal, optPretty, limit, offset, resourceSubtype, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -539,13 +548,12 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @param {string} goalGid Globally unique identifier for the goal.
      * @param {InlineObject8} inlineObject8 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
-        return GoalRelationshipsApiFp(this.configuration).removeSupportingRelationship(goalGid, inlineObject8, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return GoalRelationshipsApiFp(this.configuration).removeSupportingRelationship(goalGid, inlineObject8, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -554,12 +562,12 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
      * @param {InlineObject6} inlineObject6 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<string>} [optFields] Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<string>, options?: AxiosRequestConfig) {
+    public updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
         return GoalRelationshipsApiFp(this.configuration).updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }
