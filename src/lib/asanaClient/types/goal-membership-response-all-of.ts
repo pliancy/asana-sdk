@@ -13,16 +13,26 @@
  */
 
 
-import { MemberCompact } from './member-compact';
-import { ProjectCompact } from './project-compact';
-import { ProjectMembershipCompact } from './project-membership-compact';
-import { ProjectMembershipResponseAllOf } from './project-membership-response-all-of';
 import { UserCompact } from './user-compact';
+import { WorkspaceCompact } from './workspace-compact';
 
 /**
- * @type ProjectMembershipResponse
+ * 
  * @export
+ * @interface GoalMembershipResponseAllOf
  */
-export type ProjectMembershipResponse = ProjectMembershipCompact & ProjectMembershipResponseAllOf;
-
+export interface GoalMembershipResponseAllOf {
+    /**
+     * 
+     * @type {UserCompact & object}
+     * @memberof GoalMembershipResponseAllOf
+     */
+    'user'?: UserCompact & object;
+    /**
+     * 
+     * @type {WorkspaceCompact & object}
+     * @memberof GoalMembershipResponseAllOf
+     */
+    'workspace'?: WorkspaceCompact & object;
+}
 

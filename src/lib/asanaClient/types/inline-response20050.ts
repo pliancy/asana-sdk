@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { WebhookResponse } from './webhook-response';
+import { UserCompact } from './user-compact';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20050 {
     /**
      * 
-     * @type {Array<WebhookResponse>}
+     * @type {Array<UserCompact>}
      * @memberof InlineResponse20050
      */
-    'data'?: Array<WebhookResponse>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20050
-     */
-    'next_page'?: NextPage | null;
+    'data'?: Array<UserCompact>;
 }
 

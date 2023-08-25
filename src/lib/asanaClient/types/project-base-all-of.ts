@@ -17,7 +17,6 @@ import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { ProjectStatusResponse } from './project-status-response';
 import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
-import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * 
@@ -116,11 +115,11 @@ export interface ProjectBaseAllOf {
      */
     'start_on'?: string | null;
     /**
-     * 
-     * @type {WorkspaceCompact & object}
+     * The default access for users or teams who join or are added as members to the project.
+     * @type {string}
      * @memberof ProjectBaseAllOf
      */
-    'workspace'?: WorkspaceCompact & object;
+    'default_access_level'?: ProjectBaseAllOfDefaultAccessLevelEnum;
 }
 
 /**
@@ -158,6 +157,16 @@ export enum ProjectBaseAllOfDefaultViewEnum {
     Board = 'board',
     Calendar = 'calendar',
     Timeline = 'timeline'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectBaseAllOfDefaultAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
 }
 
 

@@ -13,7 +13,6 @@
  */
 
 
-import { NextPage } from './next-page';
 import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
@@ -24,15 +23,9 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20040 {
     /**
      * 
-     * @type {Array<TeamMembershipCompact>}
+     * @type {TeamMembershipCompact}
      * @memberof InlineResponse20040
      */
-    'data'?: Array<TeamMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20040
-     */
-    'next_page'?: NextPage | null;
+    'data'?: TeamMembershipCompact;
 }
 

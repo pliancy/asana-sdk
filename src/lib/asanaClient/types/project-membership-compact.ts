@@ -14,8 +14,9 @@
 
 
 import { AsanaResource } from './asana-resource';
+import { MemberCompact } from './member-compact';
+import { ProjectCompact } from './project-compact';
 import { ProjectMembershipCompactAllOf } from './project-membership-compact-all-of';
-import { UserCompact } from './user-compact';
 
 /**
  * @type ProjectMembershipCompact

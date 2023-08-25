@@ -33,9 +33,9 @@ import { InlineObject69 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20039 } from '../types';
+import { InlineResponse20040 } from '../types';
 // @ts-ignore
-import { InlineResponse20041 } from '../types';
+import { InlineResponse20042 } from '../types';
 // @ts-ignore
 import { InlineResponse2017 } from '../types';
 /**
@@ -470,7 +470,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+        async addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -512,7 +512,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -527,7 +527,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -578,7 +578,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20039> {
+        addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20040> {
             return localVarFp.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -617,7 +617,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20041> {
+        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -631,7 +631,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20041> {
+        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**

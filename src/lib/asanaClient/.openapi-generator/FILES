@@ -91,8 +91,12 @@ types/goal-base-all-of.ts
 types/goal-base.ts
 types/goal-compact-all-of.ts
 types/goal-compact.ts
+types/goal-membership-base-all-of.ts
+types/goal-membership-base.ts
 types/goal-membership-compact-all-of.ts
 types/goal-membership-compact.ts
+types/goal-membership-response-all-of.ts
+types/goal-membership-response.ts
 types/goal-metric-base-all-of.ts
 types/goal-metric-base.ts
 types/goal-metric-current-value-request-all-of.ts
@@ -243,6 +247,7 @@ types/inline-response20052.ts
 types/inline-response20053.ts
 types/inline-response20054.ts
 types/inline-response20055.ts
+types/inline-response20056.ts
 types/inline-response2006.ts
 types/inline-response2007.ts
 types/inline-response2008.ts
@@ -264,6 +269,7 @@ types/job-compact.ts
 types/like.ts
 types/member-compact-all-of.ts
 types/member-compact.ts
+types/membership-compact.ts
 types/membership-request.ts
 types/membership-response.ts
 types/model-error.ts
@@ -300,9 +306,11 @@ types/project-compact.ts
 types/project-duplicate-request-schedule-dates.ts
 types/project-duplicate-request.ts
 types/project-membership-compact-all-of.ts
+types/project-membership-compact-response-all-of.ts
+types/project-membership-compact-response.ts
 types/project-membership-compact.ts
-types/project-membership-response-all-of.ts
-types/project-membership-response.ts
+types/project-membership-normal-response-all-of.ts
+types/project-membership-normal-response.ts
 types/project-request-all-of.ts
 types/project-request.ts
 types/project-response-all-of.ts
@@ -321,6 +329,8 @@ types/project-template-compact-all-of.ts
 types/project-template-compact.ts
 types/project-template-instantiate-project-request.ts
 types/project-template-response.ts
+types/project-update-request-all-of.ts
+types/project-update-request.ts
 types/remove-custom-field-setting-request.ts
 types/remove-followers-request.ts
 types/remove-members-request.ts
@@ -363,6 +373,7 @@ types/task-base-all-of-external.ts
 types/task-base-all-of-memberships.ts
 types/task-base-all-of.ts
 types/task-base.ts
+types/task-compact-all-of-created-by.ts
 types/task-compact-all-of.ts
 types/task-compact.ts
 types/task-count-response.ts

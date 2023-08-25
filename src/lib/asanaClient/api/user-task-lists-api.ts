@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20046 } from '../types';
+import { InlineResponse20047 } from '../types';
 /**
  * UserTaskListsApi - axios parameter creator
  * @export
@@ -160,7 +160,7 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
+        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskList(userTaskListGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -174,7 +174,7 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
+        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -197,7 +197,7 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20046> {
+        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.getUserTaskList(userTaskListGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -210,7 +210,7 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20046> {
+        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };

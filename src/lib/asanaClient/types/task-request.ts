@@ -18,6 +18,7 @@ import { Like } from './like';
 import { TaskBase } from './task-base';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
 import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
+import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
 import { TaskRequestAllOf } from './task-request-all-of';
 import { UserCompact } from './user-compact';
 

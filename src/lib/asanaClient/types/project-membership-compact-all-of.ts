@@ -13,19 +13,44 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { MemberCompact } from './member-compact';
+import { ProjectCompact } from './project-compact';
 
 /**
- * With the introduction of “comment-only” projects in Asana, a user’s membership in a project comes with associated permissions. These permissions (whether a user has full access to the project or comment-only access) are accessible through the project memberships endpoints described here.
+ * This object describes a team or a user\'s membership to a project including their level of access (Admin, Editor, Commenter, or Viewer).
  * @export
  * @interface ProjectMembershipCompactAllOf
  */
 export interface ProjectMembershipCompactAllOf {
     /**
      * 
-     * @type {UserCompact}
+     * @type {ProjectCompact}
      * @memberof ProjectMembershipCompactAllOf
      */
-    'user'?: UserCompact;
+    'parent'?: ProjectCompact;
+    /**
+     * 
+     * @type {MemberCompact}
+     * @memberof ProjectMembershipCompactAllOf
+     */
+    'member'?: MemberCompact;
+    /**
+     * Whether the member has admin, editor, commenter, or viewer access to the project.
+     * @type {string}
+     * @memberof ProjectMembershipCompactAllOf
+     */
+    'access_level'?: ProjectMembershipCompactAllOfAccessLevelEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectMembershipCompactAllOfAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
+}
+
 

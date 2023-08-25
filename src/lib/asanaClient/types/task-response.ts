@@ -23,6 +23,7 @@ import { TaskBase } from './task-base';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
 import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
 import { TaskCompact } from './task-compact';
+import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
 import { TaskResponseAllOf } from './task-response-all-of';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';

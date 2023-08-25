@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectMembershipResponse } from './project-membership-response';
+import { ProjectBriefResponse } from './project-brief-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectMembershipResponse } from './project-membership-response';
 export interface InlineResponse20022 {
     /**
      * 
-     * @type {ProjectMembershipResponse}
+     * @type {ProjectBriefResponse}
      * @memberof InlineResponse20022
      */
-    'data'?: ProjectMembershipResponse;
+    'data'?: ProjectBriefResponse;
 }
 

@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20045 } from '../types';
+import { InlineResponse20046 } from '../types';
 /**
  * TypeaheadApi - axios parameter creator
  * @export
@@ -127,7 +127,7 @@ export const TypeaheadApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -154,7 +154,7 @@ export const TypeaheadApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: any): AxiosPromise<InlineResponse20045> {
+        typeaheadForWorkspace(workspaceGid: string, resourceType: 'custom_field' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };

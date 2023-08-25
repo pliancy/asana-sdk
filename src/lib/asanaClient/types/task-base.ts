@@ -19,6 +19,7 @@ import { TaskBaseAllOf } from './task-base-all-of';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
 import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
 import { TaskCompact } from './task-compact';
+import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
 import { UserCompact } from './user-compact';
 
 /**

@@ -29,9 +29,9 @@ import { InlineResponse2001 } from '../types';
 // @ts-ignore
 import { InlineResponse20013 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
-// @ts-ignore
 import { InlineResponse20027 } from '../types';
+// @ts-ignore
+import { InlineResponse20028 } from '../types';
 /**
  * ProjectTemplatesApi - axios parameter creator
  * @export
@@ -272,12 +272,12 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject28} [inlineObject28] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateProject: async (projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        instantiateProject: async (projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectTemplateGid' is not null or undefined
             assertParamExists('instantiateProject', 'projectTemplateGid', projectTemplateGid)
             const localVarPath = `/project_templates/{project_template_gid}/instantiateProject`
@@ -354,7 +354,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplate(projectTemplateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -370,7 +370,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+        async getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(optPretty, workspace, team, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -385,7 +385,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+        async getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20028>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplatesForTeam(teamGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -394,12 +394,12 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject28} [inlineObject28] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
+        async instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -433,7 +433,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: any): AxiosPromise<InlineResponse20026> {
+        getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: any): AxiosPromise<InlineResponse20027> {
             return localVarFp.getProjectTemplate(projectTemplateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -448,7 +448,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20027> {
+        getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20028> {
             return localVarFp.getProjectTemplates(optPretty, workspace, team, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -462,7 +462,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20027> {
+        getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20028> {
             return localVarFp.getProjectTemplatesForTeam(teamGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -470,12 +470,12 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {InlineObject28} [inlineObject28] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: any): AxiosPromise<InlineResponse20013> {
+        instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: any): AxiosPromise<InlineResponse20013> {
             return localVarFp.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options).then((request) => request(axios, basePath));
         },
     };
@@ -553,13 +553,13 @@ export class ProjectTemplatesApi extends BaseAPI {
      * @summary Instantiate a project from a project template
      * @param {string} projectTemplateGid Globally unique identifier for the project template.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {InlineObject28} [inlineObject28] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectTemplatesApi
      */
-    public instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig) {
+    public instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig) {
         return ProjectTemplatesApiFp(this.configuration).instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options).then((request) => request(this.axios, this.basePath));
     }
 }

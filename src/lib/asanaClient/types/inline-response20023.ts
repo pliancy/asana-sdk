@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { ProjectMembershipCompact } from './project-membership-compact';
+import { ProjectMembershipNormalResponse } from './project-membership-normal-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { ProjectMembershipCompact } from './project-membership-compact';
 export interface InlineResponse20023 {
     /**
      * 
-     * @type {Array<ProjectMembershipCompact>}
+     * @type {ProjectMembershipNormalResponse}
      * @memberof InlineResponse20023
      */
-    'data'?: Array<ProjectMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20023
-     */
-    'next_page'?: NextPage | null;
+    'data'?: ProjectMembershipNormalResponse;
 }
 

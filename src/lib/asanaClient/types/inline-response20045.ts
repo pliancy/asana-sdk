@@ -13,19 +13,26 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
+import { NextPage } from './next-page';
+import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 
 /**
- * A generic list of objects, such as those returned by the typeahead search endpoint.
+ * 
  * @export
  * @interface InlineResponse20045
  */
 export interface InlineResponse20045 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {Array<TimeTrackingEntryCompact>}
      * @memberof InlineResponse20045
      */
-    'data'?: Array<AsanaNamedResource>;
+    'data'?: Array<TimeTrackingEntryCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20045
+     */
+    'next_page'?: NextPage | null;
 }
 

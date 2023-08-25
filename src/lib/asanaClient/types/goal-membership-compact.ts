@@ -13,8 +13,8 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { GoalCompact } from './goal-compact';
+import { GoalMembershipBase } from './goal-membership-base';
 import { GoalMembershipCompactAllOf } from './goal-membership-compact-all-of';
 import { MemberCompact } from './member-compact';
 
@@ -22,6 +22,6 @@ import { MemberCompact } from './member-compact';
  * @type GoalMembershipCompact
  * @export
  */
-export type GoalMembershipCompact = AsanaResource & GoalMembershipCompactAllOf;
+export type GoalMembershipCompact = GoalMembershipBase & GoalMembershipCompactAllOf;
 
 

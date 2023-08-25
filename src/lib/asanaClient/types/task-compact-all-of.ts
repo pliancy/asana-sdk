@@ -13,6 +13,7 @@
  */
 
 
+import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
 
 /**
  * The *task* is the basic object around which many operations in Asana are centered.
@@ -32,6 +33,12 @@ export interface TaskCompactAllOf {
      * @memberof TaskCompactAllOf
      */
     'resource_subtype'?: TaskCompactAllOfResourceSubtypeEnum;
+    /**
+     * 
+     * @type {TaskCompactAllOfCreatedBy}
+     * @memberof TaskCompactAllOf
+     */
+    'created_by'?: TaskCompactAllOfCreatedBy;
 }
 
 /**

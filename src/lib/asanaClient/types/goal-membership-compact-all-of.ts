@@ -13,37 +13,25 @@
  */
 
 
-import { GoalCompact } from './goal-compact';
-import { MemberCompact } from './member-compact';
 
 /**
- * This object represents a user\'s connection to a goal.
+ * 
  * @export
  * @interface GoalMembershipCompactAllOf
  */
 export interface GoalMembershipCompactAllOf {
     /**
-     * 
-     * @type {MemberCompact}
-     * @memberof GoalMembershipCompactAllOf
-     */
-    'member'?: MemberCompact;
-    /**
-     * 
-     * @type {GoalCompact}
-     * @memberof GoalMembershipCompactAllOf
-     */
-    'goal'?: GoalCompact;
-    /**
-     * Describes if the member is comment only in goal.
+     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is comment only in goal.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
+     * @deprecated
      */
     'is_commenter'?: boolean;
     /**
-     * Describes if the member is editor in goal.
+     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is editor in goal.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
+     * @deprecated
      */
     'is_editor'?: boolean;
 }

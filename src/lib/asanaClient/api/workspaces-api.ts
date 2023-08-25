@@ -31,11 +31,11 @@ import { InlineObject76 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20053 } from '../types';
-// @ts-ignore
 import { InlineResponse20054 } from '../types';
 // @ts-ignore
 import { InlineResponse20055 } from '../types';
+// @ts-ignore
+import { InlineResponse20056 } from '../types';
 /**
  * WorkspacesApi - axios parameter creator
  * @export
@@ -341,7 +341,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
+        async addUserForWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForWorkspace(workspaceGid, inlineObject75, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -354,7 +354,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
+        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspace(workspaceGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -368,7 +368,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
+        async getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaces(optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -395,7 +395,7 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkspace(workspaceGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
+        async updateWorkspace(workspaceGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkspace(workspaceGid, inlineObject74, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -419,7 +419,7 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: any): AxiosPromise<InlineResponse20055> {
+        addUserForWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: any): AxiosPromise<InlineResponse20056> {
             return localVarFp.addUserForWorkspace(workspaceGid, inlineObject75, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -431,7 +431,7 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20054> {
+        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20055> {
             return localVarFp.getWorkspace(workspaceGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -444,7 +444,7 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20053> {
+        getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20054> {
             return localVarFp.getWorkspaces(optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -469,7 +469,7 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkspace(workspaceGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20054> {
+        updateWorkspace(workspaceGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20055> {
             return localVarFp.updateWorkspace(workspaceGid, inlineObject74, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };

@@ -13,7 +13,8 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { AsanaNamedResource } from './asana-named-resource';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { UserCompact } from './user-compact';
 export interface InlineResponse20049 {
     /**
      * 
-     * @type {Array<UserCompact>}
+     * @type {Array<AsanaNamedResource>}
      * @memberof InlineResponse20049
      */
-    'data'?: Array<UserCompact>;
+    'data'?: Array<AsanaNamedResource>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20049
+     */
+    'next_page'?: NextPage | null;
 }
 

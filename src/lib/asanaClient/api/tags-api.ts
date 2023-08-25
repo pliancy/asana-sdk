@@ -29,7 +29,7 @@ import { InlineObject50 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20036 } from '../types';
+import { InlineResponse20037 } from '../types';
 // @ts-ignore
 import { InlineResponse2015 } from '../types';
 /**
@@ -561,7 +561,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTags(optPretty, limit, offset, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -576,7 +576,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -591,7 +591,7 @@ export const TagsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -677,7 +677,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20037> {
             return localVarFp.getTags(optPretty, limit, offset, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -691,7 +691,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20037> {
             return localVarFp.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -705,7 +705,7 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20037> {
             return localVarFp.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**

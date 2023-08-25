@@ -44,5 +44,11 @@ export interface ProjectRequestAllOf {
      * @memberof ProjectRequestAllOf
      */
     'team'?: string;
+    /**
+     * The `gid` of a workspace.
+     * @type {string}
+     * @memberof ProjectRequestAllOf
+     */
+    'workspace'?: string;
 }
 

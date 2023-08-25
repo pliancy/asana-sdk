@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20051 } from '../types';
-// @ts-ignore
 import { InlineResponse20052 } from '../types';
+// @ts-ignore
+import { InlineResponse20053 } from '../types';
 /**
  * WorkspaceMembershipsApi - axios parameter creator
  * @export
@@ -232,7 +232,7 @@ export const WorkspaceMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaceMembership(workspaceMembershipGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
+        async getWorkspaceMembership(workspaceMembershipGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaceMembership(workspaceMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -247,7 +247,7 @@ export const WorkspaceMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaceMembershipsForUser(userGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
+        async getWorkspaceMembershipsForUser(userGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaceMembershipsForUser(userGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -263,7 +263,7 @@ export const WorkspaceMembershipsApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaceMembershipsForWorkspace(workspaceGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
+        async getWorkspaceMembershipsForWorkspace(workspaceGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaceMembershipsForWorkspace(workspaceGid, user, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -286,7 +286,7 @@ export const WorkspaceMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaceMembership(workspaceMembershipGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20051> {
+        getWorkspaceMembership(workspaceMembershipGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getWorkspaceMembership(workspaceMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -300,7 +300,7 @@ export const WorkspaceMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaceMembershipsForUser(userGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
+        getWorkspaceMembershipsForUser(userGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20053> {
             return localVarFp.getWorkspaceMembershipsForUser(userGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -315,7 +315,7 @@ export const WorkspaceMembershipsApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaceMembershipsForWorkspace(workspaceGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
+        getWorkspaceMembershipsForWorkspace(workspaceGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_active' | 'is_admin' | 'is_guest' | 'offset' | 'path' | 'uri' | 'user' | 'user.name' | 'user_task_list' | 'user_task_list.name' | 'user_task_list.owner' | 'user_task_list.workspace' | 'vacation_dates' | 'vacation_dates.end_on' | 'vacation_dates.start_on' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20053> {
             return localVarFp.getWorkspaceMembershipsForWorkspace(workspaceGid, user, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };

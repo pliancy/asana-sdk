@@ -29,7 +29,7 @@ import { InlineObject73 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20050 } from '../types';
+import { InlineResponse20051 } from '../types';
 // @ts-ignore
 import { InlineResponse2019 } from '../types';
 /**
@@ -379,7 +379,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
+        async getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks(workspace, optPretty, limit, offset, resource, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -454,7 +454,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: any): AxiosPromise<InlineResponse20050> {
+        getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: any): AxiosPromise<InlineResponse20051> {
             return localVarFp.getWebhooks(workspace, optPretty, limit, offset, resource, optFields, options).then((request) => request(axios, basePath));
         },
         /**

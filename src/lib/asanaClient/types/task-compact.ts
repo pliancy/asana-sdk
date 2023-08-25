@@ -15,6 +15,7 @@
 
 import { AsanaResource } from './asana-resource';
 import { TaskCompactAllOf } from './task-compact-all-of';
+import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
 
 /**
  * @type TaskCompact

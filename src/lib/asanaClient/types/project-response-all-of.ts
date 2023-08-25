@@ -18,6 +18,7 @@ import { ProjectBriefCompact } from './project-brief-compact';
 import { ProjectTemplateCompact } from './project-template-compact';
 import { TeamCompact } from './team-compact';
 import { UserCompact } from './user-compact';
+import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * 
@@ -91,6 +92,12 @@ export interface ProjectResponseAllOf {
      * @memberof ProjectResponseAllOf
      */
     'created_from_template'?: ProjectTemplateCompact & object;
+    /**
+     * 
+     * @type {WorkspaceCompact & object}
+     * @memberof ProjectResponseAllOf
+     */
+    'workspace'?: WorkspaceCompact & object;
 }
 
 /**

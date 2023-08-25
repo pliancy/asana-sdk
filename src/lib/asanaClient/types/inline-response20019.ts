@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { ProjectCompact } from './project-compact';
+import { PortfolioCompact } from './portfolio-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { ProjectCompact } from './project-compact';
 export interface InlineResponse20019 {
     /**
      * 
-     * @type {Array<ProjectCompact>}
+     * @type {Array<PortfolioCompact>}
      * @memberof InlineResponse20019
      */
-    'data'?: Array<ProjectCompact>;
+    'data'?: Array<PortfolioCompact>;
     /**
      * 
      * @type {NextPage}

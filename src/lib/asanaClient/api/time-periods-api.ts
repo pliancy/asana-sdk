@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20042 } from '../types';
-// @ts-ignore
 import { InlineResponse20043 } from '../types';
+// @ts-ignore
+import { InlineResponse20044 } from '../types';
 /**
  * TimePeriodsApi - axios parameter creator
  * @export
@@ -182,7 +182,7 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriod(timePeriodGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -199,7 +199,7 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+        async getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -222,7 +222,7 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: any): AxiosPromise<InlineResponse20042> {
+        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: any): AxiosPromise<InlineResponse20043> {
             return localVarFp.getTimePeriod(timePeriodGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -238,7 +238,7 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: any): AxiosPromise<InlineResponse20043> {
+        getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: any): AxiosPromise<InlineResponse20044> {
             return localVarFp.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options).then((request) => request(axios, basePath));
         },
     };

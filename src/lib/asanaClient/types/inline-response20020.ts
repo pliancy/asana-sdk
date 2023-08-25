@@ -13,7 +13,8 @@
  */
 
 
-import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { NextPage } from './next-page';
+import { ProjectCompact } from './project-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { CustomFieldSettingResponse } from './custom-field-setting-response';
 export interface InlineResponse20020 {
     /**
      * 
-     * @type {CustomFieldSettingResponse}
+     * @type {Array<ProjectCompact>}
      * @memberof InlineResponse20020
      */
-    'data'?: CustomFieldSettingResponse;
+    'data'?: Array<ProjectCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20020
+     */
+    'next_page'?: NextPage | null;
 }
 

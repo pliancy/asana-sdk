@@ -13,7 +13,7 @@
  */
 
 
-import { SectionResponse } from './section-response';
+import { RuleTriggerResponse } from './rule-trigger-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionResponse } from './section-response';
 export interface InlineResponse20030 {
     /**
      * 
-     * @type {SectionResponse}
+     * @type {RuleTriggerResponse}
      * @memberof InlineResponse20030
      */
-    'data'?: SectionResponse;
+    'data'?: RuleTriggerResponse;
 }
 

@@ -29,7 +29,7 @@ import { InlineObject26 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20021 } from '../types';
+import { InlineResponse20022 } from '../types';
 /**
  * ProjectBriefsApi - axios parameter creator
  * @export
@@ -271,7 +271,7 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+        async createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectBrief(projectGid, inlineObject26, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -296,7 +296,7 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+        async getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectBrief(projectBriefGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -310,7 +310,7 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+        async updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectBrief(projectBriefGid, inlineObject25, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -334,7 +334,7 @@ export const ProjectBriefsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
+        createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.createProjectBrief(projectGid, inlineObject26, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -357,7 +357,7 @@ export const ProjectBriefsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
+        getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.getProjectBrief(projectBriefGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -370,7 +370,7 @@ export const ProjectBriefsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
+        updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.updateProjectBrief(projectBriefGid, inlineObject25, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };

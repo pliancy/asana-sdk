@@ -14,8 +14,12 @@
 
 
 import { GoalCompact } from './goal-compact';
-import { GoalMembershipCompact } from './goal-membership-compact';
+import { GoalMembershipResponse } from './goal-membership-response';
 import { MemberCompact } from './member-compact';
+import { ProjectCompact } from './project-compact';
+import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
+import { UserCompact } from './user-compact';
+import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * 
@@ -36,6 +40,12 @@ export interface MembershipResponse {
      */
     'resource_type'?: string;
     /**
+     * Type of the membership.
+     * @type {string}
+     * @memberof MembershipResponse
+     */
+    'resource_subtype'?: string;
+    /**
      * 
      * @type {MemberCompact}
      * @memberof MembershipResponse
@@ -43,21 +53,59 @@ export interface MembershipResponse {
     'member'?: MemberCompact;
     /**
      * 
-     * @type {GoalCompact}
+     * @type {ProjectCompact}
      * @memberof MembershipResponse
      */
-    'goal'?: GoalCompact;
+    'parent'?: ProjectCompact;
     /**
-     * Describes if the member is comment only in goal.
-     * @type {boolean}
+     * Describes if the member is a commenter or editor in goal.
+     * @type {string}
      * @memberof MembershipResponse
      */
-    'is_commenter'?: boolean;
+    'role'?: MembershipResponseRoleEnum;
     /**
-     * Describes if the member is editor in goal.
-     * @type {boolean}
+     * 
+     * @type {GoalCompact & object}
      * @memberof MembershipResponse
      */
-    'is_editor'?: boolean;
+    'goal'?: GoalCompact & object;
+    /**
+     * 
+     * @type {UserCompact & object}
+     * @memberof MembershipResponse
+     */
+    'user'?: UserCompact & object;
+    /**
+     * 
+     * @type {WorkspaceCompact & object}
+     * @memberof MembershipResponse
+     */
+    'workspace'?: WorkspaceCompact & object;
+    /**
+     * Whether the member has admin, editor, commenter, or viewer access to the project.
+     * @type {string}
+     * @memberof MembershipResponse
+     */
+    'access_level'?: MembershipResponseAccessLevelEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MembershipResponseRoleEnum {
+    Commenter = 'commenter',
+    Editor = 'editor'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MembershipResponseAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
+}
+
 

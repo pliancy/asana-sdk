@@ -23,11 +23,11 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20047 } from '../types';
-// @ts-ignore
 import { InlineResponse20048 } from '../types';
 // @ts-ignore
 import { InlineResponse20049 } from '../types';
+// @ts-ignore
+import { InlineResponse20050 } from '../types';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -367,7 +367,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -380,7 +380,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
+        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -410,7 +410,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+        async getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForTeam(teamGid, optPretty, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -424,7 +424,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -451,7 +451,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20048> {
+        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20049> {
             return localVarFp.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -463,7 +463,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20047> {
+        getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20048> {
             return localVarFp.getUser(userGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -491,7 +491,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20049> {
+        getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20050> {
             return localVarFp.getUsersForTeam(teamGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -504,7 +504,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20049> {
+        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20050> {
             return localVarFp.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };

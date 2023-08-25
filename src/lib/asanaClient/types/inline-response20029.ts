@@ -13,7 +13,7 @@
  */
 
 
-import { RuleTriggerResponse } from './rule-trigger-response';
+import { TaskCountResponse } from './task-count-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RuleTriggerResponse } from './rule-trigger-response';
 export interface InlineResponse20029 {
     /**
      * 
-     * @type {RuleTriggerResponse}
+     * @type {TaskCountResponse}
      * @memberof InlineResponse20029
      */
-    'data'?: RuleTriggerResponse;
+    'data'?: TaskCountResponse;
 }
 

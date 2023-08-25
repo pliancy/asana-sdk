@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { ProjectTemplateCompact } from './project-template-compact';
+import { ProjectTemplateResponse } from './project-template-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { ProjectTemplateCompact } from './project-template-compact';
 export interface InlineResponse20027 {
     /**
      * 
-     * @type {Array<ProjectTemplateCompact>}
+     * @type {ProjectTemplateResponse}
      * @memberof InlineResponse20027
      */
-    'data'?: Array<ProjectTemplateCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20027
-     */
-    'next_page'?: NextPage | null;
+    'data'?: ProjectTemplateResponse;
 }
 

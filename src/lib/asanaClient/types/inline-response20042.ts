@@ -13,7 +13,8 @@
  */
 
 
-import { TimePeriodBase } from './time-period-base';
+import { NextPage } from './next-page';
+import { TeamCompact } from './team-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TimePeriodBase } from './time-period-base';
 export interface InlineResponse20042 {
     /**
      * 
-     * @type {TimePeriodBase}
+     * @type {Array<TeamCompact>}
      * @memberof InlineResponse20042
      */
-    'data'?: TimePeriodBase;
+    'data'?: Array<TeamCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20042
+     */
+    'next_page'?: NextPage | null;
 }
 

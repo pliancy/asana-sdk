@@ -25,7 +25,7 @@ export interface ProjectStatusBaseAllOf {
      * @type {string}
      * @memberof ProjectStatusBaseAllOf
      */
-    'text': string;
+    'text'?: string;
     /**
      * [Opt In](/docs/inputoutput-options). The text content of the status update with formatting as HTML.
      * @type {string}
@@ -37,7 +37,7 @@ export interface ProjectStatusBaseAllOf {
      * @type {string}
      * @memberof ProjectStatusBaseAllOf
      */
-    'color': ProjectStatusBaseAllOfColorEnum;
+    'color'?: ProjectStatusBaseAllOfColorEnum;
 }
 
 /**

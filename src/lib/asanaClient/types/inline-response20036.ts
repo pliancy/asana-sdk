@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { TagCompact } from './tag-compact';
+import { StoryCompact } from './story-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TagCompact } from './tag-compact';
 export interface InlineResponse20036 {
     /**
      * 
-     * @type {Array<TagCompact>}
+     * @type {Array<StoryCompact>}
      * @memberof InlineResponse20036
      */
-    'data'?: Array<TagCompact>;
+    'data'?: Array<StoryCompact>;
     /**
      * 
      * @type {NextPage}
