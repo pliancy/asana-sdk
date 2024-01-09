@@ -8,15 +8,20 @@ on:
 jobs:
   release:
     name: Release
+    permissions:
+      contents: write
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PLIBOT_PAT }}
+          ref: 'main'
+
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install dependencies
@@ -34,7 +39,7 @@ jobs:
           npx pinst --enable
       # Commit changes to package.json and README.md
       - name: Auto Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         env:
           SKIP_COMMITIZEN: true
         with:
