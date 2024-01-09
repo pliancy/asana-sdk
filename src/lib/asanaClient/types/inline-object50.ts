@@ -13,7 +13,7 @@
  */
 
 
-import { TagResponse } from './tag-response';
+import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagResponse } from './tag-response';
 export interface InlineObject50 {
     /**
      * 
-     * @type {TagResponse}
+     * @type {TagCreateTagForWorkspaceRequest}
      * @memberof InlineObject50
      */
-    'data'?: TagResponse;
+    'data'?: TagCreateTagForWorkspaceRequest;
 }
 

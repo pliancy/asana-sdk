@@ -48,7 +48,8 @@ export enum ProjectStatusBaseAllOfColorEnum {
     Green = 'green',
     Yellow = 'yellow',
     Red = 'red',
-    Blue = 'blue'
+    Blue = 'blue',
+    Complete = 'complete'
 }
 
 

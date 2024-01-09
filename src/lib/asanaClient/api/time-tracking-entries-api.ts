@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject70 } from '../types';
-// @ts-ignore
 import { InlineObject71 } from '../types';
+// @ts-ignore
+import { InlineObject72 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20045 } from '../types';
+import { InlineResponse20046 } from '../types';
 // @ts-ignore
-import { InlineResponse2018 } from '../types';
+import { InlineResponse2019 } from '../types';
 /**
  * TimeTrackingEntriesApi - axios parameter creator
  * @export
@@ -42,17 +42,17 @@ export const TimeTrackingEntriesApiAxiosParamCreator = function (configuration?:
          * Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.
          * @summary Create a time tracking entry
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject70} inlineObject70 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimeTrackingEntry: async (taskGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createTimeTrackingEntry: async (taskGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskGid' is not null or undefined
             assertParamExists('createTimeTrackingEntry', 'taskGid', taskGid)
-            // verify required parameter 'inlineObject70' is not null or undefined
-            assertParamExists('createTimeTrackingEntry', 'inlineObject70', inlineObject70)
+            // verify required parameter 'inlineObject71' is not null or undefined
+            assertParamExists('createTimeTrackingEntry', 'inlineObject71', inlineObject71)
             const localVarPath = `/tasks/{task_gid}/time_tracking_entries`
                 .replace(`{${"task_gid"}}`, encodeURIComponent(String(taskGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -89,7 +89,7 @@ export const TimeTrackingEntriesApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject70, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject71, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -261,17 +261,17 @@ export const TimeTrackingEntriesApiAxiosParamCreator = function (configuration?:
          * A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.
          * @summary Update a time tracking entry
          * @param {string} timeTrackingEntryGid Globally unique identifier for the time tracking entry.
-         * @param {InlineObject71} inlineObject71 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimeTrackingEntry: async (timeTrackingEntryGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTimeTrackingEntry: async (timeTrackingEntryGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'timeTrackingEntryGid' is not null or undefined
             assertParamExists('updateTimeTrackingEntry', 'timeTrackingEntryGid', timeTrackingEntryGid)
-            // verify required parameter 'inlineObject71' is not null or undefined
-            assertParamExists('updateTimeTrackingEntry', 'inlineObject71', inlineObject71)
+            // verify required parameter 'inlineObject72' is not null or undefined
+            assertParamExists('updateTimeTrackingEntry', 'inlineObject72', inlineObject72)
             const localVarPath = `/time_tracking_entries/{time_tracking_entry_gid}`
                 .replace(`{${"time_tracking_entry_gid"}}`, encodeURIComponent(String(timeTrackingEntryGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -308,7 +308,7 @@ export const TimeTrackingEntriesApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject71, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject72, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -329,14 +329,14 @@ export const TimeTrackingEntriesApiFp = function(configuration?: Configuration) 
          * Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.
          * @summary Create a time tracking entry
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject70} inlineObject70 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTimeTrackingEntry(taskGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimeTrackingEntry(taskGid, inlineObject70, optPretty, optFields, options);
+        async createTimeTrackingEntry(taskGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimeTrackingEntry(taskGid, inlineObject71, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -362,7 +362,7 @@ export const TimeTrackingEntriesApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeTrackingEntriesForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+        async getTimeTrackingEntriesForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeTrackingEntriesForTask(taskGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -375,7 +375,7 @@ export const TimeTrackingEntriesApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeTrackingEntry(timeTrackingEntryGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
+        async getTimeTrackingEntry(timeTrackingEntryGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeTrackingEntry(timeTrackingEntryGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -383,14 +383,14 @@ export const TimeTrackingEntriesApiFp = function(configuration?: Configuration) 
          * A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.
          * @summary Update a time tracking entry
          * @param {string} timeTrackingEntryGid Globally unique identifier for the time tracking entry.
-         * @param {InlineObject71} inlineObject71 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject71, optPretty, optFields, options);
+        async updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject72, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -407,14 +407,14 @@ export const TimeTrackingEntriesApiFactory = function (configuration?: Configura
          * Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.
          * @summary Create a time tracking entry
          * @param {string} taskGid The task to operate on.
-         * @param {InlineObject70} inlineObject70 
+         * @param {InlineObject71} inlineObject71 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimeTrackingEntry(taskGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2018> {
-            return localVarFp.createTimeTrackingEntry(taskGid, inlineObject70, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTimeTrackingEntry(taskGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2019> {
+            return localVarFp.createTimeTrackingEntry(taskGid, inlineObject71, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing time tracking entry can be deleted by making a `DELETE` request on the URL for that time tracking entry.  Returns an empty data record.
@@ -438,7 +438,7 @@ export const TimeTrackingEntriesApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingEntriesForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20045> {
+        getTimeTrackingEntriesForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.getTimeTrackingEntriesForTask(taskGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -450,21 +450,21 @@ export const TimeTrackingEntriesApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingEntry(timeTrackingEntryGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2018> {
+        getTimeTrackingEntry(timeTrackingEntryGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2019> {
             return localVarFp.getTimeTrackingEntry(timeTrackingEntryGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.
          * @summary Update a time tracking entry
          * @param {string} timeTrackingEntryGid Globally unique identifier for the time tracking entry.
-         * @param {InlineObject71} inlineObject71 
+         * @param {InlineObject72} inlineObject72 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2018> {
-            return localVarFp.updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject71, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: any): AxiosPromise<InlineResponse2019> {
+            return localVarFp.updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject72, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -480,15 +480,15 @@ export class TimeTrackingEntriesApi extends BaseAPI {
      * Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.
      * @summary Create a time tracking entry
      * @param {string} taskGid The task to operate on.
-     * @param {InlineObject70} inlineObject70 
+     * @param {InlineObject71} inlineObject71 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingEntriesApi
      */
-    public createTimeTrackingEntry(taskGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig) {
-        return TimeTrackingEntriesApiFp(this.configuration).createTimeTrackingEntry(taskGid, inlineObject70, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTimeTrackingEntry(taskGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig) {
+        return TimeTrackingEntriesApiFp(this.configuration).createTimeTrackingEntry(taskGid, inlineObject71, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -538,14 +538,14 @@ export class TimeTrackingEntriesApi extends BaseAPI {
      * A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.
      * @summary Update a time tracking entry
      * @param {string} timeTrackingEntryGid Globally unique identifier for the time tracking entry.
-     * @param {InlineObject71} inlineObject71 
+     * @param {InlineObject72} inlineObject72 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingEntriesApi
      */
-    public updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject71: InlineObject71, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig) {
-        return TimeTrackingEntriesApiFp(this.configuration).updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject71, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTimeTrackingEntry(timeTrackingEntryGid: string, inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'task' | 'task.created_by' | 'task.name' | 'task.resource_subtype'>, options?: AxiosRequestConfig) {
+        return TimeTrackingEntriesApiFp(this.configuration).updateTimeTrackingEntry(timeTrackingEntryGid, inlineObject72, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -13,7 +13,7 @@
  */
 
 
-import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
+import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-req
 export interface InlineObject71 {
     /**
      * 
-     * @type {UpdateTimeTrackingEntryRequest}
+     * @type {CreateTimeTrackingEntryRequest}
      * @memberof InlineObject71
      */
-    'data'?: UpdateTimeTrackingEntryRequest;
+    'data'?: CreateTimeTrackingEntryRequest;
 }
 

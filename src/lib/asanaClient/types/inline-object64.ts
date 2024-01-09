@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { TaskRemoveTagRequest } from './task-remove-tag-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject64 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {TaskRemoveTagRequest}
      * @memberof InlineObject64
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: TaskRemoveTagRequest;
 }
 

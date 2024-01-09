@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookUpdateRequest } from './webhook-update-request';
+import { WebhookRequest } from './webhook-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookUpdateRequest } from './webhook-update-request';
 export interface InlineObject73 {
     /**
      * 
-     * @type {WebhookUpdateRequest}
+     * @type {WebhookRequest}
      * @memberof InlineObject73
      */
-    'data'?: WebhookUpdateRequest;
+    'data'?: WebhookRequest;
 }
 

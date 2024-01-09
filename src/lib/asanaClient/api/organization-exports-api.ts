@@ -25,7 +25,7 @@ import { ErrorResponse } from '../types';
 // @ts-ignore
 import { InlineObject16 } from '../types';
 // @ts-ignore
-import { InlineResponse2012 } from '../types';
+import { InlineResponse2013 } from '../types';
 /**
  * OrganizationExportsApi - axios parameter creator
  * @export
@@ -157,7 +157,7 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
+        async createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createOrganizationExport(inlineObject16, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -170,7 +170,7 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
+        async getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationExport(organizationExportGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -193,7 +193,7 @@ export const OrganizationExportsApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2012> {
+        createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2013> {
             return localVarFp.createOrganizationExport(inlineObject16, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -205,7 +205,7 @@ export const OrganizationExportsApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2012> {
+        getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2013> {
             return localVarFp.getOrganizationExport(organizationExportGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };

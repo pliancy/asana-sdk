@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceAddUserRequest } from './workspace-add-user-request';
+import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 export interface InlineObject75 {
     /**
      * 
-     * @type {WorkspaceAddUserRequest}
+     * @type {WorkspaceCompact}
      * @memberof InlineObject75
      */
-    'data'?: WorkspaceAddUserRequest;
+    'data'?: WorkspaceCompact;
 }
 

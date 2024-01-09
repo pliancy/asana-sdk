@@ -13,7 +13,7 @@
  */
 
 
-import { TagResponse } from './tag-response';
+import { ProjectResponse } from './project-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagResponse } from './tag-response';
 export interface InlineResponse2015 {
     /**
      * 
-     * @type {TagResponse}
+     * @type {ProjectResponse}
      * @memberof InlineResponse2015
      */
-    'data'?: TagResponse;
+    'data'?: ProjectResponse;
 }
 

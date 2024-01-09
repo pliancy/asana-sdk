@@ -13,7 +13,7 @@
  */
 
 
-import { TaskResponse } from './task-response';
+import { TagResponse } from './tag-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskResponse } from './task-response';
 export interface InlineResponse2016 {
     /**
      * 
-     * @type {TaskResponse}
+     * @type {TagResponse}
      * @memberof InlineResponse2016
      */
-    'data'?: TaskResponse;
+    'data'?: TagResponse;
 }
 

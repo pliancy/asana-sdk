@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject72 } from '../types';
-// @ts-ignore
 import { InlineObject73 } from '../types';
+// @ts-ignore
+import { InlineObject74 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20051 } from '../types';
+import { InlineResponse20052 } from '../types';
 // @ts-ignore
-import { InlineResponse2019 } from '../types';
+import { InlineResponse20110 } from '../types';
 /**
  * WebhooksApi - axios parameter creator
  * @export
@@ -41,15 +41,15 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject72} inlineObject72 
+         * @param {InlineObject73} inlineObject73 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createWebhook: async (inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject72' is not null or undefined
-            assertParamExists('createWebhook', 'inlineObject72', inlineObject72)
+        createWebhook: async (inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject73' is not null or undefined
+            assertParamExists('createWebhook', 'inlineObject73', inlineObject73)
             const localVarPath = `/webhooks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject72, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject73, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -265,17 +265,17 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
          * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject73} inlineObject73 
+         * @param {InlineObject74} inlineObject74 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWebhook: async (webhookGid: string, inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWebhook: async (webhookGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'webhookGid' is not null or undefined
             assertParamExists('updateWebhook', 'webhookGid', webhookGid)
-            // verify required parameter 'inlineObject73' is not null or undefined
-            assertParamExists('updateWebhook', 'inlineObject73', inlineObject73)
+            // verify required parameter 'inlineObject74' is not null or undefined
+            assertParamExists('updateWebhook', 'inlineObject74', inlineObject74)
             const localVarPath = `/webhooks/{webhook_gid}`
                 .replace(`{${"webhook_gid"}}`, encodeURIComponent(String(webhookGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -312,7 +312,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject73, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject74, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -332,14 +332,14 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject72} inlineObject72 
+         * @param {InlineObject73} inlineObject73 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createWebhook(inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWebhook(inlineObject72, optPretty, optFields, options);
+        async createWebhook(inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWebhook(inlineObject73, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -363,7 +363,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
+        async getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhook(webhookGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -379,7 +379,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
+        async getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks(workspace, optPretty, limit, offset, resource, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -387,14 +387,14 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
          * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject73} inlineObject73 
+         * @param {InlineObject74} inlineObject74 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWebhook(webhookGid: string, inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2019>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWebhook(webhookGid, inlineObject73, optPretty, optFields, options);
+        async updateWebhook(webhookGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWebhook(webhookGid, inlineObject74, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -410,14 +410,14 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
         /**
          * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
          * @summary Establish a webhook
-         * @param {InlineObject72} inlineObject72 
+         * @param {InlineObject73} inlineObject73 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createWebhook(inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse2019> {
-            return localVarFp.createWebhook(inlineObject72, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createWebhook(inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse20110> {
+            return localVarFp.createWebhook(inlineObject73, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.
@@ -439,7 +439,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse2019> {
+        getWebhook(webhookGid: string, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse20110> {
             return localVarFp.getWebhook(webhookGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -454,21 +454,21 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: any): AxiosPromise<InlineResponse20051> {
+        getWebhooks(workspace: string, optPretty?: boolean, limit?: number, offset?: string, resource?: string, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'offset' | 'path' | 'resource' | 'resource.name' | 'target' | 'uri'>, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getWebhooks(workspace, optPretty, limit, offset, resource, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
          * @summary Update a webhook
          * @param {string} webhookGid Globally unique identifier for the webhook.
-         * @param {InlineObject73} inlineObject73 
+         * @param {InlineObject74} inlineObject74 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWebhook(webhookGid: string, inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse2019> {
-            return localVarFp.updateWebhook(webhookGid, inlineObject73, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateWebhook(webhookGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: any): AxiosPromise<InlineResponse20110> {
+            return localVarFp.updateWebhook(webhookGid, inlineObject74, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -483,15 +483,15 @@ export class WebhooksApi extends BaseAPI {
     /**
      * Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will recieve a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   } } ```
      * @summary Establish a webhook
-     * @param {InlineObject72} inlineObject72 
+     * @param {InlineObject73} inlineObject73 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhooksApi
      */
-    public createWebhook(inlineObject72: InlineObject72, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig) {
-        return WebhooksApiFp(this.configuration).createWebhook(inlineObject72, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createWebhook(inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig) {
+        return WebhooksApiFp(this.configuration).createWebhook(inlineObject73, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -542,14 +542,14 @@ export class WebhooksApi extends BaseAPI {
      * An existing webhook\'s filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook\'s previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.
      * @summary Update a webhook
      * @param {string} webhookGid Globally unique identifier for the webhook.
-     * @param {InlineObject73} inlineObject73 
+     * @param {InlineObject74} inlineObject74 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebhooksApi
      */
-    public updateWebhook(webhookGid: string, inlineObject73: InlineObject73, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig) {
-        return WebhooksApiFp(this.configuration).updateWebhook(webhookGid, inlineObject73, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateWebhook(webhookGid: string, inlineObject74: InlineObject74, optPretty?: boolean, optFields?: Array<'active' | 'created_at' | 'filters' | 'filters.action' | 'filters.fields' | 'filters.resource_subtype' | 'last_failure_at' | 'last_failure_content' | 'last_success_at' | 'resource' | 'resource.name' | 'target'>, options?: AxiosRequestConfig) {
+        return WebhooksApiFp(this.configuration).updateWebhook(webhookGid, inlineObject74, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

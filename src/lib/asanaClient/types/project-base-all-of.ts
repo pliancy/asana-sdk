@@ -120,6 +120,18 @@ export interface ProjectBaseAllOf {
      * @memberof ProjectBaseAllOf
      */
     'default_access_level'?: ProjectBaseAllOfDefaultAccessLevelEnum;
+    /**
+     * The minimum access level needed for project members to modify this project\'s workflow and appearance.
+     * @type {string}
+     * @memberof ProjectBaseAllOf
+     */
+    'minimum_access_level_for_customization'?: ProjectBaseAllOfMinimumAccessLevelForCustomizationEnum;
+    /**
+     * The minimum access level needed for project members to share the project and manage project memberships.
+     * @type {string}
+     * @memberof ProjectBaseAllOf
+     */
+    'minimum_access_level_for_sharing'?: ProjectBaseAllOfMinimumAccessLevelForSharingEnum;
 }
 
 /**
@@ -167,6 +179,22 @@ export enum ProjectBaseAllOfDefaultAccessLevelEnum {
     Editor = 'editor',
     Commenter = 'commenter',
     Viewer = 'viewer'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectBaseAllOfMinimumAccessLevelForCustomizationEnum {
+    Admin = 'admin',
+    Editor = 'editor'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectBaseAllOfMinimumAccessLevelForSharingEnum {
+    Admin = 'admin',
+    Editor = 'editor'
 }
 
 

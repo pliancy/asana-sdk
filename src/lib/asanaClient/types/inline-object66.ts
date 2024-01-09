@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRequest } from './team-request';
+import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRequest } from './team-request';
 export interface InlineObject66 {
     /**
      * 
-     * @type {TeamRequest}
+     * @type {TaskRemoveFollowersRequest}
      * @memberof InlineObject66
      */
-    'data'?: TeamRequest;
+    'data'?: TaskRemoveFollowersRequest;
 }
 

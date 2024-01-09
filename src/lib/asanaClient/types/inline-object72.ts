@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookRequest } from './webhook-request';
+import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookRequest } from './webhook-request';
 export interface InlineObject72 {
     /**
      * 
-     * @type {WebhookRequest}
+     * @type {UpdateTimeTrackingEntryRequest}
      * @memberof InlineObject72
      */
-    'data'?: WebhookRequest;
+    'data'?: UpdateTimeTrackingEntryRequest;
 }
 

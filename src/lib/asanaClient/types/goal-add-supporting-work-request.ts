@@ -21,7 +21,7 @@
  */
 export interface GoalAddSupportingWorkRequest {
     /**
-     * The project/portfolio gid to add as supporting work for a goal
+     * The project/task/portfolio gid to add as supporting work for a goal
      * @type {string}
      * @memberof GoalAddSupportingWorkRequest
      */

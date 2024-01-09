@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
+import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
 export interface InlineObject76 {
     /**
      * 
-     * @type {WorkspaceRemoveUserRequest}
+     * @type {WorkspaceAddUserRequest}
      * @memberof InlineObject76
      */
-    'data'?: WorkspaceRemoveUserRequest;
+    'data'?: WorkspaceAddUserRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceCompact } from './workspace-compact';
+import { WebhookUpdateRequest } from './webhook-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineObject74 {
     /**
      * 
-     * @type {WorkspaceCompact}
+     * @type {WebhookUpdateRequest}
      * @memberof InlineObject74
      */
-    'data'?: WorkspaceCompact;
+    'data'?: WebhookUpdateRequest;
 }
 

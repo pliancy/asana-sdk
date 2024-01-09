@@ -25,6 +25,7 @@ api/sections-api.ts
 api/status-updates-api.ts
 api/stories-api.ts
 api/tags-api.ts
+api/task-templates-api.ts
 api/tasks-api.ts
 api/team-memberships-api.ts
 api/teams-api.ts
@@ -193,6 +194,7 @@ types/inline-object73.ts
 types/inline-object74.ts
 types/inline-object75.ts
 types/inline-object76.ts
+types/inline-object77.ts
 types/inline-object8.ts
 types/inline-object9.ts
 types/inline-response200.ts
@@ -248,12 +250,14 @@ types/inline-response20053.ts
 types/inline-response20054.ts
 types/inline-response20055.ts
 types/inline-response20056.ts
+types/inline-response20057.ts
 types/inline-response2006.ts
 types/inline-response2007.ts
 types/inline-response2008.ts
 types/inline-response2009.ts
 types/inline-response201.ts
 types/inline-response2011.ts
+types/inline-response20110.ts
 types/inline-response2012.ts
 types/inline-response2013.ts
 types/inline-response2014.ts
@@ -272,6 +276,7 @@ types/member-compact.ts
 types/membership-compact.ts
 types/membership-request.ts
 types/membership-response.ts
+types/membership-update-request.ts
 types/model-error.ts
 types/modify-dependencies-request.ts
 types/modify-dependents-request.ts
@@ -362,6 +367,8 @@ types/tag-base-all-of.ts
 types/tag-base.ts
 types/tag-compact-all-of.ts
 types/tag-compact.ts
+types/tag-create-tag-for-workspace-request-all-of.ts
+types/tag-create-tag-for-workspace-request.ts
 types/tag-request-all-of.ts
 types/tag-request.ts
 types/tag-response-all-of.ts
@@ -386,6 +393,16 @@ types/task-request.ts
 types/task-response-all-of.ts
 types/task-response.ts
 types/task-set-parent-request.ts
+types/task-template-base.ts
+types/task-template-compact-all-of.ts
+types/task-template-compact.ts
+types/task-template-instantiate-task-request.ts
+types/task-template-recipe-all-of.ts
+types/task-template-recipe-compact-all-of.ts
+types/task-template-recipe-compact.ts
+types/task-template-recipe.ts
+types/task-template-response-all-of.ts
+types/task-template-response.ts
 types/team-add-user-request.ts
 types/team-compact-all-of.ts
 types/team-compact.ts

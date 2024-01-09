@@ -13,7 +13,8 @@
  */
 
 
-import { StoryResponse } from './story-response';
+import { NextPage } from './next-page';
+import { StoryCompact } from './story-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { StoryResponse } from './story-response';
 export interface InlineResponse20035 {
     /**
      * 
-     * @type {StoryResponse}
+     * @type {Array<StoryCompact>}
      * @memberof InlineResponse20035
      */
-    'data'?: StoryResponse;
+    'data'?: Array<StoryCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20035
+     */
+    'next_page'?: NextPage | null;
 }
 

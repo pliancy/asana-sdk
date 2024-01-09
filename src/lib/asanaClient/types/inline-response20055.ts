@@ -13,7 +13,8 @@
  */
 
 
-import { WorkspaceResponse } from './workspace-response';
+import { NextPage } from './next-page';
+import { WorkspaceCompact } from './workspace-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { WorkspaceResponse } from './workspace-response';
 export interface InlineResponse20055 {
     /**
      * 
-     * @type {WorkspaceResponse}
+     * @type {Array<WorkspaceCompact>}
      * @memberof InlineResponse20055
      */
-    'data'?: WorkspaceResponse;
+    'data'?: Array<WorkspaceCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20055
+     */
+    'next_page'?: NextPage | null;
 }
 

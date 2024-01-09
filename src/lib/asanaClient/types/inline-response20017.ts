@@ -13,7 +13,6 @@
  */
 
 
-import { NextPage } from './next-page';
 import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 
 /**
@@ -24,15 +23,9 @@ import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 export interface InlineResponse20017 {
     /**
      * 
-     * @type {Array<PortfolioMembershipCompact>}
+     * @type {PortfolioMembershipCompact}
      * @memberof InlineResponse20017
      */
-    'data'?: Array<PortfolioMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20017
-     */
-    'next_page'?: NextPage | null;
+    'data'?: PortfolioMembershipCompact;
 }
 

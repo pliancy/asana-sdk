@@ -13,7 +13,7 @@
  */
 
 
-import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-request';
+import { TeamRemoveUserRequest } from './team-remove-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-req
 export interface InlineObject70 {
     /**
      * 
-     * @type {CreateTimeTrackingEntryRequest}
+     * @type {TeamRemoveUserRequest}
      * @memberof InlineObject70
      */
-    'data'?: CreateTimeTrackingEntryRequest;
+    'data'?: TeamRemoveUserRequest;
 }
 

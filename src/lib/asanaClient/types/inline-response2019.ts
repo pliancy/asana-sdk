@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { TimeTrackingEntryBase } from './time-tracking-entry-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse2019 {
     /**
      * 
-     * @type {WebhookResponse}
+     * @type {TimeTrackingEntryBase}
      * @memberof InlineResponse2019
      */
-    'data'?: WebhookResponse;
+    'data'?: TimeTrackingEntryBase;
 }
 

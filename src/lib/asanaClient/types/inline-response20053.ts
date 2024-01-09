@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { WorkspaceMembershipCompact } from './workspace-membership-compact';
+import { WorkspaceMembershipResponse } from './workspace-membership-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { WorkspaceMembershipCompact } from './workspace-membership-compact';
 export interface InlineResponse20053 {
     /**
      * 
-     * @type {Array<WorkspaceMembershipCompact>}
+     * @type {WorkspaceMembershipResponse}
      * @memberof InlineResponse20053
      */
-    'data'?: Array<WorkspaceMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20053
-     */
-    'next_page'?: NextPage | null;
+    'data'?: WorkspaceMembershipResponse;
 }
 

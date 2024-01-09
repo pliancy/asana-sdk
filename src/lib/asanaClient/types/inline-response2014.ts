@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectResponse } from './project-response';
+import { PortfolioResponse } from './portfolio-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectResponse } from './project-response';
 export interface InlineResponse2014 {
     /**
      * 
-     * @type {ProjectResponse}
+     * @type {PortfolioResponse}
      * @memberof InlineResponse2014
      */
-    'data'?: ProjectResponse;
+    'data'?: PortfolioResponse;
 }
 

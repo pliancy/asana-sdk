@@ -13,7 +13,7 @@
  */
 
 
-import { TeamMembershipCompact } from './team-membership-compact';
+import { TaskCompact } from './task-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20040 {
     /**
      * 
-     * @type {TeamMembershipCompact}
+     * @type {Array<TaskCompact>}
      * @memberof InlineResponse20040
      */
-    'data'?: TeamMembershipCompact;
+    'data'?: Array<TaskCompact>;
 }
 

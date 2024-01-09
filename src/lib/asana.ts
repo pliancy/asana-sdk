@@ -49,7 +49,7 @@ export class Asana {
 
     readonly organizationExports: OrganizationExportsApi
 
-    readonly projectStatuse: ProjectStatusesApi
+    readonly projectStatuses: ProjectStatusesApi
 
     readonly sections: SectionsApi
 
@@ -111,7 +111,7 @@ export class Asana {
 
         this.organizationExports = new OrganizationExportsApi(config)
 
-        this.projectStatuse = new ProjectStatusesApi(config)
+        this.projectStatuses = new ProjectStatusesApi(config)
 
         this.sections = new SectionsApi(config)
 

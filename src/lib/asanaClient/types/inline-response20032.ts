@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { SectionCompact } from './section-compact';
+import { StatusUpdateResponse } from './status-update-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { SectionCompact } from './section-compact';
 export interface InlineResponse20032 {
     /**
      * 
-     * @type {Array<SectionCompact>}
+     * @type {StatusUpdateResponse}
      * @memberof InlineResponse20032
      */
-    'data'?: Array<SectionCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20032
-     */
-    'next_page'?: NextPage | null;
+    'data'?: StatusUpdateResponse;
 }
 

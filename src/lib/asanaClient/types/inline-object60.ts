@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddProjectRequest } from './task-add-project-request';
+import { ModifyDependentsRequest } from './modify-dependents-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddProjectRequest } from './task-add-project-request';
 export interface InlineObject60 {
     /**
      * 
-     * @type {TaskAddProjectRequest}
+     * @type {ModifyDependentsRequest}
      * @memberof InlineObject60
      */
-    'data'?: TaskAddProjectRequest;
+    'data'?: ModifyDependentsRequest;
 }
 

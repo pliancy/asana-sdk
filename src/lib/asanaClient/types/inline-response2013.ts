@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioResponse } from './portfolio-response';
+import { OrganizationExportCompact } from './organization-export-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioResponse } from './portfolio-response';
 export interface InlineResponse2013 {
     /**
      * 
-     * @type {PortfolioResponse}
+     * @type {OrganizationExportCompact}
      * @memberof InlineResponse2013
      */
-    'data'?: PortfolioResponse;
+    'data'?: OrganizationExportCompact;
 }
 

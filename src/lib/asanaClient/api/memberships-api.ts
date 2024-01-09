@@ -31,7 +31,7 @@ import { InlineResponse20014 } from '../types';
 // @ts-ignore
 import { InlineResponse20015 } from '../types';
 // @ts-ignore
-import { InlineResponse20016 } from '../types';
+import { InlineResponse2012 } from '../types';
 /**
  * MembershipsApi - axios parameter creator
  * @export
@@ -270,7 +270,7 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
+        async createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createMembership(optPretty, inlineObject15, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -295,7 +295,7 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+        async getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMembership(membershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -333,7 +333,7 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: any): AxiosPromise<InlineResponse20015> {
+        createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: any): AxiosPromise<InlineResponse2012> {
             return localVarFp.createMembership(optPretty, inlineObject15, options).then((request) => request(axios, basePath));
         },
         /**
@@ -356,7 +356,7 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: any): AxiosPromise<InlineResponse20016> {
+        getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: any): AxiosPromise<InlineResponse20015> {
             return localVarFp.getMembership(membershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**

@@ -16,7 +16,7 @@
 import { ProjectCompact } from './project-compact';
 
 /**
- * A *goal relationship* is an object representing the relationship between a goal and another goal, a project, or a portfolio.
+ * A *goal relationship* is an object representing the relationship between a goal and another goal, a project, a task, or a portfolio.
  * @export
  * @interface GoalRelationshipCompactAllOf
  */

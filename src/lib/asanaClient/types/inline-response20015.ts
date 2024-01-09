@@ -13,7 +13,7 @@
  */
 
 
-import { MembershipResponse } from './membership-response';
+import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { MembershipResponse } from './membership-response';
 export interface InlineResponse20015 {
     /**
      * 
-     * @type {MembershipResponse}
+     * @type {ProjectMembershipCompactResponse}
      * @memberof InlineResponse20015
      */
-    'data'?: MembershipResponse;
+    'data'?: ProjectMembershipCompactResponse;
 }
 
