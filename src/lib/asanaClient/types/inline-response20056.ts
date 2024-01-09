@@ -13,7 +13,7 @@
  */
 
 
-import { UserBaseResponse } from './user-base-response';
+import { WorkspaceResponse } from './workspace-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserBaseResponse } from './user-base-response';
 export interface InlineResponse20056 {
     /**
      * 
-     * @type {UserBaseResponse}
+     * @type {WorkspaceResponse}
      * @memberof InlineResponse20056
      */
-    'data'?: UserBaseResponse;
+    'data'?: WorkspaceResponse;
 }
 

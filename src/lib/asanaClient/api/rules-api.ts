@@ -25,7 +25,7 @@ import { ErrorResponse } from '../types';
 // @ts-ignore
 import { InlineObject41 } from '../types';
 // @ts-ignore
-import { InlineResponse20030 } from '../types';
+import { InlineResponse20029 } from '../types';
 /**
  * RulesApi - axios parameter creator
  * @export
@@ -98,7 +98,7 @@ export const RulesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
+        async triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.triggerRule(ruleTriggerGid, inlineObject41, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -120,7 +120,7 @@ export const RulesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: any): AxiosPromise<InlineResponse20030> {
+        triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: any): AxiosPromise<InlineResponse20029> {
             return localVarFp.triggerRule(ruleTriggerGid, inlineObject41, options).then((request) => request(axios, basePath));
         },
     };

@@ -13,19 +13,19 @@
  */
 
 
-import { UserTaskListCompact } from './user-task-list-compact';
+import { AsanaNamedResource } from './asana-named-resource';
 
 /**
- * 
+ * A generic list of objects, such as those returned by the typeahead search endpoint.
  * @export
  * @interface InlineResponse20047
  */
 export interface InlineResponse20047 {
     /**
      * 
-     * @type {UserTaskListCompact}
+     * @type {Array<AsanaNamedResource>}
      * @memberof InlineResponse20047
      */
-    'data'?: UserTaskListCompact;
+    'data'?: Array<AsanaNamedResource>;
 }
 

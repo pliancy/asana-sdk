@@ -25,7 +25,7 @@ export class Projects {
         projectGid: string,
         data: AddCustomFieldSettingRequest,
         optPretty?: boolean,
-        options?: AxiosRequestConfig,
+        options?: any,
     ) {
         const res = await this.projectsApi.addCustomFieldSettingForProject(
             projectGid,

@@ -13,7 +13,7 @@
  */
 
 
-import { OrganizationExportCompact } from './organization-export-compact';
+import { MembershipResponse } from './membership-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OrganizationExportCompact } from './organization-export-compact';
 export interface InlineResponse2012 {
     /**
      * 
-     * @type {OrganizationExportCompact}
+     * @type {MembershipResponse}
      * @memberof InlineResponse2012
      */
-    'data'?: OrganizationExportCompact;
+    'data'?: MembershipResponse;
 }
 

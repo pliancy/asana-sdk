@@ -135,8 +135,8 @@ export class Portfolios {
             this.workspaceGid,
             optPretty,
             limit,
-            this.ownerGid,
             offset,
+            this.ownerGid,
             optFields,
             options,
         )

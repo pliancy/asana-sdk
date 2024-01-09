@@ -23,21 +23,21 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject66 } from '../types';
-// @ts-ignore
 import { InlineObject67 } from '../types';
 // @ts-ignore
 import { InlineObject68 } from '../types';
 // @ts-ignore
 import { InlineObject69 } from '../types';
 // @ts-ignore
+import { InlineObject70 } from '../types';
+// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20040 } from '../types';
+import { InlineResponse20041 } from '../types';
 // @ts-ignore
-import { InlineResponse20042 } from '../types';
+import { InlineResponse20043 } from '../types';
 // @ts-ignore
-import { InlineResponse2017 } from '../types';
+import { InlineResponse2018 } from '../types';
 /**
  * TeamsApi - axios parameter creator
  * @export
@@ -48,17 +48,17 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject68} inlineObject68 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForTeam: async (teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addUserForTeam: async (teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('addUserForTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject68' is not null or undefined
-            assertParamExists('addUserForTeam', 'inlineObject68', inlineObject68)
+            // verify required parameter 'inlineObject69' is not null or undefined
+            assertParamExists('addUserForTeam', 'inlineObject69', inlineObject69)
             const localVarPath = `/teams/{team_gid}/addUser`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -95,7 +95,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject69, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -105,15 +105,15 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creates a team within the current workspace.
          * @summary Create a team
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject67} inlineObject67 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTeam: async (inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject66' is not null or undefined
-            assertParamExists('createTeam', 'inlineObject66', inlineObject66)
+        createTeam: async (inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject67' is not null or undefined
+            assertParamExists('createTeam', 'inlineObject67', inlineObject67)
             const localVarPath = `/teams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -149,7 +149,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject66, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject67, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -343,16 +343,16 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject69} inlineObject69 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForTeam: async (teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeUserForTeam: async (teamGid: string, inlineObject70: InlineObject70, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('removeUserForTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject69' is not null or undefined
-            assertParamExists('removeUserForTeam', 'inlineObject69', inlineObject69)
+            // verify required parameter 'inlineObject70' is not null or undefined
+            assertParamExists('removeUserForTeam', 'inlineObject70', inlineObject70)
             const localVarPath = `/teams/{team_gid}/removeUser`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -385,7 +385,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject69, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject70, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -396,17 +396,17 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * Updates a team within the current workspace.
          * @summary Update a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTeam: async (teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTeam: async (teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('updateTeam', 'teamGid', teamGid)
-            // verify required parameter 'inlineObject67' is not null or undefined
-            assertParamExists('updateTeam', 'inlineObject67', inlineObject67)
+            // verify required parameter 'inlineObject68' is not null or undefined
+            assertParamExists('updateTeam', 'inlineObject68', inlineObject68)
             const localVarPath = `/teams/{team_gid}`
                 .replace(`{${"team_gid"}}`, encodeURIComponent(String(teamGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -443,7 +443,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject67, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -464,27 +464,27 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject68} inlineObject68 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options);
+        async addUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForTeam(teamGid, inlineObject69, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a team within the current workspace.
          * @summary Create a team
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject67} inlineObject67 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTeam(inlineObject66, optPretty, optFields, options);
+        async createTeam(inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTeam(inlineObject67, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -496,7 +496,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+        async getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(teamGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -512,7 +512,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -527,7 +527,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -535,27 +535,27 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject69} inlineObject69 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForTeam(teamGid, inlineObject69, optPretty, options);
+        async removeUserForTeam(teamGid: string, inlineObject70: InlineObject70, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForTeam(teamGid, inlineObject70, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Updates a team within the current workspace.
          * @summary Update a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(teamGid, inlineObject67, optPretty, optFields, options);
+        async updateTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2018>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(teamGid, inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -572,26 +572,26 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
          * @summary Add a user to a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject68} inlineObject68 
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20040> {
-            return localVarFp.addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20041> {
+            return localVarFp.addUserForTeam(teamGid, inlineObject69, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a team within the current workspace.
          * @summary Create a team
-         * @param {InlineObject66} inlineObject66 
+         * @param {InlineObject67} inlineObject67 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
-            return localVarFp.createTeam(inlineObject66, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTeam(inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2018> {
+            return localVarFp.createTeam(inlineObject67, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the full record for a single team.
@@ -602,7 +602,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
+        getTeam(teamGid: string, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2018> {
             return localVarFp.getTeam(teamGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -617,7 +617,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20042> {
+        getTeamsForUser(userGid: string, organization: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20043> {
             return localVarFp.getTeamsForUser(userGid, organization, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -631,33 +631,33 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20042> {
+        getTeamsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'offset' | 'organization' | 'organization.name' | 'path' | 'permalink_url' | 'team_member_removal_access_level' | 'uri' | 'visibility'>, options?: any): AxiosPromise<InlineResponse20043> {
             return localVarFp.getTeamsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * The user making this call must be a member of the team in order to remove themselves or others.
          * @summary Remove a user from a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject69} inlineObject69 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeUserForTeam(teamGid, inlineObject69, optPretty, options).then((request) => request(axios, basePath));
+        removeUserForTeam(teamGid: string, inlineObject70: InlineObject70, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeUserForTeam(teamGid, inlineObject70, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates a team within the current workspace.
          * @summary Update a team
          * @param {string} teamGid Globally unique identifier for the team.
-         * @param {InlineObject67} inlineObject67 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2017> {
-            return localVarFp.updateTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: any): AxiosPromise<InlineResponse2018> {
+            return localVarFp.updateTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -673,29 +673,29 @@ export class TeamsApi extends BaseAPI {
      * The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.  Returns the complete team membership record for the newly added user.
      * @summary Add a user to a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject68} inlineObject68 
+     * @param {InlineObject69} inlineObject69 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public addUserForTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).addUserForTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).addUserForTeam(teamGid, inlineObject69, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a team within the current workspace.
      * @summary Create a team
-     * @param {InlineObject66} inlineObject66 
+     * @param {InlineObject67} inlineObject67 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public createTeam(inlineObject66: InlineObject66, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).createTeam(inlineObject66, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTeam(inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).createTeam(inlineObject67, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -749,28 +749,28 @@ export class TeamsApi extends BaseAPI {
      * The user making this call must be a member of the team in order to remove themselves or others.
      * @summary Remove a user from a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject69} inlineObject69 
+     * @param {InlineObject70} inlineObject70 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public removeUserForTeam(teamGid: string, inlineObject69: InlineObject69, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).removeUserForTeam(teamGid, inlineObject69, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public removeUserForTeam(teamGid: string, inlineObject70: InlineObject70, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).removeUserForTeam(teamGid, inlineObject70, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates a team within the current workspace.
      * @summary Update a team
      * @param {string} teamGid Globally unique identifier for the team.
-     * @param {InlineObject67} inlineObject67 
+     * @param {InlineObject68} inlineObject68 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public updateTeam(teamGid: string, inlineObject67: InlineObject67, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).updateTeam(teamGid, inlineObject67, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTeam(teamGid: string, inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'description' | 'edit_team_name_or_description_access_level' | 'edit_team_visibility_or_trash_team_access_level' | 'guest_invite_management_access_level' | 'html_description' | 'join_request_management_access_level' | 'member_invite_management_access_level' | 'name' | 'organization' | 'organization.name' | 'permalink_url' | 'team_member_removal_access_level' | 'visibility'>, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).updateTeam(teamGid, inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

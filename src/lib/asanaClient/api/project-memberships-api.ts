@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20023 } from '../types';
+import { InlineResponse20022 } from '../types';
 // @ts-ignore
-import { InlineResponse20024 } from '../types';
+import { InlineResponse20023 } from '../types';
 /**
  * ProjectMembershipsApi - axios parameter creator
  * @export
@@ -170,7 +170,7 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembership(projectMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -186,7 +186,7 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -209,7 +209,7 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20023> {
+        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20022> {
             return localVarFp.getProjectMembership(projectMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -224,7 +224,7 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20024> {
+        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20023> {
             return localVarFp.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };

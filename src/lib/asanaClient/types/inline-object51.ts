@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRequest } from './task-request';
+import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRequest } from './task-request';
 export interface InlineObject51 {
     /**
      * 
-     * @type {TaskRequest}
+     * @type {TaskTemplateInstantiateTaskRequest}
      * @memberof InlineObject51
      */
-    'data'?: TaskRequest;
+    'data'?: TaskTemplateInstantiateTaskRequest;
 }
 

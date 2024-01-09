@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
+import { TimePeriodCompact } from './time-period-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 export interface InlineResponse20045 {
     /**
      * 
-     * @type {Array<TimeTrackingEntryCompact>}
+     * @type {Array<TimePeriodCompact>}
      * @memberof InlineResponse20045
      */
-    'data'?: Array<TimeTrackingEntryCompact>;
+    'data'?: Array<TimePeriodCompact>;
     /**
      * 
      * @type {NextPage}

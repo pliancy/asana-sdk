@@ -33,9 +33,9 @@ import { InlineObject45 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20031 } from '../types';
+import { InlineResponse20030 } from '../types';
 // @ts-ignore
-import { InlineResponse20032 } from '../types';
+import { InlineResponse20031 } from '../types';
 /**
  * SectionsApi - axios parameter creator
  * @export
@@ -450,7 +450,7 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+        async createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSectionForProject(projectGid, optPretty, optFields, inlineObject43, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -475,7 +475,7 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSection(sectionGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -490,7 +490,7 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
+        async getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -517,7 +517,7 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+        async updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSection(sectionGid, optPretty, optFields, inlineObject42, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -553,7 +553,7 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: any): AxiosPromise<InlineResponse20031> {
+        createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject43?: InlineObject43, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.createSectionForProject(projectGid, optPretty, optFields, inlineObject43, options).then((request) => request(axios, basePath));
         },
         /**
@@ -576,7 +576,7 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: any): AxiosPromise<InlineResponse20031> {
+        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.getSection(sectionGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -590,7 +590,7 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20032> {
+        getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20031> {
             return localVarFp.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -615,7 +615,7 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: any): AxiosPromise<InlineResponse20031> {
+        updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject42?: InlineObject42, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.updateSection(sectionGid, optPretty, optFields, inlineObject42, options).then((request) => request(axios, basePath));
         },
     };

@@ -13,7 +13,7 @@
  */
 
 
-import { UserResponse } from './user-response';
+import { UserTaskListCompact } from './user-task-list-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserResponse } from './user-response';
 export interface InlineResponse20048 {
     /**
      * 
-     * @type {UserResponse}
+     * @type {UserTaskListCompact}
      * @memberof InlineResponse20048
      */
-    'data'?: UserResponse;
+    'data'?: UserTaskListCompact;
 }
 

@@ -32,5 +32,11 @@ export interface CreateMembershipRequestAllOf {
      * @memberof CreateMembershipRequestAllOf
      */
     'parent'?: string;
+    /**
+     * The role given to the member. Optional argument, will default to commenter. Can be `editor` or `commenter`.
+     * @type {string}
+     * @memberof CreateMembershipRequestAllOf
+     */
+    'role'?: string;
 }
 

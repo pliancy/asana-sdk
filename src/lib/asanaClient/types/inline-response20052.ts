@@ -13,7 +13,8 @@
  */
 
 
-import { WorkspaceMembershipResponse } from './workspace-membership-response';
+import { NextPage } from './next-page';
+import { WebhookResponse } from './webhook-response';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { WorkspaceMembershipResponse } from './workspace-membership-response';
 export interface InlineResponse20052 {
     /**
      * 
-     * @type {WorkspaceMembershipResponse}
+     * @type {Array<WebhookResponse>}
      * @memberof InlineResponse20052
      */
-    'data'?: WorkspaceMembershipResponse;
+    'data'?: Array<WebhookResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20052
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRemoveUserRequest } from './team-remove-user-request';
+import { TeamAddUserRequest } from './team-add-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRemoveUserRequest } from './team-remove-user-request';
 export interface InlineObject69 {
     /**
      * 
-     * @type {TeamRemoveUserRequest}
+     * @type {TeamAddUserRequest}
      * @memberof InlineObject69
      */
-    'data'?: TeamRemoveUserRequest;
+    'data'?: TeamAddUserRequest;
 }
 

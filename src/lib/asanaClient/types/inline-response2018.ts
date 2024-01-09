@@ -13,7 +13,7 @@
  */
 
 
-import { TimeTrackingEntryBase } from './time-tracking-entry-base';
+import { TeamResponse } from './team-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimeTrackingEntryBase } from './time-tracking-entry-base';
 export interface InlineResponse2018 {
     /**
      * 
-     * @type {TimeTrackingEntryBase}
+     * @type {TeamResponse}
      * @memberof InlineResponse2018
      */
-    'data'?: TimeTrackingEntryBase;
+    'data'?: TeamResponse;
 }
 

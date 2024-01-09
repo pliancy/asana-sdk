@@ -13,7 +13,7 @@
  */
 
 
-import { TeamAddUserRequest } from './team-add-user-request';
+import { TeamRequest } from './team-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamAddUserRequest } from './team-add-user-request';
 export interface InlineObject68 {
     /**
      * 
-     * @type {TeamAddUserRequest}
+     * @type {TeamRequest}
      * @memberof InlineObject68
      */
-    'data'?: TeamAddUserRequest;
+    'data'?: TeamRequest;
 }
 

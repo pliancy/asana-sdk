@@ -27,9 +27,9 @@ import { InlineObject27 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20025 } from '../types';
+import { InlineResponse20024 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
+import { InlineResponse20025 } from '../types';
 /**
  * ProjectStatusesApi - axios parameter creator
  * @export
@@ -275,7 +275,7 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectStatusForProject(projectGid, inlineObject27, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -300,7 +300,7 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatus(projectStatusGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -315,7 +315,7 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatusesForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -339,7 +339,7 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20025> {
+        createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20024> {
             return localVarFp.createProjectStatusForProject(projectGid, inlineObject27, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -362,7 +362,7 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20025> {
+        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20024> {
             return localVarFp.getProjectStatus(projectStatusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -376,7 +376,7 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20026> {
+        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20025> {
             return localVarFp.getProjectStatusesForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };

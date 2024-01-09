@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependentsRequest } from './modify-dependents-request';
+import { ModifyDependenciesRequest } from './modify-dependencies-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependentsRequest } from './modify-dependents-request';
 export interface InlineObject58 {
     /**
      * 
-     * @type {ModifyDependentsRequest}
+     * @type {ModifyDependenciesRequest}
      * @memberof InlineObject58
      */
-    'data'?: ModifyDependentsRequest;
+    'data'?: ModifyDependenciesRequest;
 }
 

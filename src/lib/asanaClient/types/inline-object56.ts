@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependenciesRequest } from './modify-dependencies-request';
+import { TaskSetParentRequest } from './task-set-parent-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependenciesRequest } from './modify-dependencies-request';
 export interface InlineObject56 {
     /**
      * 
-     * @type {ModifyDependenciesRequest}
+     * @type {TaskSetParentRequest}
      * @memberof InlineObject56
      */
-    'data'?: ModifyDependenciesRequest;
+    'data'?: TaskSetParentRequest;
 }
 

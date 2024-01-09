@@ -37,6 +37,7 @@ export * from './api/sections-api';
 export * from './api/status-updates-api';
 export * from './api/stories-api';
 export * from './api/tags-api';
+export * from './api/task-templates-api';
 export * from './api/tasks-api';
 export * from './api/team-memberships-api';
 export * from './api/teams-api';

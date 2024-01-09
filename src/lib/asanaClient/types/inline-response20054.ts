@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { WorkspaceCompact } from './workspace-compact';
+import { WorkspaceMembershipCompact } from './workspace-membership-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineResponse20054 {
     /**
      * 
-     * @type {Array<WorkspaceCompact>}
+     * @type {Array<WorkspaceMembershipCompact>}
      * @memberof InlineResponse20054
      */
-    'data'?: Array<WorkspaceCompact>;
+    'data'?: Array<WorkspaceMembershipCompact>;
     /**
      * 
      * @type {NextPage}

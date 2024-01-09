@@ -13,7 +13,7 @@
  */
 
 
-import { TaskDuplicateRequest } from './task-duplicate-request';
+import { TaskRequest } from './task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskDuplicateRequest } from './task-duplicate-request';
 export interface InlineObject53 {
     /**
      * 
-     * @type {TaskDuplicateRequest}
+     * @type {TaskRequest}
      * @memberof InlineObject53
      */
-    'data'?: TaskDuplicateRequest;
+    'data'?: TaskRequest;
 }
 

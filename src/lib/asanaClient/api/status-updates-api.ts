@@ -27,9 +27,9 @@ import { InlineObject46 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20033 } from '../types';
+import { InlineResponse20032 } from '../types';
 // @ts-ignore
-import { InlineResponse20034 } from '../types';
+import { InlineResponse20033 } from '../types';
 /**
  * StatusUpdatesApi - axios parameter creator
  * @export
@@ -292,7 +292,7 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+        async createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createStatusForObject(inlineObject46, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -317,7 +317,7 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+        async getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatus(statusUpdateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -333,7 +333,7 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+        async getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -358,7 +358,7 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20033> {
+        createStatusForObject(inlineObject46: InlineObject46, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.createStatusForObject(inlineObject46, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -381,7 +381,7 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20033> {
+        getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.getStatus(statusUpdateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -396,7 +396,7 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20034> {
+        getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options).then((request) => request(axios, basePath));
         },
     };

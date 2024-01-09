@@ -21,7 +21,7 @@
  */
 export interface GoalAddSupportingRelationshipRequest {
     /**
-     * The gid of the supporting resource to add to the parent goal. Must be the gid of a goal, project, or portfolio.
+     * The gid of the supporting resource to add to the parent goal. Must be the gid of a goal, project, task, or portfolio.
      * @type {string}
      * @memberof GoalAddSupportingRelationshipRequest
      */

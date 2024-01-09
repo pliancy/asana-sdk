@@ -323,6 +323,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [portfolio] Globally unique identifier for supporting portfolio.
          * @param {string} [project] Globally unique identifier for supporting project.
+         * @param {string} [task] Globally unique identifier for supporting task.
          * @param {boolean} [isWorkspaceLevel] Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [workspace] Globally unique identifier for the workspace.
@@ -333,7 +334,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoals: async (optPretty?: boolean, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGoals: async (optPretty?: boolean, portfolio?: string, project?: string, task?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -364,6 +365,10 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (project !== undefined) {
                 localVarQueryParameter['project'] = project;
+            }
+
+            if (task !== undefined) {
+                localVarQueryParameter['task'] = task;
             }
 
             if (isWorkspaceLevel !== undefined) {
@@ -713,6 +718,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [portfolio] Globally unique identifier for supporting portfolio.
          * @param {string} [project] Globally unique identifier for supporting project.
+         * @param {string} [task] Globally unique identifier for supporting task.
          * @param {boolean} [isWorkspaceLevel] Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [workspace] Globally unique identifier for the workspace.
@@ -723,8 +729,8 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoals(optPretty?: boolean, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoals(optPretty, portfolio, project, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options);
+        async getGoals(optPretty?: boolean, portfolio?: string, project?: string, task?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoals(optPretty, portfolio, project, task, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -859,6 +865,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [portfolio] Globally unique identifier for supporting portfolio.
          * @param {string} [project] Globally unique identifier for supporting project.
+         * @param {string} [task] Globally unique identifier for supporting task.
          * @param {boolean} [isWorkspaceLevel] Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [workspace] Globally unique identifier for the workspace.
@@ -869,8 +876,8 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoals(optPretty?: boolean, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20011> {
-            return localVarFp.getGoals(optPretty, portfolio, project, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options).then((request) => request(axios, basePath));
+        getGoals(optPretty?: boolean, portfolio?: string, project?: string, task?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20011> {
+            return localVarFp.getGoals(optPretty, portfolio, project, task, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns a compact representation of all of the parent goals of a goal.
@@ -1010,6 +1017,7 @@ export class GoalsApi extends BaseAPI {
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {string} [portfolio] Globally unique identifier for supporting portfolio.
      * @param {string} [project] Globally unique identifier for supporting project.
+     * @param {string} [task] Globally unique identifier for supporting task.
      * @param {boolean} [isWorkspaceLevel] Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.
      * @param {string} [team] Globally unique identifier for the team.
      * @param {string} [workspace] Globally unique identifier for the workspace.
@@ -1021,8 +1029,8 @@ export class GoalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GoalsApi
      */
-    public getGoals(optPretty?: boolean, portfolio?: string, project?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return GoalsApiFp(this.configuration).getGoals(optPretty, portfolio, project, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getGoals(optPretty?: boolean, portfolio?: string, project?: string, task?: string, isWorkspaceLevel?: boolean, team?: string, workspace?: string, timePeriods?: Array<string>, limit?: number, offset?: string, optFields?: Array<'current_status_update' | 'current_status_update.resource_subtype' | 'current_status_update.title' | 'due_on' | 'followers' | 'followers.name' | 'html_notes' | 'is_workspace_level' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'metric' | 'metric.can_manage' | 'metric.currency_code' | 'metric.current_display_value' | 'metric.current_number_value' | 'metric.initial_number_value' | 'metric.precision' | 'metric.progress_source' | 'metric.resource_subtype' | 'metric.target_number_value' | 'metric.unit' | 'name' | 'notes' | 'num_likes' | 'offset' | 'owner' | 'owner.name' | 'path' | 'start_on' | 'status' | 'team' | 'team.name' | 'time_period' | 'time_period.display_name' | 'time_period.end_on' | 'time_period.period' | 'time_period.start_on' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).getGoals(optPretty, portfolio, project, task, isWorkspaceLevel, team, workspace, timePeriods, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

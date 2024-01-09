@@ -13,7 +13,7 @@
  */
 
 
-import { TeamResponse } from './team-response';
+import { TaskResponse } from './task-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamResponse } from './team-response';
 export interface InlineResponse2017 {
     /**
      * 
-     * @type {TeamResponse}
+     * @type {TaskResponse}
      * @memberof InlineResponse2017
      */
-    'data'?: TeamResponse;
+    'data'?: TaskResponse;
 }
 
