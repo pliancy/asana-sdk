@@ -10,7 +10,7 @@
     }
   },
   "dependencies": {
-    "axios": "1.6.5",
+    "axios": "1.6.7",
     "tslib": "2.6.2"
   },
   "description": "Wrapper around the Asana node SDK",
