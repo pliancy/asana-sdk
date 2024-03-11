@@ -23,9 +23,9 @@ import { MembershipResponse } from './membership-response';
 export interface InlineResponse2012 {
     /**
      * 
-     * @type {MembershipResponse}
+     * @type {Array<MembershipResponse>}
      * @memberof InlineResponse2012
      */
-    'data'?: MembershipResponse;
+    'data'?: Array<MembershipResponse>;
 }
 

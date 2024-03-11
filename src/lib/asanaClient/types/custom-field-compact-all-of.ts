@@ -53,6 +53,18 @@ export interface CustomFieldCompactAllOf {
      */
     'enabled'?: boolean;
     /**
+     * This field tells the type of the custom field.
+     * @type {string}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'representation_type'?: CustomFieldCompactAllOfRepresentationTypeEnum;
+    /**
+     * This field is the unique custom ID string for the custom field.
+     * @type {string}
+     * @memberof CustomFieldCompactAllOf
+     */
+    'id_prefix'?: string | null;
+    /**
      * *Conditional*. This flag describes whether a custom field is a formula custom field.
      * @type {boolean}
      * @memberof CustomFieldCompactAllOf
@@ -119,6 +131,20 @@ export enum CustomFieldCompactAllOfTypeEnum {
     Number = 'number',
     Date = 'date',
     People = 'people'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldCompactAllOfRepresentationTypeEnum {
+    Text = 'text',
+    Enum = 'enum',
+    MultiEnum = 'multi_enum',
+    Number = 'number',
+    Date = 'date',
+    People = 'people',
+    Formula = 'formula',
+    CustomId = 'custom_id'
 }
 
 

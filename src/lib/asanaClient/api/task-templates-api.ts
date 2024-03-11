@@ -25,6 +25,8 @@ import { ErrorResponse } from '../types';
 // @ts-ignore
 import { InlineObject51 } from '../types';
 // @ts-ignore
+import { InlineResponse2001 } from '../types';
+// @ts-ignore
 import { InlineResponse20013 } from '../types';
 // @ts-ignore
 import { InlineResponse20037 } from '../types';
@@ -36,6 +38,53 @@ import { InlineResponse20038 } from '../types';
  */
 export const TaskTemplatesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.
+         * @summary Delete a task template
+         * @param {string} taskTemplateGid Globally unique identifier for the task template.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaskTemplate: async (taskTemplateGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskTemplateGid' is not null or undefined
+            assertParamExists('deleteTaskTemplate', 'taskTemplateGid', taskTemplateGid)
+            const localVarPath = `/task_templates/{task_template_gid}`
+                .replace(`{${"task_template_gid"}}`, encodeURIComponent(String(taskTemplateGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Returns the complete task template record for a single task template.
          * @summary Get a task template
@@ -218,6 +267,18 @@ export const TaskTemplatesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TaskTemplatesApiAxiosParamCreator(configuration)
     return {
         /**
+         * A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.
+         * @summary Delete a task template
+         * @param {string} taskTemplateGid Globally unique identifier for the task template.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTaskTemplate(taskTemplateGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaskTemplate(taskTemplateGid, optPretty, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns the complete task template record for a single task template.
          * @summary Get a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
@@ -270,6 +331,17 @@ export const TaskTemplatesApiFactory = function (configuration?: Configuration, 
     const localVarFp = TaskTemplatesApiFp(configuration)
     return {
         /**
+         * A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.
+         * @summary Delete a task template
+         * @param {string} taskTemplateGid Globally unique identifier for the task template.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaskTemplate(taskTemplateGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.deleteTaskTemplate(taskTemplateGid, optPretty, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the complete task template record for a single task template.
          * @summary Get a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
@@ -318,6 +390,19 @@ export const TaskTemplatesApiFactory = function (configuration?: Configuration, 
  * @extends {BaseAPI}
  */
 export class TaskTemplatesApi extends BaseAPI {
+    /**
+     * A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.
+     * @summary Delete a task template
+     * @param {string} taskTemplateGid Globally unique identifier for the task template.
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplatesApi
+     */
+    public deleteTaskTemplate(taskTemplateGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return TaskTemplatesApiFp(this.configuration).deleteTaskTemplate(taskTemplateGid, optPretty, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Returns the complete task template record for a single task template.
      * @summary Get a task template
