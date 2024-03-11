@@ -39,7 +39,7 @@ import { InlineResponse2012 } from '../types';
 export const MembershipsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {InlineObject15} [inlineObject15] 
@@ -86,7 +86,7 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -263,7 +263,7 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MembershipsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {InlineObject15} [inlineObject15] 
@@ -275,7 +275,7 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -326,7 +326,7 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
     const localVarFp = MembershipsApiFp(configuration)
     return {
         /**
-         * Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {InlineObject15} [inlineObject15] 
@@ -337,7 +337,7 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
             return localVarFp.createMembership(optPretty, inlineObject15, options).then((request) => request(axios, basePath));
         },
         /**
-         * A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -385,7 +385,7 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
  */
 export class MembershipsApi extends BaseAPI {
     /**
-     * Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.
+     * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
      * @summary Create a membership
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {InlineObject15} [inlineObject15] 
@@ -398,7 +398,7 @@ export class MembershipsApi extends BaseAPI {
     }
 
     /**
-     * A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+     * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
      * @summary Delete a membership
      * @param {string} membershipGid Globally unique identifier for the membership.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.

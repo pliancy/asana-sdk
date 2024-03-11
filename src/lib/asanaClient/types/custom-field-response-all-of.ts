@@ -22,6 +22,18 @@ import { UserCompact } from './user-compact';
  */
 export interface CustomFieldResponseAllOf {
     /**
+     * This field tells the type of the custom field.
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'representation_type'?: CustomFieldResponseAllOfRepresentationTypeEnum;
+    /**
+     * This field is the unique custom ID string for the custom field.
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'id_prefix'?: string | null;
+    /**
      * *Conditional*. This flag describes whether a custom field is a formula custom field.
      * @type {boolean}
      * @memberof CustomFieldResponseAllOf
@@ -46,4 +58,20 @@ export interface CustomFieldResponseAllOf {
      */
     'people_value'?: Array<UserCompact>;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldResponseAllOfRepresentationTypeEnum {
+    Text = 'text',
+    Enum = 'enum',
+    MultiEnum = 'multi_enum',
+    Number = 'number',
+    Date = 'date',
+    People = 'people',
+    Formula = 'formula',
+    CustomId = 'custom_id'
+}
+
 

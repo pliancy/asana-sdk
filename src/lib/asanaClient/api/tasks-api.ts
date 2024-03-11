@@ -794,6 +794,52 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Returns a task given a custom ID shortcode.
+         * @summary Get a task for a given custom ID
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} customId Generated custom ID for a task.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskForCustomID: async (workspaceGid: string, customId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workspaceGid' is not null or undefined
+            assertParamExists('getTaskForCustomID', 'workspaceGid', workspaceGid)
+            // verify required parameter 'customId' is not null or undefined
+            assertParamExists('getTaskForCustomID', 'customId', customId)
+            const localVarPath = `/workspaces/{workspace_gid}/tasks/custom_id/{custom_id}`
+                .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)))
+                .replace(`{${"custom_id"}}`, encodeURIComponent(String(customId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).
          * @summary Get multiple tasks
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2080,6 +2126,18 @@ export const TasksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns a task given a custom ID shortcode.
+         * @summary Get a task for a given custom ID
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} customId Generated custom ID for a task.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTaskForCustomID(workspaceGid: string, customId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskForCustomID(workspaceGid, customId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).
          * @summary Get multiple tasks
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -2494,6 +2552,17 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          */
         getTask(taskGid: string, optPretty?: boolean, optFields?: Array<'actual_time_minutes' | 'approval_status' | 'assignee' | 'assignee.name' | 'assignee_section' | 'assignee_section.name' | 'assignee_status' | 'completed' | 'completed_at' | 'completed_by' | 'completed_by.name' | 'created_at' | 'created_by' | 'custom_fields' | 'custom_fields.asana_created_field' | 'custom_fields.created_by' | 'custom_fields.created_by.name' | 'custom_fields.currency_code' | 'custom_fields.custom_label' | 'custom_fields.custom_label_position' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.description' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.format' | 'custom_fields.has_notifications_enabled' | 'custom_fields.id_prefix' | 'custom_fields.is_formula_field' | 'custom_fields.is_global_to_workspace' | 'custom_fields.is_value_read_only' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.people_value' | 'custom_fields.people_value.name' | 'custom_fields.precision' | 'custom_fields.representation_type' | 'custom_fields.resource_subtype' | 'custom_fields.text_value' | 'custom_fields.type' | 'dependencies' | 'dependents' | 'due_at' | 'due_on' | 'external' | 'external.data' | 'followers' | 'followers.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_notes' | 'is_rendered_as_separator' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'memberships' | 'memberships.project' | 'memberships.project.name' | 'memberships.section' | 'memberships.section.name' | 'modified_at' | 'name' | 'notes' | 'num_hearts' | 'num_likes' | 'num_subtasks' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permalink_url' | 'projects' | 'projects.name' | 'resource_subtype' | 'start_at' | 'start_on' | 'tags' | 'tags.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2017> {
             return localVarFp.getTask(taskGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a task given a custom ID shortcode.
+         * @summary Get a task for a given custom ID
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} customId Generated custom ID for a task.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskForCustomID(workspaceGid: string, customId: string, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.getTaskForCustomID(workspaceGid, customId, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).
@@ -2922,6 +2991,19 @@ export class TasksApi extends BaseAPI {
      */
     public getTask(taskGid: string, optPretty?: boolean, optFields?: Array<'actual_time_minutes' | 'approval_status' | 'assignee' | 'assignee.name' | 'assignee_section' | 'assignee_section.name' | 'assignee_status' | 'completed' | 'completed_at' | 'completed_by' | 'completed_by.name' | 'created_at' | 'created_by' | 'custom_fields' | 'custom_fields.asana_created_field' | 'custom_fields.created_by' | 'custom_fields.created_by.name' | 'custom_fields.currency_code' | 'custom_fields.custom_label' | 'custom_fields.custom_label_position' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.description' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.format' | 'custom_fields.has_notifications_enabled' | 'custom_fields.id_prefix' | 'custom_fields.is_formula_field' | 'custom_fields.is_global_to_workspace' | 'custom_fields.is_value_read_only' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.people_value' | 'custom_fields.people_value.name' | 'custom_fields.precision' | 'custom_fields.representation_type' | 'custom_fields.resource_subtype' | 'custom_fields.text_value' | 'custom_fields.type' | 'dependencies' | 'dependents' | 'due_at' | 'due_on' | 'external' | 'external.data' | 'followers' | 'followers.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_notes' | 'is_rendered_as_separator' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'memberships' | 'memberships.project' | 'memberships.project.name' | 'memberships.section' | 'memberships.section.name' | 'modified_at' | 'name' | 'notes' | 'num_hearts' | 'num_likes' | 'num_subtasks' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permalink_url' | 'projects' | 'projects.name' | 'resource_subtype' | 'start_at' | 'start_on' | 'tags' | 'tags.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
         return TasksApiFp(this.configuration).getTask(taskGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a task given a custom ID shortcode.
+     * @summary Get a task for a given custom ID
+     * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+     * @param {string} customId Generated custom ID for a task.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public getTaskForCustomID(workspaceGid: string, customId: string, options?: AxiosRequestConfig) {
+        return TasksApiFp(this.configuration).getTaskForCustomID(workspaceGid, customId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

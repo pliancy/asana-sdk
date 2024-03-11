@@ -21,7 +21,7 @@
  */
 export interface TaskAddTagRequest {
     /**
-     * The tag to add to the task.
+     * The tag\'s gid to add to the task.
      * @type {string}
      * @memberof TaskAddTagRequest
      */

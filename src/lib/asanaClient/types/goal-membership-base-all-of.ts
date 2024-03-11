@@ -23,6 +23,12 @@ import { MemberCompact } from './member-compact';
  */
 export interface GoalMembershipBaseAllOf {
     /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof GoalMembershipBaseAllOf
+     */
+    'resource_type'?: string;
+    /**
      * The type of membership.
      * @type {string}
      * @memberof GoalMembershipBaseAllOf

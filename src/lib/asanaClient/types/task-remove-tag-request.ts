@@ -21,7 +21,7 @@
  */
 export interface TaskRemoveTagRequest {
     /**
-     * The tag to remove from the task.
+     * The tag\'s gid to remove from the task.
      * @type {string}
      * @memberof TaskRemoveTagRequest
      */
