@@ -13,15 +13,83 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { GoalCompact } from './goal-compact';
-import { GoalMembershipBaseAllOf } from './goal-membership-base-all-of';
 import { MemberCompact } from './member-compact';
 
 /**
- * @type GoalMembershipBase
+ * This object represents a user\'s connection to a goal.
  * @export
+ * @interface GoalMembershipBase
  */
-export type GoalMembershipBase = AsanaResource & GoalMembershipBaseAllOf;
+export interface GoalMembershipBase {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof GoalMembershipBase
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof GoalMembershipBase
+     */
+    'resource_type'?: string;
+    /**
+     * The type of membership.
+     * @type {string}
+     * @memberof GoalMembershipBase
+     */
+    'resource_subtype'?: string;
+    /**
+     * 
+     * @type {MemberCompact}
+     * @memberof GoalMembershipBase
+     */
+    'member'?: MemberCompact;
+    /**
+     * 
+     * @type {GoalCompact & object}
+     * @memberof GoalMembershipBase
+     */
+    'parent'?: GoalCompact & object;
+    /**
+     * *Deprecated: Describes if the member is a commenter or editor in goal.*
+     * @type {string}
+     * @memberof GoalMembershipBase
+     * @deprecated
+     */
+    'role'?: GoalMembershipBaseRoleEnum;
+    /**
+     * \"Describes the membership access level for the goal. This is preferred over role.\"
+     * @type {string}
+     * @memberof GoalMembershipBase
+     */
+    'access_level'?: GoalMembershipBaseAccessLevelEnum;
+    /**
+     * 
+     * @type {GoalCompact & object}
+     * @memberof GoalMembershipBase
+     */
+    'goal'?: GoalCompact & object;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GoalMembershipBaseRoleEnum {
+    Commenter = 'commenter',
+    Editor = 'editor'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GoalMembershipBaseAccessLevelEnum {
+    Viewer = 'viewer',
+    Commenter = 'commenter',
+    Editor = 'editor',
+    Admin = 'admin'
+}
 
 

@@ -23,15 +23,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject49 } from '../types';
+import { InlineObject68 } from '../types';
 // @ts-ignore
-import { InlineObject50 } from '../types';
+import { InlineObject69 } from '../types';
+// @ts-ignore
+import { InlineObject70 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20036 } from '../types';
+import { InlineResponse20052 } from '../types';
 // @ts-ignore
-import { InlineResponse2016 } from '../types';
+import { InlineResponse20112 } from '../types';
 /**
  * TagsApi - axios parameter creator
  * @export
@@ -39,17 +41,17 @@ import { InlineResponse2016 } from '../types';
 export const TagsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag: async (inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject49' is not null or undefined
-            assertParamExists('createTag', 'inlineObject49', inlineObject49)
+        createTag: async (inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject68' is not null or undefined
+            assertParamExists('createTag', 'inlineObject68', inlineObject68)
             const localVarPath = `/tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -64,7 +66,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -85,7 +87,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject49, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -93,20 +95,20 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject50} inlineObject50 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace: async (workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createTagForWorkspace: async (workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('createTagForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject50' is not null or undefined
-            assertParamExists('createTagForWorkspace', 'inlineObject50', inlineObject50)
+            // verify required parameter 'inlineObject70' is not null or undefined
+            assertParamExists('createTagForWorkspace', 'inlineObject70', inlineObject70)
             const localVarPath = `/workspaces/{workspace_gid}/tags`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -122,7 +124,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -143,7 +145,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject50, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject70, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -198,11 +200,11 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Returns the complete tag record for a single tag.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -224,7 +226,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -250,13 +252,13 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [workspace] The workspace to filter tags on.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -275,7 +277,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -313,13 +315,13 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Get a compact representation of all of the tags the task has.
+         * <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -341,7 +343,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -375,13 +377,13 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -403,7 +405,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -437,17 +439,20 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
+         * <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTag: async (tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTag: async (tagGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tagGid' is not null or undefined
             assertParamExists('updateTag', 'tagGid', tagGid)
+            // verify required parameter 'inlineObject69' is not null or undefined
+            assertParamExists('updateTag', 'inlineObject69', inlineObject69)
             const localVarPath = `/tags/{tag_gid}`
                 .replace(`{${"tag_gid"}}`, encodeURIComponent(String(tagGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -463,7 +468,7 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tags:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -479,9 +484,12 @@ export const TagsApiAxiosParamCreator = function (configuration?: Configuration)
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject69, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -499,30 +507,30 @@ export const TagsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TagsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject49, optPretty, optFields, options);
+        async createTag(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20112>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTag(inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject50} inlineObject50 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options);
+        async createTagForWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20112>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagForWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -538,74 +546,75 @@ export const TagsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the complete tag record for a single tag.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+        async getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20112>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTag(tagGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [workspace] The workspace to filter tags on.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTags(optPretty, limit, offset, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a compact representation of all of the tags the task has.
+         * <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
+         * <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTag(tagGid, optPretty, optFields, options);
+        async updateTag(tagGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20112>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTag(tagGid, inlineObject69, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -619,29 +628,29 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = TagsApiFp(configuration)
     return {
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag
-         * @param {InlineObject49} inlineObject49 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.createTag(inlineObject49, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTag(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20112> {
+            return localVarFp.createTag(inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+         * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
          * @summary Create a tag in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject50} inlineObject50 
+         * @param {InlineObject70} inlineObject70 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTagForWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20112> {
+            return localVarFp.createTagForWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing tag can be deleted by making a DELETE request on the URL for that tag.  Returns an empty data record.
@@ -655,70 +664,71 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.deleteTag(tagGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the complete tag record for a single tag.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.
          * @summary Get a tag
          * @param {string} tagGid Globally unique identifier for the tag.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2016> {
+        getTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20112> {
             return localVarFp.getTag(tagGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get multiple tags
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [workspace] The workspace to filter tags on.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTags(optPretty?: boolean, limit?: number, offset?: string, workspace?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getTags(optPretty, limit, offset, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a compact representation of all of the tags the task has.
+         * <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.
          * @summary Get a task\'s tags
          * @param {string} taskGid The task to operate on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTagsForTask(taskGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getTagsForTask(taskGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+         * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
          * @summary Get tags in a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20036> {
+        getTagsForWorkspace(workspaceGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getTagsForWorkspace(workspaceGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
+         * <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
          * @summary Update a tag
          * @param {string} tagGid Globally unique identifier for the tag.
+         * @param {InlineObject69} inlineObject69 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse2016> {
-            return localVarFp.updateTag(tagGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTag(tagGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20112> {
+            return localVarFp.updateTag(tagGid, inlineObject69, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -731,32 +741,32 @@ export const TagsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class TagsApi extends BaseAPI {
     /**
-     * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+     * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag
-     * @param {InlineObject49} inlineObject49 
+     * @param {InlineObject68} inlineObject68 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTag(inlineObject49: InlineObject49, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTag(inlineObject49, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTag(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTag(inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+     * <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
      * @summary Create a tag in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject50} inlineObject50 
+     * @param {InlineObject70} inlineObject70 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public createTagForWorkspace(workspaceGid: string, inlineObject50: InlineObject50, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject50, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTagForWorkspace(workspaceGid: string, inlineObject70: InlineObject70, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTagForWorkspace(workspaceGid, inlineObject70, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -773,11 +783,11 @@ export class TagsApi extends BaseAPI {
     }
 
     /**
-     * Returns the complete tag record for a single tag.
+     * <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.
      * @summary Get a tag
      * @param {string} tagGid Globally unique identifier for the tag.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
@@ -787,13 +797,13 @@ export class TagsApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+     * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
      * @summary Get multiple tags
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [workspace] The workspace to filter tags on.
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
@@ -803,13 +813,13 @@ export class TagsApi extends BaseAPI {
     }
 
     /**
-     * Get a compact representation of all of the tags the task has.
+     * <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.
      * @summary Get a task\'s tags
      * @param {string} taskGid The task to operate on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
@@ -819,13 +829,13 @@ export class TagsApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+     * <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
      * @summary Get tags in a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'offset' | 'path' | 'permalink_url' | 'uri' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
@@ -835,16 +845,17 @@ export class TagsApi extends BaseAPI {
     }
 
     /**
-     * Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
+     * <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
      * @summary Update a tag
      * @param {string} tagGid Globally unique identifier for the tag.
+     * @param {InlineObject69} inlineObject69 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TagsApi
      */
-    public updateTag(tagGid: string, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return TagsApiFp(this.configuration).updateTag(tagGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTag(tagGid: string, inlineObject69: InlineObject69, optPretty?: boolean, optFields?: Array<'color' | 'created_at' | 'followers' | 'followers.name' | 'name' | 'notes' | 'permalink_url' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TagsApiFp(this.configuration).updateTag(tagGid, inlineObject69, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

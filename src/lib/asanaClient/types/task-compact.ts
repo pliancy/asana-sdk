@@ -13,14 +13,55 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TaskCompactAllOf } from './task-compact-all-of';
-import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
+import { TaskCompactCreatedBy } from './task-compact-created-by';
 
 /**
- * @type TaskCompact
+ * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>tasks:read</code></p>  The *task* is the basic object around which many operations in Asana are centered.
  * @export
+ * @interface TaskCompact
  */
-export type TaskCompact = AsanaResource & TaskCompactAllOf;
+export interface TaskCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TaskCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TaskCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the task.
+     * @type {string}
+     * @memberof TaskCompact
+     */
+    'name'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning. The resource_subtype `milestone` represent a single moment in time. This means tasks with this subtype cannot have a start_date.
+     * @type {string}
+     * @memberof TaskCompact
+     */
+    'resource_subtype'?: TaskCompactResourceSubtypeEnum;
+    /**
+     * 
+     * @type {TaskCompactCreatedBy}
+     * @memberof TaskCompact
+     */
+    'created_by'?: TaskCompactCreatedBy;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskCompactResourceSubtypeEnum {
+    DefaultTask = 'default_task',
+    Milestone = 'milestone',
+    Approval = 'approval',
+    Custom = 'custom'
+}
 
 

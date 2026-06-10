@@ -23,11 +23,11 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse200 } from '../types';
-// @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse2002 } from '../types';
+import { InlineResponse2006 } from '../types';
+// @ts-ignore
+import { InlineResponse2007 } from '../types';
 /**
  * AttachmentsApi - axios parameter creator
  * @export
@@ -35,16 +35,16 @@ import { InlineResponse2002 } from '../types';
 export const AttachmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.
+         * <b>Required scope: </b><code>attachments:write</code>  Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.  For file names that contain non-ASCII characters, the file name should be URL-encoded. For example, a file named `résumé.pdf` should be encoded as `r%C3%A9sum%C3%A9.pdf` and the `filename` parameter in the `Content-Disposition` header should be set to the encoded file name.  Below is an example of a cURL request with the `Content-Disposition` header:  ``` export ASANA_PAT=\"<YOUR_ASANA_PERSONAL_ACCESS_TOKEN>\" export PARENT_ID=\"<PARENT_GID>\" export ENCODED_NAME=\"r%C3%A9sum%C3%A9.pdf\" curl --location \'https://app.asana.com/api/1.0/attachments\' \\   --header \'Content-Type: multipart/form-data\' \\   --header \'Accept: application/json\' \\   --header \"Authorization: Bearer $ASANA_PAT\" \\   --form \"parent=$PARENT_ID\" \\   --form \"file=@/Users/exampleUser/Downloads/résumé.pdf;headers=\\\"Content-Disposition: form-data; name=\"file\"; filename=\"$ENCODED_NAME.pdf\"; filename*=UTF-8\'\'$ENCODED_NAME.pdf\\\"\" ```
          * @summary Upload an attachment
          * @param {string} parent Required identifier of the parent task, project, or project_brief, as a string. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {string} [resourceSubtype] The type of the attachment. Must be one of the given values. If not specified, a file attachment of type &#x60;asana&#x60; will be assumed. Note that if the value of &#x60;resource_subtype&#x60; is &#x60;external&#x60;, a &#x60;parent&#x60;, &#x60;name&#x60;, and &#x60;url&#x60; must also be provided. 
          * @param {any} [file] Required for &#x60;asana&#x60; attachments. 
          * @param {string} [url] The URL of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
          * @param {string} [name] The name of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
-         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. 
+         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. This property can only be set if an OAuth token is used to authenticate the request.  Criteria for displaying app widget: 1. An OAuth token must be used to authenticate the request 2. The app needs to have its &#x60;widget_metadata_url&#x60; configured in the developer console 3. The task the attachment is being attached to must be in a project with the app installed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -66,7 +66,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["attachments:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -119,7 +119,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Deletes a specific, existing attachment.  Returns an empty data record.
+         * <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.
          * @summary Delete an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -144,7 +144,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["attachments:delete"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -166,11 +166,11 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Get the full record for a single attachment.
+         * <b>Required scope: </b><code>attachments:read</code>  Get the full record for a single attachment.
          * @summary Get an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -192,7 +192,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["attachments:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -218,13 +218,13 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Returns the compact records for all attachments on the object.  There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
+         * <b>Required scope: </b><code>attachments:read</code>  Returns the compact records for all attachments on the object. There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
          * @summary Get attachments from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a &#x60;project&#x60;, &#x60;project_brief&#x60;, or &#x60;task&#x60;.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -245,7 +245,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["attachments:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -293,25 +293,25 @@ export const AttachmentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AttachmentsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.
+         * <b>Required scope: </b><code>attachments:write</code>  Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.  For file names that contain non-ASCII characters, the file name should be URL-encoded. For example, a file named `résumé.pdf` should be encoded as `r%C3%A9sum%C3%A9.pdf` and the `filename` parameter in the `Content-Disposition` header should be set to the encoded file name.  Below is an example of a cURL request with the `Content-Disposition` header:  ``` export ASANA_PAT=\"<YOUR_ASANA_PERSONAL_ACCESS_TOKEN>\" export PARENT_ID=\"<PARENT_GID>\" export ENCODED_NAME=\"r%C3%A9sum%C3%A9.pdf\" curl --location \'https://app.asana.com/api/1.0/attachments\' \\   --header \'Content-Type: multipart/form-data\' \\   --header \'Accept: application/json\' \\   --header \"Authorization: Bearer $ASANA_PAT\" \\   --form \"parent=$PARENT_ID\" \\   --form \"file=@/Users/exampleUser/Downloads/résumé.pdf;headers=\\\"Content-Disposition: form-data; name=\"file\"; filename=\"$ENCODED_NAME.pdf\"; filename*=UTF-8\'\'$ENCODED_NAME.pdf\\\"\" ```
          * @summary Upload an attachment
          * @param {string} parent Required identifier of the parent task, project, or project_brief, as a string. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {string} [resourceSubtype] The type of the attachment. Must be one of the given values. If not specified, a file attachment of type &#x60;asana&#x60; will be assumed. Note that if the value of &#x60;resource_subtype&#x60; is &#x60;external&#x60;, a &#x60;parent&#x60;, &#x60;name&#x60;, and &#x60;url&#x60; must also be provided. 
          * @param {any} [file] Required for &#x60;asana&#x60; attachments. 
          * @param {string} [url] The URL of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
          * @param {string} [name] The name of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
-         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. 
+         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. This property can only be set if an OAuth token is used to authenticate the request.  Criteria for displaying app widget: 1. An OAuth token must be used to authenticate the request 2. The app needs to have its &#x60;widget_metadata_url&#x60; configured in the developer console 3. The task the attachment is being attached to must be in a project with the app installed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAttachmentForObject(parent: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, resourceSubtype?: string, file?: any, url?: string, name?: string, connectToApp?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
+        async createAttachmentForObject(parent: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, resourceSubtype?: string, file?: any, url?: string, name?: string, connectToApp?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAttachmentForObject(parent, optPretty, optFields, resourceSubtype, file, url, name, connectToApp, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Deletes a specific, existing attachment.  Returns an empty data record.
+         * <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.
          * @summary Delete an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -323,30 +323,30 @@ export const AttachmentsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get the full record for a single attachment.
+         * <b>Required scope: </b><code>attachments:read</code>  Get the full record for a single attachment.
          * @summary Get an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAttachment(attachmentGid: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
+        async getAttachment(attachmentGid: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAttachment(attachmentGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact records for all attachments on the object.  There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
+         * <b>Required scope: </b><code>attachments:read</code>  Returns the compact records for all attachments on the object. There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
          * @summary Get attachments from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a &#x60;project&#x60;, &#x60;project_brief&#x60;, or &#x60;task&#x60;.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAttachmentsForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
+        async getAttachmentsForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2007>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAttachmentsForObject(parent, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -361,24 +361,24 @@ export const AttachmentsApiFactory = function (configuration?: Configuration, ba
     const localVarFp = AttachmentsApiFp(configuration)
     return {
         /**
-         * Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.
+         * <b>Required scope: </b><code>attachments:write</code>  Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.  For file names that contain non-ASCII characters, the file name should be URL-encoded. For example, a file named `résumé.pdf` should be encoded as `r%C3%A9sum%C3%A9.pdf` and the `filename` parameter in the `Content-Disposition` header should be set to the encoded file name.  Below is an example of a cURL request with the `Content-Disposition` header:  ``` export ASANA_PAT=\"<YOUR_ASANA_PERSONAL_ACCESS_TOKEN>\" export PARENT_ID=\"<PARENT_GID>\" export ENCODED_NAME=\"r%C3%A9sum%C3%A9.pdf\" curl --location \'https://app.asana.com/api/1.0/attachments\' \\   --header \'Content-Type: multipart/form-data\' \\   --header \'Accept: application/json\' \\   --header \"Authorization: Bearer $ASANA_PAT\" \\   --form \"parent=$PARENT_ID\" \\   --form \"file=@/Users/exampleUser/Downloads/résumé.pdf;headers=\\\"Content-Disposition: form-data; name=\"file\"; filename=\"$ENCODED_NAME.pdf\"; filename*=UTF-8\'\'$ENCODED_NAME.pdf\\\"\" ```
          * @summary Upload an attachment
          * @param {string} parent Required identifier of the parent task, project, or project_brief, as a string. 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {string} [resourceSubtype] The type of the attachment. Must be one of the given values. If not specified, a file attachment of type &#x60;asana&#x60; will be assumed. Note that if the value of &#x60;resource_subtype&#x60; is &#x60;external&#x60;, a &#x60;parent&#x60;, &#x60;name&#x60;, and &#x60;url&#x60; must also be provided. 
          * @param {any} [file] Required for &#x60;asana&#x60; attachments. 
          * @param {string} [url] The URL of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
          * @param {string} [name] The name of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
-         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. 
+         * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. This property can only be set if an OAuth token is used to authenticate the request.  Criteria for displaying app widget: 1. An OAuth token must be used to authenticate the request 2. The app needs to have its &#x60;widget_metadata_url&#x60; configured in the developer console 3. The task the attachment is being attached to must be in a project with the app installed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAttachmentForObject(parent: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, resourceSubtype?: string, file?: any, url?: string, name?: string, connectToApp?: boolean, options?: any): AxiosPromise<InlineResponse200> {
+        createAttachmentForObject(parent: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, resourceSubtype?: string, file?: any, url?: string, name?: string, connectToApp?: boolean, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.createAttachmentForObject(parent, optPretty, optFields, resourceSubtype, file, url, name, connectToApp, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes a specific, existing attachment.  Returns an empty data record.
+         * <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.
          * @summary Delete an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -389,29 +389,29 @@ export const AttachmentsApiFactory = function (configuration?: Configuration, ba
             return localVarFp.deleteAttachment(attachmentGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get the full record for a single attachment.
+         * <b>Required scope: </b><code>attachments:read</code>  Get the full record for a single attachment.
          * @summary Get an attachment
          * @param {string} attachmentGid Globally unique identifier for the attachment.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAttachment(attachmentGid: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, options?: any): AxiosPromise<InlineResponse200> {
+        getAttachment(attachmentGid: string, optPretty?: boolean, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.getAttachment(attachmentGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact records for all attachments on the object.  There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
+         * <b>Required scope: </b><code>attachments:read</code>  Returns the compact records for all attachments on the object. There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
          * @summary Get attachments from an object
          * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a &#x60;project&#x60;, &#x60;project_brief&#x60;, or &#x60;task&#x60;.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAttachmentsForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>, options?: any): AxiosPromise<InlineResponse2002> {
+        getAttachmentsForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>, options?: any): AxiosPromise<InlineResponse2007> {
             return localVarFp.getAttachmentsForObject(parent, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -425,16 +425,16 @@ export const AttachmentsApiFactory = function (configuration?: Configuration, ba
  */
 export class AttachmentsApi extends BaseAPI {
     /**
-     * Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.
+     * <b>Required scope: </b><code>attachments:write</code>  Upload an attachment.  This method uploads an attachment on an object and returns the compact record for the created attachment object. This is possible by either:  - Providing the URL of the external resource being attached, or - Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach files from third party services such as Dropbox, Box, Vimeo & Google Drive via the API  The 100MB size limit on attachments in Asana is enforced on this endpoint.  This endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.  Requests made should follow the HTTP/1.1 specification that line terminators are of the form `CRLF` or `\\r\\n` outlined [here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.  For file names that contain non-ASCII characters, the file name should be URL-encoded. For example, a file named `résumé.pdf` should be encoded as `r%C3%A9sum%C3%A9.pdf` and the `filename` parameter in the `Content-Disposition` header should be set to the encoded file name.  Below is an example of a cURL request with the `Content-Disposition` header:  ``` export ASANA_PAT=\"<YOUR_ASANA_PERSONAL_ACCESS_TOKEN>\" export PARENT_ID=\"<PARENT_GID>\" export ENCODED_NAME=\"r%C3%A9sum%C3%A9.pdf\" curl --location \'https://app.asana.com/api/1.0/attachments\' \\   --header \'Content-Type: multipart/form-data\' \\   --header \'Accept: application/json\' \\   --header \"Authorization: Bearer $ASANA_PAT\" \\   --form \"parent=$PARENT_ID\" \\   --form \"file=@/Users/exampleUser/Downloads/résumé.pdf;headers=\\\"Content-Disposition: form-data; name=\"file\"; filename=\"$ENCODED_NAME.pdf\"; filename*=UTF-8\'\'$ENCODED_NAME.pdf\\\"\" ```
      * @summary Upload an attachment
      * @param {string} parent Required identifier of the parent task, project, or project_brief, as a string. 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {string} [resourceSubtype] The type of the attachment. Must be one of the given values. If not specified, a file attachment of type &#x60;asana&#x60; will be assumed. Note that if the value of &#x60;resource_subtype&#x60; is &#x60;external&#x60;, a &#x60;parent&#x60;, &#x60;name&#x60;, and &#x60;url&#x60; must also be provided. 
      * @param {any} [file] Required for &#x60;asana&#x60; attachments. 
      * @param {string} [url] The URL of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
      * @param {string} [name] The name of the external resource being attached. Required for attachments of type &#x60;external&#x60;. 
-     * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. 
+     * @param {boolean} [connectToApp] *Optional*. Only relevant for external attachments with a parent task. A boolean indicating whether the current app should be connected with the attachment for the purposes of showing an app components widget. Requires the app to have been added to a project the parent task is in. This property can only be set if an OAuth token is used to authenticate the request.  Criteria for displaying app widget: 1. An OAuth token must be used to authenticate the request 2. The app needs to have its &#x60;widget_metadata_url&#x60; configured in the developer console 3. The task the attachment is being attached to must be in a project with the app installed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AttachmentsApi
@@ -444,7 +444,7 @@ export class AttachmentsApi extends BaseAPI {
     }
 
     /**
-     * Deletes a specific, existing attachment.  Returns an empty data record.
+     * <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.
      * @summary Delete an attachment
      * @param {string} attachmentGid Globally unique identifier for the attachment.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -457,11 +457,11 @@ export class AttachmentsApi extends BaseAPI {
     }
 
     /**
-     * Get the full record for a single attachment.
+     * <b>Required scope: </b><code>attachments:read</code>  Get the full record for a single attachment.
      * @summary Get an attachment
      * @param {string} attachmentGid Globally unique identifier for the attachment.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'permanent_url' | 'resource_subtype' | 'size' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AttachmentsApi
@@ -471,13 +471,13 @@ export class AttachmentsApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact records for all attachments on the object.  There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
+     * <b>Required scope: </b><code>attachments:read</code>  Returns the compact records for all attachments on the object. There are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.  Note that within the Asana app, inline images in the task description do not appear in the index of image thumbnails nor as stories in the task. However, requests made to `GET /attachments` for a task will return all of the images in the task, including inline images.
      * @summary Get attachments from an object
      * @param {string} parent Globally unique identifier for object to fetch statuses from. Must be a GID for a &#x60;project&#x60;, &#x60;project_brief&#x60;, or &#x60;task&#x60;.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'connected_to_app' | 'created_at' | 'download_url' | 'host' | 'name' | 'offset' | 'parent' | 'parent.created_by' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'permanent_url' | 'resource_subtype' | 'size' | 'uri' | 'view_url'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AttachmentsApi

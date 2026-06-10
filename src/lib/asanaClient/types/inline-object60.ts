@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependentsRequest } from './modify-dependents-request';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependentsRequest } from './modify-dependents-request';
 export interface InlineObject60 {
     /**
      * 
-     * @type {ModifyDependentsRequest}
+     * @type {SectionRequest}
      * @memberof InlineObject60
      */
-    'data'?: ModifyDependentsRequest;
+    'data'?: SectionRequest;
 }
 

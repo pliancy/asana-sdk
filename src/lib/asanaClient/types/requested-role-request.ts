@@ -27,7 +27,7 @@ export interface RequestedRoleRequest {
      */
     'gid'?: string;
     /**
-     * The user id that should be assigned to the template role.
+     * A string identifying a user that should be assigned to the template role. This can either be the string \"me\", an email, or the gid of a user.
      * @type {string}
      * @memberof RequestedRoleRequest
      */

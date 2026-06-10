@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20044 } from '../types';
+import { InlineResponse20060 } from '../types';
 // @ts-ignore
-import { InlineResponse20045 } from '../types';
+import { InlineResponse20061 } from '../types';
 /**
  * TimePeriodsApi - axios parameter creator
  * @export
@@ -37,7 +37,7 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -90,10 +90,10 @@ export const TimePeriodsApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
-         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -178,11 +178,11 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+        async getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriod(timePeriodGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -192,14 +192,14 @@ export const TimePeriodsApiFp = function(configuration?: Configuration) {
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
-         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+        async getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -218,11 +218,11 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @summary Get a time period
          * @param {string} timePeriodGid Globally unique identifier for the time period.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: any): AxiosPromise<InlineResponse20044> {
+        getTimePeriod(timePeriodGid: string, optPretty?: boolean, optFields?: Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>, options?: any): AxiosPromise<InlineResponse20060> {
             return localVarFp.getTimePeriod(timePeriodGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -231,14 +231,14 @@ export const TimePeriodsApiFactory = function (configuration?: Configuration, ba
          * @param {string} workspace Globally unique identifier for the workspace.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startOn] ISO 8601 date string
          * @param {string} [endOn] ISO 8601 date string
-         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: any): AxiosPromise<InlineResponse20045> {
+        getTimePeriods(workspace: string, optPretty?: boolean, limit?: number, offset?: string, startOn?: string, endOn?: string, optFields?: Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>, options?: any): AxiosPromise<InlineResponse20061> {
             return localVarFp.getTimePeriods(workspace, optPretty, limit, offset, startOn, endOn, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -256,7 +256,7 @@ export class TimePeriodsApi extends BaseAPI {
      * @summary Get a time period
      * @param {string} timePeriodGid Globally unique identifier for the time period.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'display_name' | 'end_on' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'period' | 'start_on'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimePeriodsApi
@@ -271,10 +271,10 @@ export class TimePeriodsApi extends BaseAPI {
      * @param {string} workspace Globally unique identifier for the workspace.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [startOn] ISO 8601 date string
      * @param {string} [endOn] ISO 8601 date string
-     * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'display_name' | 'end_on' | 'offset' | 'parent' | 'parent.display_name' | 'parent.end_on' | 'parent.period' | 'parent.start_on' | 'path' | 'period' | 'start_on' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimePeriodsApi

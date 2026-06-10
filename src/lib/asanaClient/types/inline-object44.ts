@@ -13,7 +13,7 @@
  */
 
 
-import { SectionTaskInsertRequest } from './section-task-insert-request';
+import { ProjectUpdateRequest } from './project-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionTaskInsertRequest } from './section-task-insert-request';
 export interface InlineObject44 {
     /**
      * 
-     * @type {SectionTaskInsertRequest}
+     * @type {ProjectUpdateRequest}
      * @memberof InlineObject44
      */
-    'data'?: SectionTaskInsertRequest;
+    'data'?: ProjectUpdateRequest;
 }
 

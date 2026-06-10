@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectStatusBase } from './project-status-base';
+import { OooEntryCreateRequest } from './ooo-entry-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectStatusBase } from './project-status-base';
 export interface InlineObject27 {
     /**
      * 
-     * @type {ProjectStatusBase}
+     * @type {OooEntryCreateRequest & object}
      * @memberof InlineObject27
      */
-    'data'?: ProjectStatusBase;
+    'data'?: OooEntryCreateRequest & object;
 }
 

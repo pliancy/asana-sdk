@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
@@ -76,7 +77,7 @@ export interface TeamResponseAllOf {
      */
     'guest_invite_management_access_level'?: TeamResponseAllOfGuestInviteManagementAccessLevelEnum;
     /**
-     * Controls who can accept or deny join team requests for a Membership by Request team 
+     * Controls who can accept or deny join team requests for a Membership by Request team. This field can only be updated when the team\'s `visibility` field is `request_to_join`. 
      * @type {string}
      * @memberof TeamResponseAllOf
      */
@@ -87,6 +88,24 @@ export interface TeamResponseAllOf {
      * @memberof TeamResponseAllOf
      */
     'team_member_removal_access_level'?: TeamResponseAllOfTeamMemberRemovalAccessLevelEnum;
+    /**
+     * Controls who can create and share content with the team 
+     * @type {string}
+     * @memberof TeamResponseAllOf
+     */
+    'team_content_management_access_level'?: TeamResponseAllOfTeamContentManagementAccessLevelEnum;
+    /**
+     * Whether the team has been endorsed 
+     * @type {boolean}
+     * @memberof TeamResponseAllOf
+     */
+    'endorsed'?: boolean;
+    /**
+     * Array of Custom Field Settings applied to the team.
+     * @type {Array<CustomFieldSettingResponse>}
+     * @memberof TeamResponseAllOf
+     */
+    'custom_field_settings'?: Array<CustomFieldSettingResponse>;
 }
 
 /**
@@ -144,6 +163,14 @@ export enum TeamResponseAllOfJoinRequestManagementAccessLevelEnum {
     */
 export enum TeamResponseAllOfTeamMemberRemovalAccessLevelEnum {
     AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamResponseAllOfTeamContentManagementAccessLevelEnum {
+    NoRestriction = 'no_restriction',
     OnlyTeamAdmins = 'only_team_admins'
 }
 

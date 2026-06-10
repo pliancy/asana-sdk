@@ -13,7 +13,7 @@
  */
 
 
-import { CustomFieldRequest } from './custom-field-request';
+import { AllocationRequest } from './allocation-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CustomFieldRequest } from './custom-field-request';
 export interface InlineObject2 {
     /**
      * 
-     * @type {CustomFieldRequest}
+     * @type {AllocationRequest & object}
      * @memberof InlineObject2
      */
-    'data'?: CustomFieldRequest;
+    'data'?: AllocationRequest & object;
 }
 

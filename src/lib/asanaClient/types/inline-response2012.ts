@@ -13,7 +13,7 @@
  */
 
 
-import { MembershipResponse } from './membership-response';
+import { CustomFieldResponse } from './custom-field-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { MembershipResponse } from './membership-response';
 export interface InlineResponse2012 {
     /**
      * 
-     * @type {Array<MembershipResponse>}
+     * @type {CustomFieldResponse}
      * @memberof InlineResponse2012
      */
-    'data'?: Array<MembershipResponse>;
+    'data'?: CustomFieldResponse;
 }
 

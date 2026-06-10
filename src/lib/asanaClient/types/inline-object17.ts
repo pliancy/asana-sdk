@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { GoalRequest } from './goal-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject17 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {GoalRequest}
      * @memberof InlineObject17
      */
-    'data'?: PortfolioRequest;
+    'data'?: GoalRequest;
 }
 

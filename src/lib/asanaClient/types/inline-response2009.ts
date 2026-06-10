@@ -13,8 +13,7 @@
  */
 
 
-import { GoalRelationshipCompact } from './goal-relationship-compact';
-import { NextPage } from './next-page';
+import { BatchResponse } from './batch-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse2009 {
     /**
      * 
-     * @type {Array<GoalRelationshipCompact>}
+     * @type {Array<BatchResponse>}
      * @memberof InlineResponse2009
      */
-    'data'?: Array<GoalRelationshipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse2009
-     */
-    'next_page'?: NextPage | null;
+    'data'?: Array<BatchResponse>;
 }
 

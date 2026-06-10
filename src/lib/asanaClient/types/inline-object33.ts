@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectRequest } from './project-request';
+import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectRequest } from './project-request';
 export interface InlineObject33 {
     /**
      * 
-     * @type {ProjectRequest}
+     * @type {AddCustomFieldSettingRequest}
      * @memberof InlineObject33
      */
-    'data'?: ProjectRequest;
+    'data'?: AddCustomFieldSettingRequest;
 }
 

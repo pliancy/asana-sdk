@@ -33,7 +33,7 @@ export interface ModelError {
      */
     'help'?: string;
     /**
-     * *500 errors only*. A unique error phrase which can be used when contacting developer support to help identify the exact occurrence of the problem in Asana’s logs.
+     * *500 errors only*. A unique error phrase which can be used when contacting developer support to help identify the exact occurrence of the problem in Asana\'s logs.
      * @type {string}
      * @memberof ModelError
      */

@@ -13,15 +13,56 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { TeamCompact } from './team-compact';
-import { TeamMembershipCompactAllOf } from './team-membership-compact-all-of';
 import { UserCompact } from './user-compact';
 
 /**
- * @type TeamMembershipCompact
+ * This object represents a user\'s connection to a team.
  * @export
+ * @interface TeamMembershipCompact
  */
-export type TeamMembershipCompact = AsanaResource & TeamMembershipCompactAllOf;
-
+export interface TeamMembershipCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TeamMembershipCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TeamMembershipCompact
+     */
+    'resource_type'?: string;
+    /**
+     * 
+     * @type {UserCompact}
+     * @memberof TeamMembershipCompact
+     */
+    'user'?: UserCompact;
+    /**
+     * 
+     * @type {TeamCompact}
+     * @memberof TeamMembershipCompact
+     */
+    'team'?: TeamCompact;
+    /**
+     * Describes if the user is a guest in the team.
+     * @type {boolean}
+     * @memberof TeamMembershipCompact
+     */
+    'is_guest'?: boolean;
+    /**
+     * Describes if the user has limited access to the team.
+     * @type {boolean}
+     * @memberof TeamMembershipCompact
+     */
+    'is_limited_access'?: boolean;
+    /**
+     * Describes if the user is a team admin.
+     * @type {boolean}
+     * @memberof TeamMembershipCompact
+     */
+    'is_admin'?: boolean;
+}
 

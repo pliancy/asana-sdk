@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRelationshipRequest } from './goal-relationship-request';
+import { CustomFieldCreateRequest } from './custom-field-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRelationshipRequest } from './goal-relationship-request';
 export interface InlineObject6 {
     /**
      * 
-     * @type {GoalRelationshipRequest}
+     * @type {CustomFieldCreateRequest}
      * @memberof InlineObject6
      */
-    'data'?: GoalRelationshipRequest;
+    'data'?: CustomFieldCreateRequest;
 }
 

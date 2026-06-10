@@ -46,6 +46,24 @@ export interface WebhookResponseAllOf {
      */
     'last_success_at'?: string;
     /**
+     * The number of times the webhook has retried delivery of events to the target (resets after a successful attempt).
+     * @type {number}
+     * @memberof WebhookResponseAllOf
+     */
+    'delivery_retry_count'?: number;
+    /**
+     * The timestamp after which the webhook will next attempt to deliver an event to the target.
+     * @type {string}
+     * @memberof WebhookResponseAllOf
+     */
+    'next_attempt_after'?: string;
+    /**
+     * The timestamp when the webhook will be deleted if there is no successful attempt to deliver events to the target
+     * @type {string}
+     * @memberof WebhookResponseAllOf
+     */
+    'failure_deletion_timestamp'?: string;
+    /**
      * Whitelist of filters to apply to events from this webhook. If a webhook event passes any of the filters the event will be delivered; otherwise no event will be sent to the receiving server.
      * @type {Array<WebhookFilter & object>}
      * @memberof WebhookResponseAllOf

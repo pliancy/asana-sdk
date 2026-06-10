@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject } from '../types';
+import { InlineObject3 } from '../types';
 // @ts-ignore
-import { InlineResponse2004 } from '../types';
+import { InlineResponse2009 } from '../types';
 /**
  * BatchAPIApi - axios parameter creator
  * @export
@@ -35,15 +35,15 @@ export const BatchAPIApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Make multiple requests in parallel to Asana\'s API.
          * @summary Submit parallel requests
-         * @param {InlineObject} inlineObject 
+         * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBatchRequest: async (inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject' is not null or undefined
-            assertParamExists('createBatchRequest', 'inlineObject', inlineObject)
+        createBatchRequest: async (inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject3' is not null or undefined
+            assertParamExists('createBatchRequest', 'inlineObject3', inlineObject3)
             const localVarPath = `/batch`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -79,7 +79,7 @@ export const BatchAPIApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject3, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -99,14 +99,14 @@ export const BatchAPIApiFp = function(configuration?: Configuration) {
         /**
          * Make multiple requests in parallel to Asana\'s API.
          * @summary Submit parallel requests
-         * @param {InlineObject} inlineObject 
+         * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createBatchRequest(inlineObject, optPretty, optFields, options);
+        async createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBatchRequest(inlineObject3, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -122,14 +122,14 @@ export const BatchAPIApiFactory = function (configuration?: Configuration, baseP
         /**
          * Make multiple requests in parallel to Asana\'s API.
          * @summary Submit parallel requests
-         * @param {InlineObject} inlineObject 
+         * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: any): AxiosPromise<InlineResponse2004> {
-            return localVarFp.createBatchRequest(inlineObject, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: any): AxiosPromise<InlineResponse2009> {
+            return localVarFp.createBatchRequest(inlineObject3, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -144,14 +144,14 @@ export class BatchAPIApi extends BaseAPI {
     /**
      * Make multiple requests in parallel to Asana\'s API.
      * @summary Submit parallel requests
-     * @param {InlineObject} inlineObject 
+     * @param {InlineObject3} inlineObject3 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BatchAPIApi
      */
-    public createBatchRequest(inlineObject: InlineObject, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig) {
-        return BatchAPIApiFp(this.configuration).createBatchRequest(inlineObject, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig) {
+        return BatchAPIApiFp(this.configuration).createBatchRequest(inlineObject3, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

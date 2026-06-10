@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { GoalAddSupportingRelationshipRequest } from './goal-add-supporting-relationship-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject14 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {GoalAddSupportingRelationshipRequest}
      * @memberof InlineObject14
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: GoalAddSupportingRelationshipRequest;
 }
 

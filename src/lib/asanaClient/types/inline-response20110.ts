@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { RateResponse } from './rate-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20110 {
     /**
      * 
-     * @type {WebhookResponse}
+     * @type {RateResponse}
      * @memberof InlineResponse20110
      */
-    'data'?: WebhookResponse;
+    'data'?: RateResponse;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRequest } from './task-request';
+import { RateRequest } from './rate-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRequest } from './task-request';
 export interface InlineObject55 {
     /**
      * 
-     * @type {TaskRequest}
+     * @type {RateRequest}
      * @memberof InlineObject55
      */
-    'data'?: TaskRequest;
+    'data'?: RateRequest;
 }
 

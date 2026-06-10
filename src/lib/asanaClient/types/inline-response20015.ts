@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
+import { CustomTypeResponse } from './custom-type-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectMembershipCompactResponse } from './project-membership-compact-r
 export interface InlineResponse20015 {
     /**
      * 
-     * @type {ProjectMembershipCompactResponse}
+     * @type {CustomTypeResponse}
      * @memberof InlineResponse20015
      */
-    'data'?: ProjectMembershipCompactResponse;
+    'data'?: CustomTypeResponse;
 }
 

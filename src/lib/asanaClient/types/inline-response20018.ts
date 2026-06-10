@@ -13,8 +13,8 @@
  */
 
 
+import { GoalRelationshipCompact } from './goal-relationship-compact';
 import { NextPage } from './next-page';
-import { PortfolioCompact } from './portfolio-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { PortfolioCompact } from './portfolio-compact';
 export interface InlineResponse20018 {
     /**
      * 
-     * @type {Array<PortfolioCompact>}
+     * @type {Array<GoalRelationshipCompact>}
      * @memberof InlineResponse20018
      */
-    'data'?: Array<PortfolioCompact>;
+    'data'?: Array<GoalRelationshipCompact>;
     /**
      * 
      * @type {NextPage}

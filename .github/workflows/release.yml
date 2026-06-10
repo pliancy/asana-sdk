@@ -9,7 +9,10 @@ jobs:
   release:
     name: Release
     permissions:
+      id-token: write # required for OIDC
+      # required for semantic-release
       contents: write
+      pull-requests: write
       issues: write
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +26,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - name: Install dependencies
         run: yarn
       - name: Build
@@ -31,7 +34,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         # Run semantic release and copy updated package.json back to the root of the repo.
         run: |
           yarn semantic-release

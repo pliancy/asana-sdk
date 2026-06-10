@@ -13,13 +13,80 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { StoryBaseAllOf } from './story-base-all-of';
 
 /**
- * @type StoryBase
+ * A story represents an activity associated with an object in the Asana system.
  * @export
+ * @interface StoryBase
  */
-export type StoryBase = AsanaResource & StoryBaseAllOf;
+export interface StoryBase {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'resource_type'?: string;
+    /**
+     * The time at which this resource was created.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'created_at'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'resource_subtype'?: string;
+    /**
+     * The plain text of the comment to add. Cannot be used with html_text.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'text'?: string;
+    /**
+     * [Opt In](/docs/inputoutput-options). HTML formatted text for a comment. This will not include the name of the creator.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'html_text'?: string;
+    /**
+     * *Conditional*. Whether the story should be pinned on the resource.
+     * @type {boolean}
+     * @memberof StoryBase
+     */
+    'is_pinned'?: boolean;
+    /**
+     * The name of the sticker in this story. `null` if there is no sticker.
+     * @type {string}
+     * @memberof StoryBase
+     */
+    'sticker_name'?: StoryBaseStickerNameEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StoryBaseStickerNameEnum {
+    GreenCheckmark = 'green_checkmark',
+    PeopleDancing = 'people_dancing',
+    DancingUnicorn = 'dancing_unicorn',
+    Heart = 'heart',
+    PartyPopper = 'party_popper',
+    PeopleWavingFlags = 'people_waving_flags',
+    SplashingNarwhal = 'splashing_narwhal',
+    Trophy = 'trophy',
+    YetiRidingUnicorn = 'yeti_riding_unicorn',
+    CelebratingPeople = 'celebrating_people',
+    DeterminedClimbers = 'determined_climbers',
+    PhoenixSpreadingLove = 'phoenix_spreading_love'
+}
 
 

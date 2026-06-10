@@ -13,14 +13,53 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { GoalRelationshipCompactAllOf } from './goal-relationship-compact-all-of';
 import { ProjectCompact } from './project-compact';
 
 /**
- * @type GoalRelationshipCompact
+ * A *goal relationship* is an object representing the relationship between a goal and another goal, a project, a task, or a portfolio.
  * @export
+ * @interface GoalRelationshipCompact
  */
-export type GoalRelationshipCompact = AsanaResource & GoalRelationshipCompactAllOf;
+export interface GoalRelationshipCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof GoalRelationshipCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof GoalRelationshipCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof GoalRelationshipCompact
+     */
+    'resource_subtype'?: GoalRelationshipCompactResourceSubtypeEnum;
+    /**
+     * 
+     * @type {ProjectCompact & object}
+     * @memberof GoalRelationshipCompact
+     */
+    'supporting_resource'?: ProjectCompact & object;
+    /**
+     * The weight that the supporting resource\'s progress contributes to the supported goal\'s progress. This can be 0, 1, or any value in between.
+     * @type {number}
+     * @memberof GoalRelationshipCompact
+     */
+    'contribution_weight'?: number;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GoalRelationshipCompactResourceSubtypeEnum {
+    Subgoal = 'subgoal',
+    SupportingWork = 'supporting_work'
+}
 
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject65 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {StoryBase}
      * @memberof InlineObject65
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: StoryBase;
 }
 

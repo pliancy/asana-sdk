@@ -13,15 +13,38 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
-import { WorkspaceMembershipCompactAllOf } from './workspace-membership-compact-all-of';
 
 /**
- * @type WorkspaceMembershipCompact
+ * This object determines if a user is a member of a workspace.
  * @export
+ * @interface WorkspaceMembershipCompact
  */
-export type WorkspaceMembershipCompact = AsanaResource & WorkspaceMembershipCompactAllOf;
-
+export interface WorkspaceMembershipCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof WorkspaceMembershipCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof WorkspaceMembershipCompact
+     */
+    'resource_type'?: string;
+    /**
+     * 
+     * @type {UserCompact}
+     * @memberof WorkspaceMembershipCompact
+     */
+    'user'?: UserCompact;
+    /**
+     * 
+     * @type {WorkspaceCompact}
+     * @memberof WorkspaceMembershipCompact
+     */
+    'workspace'?: WorkspaceCompact;
+}
 

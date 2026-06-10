@@ -13,7 +13,7 @@
  */
 
 
-import { BatchResponse } from './batch-response';
+import { AllocationResponse } from './allocation-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { BatchResponse } from './batch-response';
 export interface InlineResponse2004 {
     /**
      * 
-     * @type {Array<BatchResponse>}
+     * @type {AllocationResponse}
      * @memberof InlineResponse2004
      */
-    'data'?: Array<BatchResponse>;
+    'data'?: AllocationResponse;
 }
 

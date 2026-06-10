@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { WebhookResponse } from './webhook-response';
+import { TagCompact } from './tag-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20052 {
     /**
      * 
-     * @type {Array<WebhookResponse>}
+     * @type {Array<TagCompact>}
      * @memberof InlineResponse20052
      */
-    'data'?: Array<WebhookResponse>;
+    'data'?: Array<TagCompact>;
     /**
      * 
      * @type {NextPage}

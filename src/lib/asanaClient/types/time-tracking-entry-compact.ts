@@ -13,14 +13,57 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TimeTrackingEntryCompactAllOf } from './time-tracking-entry-compact-all-of';
+import { ProjectCompact } from './project-compact';
+import { TimeTrackingCategoryCompact } from './time-tracking-category-compact';
 import { UserCompact } from './user-compact';
 
 /**
- * @type TimeTrackingEntryCompact
+ * A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface TimeTrackingEntryCompact
  */
-export type TimeTrackingEntryCompact = AsanaResource & TimeTrackingEntryCompactAllOf;
-
+export interface TimeTrackingEntryCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'resource_type'?: string;
+    /**
+     * Time in minutes tracked by the entry.
+     * @type {number}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'duration_minutes'?: number;
+    /**
+     * The day that this entry is logged on.
+     * @type {string}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'entered_on'?: string;
+    /**
+     * 
+     * @type {ProjectCompact & object}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'attributable_to'?: ProjectCompact & object;
+    /**
+     * 
+     * @type {UserCompact}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'created_by'?: UserCompact;
+    /**
+     * The categories linked to this time tracking entry.
+     * @type {Array<TimeTrackingCategoryCompact>}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'categories'?: Array<TimeTrackingCategoryCompact>;
+}
 

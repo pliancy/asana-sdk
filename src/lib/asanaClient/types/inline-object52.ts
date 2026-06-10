@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRequest } from './task-request';
+import { AddFollowersRequest } from './add-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRequest } from './task-request';
 export interface InlineObject52 {
     /**
      * 
-     * @type {TaskRequest}
+     * @type {AddFollowersRequest}
      * @memberof InlineObject52
      */
-    'data'?: TaskRequest;
+    'data'?: AddFollowersRequest;
 }
 

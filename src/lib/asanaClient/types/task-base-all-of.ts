@@ -38,6 +38,12 @@ export interface TaskBaseAllOf {
      */
     'assignee_status'?: TaskBaseAllOfAssigneeStatusEnum;
     /**
+     * 
+     * @type {UserCompact}
+     * @memberof TaskBaseAllOf
+     */
+    'assigned_by'?: UserCompact;
+    /**
      * True if the task is currently marked complete, false if not.
      * @type {boolean}
      * @memberof TaskBaseAllOf
@@ -110,7 +116,7 @@ export interface TaskBaseAllOf {
      */
     'hearts'?: Array<Like>;
     /**
-     * [Opt In](/docs/inputoutput-options). In some contexts tasks can be rendered as a visual separator; for instance, subtasks can appear similar to [sections](/reference/sections) without being true `section` objects. If a `task` object is rendered this way in any context it will have the property `is_rendered_as_separator` set to `true`.
+     * [Opt In](/docs/inputoutput-options). In some contexts tasks can be rendered as a visual separator; for instance, subtasks can appear similar to [sections](/reference/sections) without being true `section` objects. If a `task` object is rendered this way in any context it will have the property `is_rendered_as_separator` set to `true`. This parameter only applies to regular tasks with `resource_subtype` of `default_task`. Tasks with `resource_subtype` of `milestone`, `approval`, or custom task types will not have this property and cannot be rendered as separators.
      * @type {boolean}
      * @memberof TaskBaseAllOf
      */
@@ -128,7 +134,7 @@ export interface TaskBaseAllOf {
      */
     'likes'?: Array<Like>;
     /**
-     * *Create-only*. Array of projects this task is associated with and the section it is in. At task creation time, this array can be used to add the task to specific sections. After task creation, these associations can be modified using the `addProject` and `removeProject` endpoints. Note that over time, more types of memberships may be added to this property.
+     * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>projects:read</code>, <code>project_sections:read</code></p>  *Create-only*. Array of projects this task is associated with and the section it is in. At task creation time, this array can be used to add the task to specific sections. After task creation, these associations can be modified using the `addProject` and `removeProject` endpoints. Note that over time, more types of memberships may be added to this property.
      * @type {Array<TaskBaseAllOfMemberships>}
      * @memberof TaskBaseAllOf
      */
@@ -182,7 +188,7 @@ export interface TaskBaseAllOf {
      */
     'start_on'?: string | null;
     /**
-     * This value represents the sum of all the Time Tracking entries in the Actual Time field on a given Task. It is represented as a nullable long value.
+     * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>time_tracking_entries:read</code></p>  This value represents the sum of all the Time Tracking entries in the Actual Time field on a given Task. It is represented as a nullable long value.
      * @type {number}
      * @memberof TaskBaseAllOf
      */

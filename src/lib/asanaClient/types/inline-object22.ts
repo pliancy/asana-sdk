@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-request';
+import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-r
 export interface InlineObject22 {
     /**
      * 
-     * @type {RemoveCustomFieldSettingRequest}
+     * @type {AddCustomFieldSettingRequest}
      * @memberof InlineObject22
      */
-    'data'?: RemoveCustomFieldSettingRequest;
+    'data'?: AddCustomFieldSettingRequest;
 }
 

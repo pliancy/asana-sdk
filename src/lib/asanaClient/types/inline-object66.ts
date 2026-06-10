@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
 export interface InlineObject66 {
     /**
      * 
-     * @type {TaskRemoveFollowersRequest}
+     * @type {StoryBase}
      * @memberof InlineObject66
      */
-    'data'?: TaskRemoveFollowersRequest;
+    'data'?: StoryBase;
 }
 

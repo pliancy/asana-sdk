@@ -13,7 +13,8 @@
  */
 
 
-import { RuleTriggerResponse } from './rule-trigger-response';
+import { NextPage } from './next-page';
+import { PortfolioCompact } from './portfolio-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { RuleTriggerResponse } from './rule-trigger-response';
 export interface InlineResponse20029 {
     /**
      * 
-     * @type {RuleTriggerResponse}
+     * @type {Array<PortfolioCompact>}
      * @memberof InlineResponse20029
      */
-    'data'?: RuleTriggerResponse;
+    'data'?: Array<PortfolioCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20029
+     */
+    'next_page'?: NextPage | null;
 }
 

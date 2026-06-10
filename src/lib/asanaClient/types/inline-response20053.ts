@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceMembershipResponse } from './workspace-membership-response';
+import { TaskTemplateCompact } from './task-template-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceMembershipResponse } from './workspace-membership-response';
 export interface InlineResponse20053 {
     /**
      * 
-     * @type {WorkspaceMembershipResponse}
+     * @type {Array<TaskTemplateCompact>}
      * @memberof InlineResponse20053
      */
-    'data'?: WorkspaceMembershipResponse;
+    'data'?: Array<TaskTemplateCompact>;
 }
 

@@ -13,15 +13,55 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
+import { MemberCompact } from './member-compact';
 import { PortfolioCompact } from './portfolio-compact';
-import { PortfolioMembershipCompactAllOf } from './portfolio-membership-compact-all-of';
-import { UserCompact } from './user-compact';
 
 /**
- * @type PortfolioMembershipCompact
+ * This object determines if a user is a member of a portfolio.
  * @export
+ * @interface PortfolioMembershipCompact
  */
-export type PortfolioMembershipCompact = AsanaResource & PortfolioMembershipCompactAllOf;
+export interface PortfolioMembershipCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof PortfolioMembershipCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof PortfolioMembershipCompact
+     */
+    'resource_type'?: string;
+    /**
+     * 
+     * @type {PortfolioCompact}
+     * @memberof PortfolioMembershipCompact
+     */
+    'parent'?: PortfolioCompact;
+    /**
+     * 
+     * @type {MemberCompact}
+     * @memberof PortfolioMembershipCompact
+     */
+    'member'?: MemberCompact;
+    /**
+     * Whether the member has admin, editor, or viewer access to the portfolio. Portfolios do not support commenter access yet.
+     * @type {string}
+     * @memberof PortfolioMembershipCompact
+     */
+    'access_level'?: PortfolioMembershipCompactAccessLevelEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PortfolioMembershipCompactAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Viewer = 'viewer'
+}
 
 

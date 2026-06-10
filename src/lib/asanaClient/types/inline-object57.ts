@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependenciesRequest } from './modify-dependencies-request';
+import { RbacRoleRequest } from './rbac-role-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependenciesRequest } from './modify-dependencies-request';
 export interface InlineObject57 {
     /**
      * 
-     * @type {ModifyDependenciesRequest}
+     * @type {RbacRoleRequest}
      * @memberof InlineObject57
      */
-    'data'?: ModifyDependenciesRequest;
+    'data'?: RbacRoleRequest;
 }
 

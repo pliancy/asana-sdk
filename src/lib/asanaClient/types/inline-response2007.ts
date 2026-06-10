@@ -13,31 +13,26 @@
  */
 
 
-import { EventResponse } from './event-response';
+import { AttachmentCompact } from './attachment-compact';
+import { NextPage } from './next-page';
 
 /**
- * The full record for all events that have occurred since the sync token was created.
+ * 
  * @export
  * @interface InlineResponse2007
  */
 export interface InlineResponse2007 {
     /**
      * 
-     * @type {Array<EventResponse>}
+     * @type {Array<AttachmentCompact>}
      * @memberof InlineResponse2007
      */
-    'data'?: Array<EventResponse>;
+    'data'?: Array<AttachmentCompact>;
     /**
-     * A sync token to be used with the next call to the /events endpoint.
-     * @type {string}
+     * 
+     * @type {NextPage}
      * @memberof InlineResponse2007
      */
-    'sync'?: string;
-    /**
-     * Indicates whether there are more events to pull.
-     * @type {boolean}
-     * @memberof InlineResponse2007
-     */
-    'has_more'?: boolean;
+    'next_page'?: NextPage | null;
 }
 

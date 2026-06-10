@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectBriefRequest } from './project-brief-request';
+import { MembershipRequest } from './membership-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectBriefRequest } from './project-brief-request';
 export interface InlineObject25 {
     /**
      * 
-     * @type {ProjectBriefRequest}
+     * @type {MembershipRequest}
      * @memberof InlineObject25
      */
-    'data'?: ProjectBriefRequest;
+    'data'?: MembershipRequest;
 }
 

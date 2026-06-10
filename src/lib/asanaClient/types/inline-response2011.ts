@@ -13,7 +13,7 @@
  */
 
 
-import { EnumOption } from './enum-option';
+import { BudgetResponse } from './budget-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { EnumOption } from './enum-option';
 export interface InlineResponse2011 {
     /**
      * 
-     * @type {EnumOption}
+     * @type {BudgetResponse}
      * @memberof InlineResponse2011
      */
-    'data'?: EnumOption;
+    'data'?: BudgetResponse;
 }
 

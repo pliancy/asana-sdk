@@ -13,7 +13,7 @@
  */
 
 
-import { OrganizationExportRequest } from './organization-export-request';
+import { GoalUpdateRequest } from './goal-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OrganizationExportRequest } from './organization-export-request';
 export interface InlineObject16 {
     /**
      * 
-     * @type {OrganizationExportRequest}
+     * @type {GoalUpdateRequest}
      * @memberof InlineObject16
      */
-    'data'?: OrganizationExportRequest;
+    'data'?: GoalUpdateRequest;
 }
 

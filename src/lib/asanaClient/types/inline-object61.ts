@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddProjectRequest } from './task-add-project-request';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddProjectRequest } from './task-add-project-request';
 export interface InlineObject61 {
     /**
      * 
-     * @type {TaskAddProjectRequest}
+     * @type {SectionRequest}
      * @memberof InlineObject61
      */
-    'data'?: TaskAddProjectRequest;
+    'data'?: SectionRequest;
 }
 

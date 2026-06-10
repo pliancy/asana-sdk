@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectRequest } from './project-request';
+import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectRequest } from './project-request';
 export interface InlineObject32 {
     /**
      * 
-     * @type {ProjectRequest}
+     * @type {PortfolioRemoveItemRequest}
      * @memberof InlineObject32
      */
-    'data'?: ProjectRequest;
+    'data'?: PortfolioRemoveItemRequest;
 }
 

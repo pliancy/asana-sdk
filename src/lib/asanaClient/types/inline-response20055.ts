@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { WorkspaceCompact } from './workspace-compact';
+import { TaskCompact } from './task-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineResponse20055 {
     /**
      * 
-     * @type {Array<WorkspaceCompact>}
+     * @type {Array<TaskCompact>}
      * @memberof InlineResponse20055
      */
-    'data'?: Array<WorkspaceCompact>;
+    'data'?: Array<TaskCompact>;
     /**
      * 
      * @type {NextPage}

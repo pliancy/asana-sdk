@@ -13,7 +13,7 @@
  */
 
 
-import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-task-request';
+import { RemoveMembersRequest } from './remove-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-
 export interface InlineObject51 {
     /**
      * 
-     * @type {TaskTemplateInstantiateTaskRequest}
+     * @type {RemoveMembersRequest}
      * @memberof InlineObject51
      */
-    'data'?: TaskTemplateInstantiateTaskRequest;
+    'data'?: RemoveMembersRequest;
 }
 

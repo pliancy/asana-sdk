@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
+import { SectionResponse } from './section-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 export interface InlineResponse20046 {
     /**
      * 
-     * @type {Array<TimeTrackingEntryCompact>}
+     * @type {SectionResponse}
      * @memberof InlineResponse20046
      */
-    'data'?: Array<TimeTrackingEntryCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20046
-     */
-    'next_page'?: NextPage | null;
+    'data'?: SectionResponse;
 }
 

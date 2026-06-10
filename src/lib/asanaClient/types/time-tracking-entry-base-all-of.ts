@@ -33,5 +33,44 @@ export interface TimeTrackingEntryBaseAllOf {
      * @memberof TimeTrackingEntryBaseAllOf
      */
     'created_at'?: string;
+    /**
+     * *Optional*. The current approval status of the entry.
+     * @type {string}
+     * @memberof TimeTrackingEntryBaseAllOf
+     */
+    'approval_status'?: TimeTrackingEntryBaseAllOfApprovalStatusEnum;
+    /**
+     * *Optional*. The current billable status of the entry.
+     * @type {string}
+     * @memberof TimeTrackingEntryBaseAllOf
+     */
+    'billable_status'?: TimeTrackingEntryBaseAllOfBillableStatusEnum;
+    /**
+     * *Optional*. The description of the entry.
+     * @type {string}
+     * @memberof TimeTrackingEntryBaseAllOf
+     */
+    'description'?: string;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TimeTrackingEntryBaseAllOfApprovalStatusEnum {
+    Draft = 'DRAFT',
+    Submitted = 'SUBMITTED',
+    Approved = 'APPROVED',
+    Rejected = 'REJECTED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TimeTrackingEntryBaseAllOfBillableStatusEnum {
+    Billable = 'billable',
+    NonBillable = 'nonBillable',
+    NotApplicable = 'notApplicable'
+}
+
 

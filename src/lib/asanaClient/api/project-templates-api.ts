@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject28 } from '../types';
+import { InlineObject42 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20013 } from '../types';
+import { InlineResponse20023 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
+import { InlineResponse20038 } from '../types';
 // @ts-ignore
-import { InlineResponse20027 } from '../types';
+import { InlineResponse20039 } from '../types';
 /**
  * ProjectTemplatesApi - axios parameter creator
  * @export
@@ -86,11 +86,11 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Returns the complete project template record for a single project template.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.
          * @summary Get a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -112,7 +112,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["project_templates:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -138,14 +138,14 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Returns the compact project template records for all project templates in the given team or workspace.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.
          * @summary Get multiple project templates
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [workspace] The workspace to filter results on.
          * @param {string} [team] The team to filter projects on.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -164,7 +164,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["project_templates:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -206,13 +206,13 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Returns the compact project template records for all project templates in the team.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.
          * @summary Get a team\'s project templates
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -234,7 +234,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["project_templates:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -268,16 +268,16 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
+         * <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateProject: async (projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        instantiateProject: async (projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject42?: InlineObject42, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectTemplateGid' is not null or undefined
             assertParamExists('instantiateProject', 'projectTemplateGid', projectTemplateGid)
             const localVarPath = `/project_templates/{project_template_gid}/instantiateProject`
@@ -295,7 +295,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -316,7 +316,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject28, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject42, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -346,61 +346,61 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the complete project template record for a single project template.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.
          * @summary Get a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplate(projectTemplateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact project template records for all project templates in the given team or workspace.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.
          * @summary Get multiple project templates
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [workspace] The workspace to filter results on.
          * @param {string} [team] The team to filter projects on.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+        async getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(optPretty, workspace, team, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact project template records for all project templates in the team.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.
          * @summary Get a team\'s project templates
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20027>> {
+        async getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplatesForTeam(teamGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
+         * <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options);
+        async instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject42, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -425,58 +425,58 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
             return localVarFp.deleteProjectTemplate(projectTemplateGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the complete project template record for a single project template.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.
          * @summary Get a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: any): AxiosPromise<InlineResponse20026> {
+        getProjectTemplate(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>, options?: any): AxiosPromise<InlineResponse20038> {
             return localVarFp.getProjectTemplate(projectTemplateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact project template records for all project templates in the given team or workspace.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.
          * @summary Get multiple project templates
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {string} [workspace] The workspace to filter results on.
          * @param {string} [team] The team to filter projects on.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20027> {
+        getProjectTemplates(optPretty?: boolean, workspace?: string, team?: string, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.getProjectTemplates(optPretty, workspace, team, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact project template records for all project templates in the team.
+         * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.
          * @summary Get a team\'s project templates
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20027> {
+        getProjectTemplatesForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.getProjectTemplatesForTeam(teamGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
+         * <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
          * @summary Instantiate a project from a project template
          * @param {string} projectTemplateGid Globally unique identifier for the project template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject28} [inlineObject28] 
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {InlineObject42} [inlineObject42] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: any): AxiosPromise<InlineResponse20013> {
-            return localVarFp.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options).then((request) => request(axios, basePath));
+        instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject42?: InlineObject42, options?: any): AxiosPromise<InlineResponse20023> {
+            return localVarFp.instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject42, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -502,11 +502,11 @@ export class ProjectTemplatesApi extends BaseAPI {
     }
 
     /**
-     * Returns the complete project template record for a single project template.
+     * <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.
      * @summary Get a project template
      * @param {string} projectTemplateGid Globally unique identifier for the project template.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'owner' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectTemplatesApi
@@ -516,14 +516,14 @@ export class ProjectTemplatesApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact project template records for all project templates in the given team or workspace.
+     * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.
      * @summary Get multiple project templates
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {string} [workspace] The workspace to filter results on.
      * @param {string} [team] The team to filter projects on.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectTemplatesApi
@@ -533,13 +533,13 @@ export class ProjectTemplatesApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact project template records for all project templates in the team.
+     * <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.
      * @summary Get a team\'s project templates
      * @param {string} teamGid Globally unique identifier for the team.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'color' | 'description' | 'html_description' | 'name' | 'offset' | 'owner' | 'path' | 'public' | 'requested_dates' | 'requested_dates.description' | 'requested_dates.name' | 'requested_roles' | 'requested_roles.name' | 'team' | 'team.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectTemplatesApi
@@ -549,17 +549,17 @@ export class ProjectTemplatesApi extends BaseAPI {
     }
 
     /**
-     * Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
+     * <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
      * @summary Instantiate a project from a project template
      * @param {string} projectTemplateGid Globally unique identifier for the project template.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-     * @param {InlineObject28} [inlineObject28] 
+     * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {InlineObject42} [inlineObject42] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectTemplatesApi
      */
-    public instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, inlineObject28?: InlineObject28, options?: AxiosRequestConfig) {
-        return ProjectTemplatesApiFp(this.configuration).instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject28, options).then((request) => request(this.axios, this.basePath));
+    public instantiateProject(projectTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject42?: InlineObject42, options?: AxiosRequestConfig) {
+        return ProjectTemplatesApiFp(this.configuration).instantiateProject(projectTemplateGid, optPretty, optFields, inlineObject42, options).then((request) => request(this.axios, this.basePath));
     }
 }

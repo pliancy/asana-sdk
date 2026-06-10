@@ -13,7 +13,7 @@
  */
 
 
-import { TagRequest } from './tag-request';
+import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagRequest } from './tag-request';
 export interface InlineObject49 {
     /**
      * 
-     * @type {TagRequest}
+     * @type {RemoveCustomFieldSettingRequest}
      * @memberof InlineObject49
      */
-    'data'?: TagRequest;
+    'data'?: RemoveCustomFieldSettingRequest;
 }
 

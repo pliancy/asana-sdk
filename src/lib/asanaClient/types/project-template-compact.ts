@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { ProjectTemplateCompactAllOf } from './project-template-compact-all-of';
 
 /**
- * @type ProjectTemplateCompact
+ * A *project template* is an object that allows new projects to be created with a predefined setup, which may include tasks, sections, Rules, etc. It simplifies the process of running a workflow that involves a similar set of work every time.
  * @export
+ * @interface ProjectTemplateCompact
  */
-export type ProjectTemplateCompact = AsanaResource & ProjectTemplateCompactAllOf;
-
+export interface ProjectTemplateCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof ProjectTemplateCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof ProjectTemplateCompact
+     */
+    'resource_type'?: string;
+    /**
+     * Name of the project template.
+     * @type {string}
+     * @memberof ProjectTemplateCompact
+     */
+    'name'?: string;
+}
 

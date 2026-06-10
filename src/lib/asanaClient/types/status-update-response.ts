@@ -15,6 +15,7 @@
 
 import { Like } from './like';
 import { ProjectCompact } from './project-compact';
+import { ReactionSummaryItemCompact } from './reaction-summary-item-compact';
 import { StatusUpdateBase } from './status-update-base';
 import { StatusUpdateResponseAllOf } from './status-update-response-all-of';
 import { UserCompact } from './user-compact';

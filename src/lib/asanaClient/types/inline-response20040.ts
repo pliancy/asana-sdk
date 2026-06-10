@@ -13,7 +13,7 @@
  */
 
 
-import { TaskCompact } from './task-compact';
+import { ProjectCompact } from './project-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskCompact } from './task-compact';
 export interface InlineResponse20040 {
     /**
      * 
-     * @type {Array<TaskCompact>}
+     * @type {Array<ProjectCompact>}
      * @memberof InlineResponse20040
      */
-    'data'?: Array<TaskCompact>;
+    'data'?: Array<ProjectCompact>;
 }
 

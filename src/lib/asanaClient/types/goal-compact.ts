@@ -13,14 +13,37 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { GoalCompactAllOf } from './goal-compact-all-of';
 import { UserCompact } from './user-compact';
 
 /**
- * @type GoalCompact
+ * A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface GoalCompact
  */
-export type GoalCompact = AsanaResource & GoalCompactAllOf;
-
+export interface GoalCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof GoalCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof GoalCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the goal.
+     * @type {string}
+     * @memberof GoalCompact
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {UserCompact & object}
+     * @memberof GoalCompact
+     */
+    'owner'?: UserCompact & object;
+}
 

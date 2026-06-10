@@ -13,7 +13,7 @@
  */
 
 
-import { AddFollowersRequest } from './add-followers-request';
+import { ProjectBriefRequest } from './project-brief-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AddFollowersRequest } from './add-followers-request';
 export interface InlineObject38 {
     /**
      * 
-     * @type {AddFollowersRequest}
+     * @type {ProjectBriefRequest}
      * @memberof InlineObject38
      */
-    'data'?: AddFollowersRequest;
+    'data'?: ProjectBriefRequest;
 }
 

@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { ProjectCompact } from './project-compact';
+import { GoalResponse } from './goal-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { ProjectCompact } from './project-compact';
 export interface InlineResponse20019 {
     /**
      * 
-     * @type {Array<ProjectCompact>}
+     * @type {GoalResponse}
      * @memberof InlineResponse20019
      */
-    'data'?: Array<ProjectCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20019
-     */
-    'next_page'?: NextPage | null;
+    'data'?: GoalResponse;
 }
 

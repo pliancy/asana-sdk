@@ -39,9 +39,10 @@ export interface ProjectRequestAllOf {
      */
     'owner'?: string | null;
     /**
-     * The team that this project is shared with.
+     * *Deprecated:* The team to share this project with is deprecated. Use `POST /memberships` with `{ parent: project, member: team }` to share a project with a team after creation.
      * @type {string}
      * @memberof ProjectRequestAllOf
+     * @deprecated
      */
     'team'?: string;
     /**

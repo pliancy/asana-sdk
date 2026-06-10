@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceResponse } from './workspace-response';
+import { TaskCompact } from './task-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceResponse } from './workspace-response';
 export interface InlineResponse20056 {
     /**
      * 
-     * @type {WorkspaceResponse}
+     * @type {Array<TaskCompact>}
      * @memberof InlineResponse20056
      */
-    'data'?: WorkspaceResponse;
+    'data'?: Array<TaskCompact>;
 }
 

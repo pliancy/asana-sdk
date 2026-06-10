@@ -13,7 +13,7 @@
  */
 
 
-import { BatchRequest } from './batch-request';
+import { AccessRequestCreateRequest } from './access-request-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { BatchRequest } from './batch-request';
 export interface InlineObject {
     /**
      * 
-     * @type {BatchRequest}
+     * @type {AccessRequestCreateRequest}
      * @memberof InlineObject
      */
-    'data'?: BatchRequest;
+    'data'?: AccessRequestCreateRequest;
 }
 

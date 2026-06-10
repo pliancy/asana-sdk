@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddTagRequest } from './task-add-tag-request';
+import { ProjectSectionInsertRequest } from './project-section-insert-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddTagRequest } from './task-add-tag-request';
 export interface InlineObject63 {
     /**
      * 
-     * @type {TaskAddTagRequest}
+     * @type {ProjectSectionInsertRequest}
      * @memberof InlineObject63
      */
-    'data'?: TaskAddTagRequest;
+    'data'?: ProjectSectionInsertRequest;
 }
 

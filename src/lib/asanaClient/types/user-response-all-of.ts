@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
@@ -27,5 +28,11 @@ export interface UserResponseAllOf {
      * @memberof UserResponseAllOf
      */
     'workspaces'?: Array<WorkspaceCompact>;
+    /**
+     * Array of Custom Fields.
+     * @type {Array<CustomFieldCompact>}
+     * @memberof UserResponseAllOf
+     */
+    'custom_fields'?: Array<CustomFieldCompact>;
 }
 

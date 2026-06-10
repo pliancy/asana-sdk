@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
 import { UserBaseResponse } from './user-base-response';
 import { UserBaseResponseAllOfPhoto } from './user-base-response-all-of-photo';
 import { UserResponseAllOf } from './user-response-all-of';

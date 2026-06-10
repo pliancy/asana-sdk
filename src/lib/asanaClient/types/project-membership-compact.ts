@@ -13,15 +13,56 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { MemberCompact } from './member-compact';
 import { ProjectCompact } from './project-compact';
-import { ProjectMembershipCompactAllOf } from './project-membership-compact-all-of';
 
 /**
- * @type ProjectMembershipCompact
+ * This object describes a team or a user\'s membership to a project including their level of access (Admin, Editor, Commenter, or Viewer).
  * @export
+ * @interface ProjectMembershipCompact
  */
-export type ProjectMembershipCompact = AsanaResource & ProjectMembershipCompactAllOf;
+export interface ProjectMembershipCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof ProjectMembershipCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof ProjectMembershipCompact
+     */
+    'resource_type'?: string;
+    /**
+     * 
+     * @type {ProjectCompact}
+     * @memberof ProjectMembershipCompact
+     */
+    'parent'?: ProjectCompact;
+    /**
+     * 
+     * @type {MemberCompact}
+     * @memberof ProjectMembershipCompact
+     */
+    'member'?: MemberCompact;
+    /**
+     * Whether the member has admin, editor, commenter, or viewer access to the project.
+     * @type {string}
+     * @memberof ProjectMembershipCompact
+     */
+    'access_level'?: ProjectMembershipCompactAccessLevelEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectMembershipCompactAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
+}
 
 

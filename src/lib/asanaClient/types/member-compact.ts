@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { MemberCompactAllOf } from './member-compact-all-of';
 
 /**
- * @type MemberCompact
+ * A *member* object represents either a team or user.
  * @export
+ * @interface MemberCompact
  */
-export type MemberCompact = AsanaResource & MemberCompactAllOf;
-
+export interface MemberCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof MemberCompact
+     */
+    'gid'?: string;
+    /**
+     * The type of the member (team or user)
+     * @type {string}
+     * @memberof MemberCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the member
+     * @type {string}
+     * @memberof MemberCompact
+     */
+    'name'?: string;
+}
 

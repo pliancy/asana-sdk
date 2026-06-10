@@ -13,6 +13,7 @@
  */
 
 
+import { AsanaNamedResource } from './asana-named-resource';
 import { UserCompact } from './user-compact';
 
 /**
@@ -33,6 +34,12 @@ export interface CustomFieldResponseAllOf {
      * @memberof CustomFieldResponseAllOf
      */
     'id_prefix'?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'input_restrictions'?: Array<CustomFieldResponseAllOfInputRestrictionsEnum>;
     /**
      * *Conditional*. This flag describes whether a custom field is a formula custom field.
      * @type {boolean}
@@ -57,6 +64,36 @@ export interface CustomFieldResponseAllOf {
      * @memberof CustomFieldResponseAllOf
      */
     'people_value'?: Array<UserCompact>;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `reference`. This array of objects reflects the values of a `reference` custom field.
+     * @type {Array<AsanaNamedResource>}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'reference_value'?: Array<AsanaNamedResource>;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `text`. This is the HTML representation of the text value of a custom field, corresponding to the `text_value` plain-text field.
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'html_text_value'?: string | null;
+    /**
+     * The privacy setting of the custom field. *Note: Administrators in your organization may restrict the values of `privacy_setting`.*
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'privacy_setting'?: CustomFieldResponseAllOfPrivacySettingEnum;
+    /**
+     * The default access level when inviting new members to the custom field. This isn\'t applied when the `privacy_setting` is `private`, or the user is a guest. For local fields in a project or portfolio, the user must additionally have permission to modify the container itself.
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'default_access_level'?: CustomFieldResponseAllOfDefaultAccessLevelEnum;
+    /**
+     * The type of the custom field. Must be one of the given values. 
+     * @type {string}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'resource_subtype'?: CustomFieldResponseAllOfResourceSubtypeEnum;
 }
 
 /**
@@ -71,7 +108,49 @@ export enum CustomFieldResponseAllOfRepresentationTypeEnum {
     Date = 'date',
     People = 'people',
     Formula = 'formula',
-    CustomId = 'custom_id'
+    CustomId = 'custom_id',
+    Reference = 'reference'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldResponseAllOfInputRestrictionsEnum {
+    Task = 'task',
+    Project = 'project',
+    Portfolio = 'portfolio',
+    Goal = 'goal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldResponseAllOfPrivacySettingEnum {
+    PublicWithGuests = 'public_with_guests',
+    Public = 'public',
+    Private = 'private'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldResponseAllOfDefaultAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    User = 'user'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomFieldResponseAllOfResourceSubtypeEnum {
+    Text = 'text',
+    Enum = 'enum',
+    MultiEnum = 'multi_enum',
+    Number = 'number',
+    Date = 'date',
+    People = 'people',
+    Reference = 'reference'
 }
 
 

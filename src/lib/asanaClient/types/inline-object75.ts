@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceCompact } from './workspace-compact';
+import { TaskCreateRequest } from './task-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineObject75 {
     /**
      * 
-     * @type {WorkspaceCompact}
+     * @type {TaskCreateRequest}
      * @memberof InlineObject75
      */
-    'data'?: WorkspaceCompact;
+    'data'?: TaskCreateRequest;
 }
 

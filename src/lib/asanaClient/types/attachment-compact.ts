@@ -13,13 +13,36 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { AttachmentCompactAllOf } from './attachment-compact-all-of';
 
 /**
- * @type AttachmentCompact
+ * An *attachment* object represents any file attached to a task in Asana, whether it\'s an uploaded file or one associated via a third-party service such as Dropbox or Google Drive.
  * @export
+ * @interface AttachmentCompact
  */
-export type AttachmentCompact = AsanaResource & AttachmentCompactAllOf;
-
+export interface AttachmentCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof AttachmentCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof AttachmentCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the file.
+     * @type {string}
+     * @memberof AttachmentCompact
+     */
+    'name'?: string;
+    /**
+     * The service hosting the attachment. Valid values are `asana`, `dropbox`, `gdrive`, `onedrive`, `box`, `vimeo`, and `external`.
+     * @type {string}
+     * @memberof AttachmentCompact
+     */
+    'resource_subtype'?: string;
+}
 

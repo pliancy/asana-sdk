@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { WorkspaceCompactAllOf } from './workspace-compact-all-of';
 
 /**
- * @type WorkspaceCompact
+ * A *workspace* is the highest-level organizational unit in Asana. All projects and tasks have an associated workspace.
  * @export
+ * @interface WorkspaceCompact
  */
-export type WorkspaceCompact = AsanaResource & WorkspaceCompactAllOf;
-
+export interface WorkspaceCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof WorkspaceCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof WorkspaceCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the workspace.
+     * @type {string}
+     * @memberof WorkspaceCompact
+     */
+    'name'?: string;
+}
 

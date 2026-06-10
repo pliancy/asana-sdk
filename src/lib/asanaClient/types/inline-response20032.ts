@@ -13,7 +13,7 @@
  */
 
 
-import { StatusUpdateResponse } from './status-update-response';
+import { ProjectMembershipNormalResponse } from './project-membership-normal-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StatusUpdateResponse } from './status-update-response';
 export interface InlineResponse20032 {
     /**
      * 
-     * @type {StatusUpdateResponse}
+     * @type {ProjectMembershipNormalResponse}
      * @memberof InlineResponse20032
      */
-    'data'?: StatusUpdateResponse;
+    'data'?: ProjectMembershipNormalResponse;
 }
 

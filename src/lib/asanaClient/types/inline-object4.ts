@@ -13,7 +13,7 @@
  */
 
 
-import { EnumOptionInsertRequest } from './enum-option-insert-request';
+import { BudgetRequest } from './budget-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { EnumOptionInsertRequest } from './enum-option-insert-request';
 export interface InlineObject4 {
     /**
      * 
-     * @type {EnumOptionInsertRequest}
+     * @type {BudgetRequest}
      * @memberof InlineObject4
      */
-    'data'?: EnumOptionInsertRequest;
+    'data'?: BudgetRequest;
 }
 

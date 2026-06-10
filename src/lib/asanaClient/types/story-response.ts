@@ -18,6 +18,7 @@ import { EnumOption } from './enum-option';
 import { Like } from './like';
 import { Preview } from './preview';
 import { ProjectCompact } from './project-compact';
+import { ReactionSummaryItemCompact } from './reaction-summary-item-compact';
 import { SectionCompact } from './section-compact';
 import { StoryBase } from './story-base';
 import { StoryCompact } from './story-compact';

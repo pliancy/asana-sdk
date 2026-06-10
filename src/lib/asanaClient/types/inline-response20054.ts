@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { WorkspaceMembershipCompact } from './workspace-membership-compact';
+import { TaskTemplateResponse } from './task-template-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { WorkspaceMembershipCompact } from './workspace-membership-compact';
 export interface InlineResponse20054 {
     /**
      * 
-     * @type {Array<WorkspaceMembershipCompact>}
+     * @type {TaskTemplateResponse}
      * @memberof InlineResponse20054
      */
-    'data'?: Array<WorkspaceMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20054
-     */
-    'next_page'?: NextPage | null;
+    'data'?: TaskTemplateResponse;
 }
 

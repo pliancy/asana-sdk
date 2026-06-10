@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectDuplicateRequest } from './project-duplicate-request';
+import { PortfolioAddItemRequest } from './portfolio-add-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectDuplicateRequest } from './project-duplicate-request';
 export interface InlineObject31 {
     /**
      * 
-     * @type {ProjectDuplicateRequest}
+     * @type {PortfolioAddItemRequest}
      * @memberof InlineObject31
      */
-    'data'?: ProjectDuplicateRequest;
+    'data'?: PortfolioAddItemRequest;
 }
 

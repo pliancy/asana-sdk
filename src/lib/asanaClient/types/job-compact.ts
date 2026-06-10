@@ -13,16 +13,90 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { JobCompactAllOf } from './job-compact-all-of';
+import { GraphExportCompact } from './graph-export-compact';
+import { PortfolioCompact } from './portfolio-compact';
 import { ProjectCompact } from './project-compact';
 import { ProjectTemplateCompact } from './project-template-compact';
+import { ResourceExportCompact } from './resource-export-compact';
 import { TaskCompact } from './task-compact';
 
 /**
- * @type JobCompact
+ * A *job* is an object representing a process that handles asynchronous work.
  * @export
+ * @interface JobCompact
  */
-export type JobCompact = AsanaResource & JobCompactAllOf;
+export interface JobCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof JobCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof JobCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof JobCompact
+     */
+    'resource_subtype'?: string;
+    /**
+     * The current status of this job.
+     * @type {string}
+     * @memberof JobCompact
+     */
+    'status'?: JobCompactStatusEnum;
+    /**
+     * 
+     * @type {PortfolioCompact}
+     * @memberof JobCompact
+     */
+    'new_portfolio'?: PortfolioCompact;
+    /**
+     * 
+     * @type {ProjectCompact}
+     * @memberof JobCompact
+     */
+    'new_project'?: ProjectCompact;
+    /**
+     * 
+     * @type {TaskCompact & object}
+     * @memberof JobCompact
+     */
+    'new_task'?: TaskCompact & object;
+    /**
+     * 
+     * @type {ProjectTemplateCompact}
+     * @memberof JobCompact
+     */
+    'new_project_template'?: ProjectTemplateCompact;
+    /**
+     * 
+     * @type {GraphExportCompact}
+     * @memberof JobCompact
+     */
+    'new_graph_export'?: GraphExportCompact;
+    /**
+     * 
+     * @type {ResourceExportCompact}
+     * @memberof JobCompact
+     */
+    'new_resource_export'?: ResourceExportCompact;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum JobCompactStatusEnum {
+    NotStarted = 'not_started',
+    InProgress = 'in_progress',
+    Succeeded = 'succeeded',
+    Failed = 'failed'
+}
 
 

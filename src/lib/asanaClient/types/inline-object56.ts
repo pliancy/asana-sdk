@@ -13,7 +13,7 @@
  */
 
 
-import { TaskSetParentRequest } from './task-set-parent-request';
+import { RateUpdateRequest } from './rate-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskSetParentRequest } from './task-set-parent-request';
 export interface InlineObject56 {
     /**
      * 
-     * @type {TaskSetParentRequest}
+     * @type {RateUpdateRequest}
      * @memberof InlineObject56
      */
-    'data'?: TaskSetParentRequest;
+    'data'?: RateUpdateRequest;
 }
 

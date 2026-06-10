@@ -21,11 +21,35 @@
  */
 export interface PortfolioBaseAllOf {
     /**
+     * [Opt In](/docs/inputoutput-options). True if the portfolio is archived, false if not. Archived portfolios do not show in the UI by default and may be treated differently for queries.
+     * @type {boolean}
+     * @memberof PortfolioBaseAllOf
+     */
+    'archived'?: boolean;
+    /**
      * Color of the portfolio.
      * @type {string}
      * @memberof PortfolioBaseAllOf
      */
     'color'?: PortfolioBaseAllOfColorEnum;
+    /**
+     * The day on which work for this portfolio begins, or null if the portfolio has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, `start_on` and `due_on` cannot be the same date.*
+     * @type {string}
+     * @memberof PortfolioBaseAllOf
+     */
+    'start_on'?: string | null;
+    /**
+     * The day on which this portfolio is due. This takes a date with format YYYY-MM-DD.
+     * @type {string}
+     * @memberof PortfolioBaseAllOf
+     */
+    'due_on'?: string | null;
+    /**
+     * The default access level when inviting new members to the portfolio
+     * @type {string}
+     * @memberof PortfolioBaseAllOf
+     */
+    'default_access_level'?: PortfolioBaseAllOfDefaultAccessLevelEnum;
 }
 
 /**
@@ -51,6 +75,15 @@ export enum PortfolioBaseAllOfColorEnum {
     LightOrange = 'light-orange',
     LightPurple = 'light-purple',
     LightWarmGray = 'light-warm-gray'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PortfolioBaseAllOfDefaultAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Viewer = 'viewer'
 }
 
 

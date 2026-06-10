@@ -13,7 +13,7 @@
  */
 
 
-import { TagResponse } from './tag-response';
+import { MembershipResponse } from './membership-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagResponse } from './tag-response';
 export interface InlineResponse2016 {
     /**
      * 
-     * @type {TagResponse}
+     * @type {MembershipResponse}
      * @memberof InlineResponse2016
      */
-    'data'?: TagResponse;
+    'data'?: MembershipResponse;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectSectionInsertRequest } from './project-section-insert-request';
+import { ProjectDuplicateRequest } from './project-duplicate-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectSectionInsertRequest } from './project-section-insert-request';
 export interface InlineObject45 {
     /**
      * 
-     * @type {ProjectSectionInsertRequest}
+     * @type {ProjectDuplicateRequest}
      * @memberof InlineObject45
      */
-    'data'?: ProjectSectionInsertRequest;
+    'data'?: ProjectDuplicateRequest;
 }
 

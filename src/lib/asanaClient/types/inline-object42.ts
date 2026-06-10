@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject42 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {ProjectTemplateInstantiateProjectRequest}
      * @memberof InlineObject42
      */
-    'data'?: SectionRequest;
+    'data'?: ProjectTemplateInstantiateProjectRequest;
 }
 

@@ -39,9 +39,10 @@ export interface ProjectUpdateRequestAllOf {
      */
     'owner'?: string | null;
     /**
-     * The team that this project is shared with.
+     * *Deprecated:* Updating the team a project is shared with is deprecated. Use `POST /memberships` with `{ parent: project, member: team }` instead to manage team sharing.
      * @type {string}
      * @memberof ProjectUpdateRequestAllOf
+     * @deprecated
      */
     'team'?: string;
 }

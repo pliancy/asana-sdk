@@ -13,7 +13,8 @@
  */
 
 
-import { TaskTemplateCompact } from './task-template-compact';
+import { NextPage } from './next-page';
+import { ProjectStatusCompact } from './project-status-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TaskTemplateCompact } from './task-template-compact';
 export interface InlineResponse20037 {
     /**
      * 
-     * @type {Array<TaskTemplateCompact>}
+     * @type {Array<ProjectStatusCompact>}
      * @memberof InlineResponse20037
      */
-    'data'?: Array<TaskTemplateCompact>;
+    'data'?: Array<ProjectStatusCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20037
+     */
+    'next_page'?: NextPage | null;
 }
 

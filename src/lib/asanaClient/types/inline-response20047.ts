@@ -13,19 +13,26 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
+import { NextPage } from './next-page';
+import { SectionCompact } from './section-compact';
 
 /**
- * A generic list of objects, such as those returned by the typeahead search endpoint.
+ * 
  * @export
  * @interface InlineResponse20047
  */
 export interface InlineResponse20047 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {Array<SectionCompact>}
      * @memberof InlineResponse20047
      */
-    'data'?: Array<AsanaNamedResource>;
+    'data'?: Array<SectionCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20047
+     */
+    'next_page'?: NextPage | null;
 }
 

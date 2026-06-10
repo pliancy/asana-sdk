@@ -13,14 +13,61 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { OrganizationExportCompactAllOf } from './organization-export-compact-all-of';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
- * @type OrganizationExportCompact
+ * An *organization_export* object represents a request to export the complete data of an Organization in JSON format.
  * @export
+ * @interface OrganizationExportCompact
  */
-export type OrganizationExportCompact = AsanaResource & OrganizationExportCompactAllOf;
+export interface OrganizationExportCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof OrganizationExportCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof OrganizationExportCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The time at which this resource was created.
+     * @type {string}
+     * @memberof OrganizationExportCompact
+     */
+    'created_at'?: string;
+    /**
+     * Download this URL to retrieve the full export of the organization in JSON format. It will be compressed in a gzip (.gz) container.  *Note: May be null if the export is still in progress or failed.  If present, this URL may only be valid for 1 hour from the time of retrieval. You should avoid persisting this URL somewhere and rather refresh on demand to ensure you do not keep stale URLs.*
+     * @type {string}
+     * @memberof OrganizationExportCompact
+     */
+    'download_url'?: string | null;
+    /**
+     * The current state of the export.
+     * @type {string}
+     * @memberof OrganizationExportCompact
+     */
+    'state'?: OrganizationExportCompactStateEnum;
+    /**
+     * 
+     * @type {WorkspaceCompact}
+     * @memberof OrganizationExportCompact
+     */
+    'organization'?: WorkspaceCompact;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OrganizationExportCompactStateEnum {
+    Pending = 'pending',
+    Started = 'started',
+    Finished = 'finished',
+    Error = 'error'
+}
 
 

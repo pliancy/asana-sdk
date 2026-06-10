@@ -13,13 +13,63 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TimePeriodCompactAllOf } from './time-period-compact-all-of';
 
 /**
- * @type TimePeriodCompact
+ * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>time_periods:read</code></p>  A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface TimePeriodCompact
  */
-export type TimePeriodCompact = AsanaResource & TimePeriodCompactAllOf;
+export interface TimePeriodCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The localized end date of the time period in `YYYY-MM-DD` format.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'end_on'?: string;
+    /**
+     * The localized start date of the time period in `YYYY-MM-DD` format.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'start_on'?: string;
+    /**
+     * The cadence and index of the time period.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'period'?: TimePeriodCompactPeriodEnum;
+    /**
+     * A string representing the cadence code and the fiscal year.
+     * @type {string}
+     * @memberof TimePeriodCompact
+     */
+    'display_name'?: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TimePeriodCompactPeriodEnum {
+    Fy = 'FY',
+    H1 = 'H1',
+    H2 = 'H2',
+    Q1 = 'Q1',
+    Q2 = 'Q2',
+    Q3 = 'Q3',
+    Q4 = 'Q4'
+}
 
 

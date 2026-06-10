@@ -13,10 +13,13 @@
  */
 
 
+import { CustomFieldMembershipCompact } from './custom-field-membership-compact';
+import { CustomTypeCompact } from './custom-type-compact';
+import { CustomTypeMembershipCompact } from './custom-type-membership-compact';
 import { GoalCompact } from './goal-compact';
 import { GoalMembershipCompact } from './goal-membership-compact';
 import { MemberCompact } from './member-compact';
-import { ProjectCompact } from './project-compact';
+import { PortfolioMembershipCompactResponse } from './portfolio-membership-compact-response';
 import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
 
 /**
@@ -51,16 +54,23 @@ export interface MembershipCompact {
     'member'?: MemberCompact;
     /**
      * 
-     * @type {ProjectCompact}
+     * @type {CustomTypeCompact}
      * @memberof MembershipCompact
      */
-    'parent'?: ProjectCompact;
+    'parent'?: CustomTypeCompact;
     /**
-     * Describes if the member is a commenter or editor in goal.
+     * *Deprecated: Describes if the member is a commenter or editor in goal.*
+     * @type {string}
+     * @memberof MembershipCompact
+     * @deprecated
+     */
+    'role'?: MembershipCompactRoleEnum;
+    /**
+     * Whether the member has admin, editor, user, or viewer access to the custom type.
      * @type {string}
      * @memberof MembershipCompact
      */
-    'role'?: MembershipCompactRoleEnum;
+    'access_level'?: MembershipCompactAccessLevelEnum;
     /**
      * 
      * @type {GoalCompact & object}
@@ -68,25 +78,19 @@ export interface MembershipCompact {
      */
     'goal'?: GoalCompact & object;
     /**
-     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is comment only in goal.
+     * *Deprecated: new integrations should prefer the `access_level` field.* Describes if the member is comment only in goal. This field is deprecated and will always be null.
      * @type {boolean}
      * @memberof MembershipCompact
      * @deprecated
      */
     'is_commenter'?: boolean;
     /**
-     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is editor in goal.
+     * *Deprecated: new integrations should prefer the `access_level` field.* Describes if the member is editor in goal. This field is deprecated and will always be null.
      * @type {boolean}
      * @memberof MembershipCompact
      * @deprecated
      */
     'is_editor'?: boolean;
-    /**
-     * Whether the member has admin, editor, commenter, or viewer access to the project.
-     * @type {string}
-     * @memberof MembershipCompact
-     */
-    'access_level'?: MembershipCompactAccessLevelEnum;
 }
 
 /**
@@ -104,7 +108,7 @@ export enum MembershipCompactRoleEnum {
 export enum MembershipCompactAccessLevelEnum {
     Admin = 'admin',
     Editor = 'editor',
-    Commenter = 'commenter',
+    User = 'user',
     Viewer = 'viewer'
 }
 

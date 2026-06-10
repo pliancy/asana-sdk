@@ -13,7 +13,8 @@
  */
 
 
-import { ProjectTemplateResponse } from './project-template-response';
+import { NextPage } from './next-page';
+import { OooEntryResponse } from './ooo-entry-response';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { ProjectTemplateResponse } from './project-template-response';
 export interface InlineResponse20026 {
     /**
      * 
-     * @type {ProjectTemplateResponse}
+     * @type {Array<OooEntryResponse>}
      * @memberof InlineResponse20026
      */
-    'data'?: ProjectTemplateResponse;
+    'data'?: Array<OooEntryResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20026
+     */
+    'next_page'?: NextPage | null;
 }
 

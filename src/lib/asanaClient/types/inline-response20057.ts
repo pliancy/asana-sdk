@@ -13,7 +13,7 @@
  */
 
 
-import { UserBaseResponse } from './user-base-response';
+import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserBaseResponse } from './user-base-response';
 export interface InlineResponse20057 {
     /**
      * 
-     * @type {UserBaseResponse}
+     * @type {TeamMembershipCompact}
      * @memberof InlineResponse20057
      */
-    'data'?: UserBaseResponse;
+    'data'?: TeamMembershipCompact;
 }
 

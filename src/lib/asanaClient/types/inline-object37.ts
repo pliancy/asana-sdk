@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveMembersRequest } from './remove-members-request';
+import { PortfolioDuplicateRequest } from './portfolio-duplicate-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveMembersRequest } from './remove-members-request';
 export interface InlineObject37 {
     /**
      * 
-     * @type {RemoveMembersRequest}
+     * @type {PortfolioDuplicateRequest}
      * @memberof InlineObject37
      */
-    'data'?: RemoveMembersRequest;
+    'data'?: PortfolioDuplicateRequest;
 }
 

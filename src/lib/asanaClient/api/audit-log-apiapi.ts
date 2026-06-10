@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse2003 } from '../types';
+import { InlineResponse2008 } from '../types';
 /**
  * AuditLogAPIApi - axios parameter creator
  * @export
@@ -41,7 +41,7 @@ export const AuditLogAPIApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} [actorGid] Filter to events triggered by the actor with this ID.
          * @param {string} [resourceGid] Filter to events with this resource ID.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -137,11 +137,11 @@ export const AuditLogAPIApiFp = function(configuration?: Configuration) {
          * @param {string} [actorGid] Filter to events triggered by the actor with this ID.
          * @param {string} [resourceGid] Filter to events with this resource ID.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
+        async getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuditLogEvents(workspaceGid, startAt, endAt, eventType, actorType, actorGid, resourceGid, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -166,11 +166,11 @@ export const AuditLogAPIApiFactory = function (configuration?: Configuration, ba
          * @param {string} [actorGid] Filter to events triggered by the actor with this ID.
          * @param {string} [resourceGid] Filter to events with this resource ID.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2003> {
+        getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2008> {
             return localVarFp.getAuditLogEvents(workspaceGid, startAt, endAt, eventType, actorType, actorGid, resourceGid, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
@@ -194,7 +194,7 @@ export class AuditLogAPIApi extends BaseAPI {
      * @param {string} [actorGid] Filter to events triggered by the actor with this ID.
      * @param {string} [resourceGid] Filter to events with this resource ID.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuditLogAPIApi

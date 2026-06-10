@@ -13,7 +13,8 @@
  */
 
 
-import { TimePeriodBase } from './time-period-base';
+import { NextPage } from './next-page';
+import { RbacRoleCompact } from './rbac-role-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TimePeriodBase } from './time-period-base';
 export interface InlineResponse20044 {
     /**
      * 
-     * @type {TimePeriodBase}
+     * @type {Array<RbacRoleCompact>}
      * @memberof InlineResponse20044
      */
-    'data'?: TimePeriodBase;
+    'data'?: Array<RbacRoleCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20044
+     */
+    'next_page'?: NextPage | null;
 }
 

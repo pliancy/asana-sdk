@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { TeamCompact } from './team-compact';
 import { TeamResponseAllOf } from './team-response-all-of';
 import { WorkspaceCompact } from './workspace-compact';

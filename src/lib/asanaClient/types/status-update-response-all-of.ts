@@ -15,6 +15,7 @@
 
 import { Like } from './like';
 import { ProjectCompact } from './project-compact';
+import { ReactionSummaryItemCompact } from './reaction-summary-item-compact';
 import { UserCompact } from './user-compact';
 
 /**
@@ -65,6 +66,12 @@ export interface StatusUpdateResponseAllOf {
      * @memberof StatusUpdateResponseAllOf
      */
     'likes'?: Array<Like>;
+    /**
+     * Summary of emoji reactions on this status.
+     * @type {Array<ReactionSummaryItemCompact>}
+     * @memberof StatusUpdateResponseAllOf
+     */
+    'reaction_summary'?: Array<ReactionSummaryItemCompact>;
     /**
      * The time at which this project status was last modified. *Note: This does not currently reflect any changes in associations such as comments that may have been added or removed from the status.*
      * @type {string}

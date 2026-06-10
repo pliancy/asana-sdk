@@ -13,7 +13,7 @@
  */
 
 
-import { GoalResponse } from './goal-response';
+import { BudgetResponse } from './budget-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalResponse } from './goal-response';
 export interface InlineResponse20010 {
     /**
      * 
-     * @type {GoalResponse}
+     * @type {Array<BudgetResponse>}
      * @memberof InlineResponse20010
      */
-    'data'?: GoalResponse;
+    'data'?: Array<BudgetResponse>;
 }
 

@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TemplateRoleAllOf } from './template-role-all-of';
 
 /**
- * @type TemplateRole
+ * A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface TemplateRole
  */
-export type TemplateRole = AsanaResource & TemplateRoleAllOf;
-
+export interface TemplateRole {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TemplateRole
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TemplateRole
+     */
+    'resource_type'?: string;
+    /**
+     * Name of the template role.
+     * @type {string}
+     * @memberof TemplateRole
+     */
+    'name'?: string;
+}
 

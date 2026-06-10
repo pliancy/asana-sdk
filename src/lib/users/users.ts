@@ -39,7 +39,7 @@ export class Users {
         optFields?: any,
         options: AxiosRequestConfig = {},
     ) {
-        const res = await this.usersApi.getUser(userGid, optPretty, optFields, options)
+        const res = await this.usersApi.getUser(userGid, optPretty, optFields, options as any)
         return res.data.data
     }
 

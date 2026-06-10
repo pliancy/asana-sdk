@@ -39,7 +39,7 @@ export interface WebhookFilter {
      */
     'action'?: string;
     /**
-     * *Conditional.* A whitelist of fields for events which will pass the filter when the resource is changed. These can be any combination of the fields on the resources themselves. This field is only valid for `action` of type `changed`
+     * *Conditional.* A whitelist of fields for events which will pass the filter when the resource is changed. These can be any combination of the fields on the resources themselves. This field is only valid for `action` of type `changed` *Note: Subscriptions created on higher-level resources such as a Workspace, Team, or Portfolio do not support fields.*
      * @type {Array<string>}
      * @memberof WebhookFilter
      */

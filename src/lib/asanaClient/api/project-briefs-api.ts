@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject25 } from '../types';
+import { InlineObject38 } from '../types';
 // @ts-ignore
-import { InlineObject26 } from '../types';
+import { InlineObject39 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20021 } from '../types';
+import { InlineResponse20031 } from '../types';
 /**
  * ProjectBriefsApi - axios parameter creator
  * @export
@@ -40,17 +40,17 @@ export const ProjectBriefsApiAxiosParamCreator = function (configuration?: Confi
          * Creates a new project brief.  Returns the full record of the newly created project brief.
          * @summary Create a project brief
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject39} inlineObject39 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectBrief: async (projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProjectBrief: async (projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('createProjectBrief', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject26' is not null or undefined
-            assertParamExists('createProjectBrief', 'inlineObject26', inlineObject26)
+            // verify required parameter 'inlineObject39' is not null or undefined
+            assertParamExists('createProjectBrief', 'inlineObject39', inlineObject39)
             const localVarPath = `/projects/{project_gid}/project_briefs`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -87,7 +87,7 @@ export const ProjectBriefsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject26, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject39, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -146,7 +146,7 @@ export const ProjectBriefsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -197,17 +197,17 @@ export const ProjectBriefsApiAxiosParamCreator = function (configuration?: Confi
          * An existing project brief can be updated by making a PUT request on the URL for that project brief. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project brief record.
          * @summary Update a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject38} inlineObject38 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProjectBrief: async (projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateProjectBrief: async (projectBriefGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectBriefGid' is not null or undefined
             assertParamExists('updateProjectBrief', 'projectBriefGid', projectBriefGid)
-            // verify required parameter 'inlineObject25' is not null or undefined
-            assertParamExists('updateProjectBrief', 'inlineObject25', inlineObject25)
+            // verify required parameter 'inlineObject38' is not null or undefined
+            assertParamExists('updateProjectBrief', 'inlineObject38', inlineObject38)
             const localVarPath = `/project_briefs/{project_brief_gid}`
                 .replace(`{${"project_brief_gid"}}`, encodeURIComponent(String(projectBriefGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -244,7 +244,7 @@ export const ProjectBriefsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject25, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject38, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -265,14 +265,14 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * Creates a new project brief.  Returns the full record of the newly created project brief.
          * @summary Create a project brief
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject39} inlineObject39 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectBrief(projectGid, inlineObject26, optPretty, optFields, options);
+        async createProjectBrief(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectBrief(projectGid, inlineObject39, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -292,11 +292,11 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * @summary Get a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
+        async getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectBrief(projectBriefGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -304,14 +304,14 @@ export const ProjectBriefsApiFp = function(configuration?: Configuration) {
          * An existing project brief can be updated by making a PUT request on the URL for that project brief. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project brief record.
          * @summary Update a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject38} inlineObject38 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20021>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectBrief(projectBriefGid, inlineObject25, optPretty, optFields, options);
+        async updateProjectBrief(projectBriefGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20031>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectBrief(projectBriefGid, inlineObject38, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -328,14 +328,14 @@ export const ProjectBriefsApiFactory = function (configuration?: Configuration, 
          * Creates a new project brief.  Returns the full record of the newly created project brief.
          * @summary Create a project brief
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject39} inlineObject39 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
-            return localVarFp.createProjectBrief(projectGid, inlineObject26, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProjectBrief(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20031> {
+            return localVarFp.createProjectBrief(projectGid, inlineObject39, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific, existing project brief.  Returns an empty data record.
@@ -353,25 +353,25 @@ export const ProjectBriefsApiFactory = function (configuration?: Configuration, 
          * @summary Get a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
+        getProjectBrief(projectBriefGid: string, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20031> {
             return localVarFp.getProjectBrief(projectBriefGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing project brief can be updated by making a PUT request on the URL for that project brief. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project brief record.
          * @summary Update a project brief
          * @param {string} projectBriefGid Globally unique identifier for the project brief.
-         * @param {InlineObject25} inlineObject25 
+         * @param {InlineObject38} inlineObject38 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20021> {
-            return localVarFp.updateProjectBrief(projectBriefGid, inlineObject25, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateProjectBrief(projectBriefGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20031> {
+            return localVarFp.updateProjectBrief(projectBriefGid, inlineObject38, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -387,15 +387,15 @@ export class ProjectBriefsApi extends BaseAPI {
      * Creates a new project brief.  Returns the full record of the newly created project brief.
      * @summary Create a project brief
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject26} inlineObject26 
+     * @param {InlineObject39} inlineObject39 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectBriefsApi
      */
-    public createProjectBrief(projectGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig) {
-        return ProjectBriefsApiFp(this.configuration).createProjectBrief(projectGid, inlineObject26, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProjectBrief(projectGid: string, inlineObject39: InlineObject39, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return ProjectBriefsApiFp(this.configuration).createProjectBrief(projectGid, inlineObject39, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -416,7 +416,7 @@ export class ProjectBriefsApi extends BaseAPI {
      * @summary Get a project brief
      * @param {string} projectBriefGid Globally unique identifier for the project brief.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectBriefsApi
@@ -429,14 +429,14 @@ export class ProjectBriefsApi extends BaseAPI {
      * An existing project brief can be updated by making a PUT request on the URL for that project brief. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project brief record.
      * @summary Update a project brief
      * @param {string} projectBriefGid Globally unique identifier for the project brief.
-     * @param {InlineObject25} inlineObject25 
+     * @param {InlineObject38} inlineObject38 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectBriefsApi
      */
-    public updateProjectBrief(projectBriefGid: string, inlineObject25: InlineObject25, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig) {
-        return ProjectBriefsApiFp(this.configuration).updateProjectBrief(projectBriefGid, inlineObject25, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateProjectBrief(projectBriefGid: string, inlineObject38: InlineObject38, optPretty?: boolean, optFields?: Array<'html_text' | 'permalink_url' | 'project' | 'project.name' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return ProjectBriefsApiFp(this.configuration).updateProjectBrief(projectBriefGid, inlineObject38, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

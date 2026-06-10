@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse2007 } from '../types';
+import { InlineResponse20016 } from '../types';
 // @ts-ignore
 import { InlineResponse412 } from '../types';
 /**
@@ -38,7 +38,7 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {string} resource A resource ID to subscribe to. The resource can be a task, project, or goal.
          * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token.If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -108,11 +108,11 @@ export const EventsApiFp = function(configuration?: Configuration) {
          * @param {string} resource A resource ID to subscribe to. The resource can be a task, project, or goal.
          * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token.If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getEvents(resource: string, sync?: string, optPretty?: boolean, optFields?: Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2007>> {
+        async getEvents(resource: string, sync?: string, optPretty?: boolean, optFields?: Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEvents(resource, sync, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -132,11 +132,11 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
          * @param {string} resource A resource ID to subscribe to. The resource can be a task, project, or goal.
          * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token.If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEvents(resource: string, sync?: string, optPretty?: boolean, optFields?: Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse2007> {
+        getEvents(resource: string, sync?: string, optPretty?: boolean, optFields?: Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20016> {
             return localVarFp.getEvents(resource, sync, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -155,7 +155,7 @@ export class EventsApi extends BaseAPI {
      * @param {string} resource A resource ID to subscribe to. The resource can be a task, project, or goal.
      * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token.If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'action' | 'change' | 'change.action' | 'change.added_value' | 'change.field' | 'change.new_value' | 'change.removed_value' | 'created_at' | 'parent' | 'parent.name' | 'resource' | 'resource.name' | 'type' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EventsApi

@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectBriefRequest } from './project-brief-request';
+import { OooEntryBase } from './ooo-entry-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectBriefRequest } from './project-brief-request';
 export interface InlineObject26 {
     /**
      * 
-     * @type {ProjectBriefRequest}
+     * @type {OooEntryBase}
      * @memberof InlineObject26
      */
-    'data'?: ProjectBriefRequest;
+    'data'?: OooEntryBase;
 }
 

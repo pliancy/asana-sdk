@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { TeamMembershipCompact } from './team-membership-compact';
+import { RateOrPlaceholderCompact } from './rate-or-placeholder-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20042 {
     /**
      * 
-     * @type {Array<TeamMembershipCompact>}
+     * @type {Array<RateOrPlaceholderCompact>}
      * @memberof InlineResponse20042
      */
-    'data'?: Array<TeamMembershipCompact>;
+    'data'?: Array<RateOrPlaceholderCompact>;
     /**
      * 
      * @type {NextPage}

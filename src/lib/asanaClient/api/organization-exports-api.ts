@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject16 } from '../types';
+import { InlineObject28 } from '../types';
 // @ts-ignore
-import { InlineResponse2013 } from '../types';
+import { InlineResponse2017 } from '../types';
 /**
  * OrganizationExportsApi - axios parameter creator
  * @export
@@ -35,15 +35,15 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationExport: async (inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject16' is not null or undefined
-            assertParamExists('createOrganizationExport', 'inlineObject16', inlineObject16)
+        createOrganizationExport: async (inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject28' is not null or undefined
+            assertParamExists('createOrganizationExport', 'inlineObject28', inlineObject28)
             const localVarPath = `/organization_exports`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -79,7 +79,7 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject16, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject28, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -91,7 +91,7 @@ export const OrganizationExportsApiAxiosParamCreator = function (configuration?:
          * @summary Get details on an org export request
          * @param {string} organizationExportGid Globally unique identifier for the organization export.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -151,14 +151,14 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOrganizationExport(inlineObject16, optPretty, optFields, options);
+        async createOrganizationExport(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOrganizationExport(inlineObject28, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -166,11 +166,11 @@ export const OrganizationExportsApiFp = function(configuration?: Configuration) 
          * @summary Get details on an org export request
          * @param {string} organizationExportGid Globally unique identifier for the organization export.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2013>> {
+        async getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2017>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationExport(organizationExportGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -187,25 +187,25 @@ export const OrganizationExportsApiFactory = function (configuration?: Configura
         /**
          * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
          * @summary Create an organization export request
-         * @param {InlineObject16} inlineObject16 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2013> {
-            return localVarFp.createOrganizationExport(inlineObject16, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createOrganizationExport(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2017> {
+            return localVarFp.createOrganizationExport(inlineObject28, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns details of a previously-requested Organization export.
          * @summary Get details on an org export request
          * @param {string} organizationExportGid Globally unique identifier for the organization export.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2013> {
+        getOrganizationExport(organizationExportGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: any): AxiosPromise<InlineResponse2017> {
             return localVarFp.getOrganizationExport(organizationExportGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -221,15 +221,15 @@ export class OrganizationExportsApi extends BaseAPI {
     /**
      * This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
      * @summary Create an organization export request
-     * @param {InlineObject16} inlineObject16 
+     * @param {InlineObject28} inlineObject28 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationExportsApi
      */
-    public createOrganizationExport(inlineObject16: InlineObject16, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig) {
-        return OrganizationExportsApiFp(this.configuration).createOrganizationExport(inlineObject16, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createOrganizationExport(inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>, options?: AxiosRequestConfig) {
+        return OrganizationExportsApiFp(this.configuration).createOrganizationExport(inlineObject28, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -237,7 +237,7 @@ export class OrganizationExportsApi extends BaseAPI {
      * @summary Get details on an org export request
      * @param {string} organizationExportGid Globally unique identifier for the organization export.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'download_url' | 'organization' | 'organization.name' | 'state'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationExportsApi

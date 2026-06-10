@@ -13,26 +13,31 @@
  */
 
 
-import { NextPage } from './next-page';
-import { PortfolioMembershipCompact } from './portfolio-membership-compact';
+import { EventResponse } from './event-response';
 
 /**
- * 
+ * The full record for all events that have occurred since the sync token was created.
  * @export
  * @interface InlineResponse20016
  */
 export interface InlineResponse20016 {
     /**
      * 
-     * @type {Array<PortfolioMembershipCompact>}
+     * @type {Array<EventResponse>}
      * @memberof InlineResponse20016
      */
-    'data'?: Array<PortfolioMembershipCompact>;
+    'data'?: Array<EventResponse>;
     /**
-     * 
-     * @type {NextPage}
+     * A sync token to be used with the next call to the /events endpoint.
+     * @type {string}
      * @memberof InlineResponse20016
      */
-    'next_page'?: NextPage | null;
+    'sync'?: string;
+    /**
+     * Indicates whether there are more events to pull.
+     * @type {boolean}
+     * @memberof InlineResponse20016
+     */
+    'has_more'?: boolean;
 }
 

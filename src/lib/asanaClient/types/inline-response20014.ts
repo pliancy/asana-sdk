@@ -13,7 +13,7 @@
  */
 
 
-import { MembershipCompact } from './membership-compact';
+import { CustomTypeResponse } from './custom-type-response';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse20014 {
     /**
      * 
-     * @type {Array<MembershipCompact>}
+     * @type {Array<CustomTypeResponse>}
      * @memberof InlineResponse20014
      */
-    'data'?: Array<MembershipCompact>;
+    'data'?: Array<CustomTypeResponse>;
     /**
      * 
      * @type {NextPage}

@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRequest } from './goal-request';
+import { EnumOption } from './enum-option';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRequest } from './goal-request';
 export interface InlineObject10 {
     /**
      * 
-     * @type {GoalRequest}
+     * @type {EnumOption}
      * @memberof InlineObject10
      */
-    'data'?: GoalRequest;
+    'data'?: EnumOption;
 }
 

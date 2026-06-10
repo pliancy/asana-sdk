@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectRequest } from './project-request';
+import { PortfolioRequest } from './portfolio-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectRequest } from './project-request';
 export interface InlineObject29 {
     /**
      * 
-     * @type {ProjectRequest}
+     * @type {PortfolioRequest}
      * @memberof InlineObject29
      */
-    'data'?: ProjectRequest;
+    'data'?: PortfolioRequest;
 }
 

@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { TagCompact } from './tag-compact';
+import { ProjectStatusResponse } from './project-status-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { TagCompact } from './tag-compact';
 export interface InlineResponse20036 {
     /**
      * 
-     * @type {Array<TagCompact>}
+     * @type {ProjectStatusResponse}
      * @memberof InlineResponse20036
      */
-    'data'?: Array<TagCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20036
-     */
-    'next_page'?: NextPage | null;
+    'data'?: ProjectStatusResponse;
 }
 

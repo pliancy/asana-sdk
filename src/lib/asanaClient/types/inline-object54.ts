@@ -13,7 +13,7 @@
  */
 
 
-import { TaskDuplicateRequest } from './task-duplicate-request';
+import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskDuplicateRequest } from './task-duplicate-request';
 export interface InlineObject54 {
     /**
      * 
-     * @type {TaskDuplicateRequest}
+     * @type {ProjectSaveAsTemplateRequest}
      * @memberof InlineObject54
      */
-    'data'?: TaskDuplicateRequest;
+    'data'?: ProjectSaveAsTemplateRequest;
 }
 

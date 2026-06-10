@@ -13,7 +13,7 @@
  */
 
 
-import { AttachmentCompact } from './attachment-compact';
+import { AgentCompact } from './agent-compact';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse2002 {
     /**
      * 
-     * @type {Array<AttachmentCompact>}
+     * @type {Array<AgentCompact>}
      * @memberof InlineResponse2002
      */
-    'data'?: Array<AttachmentCompact>;
+    'data'?: Array<AgentCompact>;
     /**
      * 
      * @type {NextPage}

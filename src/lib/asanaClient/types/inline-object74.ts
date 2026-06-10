@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookUpdateRequest } from './webhook-update-request';
+import { TaskDuplicateRequest } from './task-duplicate-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookUpdateRequest } from './webhook-update-request';
 export interface InlineObject74 {
     /**
      * 
-     * @type {WebhookUpdateRequest}
+     * @type {TaskDuplicateRequest}
      * @memberof InlineObject74
      */
-    'data'?: WebhookUpdateRequest;
+    'data'?: TaskDuplicateRequest;
 }
 

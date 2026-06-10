@@ -13,7 +13,7 @@
  */
 
 
-import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-request';
+import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-req
 export interface InlineObject71 {
     /**
      * 
-     * @type {CreateTimeTrackingEntryRequest}
+     * @type {TaskTemplateInstantiateTaskRequest}
      * @memberof InlineObject71
      */
-    'data'?: CreateTimeTrackingEntryRequest;
+    'data'?: TaskTemplateInstantiateTaskRequest;
 }
 

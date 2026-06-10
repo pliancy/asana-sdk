@@ -13,12 +13,35 @@
  */
 
 
-import { TaskTemplateRecipeCompactAllOf } from './task-template-recipe-compact-all-of';
 
 /**
- * @type TaskTemplateRecipeCompact
+ * 
  * @export
+ * @interface TaskTemplateRecipeCompact
  */
-export type TaskTemplateRecipeCompact = TaskTemplateRecipeCompactAllOf;
+export interface TaskTemplateRecipeCompact {
+    /**
+     * Name of the task that will be created from this template.
+     * @type {string}
+     * @memberof TaskTemplateRecipeCompact
+     */
+    'name'?: string;
+    /**
+     * The subtype of the task that will be created from this template.
+     * @type {string}
+     * @memberof TaskTemplateRecipeCompact
+     */
+    'task_resource_subtype'?: TaskTemplateRecipeCompactTaskResourceSubtypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskTemplateRecipeCompactTaskResourceSubtypeEnum {
+    DefaultTask = 'default_task',
+    MilestoneTask = 'milestone_task',
+    ApprovalTask = 'approval_task'
+}
 
 

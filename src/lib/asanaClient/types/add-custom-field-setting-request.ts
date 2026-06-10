@@ -13,6 +13,7 @@
  */
 
 
+import { CustomFieldCreateRequest } from './custom-field-create-request';
 
 /**
  * 
@@ -21,11 +22,11 @@
  */
 export interface AddCustomFieldSettingRequest {
     /**
-     * The custom field to associate with this container.
-     * @type {string}
+     * 
+     * @type {string | CustomFieldCreateRequest}
      * @memberof AddCustomFieldSettingRequest
      */
-    'custom_field': string;
+    'custom_field': string | CustomFieldCreateRequest;
     /**
      * Whether this field should be considered important to this container (for instance, to display in the list view of items in the container).
      * @type {boolean}

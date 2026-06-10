@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
+import { ModifyDependenciesRequest } from './modify-dependencies-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
 export interface InlineObject77 {
     /**
      * 
-     * @type {WorkspaceRemoveUserRequest}
+     * @type {ModifyDependenciesRequest}
      * @memberof InlineObject77
      */
-    'data'?: WorkspaceRemoveUserRequest;
+    'data'?: ModifyDependenciesRequest;
 }
 

@@ -35,11 +35,18 @@ export interface ProjectTemplateInstantiateProjectRequest {
      */
     'team'?: string;
     /**
-     * Sets the project to public to its team.
+     * *Deprecated:* new integrations use `privacy_setting` instead.
      * @type {boolean}
      * @memberof ProjectTemplateInstantiateProjectRequest
+     * @deprecated
      */
     'public'?: boolean;
+    /**
+     * The privacy setting of the project. *Note: Administrators in your organization may restrict the values of `privacy_setting`.* The value `private_to_team` is deprecated. Use `POST /memberships` to share a project with a team after creation.
+     * @type {string}
+     * @memberof ProjectTemplateInstantiateProjectRequest
+     */
+    'privacy_setting'?: ProjectTemplateInstantiateProjectRequestPrivacySettingEnum;
     /**
      * *Optional*. If set to `true`, the endpoint returns an \"Unprocessable Entity\" error if you fail to provide a calendar date value for any date variable. If set to `false`, a default date is used for each unfulfilled date variable (e.g., the current date is used as the Start Date of a project).
      * @type {boolean}
@@ -47,16 +54,27 @@ export interface ProjectTemplateInstantiateProjectRequest {
      */
     'is_strict'?: boolean;
     /**
-     * Array of mappings of date variables to calendar dates.
+     * *Conditional*. Array of mappings of date variables to calendar dates. This property is required in the instantiation request if the project template includes dates (e.g., a start date on a task).
      * @type {Array<DateVariableRequest>}
      * @memberof ProjectTemplateInstantiateProjectRequest
      */
     'requested_dates'?: Array<DateVariableRequest>;
     /**
-     * Array of mappings of template roles to user ids
+     * Array of mappings of template roles to users.
      * @type {Array<RequestedRoleRequest>}
      * @memberof ProjectTemplateInstantiateProjectRequest
      */
     'requested_roles'?: Array<RequestedRoleRequest>;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectTemplateInstantiateProjectRequestPrivacySettingEnum {
+    PublicToWorkspace = 'public_to_workspace',
+    PrivateToTeam = 'private_to_team',
+    Private = 'private'
+}
+
 

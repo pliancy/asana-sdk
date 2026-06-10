@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TaskTemplateCompactAllOf } from './task-template-compact-all-of';
 
 /**
- * @type TaskTemplateCompact
+ * A *task template* is an object that allows new tasks to be created with a predefined setup.
  * @export
+ * @interface TaskTemplateCompact
  */
-export type TaskTemplateCompact = AsanaResource & TaskTemplateCompactAllOf;
-
+export interface TaskTemplateCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TaskTemplateCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TaskTemplateCompact
+     */
+    'resource_type'?: string;
+    /**
+     * Name of the task template.
+     * @type {string}
+     * @memberof TaskTemplateCompact
+     */
+    'name'?: string;
+}
 

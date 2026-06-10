@@ -13,7 +13,7 @@
  */
 
 
-import { GoalMetricBase } from './goal-metric-base';
+import { GraphExportRequest } from './graph-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalMetricBase } from './goal-metric-base';
 export interface InlineObject11 {
     /**
      * 
-     * @type {GoalMetricBase}
+     * @type {GraphExportRequest}
      * @memberof InlineObject11
      */
-    'data'?: GoalMetricBase;
+    'data'?: GraphExportRequest;
 }
 

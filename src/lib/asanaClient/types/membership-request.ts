@@ -21,10 +21,10 @@
  */
 export interface MembershipRequest {
     /**
-     * *Optional*. Denotes if a member is active. Applies to all memberships
-     * @type {boolean}
+     * Sets the access level for the member. Goals can have access levels `viewer`, `commenter`, `editor` or `admin`. Projects can have access levels `admin`, `editor` or `commenter`. Portfolios can have access levels `admin`, `editor` or `viewer`. Custom Fields can have access levels `admin`, `editor` or `user`.
+     * @type {string}
      * @memberof MembershipRequest
      */
-    'is_active'?: boolean;
+    'access_level'?: string;
 }
 

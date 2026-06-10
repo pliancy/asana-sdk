@@ -27,19 +27,19 @@ export interface TaskAddProjectRequest {
      */
     'project': string;
     /**
-     * A task in the project to insert the task after, or `null` to insert at the beginning of the list.
+     * A task in the project to insert the task after, or `null` to insert at the beginning of the list. When used with `section`, `null` will insert at the beginning of the specified section, otherwise the task must be in the specified section.
      * @type {string}
      * @memberof TaskAddProjectRequest
      */
     'insert_after'?: string | null;
     /**
-     * A task in the project to insert the task before, or `null` to insert at the end of the list.
+     * A task in the project to insert the task before, or `null` to insert at the end of the list. When used with `section`, `null` will insert at the end of the specified section, otherwise the task must be in the specified section.
      * @type {string}
      * @memberof TaskAddProjectRequest
      */
     'insert_before'?: string | null;
     /**
-     * A section in the project to insert the task into. The task will be inserted at the bottom of the section.
+     * A section in the project to insert the task into. The task will be inserted at the bottom of the section unless combined with `insert_before: null` (end of section) or `insert_after: null` (beginning of section). Can also be combined with non-null `insert_before` or `insert_after` to position relative to a task within the section.
      * @type {string}
      * @memberof TaskAddProjectRequest
      */

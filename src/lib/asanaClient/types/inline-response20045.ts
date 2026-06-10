@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { TimePeriodCompact } from './time-period-compact';
+import { RuleTriggerResponse } from './rule-trigger-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { TimePeriodCompact } from './time-period-compact';
 export interface InlineResponse20045 {
     /**
      * 
-     * @type {Array<TimePeriodCompact>}
+     * @type {RuleTriggerResponse}
      * @memberof InlineResponse20045
      */
-    'data'?: Array<TimePeriodCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20045
-     */
-    'next_page'?: NextPage | null;
+    'data'?: RuleTriggerResponse;
 }
 

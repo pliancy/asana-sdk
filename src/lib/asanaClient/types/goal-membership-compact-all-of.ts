@@ -21,14 +21,14 @@
  */
 export interface GoalMembershipCompactAllOf {
     /**
-     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is comment only in goal.
+     * *Deprecated: new integrations should prefer the `access_level` field.* Describes if the member is comment only in goal. This field is deprecated and will always be null.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
      * @deprecated
      */
     'is_commenter'?: boolean;
     /**
-     * *Deprecated: new integrations should prefer the `role` field.* Describes if the member is editor in goal.
+     * *Deprecated: new integrations should prefer the `access_level` field.* Describes if the member is editor in goal. This field is deprecated and will always be null.
      * @type {boolean}
      * @memberof GoalMembershipCompactAllOf
      * @deprecated

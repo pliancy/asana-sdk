@@ -13,7 +13,7 @@
  */
 
 
-import { GoalCompact } from './goal-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalCompact } from './goal-compact';
 export interface InlineResponse20012 {
     /**
      * 
-     * @type {Array<GoalCompact>}
+     * @type {Array<CustomFieldSettingResponse>}
      * @memberof InlineResponse20012
      */
-    'data'?: Array<GoalCompact>;
+    'data'?: Array<CustomFieldSettingResponse>;
 }
 

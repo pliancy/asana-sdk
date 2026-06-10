@@ -50,6 +50,18 @@ export interface AuditLogEventContext {
      * @memberof AuditLogEventContext
      */
     'oauth_app_name'?: string;
+    /**
+     * The name of the automation rule that initiated the event.
+     * @type {string}
+     * @memberof AuditLogEventContext
+     */
+    'rule_name'?: string;
+    /**
+     * The ID of the user who requested a change via support.
+     * @type {number}
+     * @memberof AuditLogEventContext
+     */
+    'on_behalf_of_user_id'?: number;
 }
 
 /**

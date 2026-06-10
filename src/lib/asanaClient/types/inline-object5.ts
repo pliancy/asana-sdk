@@ -13,7 +13,7 @@
  */
 
 
-import { EnumOption } from './enum-option';
+import { BudgetRequest } from './budget-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { EnumOption } from './enum-option';
 export interface InlineObject5 {
     /**
      * 
-     * @type {EnumOption}
+     * @type {BudgetRequest}
      * @memberof InlineObject5
      */
-    'data'?: EnumOption;
+    'data'?: BudgetRequest;
 }
 

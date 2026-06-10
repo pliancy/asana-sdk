@@ -13,7 +13,7 @@
  */
 
 
-import { GoalAddSupportingRelationshipRequest } from './goal-add-supporting-relationship-request';
+import { CustomFieldRequest } from './custom-field-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalAddSupportingRelationshipRequest } from './goal-add-supporting-rela
 export interface InlineObject7 {
     /**
      * 
-     * @type {GoalAddSupportingRelationshipRequest}
+     * @type {CustomFieldRequest}
      * @memberof InlineObject7
      */
-    'data'?: GoalAddSupportingRelationshipRequest;
+    'data'?: CustomFieldRequest;
 }
 

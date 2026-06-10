@@ -39,7 +39,7 @@ export interface GoalAddSupportingRelationshipRequest {
      */
     'insert_after'?: string;
     /**
-     * The weight that the supporting resource\'s progress will contribute to the supported goal\'s progress. This can only be 0 or 1.
+     * Defines how much the supporting goal’s progress contributes to the parent goal’s overall progress. When used with automatically calculated [Goal Metrics](/reference/creategoalmetric) (such as `progress_source = subgoal_progress`), this value must be greater than 0 for the subgoal to count toward the parent goal’s progress. Accepts a number between 0 and 1 (inclusive). Defaults to `0`.
      * @type {number}
      * @memberof GoalAddSupportingRelationshipRequest
      */

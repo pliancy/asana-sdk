@@ -13,7 +13,7 @@
  */
 
 
-import { CustomFieldResponse } from './custom-field-response';
+import { AccessRequestResponse } from './access-request-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CustomFieldResponse } from './custom-field-response';
 export interface InlineResponse201 {
     /**
      * 
-     * @type {CustomFieldResponse}
+     * @type {AccessRequestResponse}
      * @memberof InlineResponse201
      */
-    'data'?: CustomFieldResponse;
+    'data'?: AccessRequestResponse;
 }
 

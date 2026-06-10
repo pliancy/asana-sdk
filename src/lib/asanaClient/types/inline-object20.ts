@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
+import { TaskAddFollowersRequest } from './task-add-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRemoveItemRequest } from './portfolio-remove-item-request';
 export interface InlineObject20 {
     /**
      * 
-     * @type {PortfolioRemoveItemRequest}
+     * @type {TaskAddFollowersRequest}
      * @memberof InlineObject20
      */
-    'data'?: PortfolioRemoveItemRequest;
+    'data'?: TaskAddFollowersRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioMembershipCompact } from './portfolio-membership-compact';
+import { GoalRelationshipResponse } from './goal-relationship-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 export interface InlineResponse20017 {
     /**
      * 
-     * @type {PortfolioMembershipCompact}
+     * @type {GoalRelationshipResponse}
      * @memberof InlineResponse20017
      */
-    'data'?: PortfolioMembershipCompact;
+    'data'?: GoalRelationshipResponse;
 }
 

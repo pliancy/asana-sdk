@@ -14,24 +14,35 @@
 
 
 
+export * from './api/access-requests-api';
+export * from './api/agents-api';
+export * from './api/allocations-api';
 export * from './api/attachments-api';
 export * from './api/audit-log-apiapi';
 export * from './api/batch-apiapi';
+export * from './api/budgets-api';
 export * from './api/custom-field-settings-api';
 export * from './api/custom-fields-api';
+export * from './api/custom-types-api';
 export * from './api/events-api';
+export * from './api/exports-api';
 export * from './api/goal-relationships-api';
 export * from './api/goals-api';
 export * from './api/jobs-api';
 export * from './api/memberships-api';
+export * from './api/ooo-entries-api';
 export * from './api/organization-exports-api';
 export * from './api/portfolio-memberships-api';
 export * from './api/portfolios-api';
 export * from './api/project-briefs-api';
 export * from './api/project-memberships-api';
+export * from './api/project-portfolio-settings-api';
 export * from './api/project-statuses-api';
 export * from './api/project-templates-api';
 export * from './api/projects-api';
+export * from './api/rates-api';
+export * from './api/reactions-api';
+export * from './api/roles-api';
 export * from './api/rules-api';
 export * from './api/sections-api';
 export * from './api/status-updates-api';
@@ -42,7 +53,9 @@ export * from './api/tasks-api';
 export * from './api/team-memberships-api';
 export * from './api/teams-api';
 export * from './api/time-periods-api';
+export * from './api/time-tracking-categories-api';
 export * from './api/time-tracking-entries-api';
+export * from './api/timesheet-approval-statuses-api';
 export * from './api/typeahead-api';
 export * from './api/user-task-lists-api';
 export * from './api/users-api';

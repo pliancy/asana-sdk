@@ -13,7 +13,7 @@
  */
 
 
-import { StoryBase } from './story-base';
+import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryBase } from './story-base';
 export interface InlineObject48 {
     /**
      * 
-     * @type {StoryBase}
+     * @type {AddCustomFieldSettingRequest}
      * @memberof InlineObject48
      */
-    'data'?: StoryBase;
+    'data'?: AddCustomFieldSettingRequest;
 }
 

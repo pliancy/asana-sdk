@@ -13,7 +13,7 @@
  */
 
 
-import { EnumOptionRequest } from './enum-option-request';
+import { BatchRequest } from './batch-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { EnumOptionRequest } from './enum-option-request';
 export interface InlineObject3 {
     /**
      * 
-     * @type {EnumOptionRequest}
+     * @type {BatchRequest}
      * @memberof InlineObject3
      */
-    'data'?: EnumOptionRequest;
+    'data'?: BatchRequest;
 }
 

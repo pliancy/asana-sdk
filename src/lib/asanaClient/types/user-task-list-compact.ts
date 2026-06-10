@@ -13,15 +13,44 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 import { UserCompact } from './user-compact';
-import { UserTaskListCompactAllOf } from './user-task-list-compact-all-of';
 import { WorkspaceCompact } from './workspace-compact';
 
 /**
- * @type UserTaskListCompact
+ * A user task list represents the tasks assigned to a particular user. It provides API access to a user’s [My tasks](https://asana.com/guide/help/fundamentals/my-tasks) view in Asana.
  * @export
+ * @interface UserTaskListCompact
  */
-export type UserTaskListCompact = AsanaResource & UserTaskListCompactAllOf;
-
+export interface UserTaskListCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof UserTaskListCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof UserTaskListCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the user task list.
+     * @type {string}
+     * @memberof UserTaskListCompact
+     */
+    'name'?: string;
+    /**
+     * The owner of the user task list, i.e. the person whose My Tasks is represented by this resource.
+     * @type {UserCompact}
+     * @memberof UserTaskListCompact
+     */
+    'owner'?: UserCompact;
+    /**
+     * The workspace in which the user task list is located.
+     * @type {WorkspaceCompact}
+     * @memberof UserTaskListCompact
+     */
+    'workspace'?: WorkspaceCompact;
+}
 

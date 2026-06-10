@@ -37,6 +37,12 @@ export interface ProjectBaseAllOf {
      */
     'color'?: ProjectBaseAllOfColorEnum;
     /**
+     * The icon for a project.
+     * @type {string}
+     * @memberof ProjectBaseAllOf
+     */
+    'icon'?: ProjectBaseAllOfIconEnum;
+    /**
      * The time at which this resource was created.
      * @type {string}
      * @memberof ProjectBaseAllOf
@@ -55,7 +61,7 @@ export interface ProjectBaseAllOf {
      */
     'current_status_update'?: StatusUpdateCompact & object;
     /**
-     * Array of Custom Field Settings (in compact form).
+     * Array of custom field definitions that are enabled for the project. These represent which custom fields are available to be used on tasks within the project, but do not include any values.
      * @type {Array<CustomFieldSettingResponse>}
      * @memberof ProjectBaseAllOf
      */
@@ -103,11 +109,18 @@ export interface ProjectBaseAllOf {
      */
     'notes'?: string;
     /**
-     * True if the project is public to its team.
+     * *Deprecated:* new integrations use `privacy_setting` instead.
      * @type {boolean}
      * @memberof ProjectBaseAllOf
+     * @deprecated
      */
     'public'?: boolean;
+    /**
+     * The privacy setting of the project. *Note: Administrators in your organization may restrict the values of `privacy_setting`.* The value `private_to_team` is deprecated. Use `POST /memberships` to share a project with a team after creation.
+     * @type {string}
+     * @memberof ProjectBaseAllOf
+     */
+    'privacy_setting'?: ProjectBaseAllOfPrivacySettingEnum;
     /**
      * The day on which work for this project begins, or null if the project has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` or `due_at` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, `start_on` and `due_on` cannot be the same date.*
      * @type {string}
@@ -164,11 +177,58 @@ export enum ProjectBaseAllOfColorEnum {
     * @export
     * @enum {string}
     */
+export enum ProjectBaseAllOfIconEnum {
+    List = 'list',
+    Board = 'board',
+    Timeline = 'timeline',
+    Calendar = 'calendar',
+    Rocket = 'rocket',
+    People = 'people',
+    Graph = 'graph',
+    Star = 'star',
+    Bug = 'bug',
+    LightBulb = 'light_bulb',
+    Globe = 'globe',
+    Gear = 'gear',
+    Notebook = 'notebook',
+    Computer = 'computer',
+    Check = 'check',
+    Target = 'target',
+    Html = 'html',
+    Megaphone = 'megaphone',
+    ChatBubbles = 'chat_bubbles',
+    Briefcase = 'briefcase',
+    PageLayout = 'page_layout',
+    MountainFlag = 'mountain_flag',
+    Puzzle = 'puzzle',
+    Presentation = 'presentation',
+    LineAndSymbols = 'line_and_symbols',
+    SpeedDial = 'speed_dial',
+    Ribbon = 'ribbon',
+    Shoe = 'shoe',
+    ShoppingBasket = 'shopping_basket',
+    Map = 'map',
+    Ticket = 'ticket',
+    Coins = 'coins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum ProjectBaseAllOfDefaultViewEnum {
     List = 'list',
     Board = 'board',
     Calendar = 'calendar',
     Timeline = 'timeline'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectBaseAllOfPrivacySettingEnum {
+    PublicToWorkspace = 'public_to_workspace',
+    PrivateToTeam = 'private_to_team',
+    Private = 'private'
 }
 /**
     * @export

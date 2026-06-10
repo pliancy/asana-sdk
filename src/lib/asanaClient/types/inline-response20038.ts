@@ -13,7 +13,7 @@
  */
 
 
-import { TaskTemplateResponse } from './task-template-response';
+import { ProjectTemplateResponse } from './project-template-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskTemplateResponse } from './task-template-response';
 export interface InlineResponse20038 {
     /**
      * 
-     * @type {TaskTemplateResponse}
+     * @type {ProjectTemplateResponse}
      * @memberof InlineResponse20038
      */
-    'data'?: TaskTemplateResponse;
+    'data'?: ProjectTemplateResponse;
 }
 

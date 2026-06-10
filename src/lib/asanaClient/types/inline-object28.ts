@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
+import { OrganizationExportRequest } from './organization-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectTemplateInstantiateProjectRequest } from './project-template-ins
 export interface InlineObject28 {
     /**
      * 
-     * @type {ProjectTemplateInstantiateProjectRequest}
+     * @type {OrganizationExportRequest}
      * @memberof InlineObject28
      */
-    'data'?: ProjectTemplateInstantiateProjectRequest;
+    'data'?: OrganizationExportRequest;
 }
 

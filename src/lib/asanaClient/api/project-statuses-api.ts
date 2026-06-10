@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject27 } from '../types';
+import { InlineObject41 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20024 } from '../types';
+import { InlineResponse20036 } from '../types';
 // @ts-ignore
-import { InlineResponse20025 } from '../types';
+import { InlineResponse20037 } from '../types';
 /**
  * ProjectStatusesApi - axios parameter creator
  * @export
@@ -40,17 +40,17 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
          * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectStatusForProject: async (projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProjectStatusForProject: async (projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('createProjectStatusForProject', 'projectGid', projectGid)
-            // verify required parameter 'inlineObject27' is not null or undefined
-            assertParamExists('createProjectStatusForProject', 'inlineObject27', inlineObject27)
+            // verify required parameter 'inlineObject41' is not null or undefined
+            assertParamExists('createProjectStatusForProject', 'inlineObject41', inlineObject41)
             const localVarPath = `/projects/{project_gid}/project_statuses`
                 .replace(`{${"project_gid"}}`, encodeURIComponent(String(projectGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -87,7 +87,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject27, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject41, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -146,7 +146,7 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -199,8 +199,8 @@ export const ProjectStatusesApiAxiosParamCreator = function (configuration?: Con
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -269,14 +269,14 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectStatusForProject(projectGid, inlineObject27, optPretty, optFields, options);
+        async createProjectStatusForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProjectStatusForProject(projectGid, inlineObject41, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -296,11 +296,11 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+        async getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatus(projectStatusGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -310,12 +310,12 @@ export const ProjectStatusesApiFp = function(configuration?: Configuration) {
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectStatusesForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -333,14 +333,14 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
          * @summary Create a project status
          * @param {string} projectGid Globally unique identifier for the project.
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject41} inlineObject41 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20024> {
-            return localVarFp.createProjectStatusForProject(projectGid, inlineObject27, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createProjectStatusForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20036> {
+            return localVarFp.createProjectStatusForProject(projectGid, inlineObject41, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * *Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*  Deletes a specific, existing project status update.  Returns an empty data record.
@@ -358,11 +358,11 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @summary Get a project status
          * @param {string} projectStatusGid The project status update to get.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20024> {
+        getProjectStatus(projectStatusGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20036> {
             return localVarFp.getProjectStatus(projectStatusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -371,12 +371,12 @@ export const ProjectStatusesApiFactory = function (configuration?: Configuration
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20025> {
+        getProjectStatusesForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20037> {
             return localVarFp.getProjectStatusesForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -393,15 +393,15 @@ export class ProjectStatusesApi extends BaseAPI {
      * *Deprecated: new integrations should prefer the `/status_updates` route.*  Creates a new status update on the project.  Returns the full record of the newly created project status update.
      * @summary Create a project status
      * @param {string} projectGid Globally unique identifier for the project.
-     * @param {InlineObject27} inlineObject27 
+     * @param {InlineObject41} inlineObject41 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectStatusesApi
      */
-    public createProjectStatusForProject(projectGid: string, inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig) {
-        return ProjectStatusesApiFp(this.configuration).createProjectStatusForProject(projectGid, inlineObject27, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createProjectStatusForProject(projectGid: string, inlineObject41: InlineObject41, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return ProjectStatusesApiFp(this.configuration).createProjectStatusForProject(projectGid, inlineObject41, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -422,7 +422,7 @@ export class ProjectStatusesApi extends BaseAPI {
      * @summary Get a project status
      * @param {string} projectStatusGid The project status update to get.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectStatusesApi
@@ -437,8 +437,8 @@ export class ProjectStatusesApi extends BaseAPI {
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'author' | 'author.name' | 'color' | 'created_at' | 'created_by' | 'created_by.name' | 'html_text' | 'modified_at' | 'offset' | 'path' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectStatusesApi

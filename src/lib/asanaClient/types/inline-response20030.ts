@@ -13,7 +13,8 @@
  */
 
 
-import { SectionResponse } from './section-response';
+import { NextPage } from './next-page';
+import { ProjectCompact } from './project-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { SectionResponse } from './section-response';
 export interface InlineResponse20030 {
     /**
      * 
-     * @type {SectionResponse}
+     * @type {Array<ProjectCompact>}
      * @memberof InlineResponse20030
      */
-    'data'?: SectionResponse;
+    'data'?: Array<ProjectCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20030
+     */
+    'next_page'?: NextPage | null;
 }
 

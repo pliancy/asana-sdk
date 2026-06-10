@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependentsRequest } from './modify-dependents-request';
+import { RuleTriggerRequest } from './rule-trigger-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependentsRequest } from './modify-dependents-request';
 export interface InlineObject59 {
     /**
      * 
-     * @type {ModifyDependentsRequest}
+     * @type {RuleTriggerRequest}
      * @memberof InlineObject59
      */
-    'data'?: ModifyDependentsRequest;
+    'data'?: RuleTriggerRequest;
 }
 

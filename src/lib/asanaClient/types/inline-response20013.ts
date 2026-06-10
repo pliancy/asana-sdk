@@ -13,7 +13,8 @@
  */
 
 
-import { JobCompact } from './job-compact';
+import { CustomFieldResponse } from './custom-field-response';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { JobCompact } from './job-compact';
 export interface InlineResponse20013 {
     /**
      * 
-     * @type {JobCompact}
+     * @type {Array<CustomFieldResponse>}
      * @memberof InlineResponse20013
      */
-    'data'?: JobCompact;
+    'data'?: Array<CustomFieldResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20013
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -13,10 +13,13 @@
  */
 
 
+import { CustomFieldMembershipCompact } from './custom-field-membership-compact';
+import { CustomTypeCompact } from './custom-type-compact';
+import { CustomTypeMembershipCompact } from './custom-type-membership-compact';
 import { GoalCompact } from './goal-compact';
 import { GoalMembershipResponse } from './goal-membership-response';
 import { MemberCompact } from './member-compact';
-import { ProjectCompact } from './project-compact';
+import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
@@ -53,16 +56,23 @@ export interface MembershipResponse {
     'member'?: MemberCompact;
     /**
      * 
-     * @type {ProjectCompact}
+     * @type {CustomTypeCompact}
      * @memberof MembershipResponse
      */
-    'parent'?: ProjectCompact;
+    'parent'?: CustomTypeCompact;
     /**
-     * Describes if the member is a commenter or editor in goal.
+     * *Deprecated: Describes if the member is a commenter or editor in goal.*
+     * @type {string}
+     * @memberof MembershipResponse
+     * @deprecated
+     */
+    'role'?: MembershipResponseRoleEnum;
+    /**
+     * Whether the member has admin, editor, user, or viewer access to the custom type.
      * @type {string}
      * @memberof MembershipResponse
      */
-    'role'?: MembershipResponseRoleEnum;
+    'access_level'?: MembershipResponseAccessLevelEnum;
     /**
      * 
      * @type {GoalCompact & object}
@@ -81,12 +91,6 @@ export interface MembershipResponse {
      * @memberof MembershipResponse
      */
     'workspace'?: WorkspaceCompact & object;
-    /**
-     * Whether the member has admin, editor, commenter, or viewer access to the project.
-     * @type {string}
-     * @memberof MembershipResponse
-     */
-    'access_level'?: MembershipResponseAccessLevelEnum;
 }
 
 /**
@@ -104,7 +108,7 @@ export enum MembershipResponseRoleEnum {
 export enum MembershipResponseAccessLevelEnum {
     Admin = 'admin',
     Editor = 'editor',
-    Commenter = 'commenter',
+    User = 'user',
     Viewer = 'viewer'
 }
 

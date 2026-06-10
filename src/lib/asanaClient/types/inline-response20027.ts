@@ -13,8 +13,8 @@
  */
 
 
+import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
 import { NextPage } from './next-page';
-import { ProjectTemplateCompact } from './project-template-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { ProjectTemplateCompact } from './project-template-compact';
 export interface InlineResponse20027 {
     /**
      * 
-     * @type {Array<ProjectTemplateCompact>}
+     * @type {Array<DeprecatedPortfolioMembershipCompact>}
      * @memberof InlineResponse20027
      */
-    'data'?: Array<ProjectTemplateCompact>;
+    'data'?: Array<DeprecatedPortfolioMembershipCompact>;
     /**
      * 
      * @type {NextPage}

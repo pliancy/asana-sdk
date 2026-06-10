@@ -13,14 +13,49 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { StoryCompactAllOf } from './story-compact-all-of';
 import { UserCompact } from './user-compact';
 
 /**
- * @type StoryCompact
+ * A story represents an activity associated with an object in the Asana system.
  * @export
+ * @interface StoryCompact
  */
-export type StoryCompact = AsanaResource & StoryCompactAllOf;
-
+export interface StoryCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof StoryCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof StoryCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The time at which this resource was created.
+     * @type {string}
+     * @memberof StoryCompact
+     */
+    'created_at'?: string;
+    /**
+     * 
+     * @type {UserCompact}
+     * @memberof StoryCompact
+     */
+    'created_by'?: UserCompact;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof StoryCompact
+     */
+    'resource_subtype'?: string;
+    /**
+     * *Create-only*. Human-readable text for the story or comment. This will not include the name of the creator. *Note: This is not guaranteed to be stable for a given type of story. For example, text for a reassignment may not always say “assigned to …” as the text for a story can both be edited and change based on the language settings of the user making the request.* Use the `resource_subtype` property to discover the action that created the story.
+     * @type {string}
+     * @memberof StoryCompact
+     */
+    'text'?: string;
+}
 

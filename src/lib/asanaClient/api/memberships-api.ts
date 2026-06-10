@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject15 } from '../types';
+import { InlineObject24 } from '../types';
+// @ts-ignore
+import { InlineObject25 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20014 } from '../types';
+import { InlineResponse20024 } from '../types';
 // @ts-ignore
-import { InlineResponse20015 } from '../types';
-// @ts-ignore
-import { InlineResponse2012 } from '../types';
+import { InlineResponse2016 } from '../types';
 /**
  * MembershipsApi - axios parameter creator
  * @export
@@ -39,14 +39,14 @@ import { InlineResponse2012 } from '../types';
 export const MembershipsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject15} [inlineObject15] 
+         * @param {InlineObject24} [inlineObject24] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMembership: async (optPretty?: boolean, inlineObject15?: InlineObject15, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMembership: async (optPretty?: boolean, inlineObject24?: InlineObject24, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/memberships`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -78,7 +78,7 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject15, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject24, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -86,7 +86,7 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -133,15 +133,14 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Returns compact `project_membership` record for a single membership. `GET` only supports project memberships currently
+         * Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.
          * @summary Get a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMembership: async (membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMembership: async (membershipGid: string, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'membershipGid' is not null or undefined
             assertParamExists('getMembership', 'membershipGid', membershipGid)
             const localVarPath = `/memberships/{membership_gid}`
@@ -169,10 +168,6 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (optFields) {
-                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -185,18 +180,19 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.
+         * Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.
          * @summary Get multiple memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60; or &#x60;project&#x60;.
-         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;.
+         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60; of type &#x60;team&#x60;.
+         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, &#x60;member&#x60; must be of type &#x60;team&#x60;. For user-type memberships &#x60;parent&#x60; parameter is required to disambiguate the workspace from which memberships should be retrieved.
+         * @param {'project_membership'} [resourceSubtype] The type of membership to return. Required when &#x60;parent&#x60; is absent. Currently supported value is &#x60;project_membership&#x60; (when &#x60;member&#x60; is a team GID, returns all project memberships for that team).
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMemberships: async (optPretty?: boolean, parent?: string, member?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMemberships: async (optPretty?: boolean, parent?: string, member?: string, resourceSubtype?: 'project_membership', limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/memberships`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -229,6 +225,10 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['member'] = member;
             }
 
+            if (resourceSubtype !== undefined) {
+                localVarQueryParameter['resource_subtype'] = resourceSubtype;
+            }
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -252,6 +252,59 @@ export const MembershipsApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.
+         * @summary Update a membership
+         * @param {string} membershipGid Globally unique identifier for the membership.
+         * @param {InlineObject25} inlineObject25 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMembership: async (membershipGid: string, inlineObject25: InlineObject25, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'membershipGid' is not null or undefined
+            assertParamExists('updateMembership', 'membershipGid', membershipGid)
+            // verify required parameter 'inlineObject25' is not null or undefined
+            assertParamExists('updateMembership', 'inlineObject25', inlineObject25)
+            const localVarPath = `/memberships/{membership_gid}`
+                .replace(`{${"membership_gid"}}`, encodeURIComponent(String(membershipGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject25, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -263,19 +316,19 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MembershipsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject15} [inlineObject15] 
+         * @param {InlineObject24} [inlineObject24] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2012>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMembership(optPretty, inlineObject15, options);
+        async createMembership(optPretty?: boolean, inlineObject24?: InlineObject24, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMembership(optPretty, inlineObject24, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -287,32 +340,45 @@ export const MembershipsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns compact `project_membership` record for a single membership. `GET` only supports project memberships currently
+         * Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.
          * @summary Get a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMembership(membershipGid, optPretty, optFields, options);
+        async getMembership(membershipGid: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMembership(membershipGid, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.
+         * Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.
          * @summary Get multiple memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60; or &#x60;project&#x60;.
-         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;.
+         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60; of type &#x60;team&#x60;.
+         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, &#x60;member&#x60; must be of type &#x60;team&#x60;. For user-type memberships &#x60;parent&#x60; parameter is required to disambiguate the workspace from which memberships should be retrieved.
+         * @param {'project_membership'} [resourceSubtype] The type of membership to return. Required when &#x60;parent&#x60; is absent. Currently supported value is &#x60;project_membership&#x60; (when &#x60;member&#x60; is a team GID, returns all project memberships for that team).
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMemberships(optPretty?: boolean, parent?: string, member?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMemberships(optPretty, parent, member, limit, offset, optFields, options);
+        async getMemberships(optPretty?: boolean, parent?: string, member?: string, resourceSubtype?: 'project_membership', limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMemberships(optPretty, parent, member, resourceSubtype, limit, offset, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.
+         * @summary Update a membership
+         * @param {string} membershipGid Globally unique identifier for the membership.
+         * @param {InlineObject25} inlineObject25 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMembership(membershipGid: string, inlineObject25: InlineObject25, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMembership(membershipGid, inlineObject25, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -326,18 +392,18 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
     const localVarFp = MembershipsApiFp(configuration)
     return {
         /**
-         * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
+         * Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.
          * @summary Create a membership
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject15} [inlineObject15] 
+         * @param {InlineObject24} [inlineObject24] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: any): AxiosPromise<InlineResponse2012> {
-            return localVarFp.createMembership(optPretty, inlineObject15, options).then((request) => request(axios, basePath));
+        createMembership(optPretty?: boolean, inlineObject24?: InlineObject24, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.createMembership(optPretty, inlineObject24, options).then((request) => request(axios, basePath));
         },
         /**
-         * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+         * A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
          * @summary Delete a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -348,31 +414,43 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
             return localVarFp.deleteMembership(membershipGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns compact `project_membership` record for a single membership. `GET` only supports project memberships currently
+         * Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.
          * @summary Get a membership
          * @param {string} membershipGid Globally unique identifier for the membership.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: any): AxiosPromise<InlineResponse20015> {
-            return localVarFp.getMembership(membershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        getMembership(membershipGid: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.getMembership(membershipGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.
+         * Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.
          * @summary Get multiple memberships
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60; or &#x60;project&#x60;.
-         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;.
+         * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60; of type &#x60;team&#x60;.
+         * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, &#x60;member&#x60; must be of type &#x60;team&#x60;. For user-type memberships &#x60;parent&#x60; parameter is required to disambiguate the workspace from which memberships should be retrieved.
+         * @param {'project_membership'} [resourceSubtype] The type of membership to return. Required when &#x60;parent&#x60; is absent. Currently supported value is &#x60;project_membership&#x60; (when &#x60;member&#x60; is a team GID, returns all project memberships for that team).
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMemberships(optPretty?: boolean, parent?: string, member?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20014> {
-            return localVarFp.getMemberships(optPretty, parent, member, limit, offset, optFields, options).then((request) => request(axios, basePath));
+        getMemberships(optPretty?: boolean, parent?: string, member?: string, resourceSubtype?: 'project_membership', limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20024> {
+            return localVarFp.getMemberships(optPretty, parent, member, resourceSubtype, limit, offset, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.
+         * @summary Update a membership
+         * @param {string} membershipGid Globally unique identifier for the membership.
+         * @param {InlineObject25} inlineObject25 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMembership(membershipGid: string, inlineObject25: InlineObject25, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2016> {
+            return localVarFp.updateMembership(membershipGid, inlineObject25, optPretty, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -385,20 +463,20 @@ export const MembershipsApiFactory = function (configuration?: Configuration, ba
  */
 export class MembershipsApi extends BaseAPI {
     /**
-     * Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
+     * Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.
      * @summary Create a membership
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {InlineObject15} [inlineObject15] 
+     * @param {InlineObject24} [inlineObject24] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MembershipsApi
      */
-    public createMembership(optPretty?: boolean, inlineObject15?: InlineObject15, options?: AxiosRequestConfig) {
-        return MembershipsApiFp(this.configuration).createMembership(optPretty, inlineObject15, options).then((request) => request(this.axios, this.basePath));
+    public createMembership(optPretty?: boolean, inlineObject24?: InlineObject24, options?: AxiosRequestConfig) {
+        return MembershipsApiFp(this.configuration).createMembership(optPretty, inlineObject24, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+     * A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
      * @summary Delete a membership
      * @param {string} membershipGid Globally unique identifier for the membership.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -411,33 +489,47 @@ export class MembershipsApi extends BaseAPI {
     }
 
     /**
-     * Returns compact `project_membership` record for a single membership. `GET` only supports project memberships currently
+     * Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.
      * @summary Get a membership
      * @param {string} membershipGid Globally unique identifier for the membership.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MembershipsApi
      */
-    public getMembership(membershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'resource_subtype'>, options?: AxiosRequestConfig) {
-        return MembershipsApiFp(this.configuration).getMembership(membershipGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getMembership(membershipGid: string, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return MembershipsApiFp(this.configuration).getMembership(membershipGid, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.
+     * Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.
      * @summary Get multiple memberships
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60; or &#x60;project&#x60;.
-     * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;.
+     * @param {string} [parent] Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60; of type &#x60;team&#x60;.
+     * @param {string} [member] Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, &#x60;member&#x60; must be of type &#x60;team&#x60;. For user-type memberships &#x60;parent&#x60; parameter is required to disambiguate the workspace from which memberships should be retrieved.
+     * @param {'project_membership'} [resourceSubtype] The type of membership to return. Required when &#x60;parent&#x60; is absent. Currently supported value is &#x60;project_membership&#x60; (when &#x60;member&#x60; is a team GID, returns all project memberships for that team).
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MembershipsApi
      */
-    public getMemberships(optPretty?: boolean, parent?: string, member?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig) {
-        return MembershipsApiFp(this.configuration).getMemberships(optPretty, parent, member, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getMemberships(optPretty?: boolean, parent?: string, member?: string, resourceSubtype?: 'project_membership', limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig) {
+        return MembershipsApiFp(this.configuration).getMemberships(optPretty, parent, member, resourceSubtype, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.
+     * @summary Update a membership
+     * @param {string} membershipGid Globally unique identifier for the membership.
+     * @param {InlineObject25} inlineObject25 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MembershipsApi
+     */
+    public updateMembership(membershipGid: string, inlineObject25: InlineObject25, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return MembershipsApiFp(this.configuration).updateMembership(membershipGid, inlineObject25, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 }

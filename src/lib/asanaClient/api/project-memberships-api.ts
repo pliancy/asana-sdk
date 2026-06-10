@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20022 } from '../types';
+import { InlineResponse20032 } from '../types';
 // @ts-ignore
-import { InlineResponse20023 } from '../types';
+import { InlineResponse20033 } from '../types';
 /**
  * ProjectMembershipsApi - axios parameter creator
  * @export
@@ -37,7 +37,7 @@ export const ProjectMembershipsApiAxiosParamCreator = function (configuration?: 
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -91,8 +91,8 @@ export const ProjectMembershipsApiAxiosParamCreator = function (configuration?: 
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -166,11 +166,11 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
+        async getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20032>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembership(projectMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -181,12 +181,12 @@ export const ProjectMembershipsApiFp = function(configuration?: Configuration) {
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
+        async getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -205,11 +205,11 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @summary Get a project membership
          * @param {string} projectMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20022> {
+        getProjectMembership(projectMembershipGid: string, optPretty?: boolean, optFields?: Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>, options?: any): AxiosPromise<InlineResponse20032> {
             return localVarFp.getProjectMembership(projectMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -219,12 +219,12 @@ export const ProjectMembershipsApiFactory = function (configuration?: Configurat
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20023> {
+        getProjectMembershipsForProject(projectGid: string, user?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20033> {
             return localVarFp.getProjectMembershipsForProject(projectGid, user, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -242,7 +242,7 @@ export class ProjectMembershipsApi extends BaseAPI {
      * @summary Get a project membership
      * @param {string} projectMembershipGid 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'access_level' | 'member' | 'member.name' | 'parent' | 'parent.name' | 'project' | 'project.name' | 'user' | 'user.name' | 'write_access'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectMembershipsApi
@@ -258,8 +258,8 @@ export class ProjectMembershipsApi extends BaseAPI {
      * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'access_level' | 'member' | 'member.name' | 'offset' | 'parent' | 'parent.name' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectMembershipsApi

@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRemoveUserRequest } from './team-remove-user-request';
+import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRemoveUserRequest } from './team-remove-user-request';
 export interface InlineObject70 {
     /**
      * 
-     * @type {TeamRemoveUserRequest}
+     * @type {TagCreateTagForWorkspaceRequest}
      * @memberof InlineObject70
      */
-    'data'?: TeamRemoveUserRequest;
+    'data'?: TagCreateTagForWorkspaceRequest;
 }
 

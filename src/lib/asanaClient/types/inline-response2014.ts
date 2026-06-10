@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioResponse } from './portfolio-response';
+import { GraphExportResponse } from './graph-export-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioResponse } from './portfolio-response';
 export interface InlineResponse2014 {
     /**
      * 
-     * @type {PortfolioResponse}
+     * @type {GraphExportResponse}
      * @memberof InlineResponse2014
      */
-    'data'?: PortfolioResponse;
+    'data'?: GraphExportResponse;
 }
 

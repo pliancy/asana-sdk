@@ -13,7 +13,7 @@
  */
 
 
-import { RuleTriggerRequest } from './rule-trigger-request';
+import { ProjectStatusBase } from './project-status-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RuleTriggerRequest } from './rule-trigger-request';
 export interface InlineObject41 {
     /**
      * 
-     * @type {RuleTriggerRequest}
+     * @type {ProjectStatusBase}
      * @memberof InlineObject41
      */
-    'data'?: RuleTriggerRequest;
+    'data'?: ProjectStatusBase;
 }
 

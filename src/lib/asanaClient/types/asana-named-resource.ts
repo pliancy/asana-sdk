@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaNamedResourceAllOf } from './asana-named-resource-all-of';
-import { AsanaResource } from './asana-resource';
 
 /**
- * @type AsanaNamedResource
+ * A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface AsanaNamedResource
  */
-export type AsanaNamedResource = AsanaNamedResourceAllOf & AsanaResource;
-
+export interface AsanaNamedResource {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof AsanaNamedResource
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof AsanaNamedResource
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the object.
+     * @type {string}
+     * @memberof AsanaNamedResource
+     */
+    'name'?: string;
+}
 

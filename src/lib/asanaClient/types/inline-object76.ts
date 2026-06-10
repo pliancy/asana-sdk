@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceAddUserRequest } from './workspace-add-user-request';
+import { TaskSetParentRequest } from './task-set-parent-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 export interface InlineObject76 {
     /**
      * 
-     * @type {WorkspaceAddUserRequest}
+     * @type {TaskSetParentRequest}
      * @memberof InlineObject76
      */
-    'data'?: WorkspaceAddUserRequest;
+    'data'?: TaskSetParentRequest;
 }
 

@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject41 } from '../types';
+import { InlineObject59 } from '../types';
 // @ts-ignore
-import { InlineResponse20029 } from '../types';
+import { InlineResponse20045 } from '../types';
 /**
  * RulesApi - axios parameter creator
  * @export
@@ -36,15 +36,15 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
          * Trigger a rule which uses an [\"incoming web request\"](/docs/incoming-web-requests) trigger.
          * @summary Trigger a rule
          * @param {string} ruleTriggerGid The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject59} inlineObject59 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerRule: async (ruleTriggerGid: string, inlineObject41: InlineObject41, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        triggerRule: async (ruleTriggerGid: string, inlineObject59: InlineObject59, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'ruleTriggerGid' is not null or undefined
             assertParamExists('triggerRule', 'ruleTriggerGid', ruleTriggerGid)
-            // verify required parameter 'inlineObject41' is not null or undefined
-            assertParamExists('triggerRule', 'inlineObject41', inlineObject41)
+            // verify required parameter 'inlineObject59' is not null or undefined
+            assertParamExists('triggerRule', 'inlineObject59', inlineObject59)
             const localVarPath = `/rule_triggers/{rule_trigger_gid}/run`
                 .replace(`{${"rule_trigger_gid"}}`, encodeURIComponent(String(ruleTriggerGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -73,7 +73,7 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject41, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject59, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -94,12 +94,12 @@ export const RulesApiFp = function(configuration?: Configuration) {
          * Trigger a rule which uses an [\"incoming web request\"](/docs/incoming-web-requests) trigger.
          * @summary Trigger a rule
          * @param {string} ruleTriggerGid The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject59} inlineObject59 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.triggerRule(ruleTriggerGid, inlineObject41, options);
+        async triggerRule(ruleTriggerGid: string, inlineObject59: InlineObject59, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.triggerRule(ruleTriggerGid, inlineObject59, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -116,12 +116,12 @@ export const RulesApiFactory = function (configuration?: Configuration, basePath
          * Trigger a rule which uses an [\"incoming web request\"](/docs/incoming-web-requests) trigger.
          * @summary Trigger a rule
          * @param {string} ruleTriggerGid The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
-         * @param {InlineObject41} inlineObject41 
+         * @param {InlineObject59} inlineObject59 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: any): AxiosPromise<InlineResponse20029> {
-            return localVarFp.triggerRule(ruleTriggerGid, inlineObject41, options).then((request) => request(axios, basePath));
+        triggerRule(ruleTriggerGid: string, inlineObject59: InlineObject59, options?: any): AxiosPromise<InlineResponse20045> {
+            return localVarFp.triggerRule(ruleTriggerGid, inlineObject59, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -137,12 +137,12 @@ export class RulesApi extends BaseAPI {
      * Trigger a rule which uses an [\"incoming web request\"](/docs/incoming-web-requests) trigger.
      * @summary Trigger a rule
      * @param {string} ruleTriggerGid The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
-     * @param {InlineObject41} inlineObject41 
+     * @param {InlineObject59} inlineObject59 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public triggerRule(ruleTriggerGid: string, inlineObject41: InlineObject41, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).triggerRule(ruleTriggerGid, inlineObject41, options).then((request) => request(this.axios, this.basePath));
+    public triggerRule(ruleTriggerGid: string, inlineObject59: InlineObject59, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).triggerRule(ruleTriggerGid, inlineObject59, options).then((request) => request(this.axios, this.basePath));
     }
 }

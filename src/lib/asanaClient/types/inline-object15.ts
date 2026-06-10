@@ -13,7 +13,7 @@
  */
 
 
-import { CreateMembershipRequest } from './create-membership-request';
+import { GoalRemoveSupportingRelationshipRequest } from './goal-remove-supporting-relationship-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CreateMembershipRequest } from './create-membership-request';
 export interface InlineObject15 {
     /**
      * 
-     * @type {CreateMembershipRequest}
+     * @type {GoalRemoveSupportingRelationshipRequest}
      * @memberof InlineObject15
      */
-    'data'?: CreateMembershipRequest;
+    'data'?: GoalRemoveSupportingRelationshipRequest;
 }
 

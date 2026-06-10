@@ -13,6 +13,8 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { GoalMetricBase } from './goal-metric-base';
 import { Like } from './like';
 import { StatusUpdateCompact } from './status-update-compact';
@@ -87,5 +89,49 @@ export interface GoalResponseAllOf {
      * @memberof GoalResponseAllOf
      */
     'status'?: string | null;
+    /**
+     * The privacy setting of the goal.
+     * @type {string}
+     * @memberof GoalResponseAllOf
+     */
+    'privacy_setting'?: GoalResponseAllOfPrivacySettingEnum;
+    /**
+     * The default access level when inviting new members to the goal
+     * @type {string}
+     * @memberof GoalResponseAllOf
+     */
+    'default_access_level'?: GoalResponseAllOfDefaultAccessLevelEnum;
+    /**
+     * Array of custom field values applied directly to the goal itself. These represent the values set on the goal, not the fields available for items in the goal.
+     * @type {Array<CustomFieldCompact>}
+     * @memberof GoalResponseAllOf
+     */
+    'custom_fields'?: Array<CustomFieldCompact>;
+    /**
+     * Array of custom field definitions that are enabled for the goal. These represent which custom fields are available to be used on items within the goal, but do not include any values.
+     * @type {Array<CustomFieldSettingResponse>}
+     * @memberof GoalResponseAllOf
+     */
+    'custom_field_settings'?: Array<CustomFieldSettingResponse>;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GoalResponseAllOfPrivacySettingEnum {
+    PublicToWorkspace = 'public_to_workspace',
+    MembersOnly = 'members_only'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GoalResponseAllOfDefaultAccessLevelEnum {
+    Admin = 'admin',
+    Editor = 'editor',
+    Commenter = 'commenter',
+    Viewer = 'viewer'
+}
+
 

@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request';
+import { ProjectPortfolioSettingUpdateRequest } from './project-portfolio-setting-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request
 export interface InlineObject40 {
     /**
      * 
-     * @type {ProjectSaveAsTemplateRequest}
+     * @type {ProjectPortfolioSettingUpdateRequest}
      * @memberof InlineObject40
      */
-    'data'?: ProjectSaveAsTemplateRequest;
+    'data'?: ProjectPortfolioSettingUpdateRequest;
 }
 

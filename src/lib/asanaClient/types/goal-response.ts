@@ -13,6 +13,8 @@
  */
 
 
+import { CustomFieldCompact } from './custom-field-compact';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 import { GoalBase } from './goal-base';
 import { GoalMetricBase } from './goal-metric-base';
 import { GoalResponseAllOf } from './goal-response-all-of';

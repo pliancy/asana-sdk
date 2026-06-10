@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TeamCompactAllOf } from './team-compact-all-of';
 
 /**
- * @type TeamCompact
+ * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>teams:read</code></p>  A *team* is used to group related projects and people together within an organization. Each project in an organization is associated with a team.
  * @export
+ * @interface TeamCompact
  */
-export type TeamCompact = AsanaResource & TeamCompactAllOf;
-
+export interface TeamCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TeamCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TeamCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the team.
+     * @type {string}
+     * @memberof TeamCompact
+     */
+    'name'?: string;
+}
 

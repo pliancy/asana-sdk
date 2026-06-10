@@ -13,7 +13,7 @@
  */
 
 
-import { TeamAddUserRequest } from './team-add-user-request';
+import { TagBase } from './tag-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamAddUserRequest } from './team-add-user-request';
 export interface InlineObject69 {
     /**
      * 
-     * @type {TeamAddUserRequest}
+     * @type {TagBase}
      * @memberof InlineObject69
      */
-    'data'?: TeamAddUserRequest;
+    'data'?: TagBase;
 }
 

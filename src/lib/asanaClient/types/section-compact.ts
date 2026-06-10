@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { SectionCompactAllOf } from './section-compact-all-of';
 
 /**
- * @type SectionCompact
+ * A *section* is a subdivision of a project that groups tasks together. It can either be a header above a list of tasks in a list view or a column in a board view of a project.
  * @export
+ * @interface SectionCompact
  */
-export type SectionCompact = AsanaResource & SectionCompactAllOf;
-
+export interface SectionCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof SectionCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof SectionCompact
+     */
+    'resource_type'?: string;
+    /**
+     * The name of the section (i.e. the text displayed as the section header).
+     * @type {string}
+     * @memberof SectionCompact
+     */
+    'name'?: string;
+}
 

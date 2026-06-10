@@ -33,10 +33,16 @@ export interface CustomFieldRequestAllOf {
      */
     'owned_by_app'?: boolean;
     /**
-     * *Conditional*. Only relevant for custom fields of type `people`. This array of user GIDs reflects the users to be written to a `people` custom field. Note that *write* operations will replace existing users (if any) in the custom field with the users specified in this array.
+     * *Conditional*. Only relevant for custom fields of type `people`. This array of user GIDs, emails, or the string \"me\", reflects the users to be written to a `people` custom field. Note that *write* operations will replace existing users (if any) in the custom field with the users specified in this array.
      * @type {Array<string>}
      * @memberof CustomFieldRequestAllOf
      */
     'people_value'?: Array<string>;
+    /**
+     * *Conditional*. Only relevant for custom fields of type `reference`. This array of GIDs reflects the objects to be written to a `reference` custom field. Note that *write* operations will replace existing objects (if any) in the custom field with the objects specified in this array.
+     * @type {Array<string>}
+     * @memberof CustomFieldRequestAllOf
+     */
+    'reference_value'?: Array<string>;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { AttachmentResponse } from './attachment-response';
+import { AccessRequestResponse } from './access-request-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AttachmentResponse } from './attachment-response';
 export interface InlineResponse200 {
     /**
      * 
-     * @type {AttachmentResponse}
+     * @type {Array<AccessRequestResponse>}
      * @memberof InlineResponse200
      */
-    'data'?: AttachmentResponse;
+    'data'?: Array<AccessRequestResponse>;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TeamMembershipCompact } from './team-membership-compact';
+import { TaskCountResponse } from './task-count-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20041 {
     /**
      * 
-     * @type {TeamMembershipCompact}
+     * @type {TaskCountResponse}
      * @memberof InlineResponse20041
      */
-    'data'?: TeamMembershipCompact;
+    'data'?: TaskCountResponse;
 }
 

@@ -39,7 +39,7 @@ export interface PortfolioResponseAllOf {
      */
     'created_by'?: UserCompact;
     /**
-     * Array of custom field settings applied to the portfolio.
+     * Array of custom field definitions that are enabled for the portfolio. These represent which custom fields are available to be used on items within the portfolio, but do not include any values.
      * @type {Array<CustomFieldSettingResponse>}
      * @memberof PortfolioResponseAllOf
      */
@@ -51,13 +51,7 @@ export interface PortfolioResponseAllOf {
      */
     'current_status_update'?: StatusUpdateCompact;
     /**
-     * The localized day on which this portfolio is due. This takes a date with format YYYY-MM-DD.
-     * @type {string}
-     * @memberof PortfolioResponseAllOf
-     */
-    'due_on'?: string | null;
-    /**
-     * Array of Custom Fields.
+     * Array of custom field values applied directly to the portfolio itself. These represent the values set on the portfolio, not the fields available for items in the portfolio.
      * @type {Array<CustomFieldCompact>}
      * @memberof PortfolioResponseAllOf
      */
@@ -74,12 +68,6 @@ export interface PortfolioResponseAllOf {
      * @memberof PortfolioResponseAllOf
      */
     'owner'?: UserCompact;
-    /**
-     * The day on which work for this portfolio begins, or null if the portfolio has no start date. This takes a date with `YYYY-MM-DD` format. *Note: `due_on` must be present in the request when setting or unsetting the `start_on` parameter. Additionally, `start_on` and `due_on` cannot be the same date.*
-     * @type {string}
-     * @memberof PortfolioResponseAllOf
-     */
-    'start_on'?: string | null;
     /**
      * 
      * @type {WorkspaceCompact & object}
@@ -99,10 +87,26 @@ export interface PortfolioResponseAllOf {
      */
     'public'?: boolean;
     /**
+     * The privacy setting of the portfolio. *Note: Administrators in your organization may restrict the values of `privacy_setting`.*
+     * @type {string}
+     * @memberof PortfolioResponseAllOf
+     */
+    'privacy_setting'?: PortfolioResponseAllOfPrivacySettingEnum;
+    /**
      * Array of project templates that are in the portfolio
      * @type {Array<ProjectTemplateCompact>}
      * @memberof PortfolioResponseAllOf
      */
     'project_templates'?: Array<ProjectTemplateCompact>;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PortfolioResponseAllOfPrivacySettingEnum {
+    PublicToDomain = 'public_to_domain',
+    MembersOnly = 'members_only'
+}
+
 

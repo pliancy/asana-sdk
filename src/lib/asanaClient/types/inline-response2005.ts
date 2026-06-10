@@ -13,7 +13,7 @@
  */
 
 
-import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { AllocationResponse } from './allocation-response';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse2005 {
     /**
      * 
-     * @type {Array<CustomFieldSettingResponse>}
+     * @type {Array<AllocationResponse>}
      * @memberof InlineResponse2005
      */
-    'data'?: Array<CustomFieldSettingResponse>;
+    'data'?: Array<AllocationResponse>;
     /**
      * 
      * @type {NextPage}

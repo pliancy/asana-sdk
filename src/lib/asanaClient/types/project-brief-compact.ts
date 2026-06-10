@@ -13,12 +13,24 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
 
 /**
- * @type ProjectBriefCompact
+ * A *Project Brief* allows you to explain the what and why of the project to your team.
  * @export
+ * @interface ProjectBriefCompact
  */
-export type ProjectBriefCompact = AsanaResource;
-
+export interface ProjectBriefCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof ProjectBriefCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof ProjectBriefCompact
+     */
+    'resource_type'?: string;
+}
 

@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectMembershipNormalResponse } from './project-membership-normal-response';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectMembershipNormalResponse } from './project-membership-normal-res
 export interface InlineResponse20022 {
     /**
      * 
-     * @type {ProjectMembershipNormalResponse}
+     * @type {CustomFieldSettingResponse}
      * @memberof InlineResponse20022
      */
-    'data'?: ProjectMembershipNormalResponse;
+    'data'?: CustomFieldSettingResponse;
 }
 

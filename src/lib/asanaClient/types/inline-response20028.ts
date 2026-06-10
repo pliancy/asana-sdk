@@ -13,7 +13,7 @@
  */
 
 
-import { TaskCountResponse } from './task-count-response';
+import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskCountResponse } from './task-count-response';
 export interface InlineResponse20028 {
     /**
      * 
-     * @type {TaskCountResponse}
+     * @type {DeprecatedPortfolioMembershipCompact}
      * @memberof InlineResponse20028
      */
-    'data'?: TaskCountResponse;
+    'data'?: DeprecatedPortfolioMembershipCompact;
 }
 

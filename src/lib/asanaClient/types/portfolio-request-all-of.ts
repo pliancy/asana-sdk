@@ -21,21 +21,16 @@
  */
 export interface PortfolioRequestAllOf {
     /**
-     * An array of strings identifying users. These can either be the string \"me\", an email, or the gid of a user.
-     * @type {Array<string>}
-     * @memberof PortfolioRequestAllOf
-     */
-    'members'?: Array<string>;
-    /**
-     * Gid of an object.
+     * *Create-only*. The workspace or organization that the portfolio belongs to.
      * @type {string}
      * @memberof PortfolioRequestAllOf
      */
     'workspace'?: string;
     /**
-     * True if the portfolio is public to its workspace members.
+     * *Deprecated:* new integrations use `privacy_setting` instead.
      * @type {boolean}
      * @memberof PortfolioRequestAllOf
+     * @deprecated
      */
     'public'?: boolean;
 }

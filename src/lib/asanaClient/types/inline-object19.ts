@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioAddItemRequest } from './portfolio-add-item-request';
+import { GoalMetricCurrentValueRequest } from './goal-metric-current-value-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioAddItemRequest } from './portfolio-add-item-request';
 export interface InlineObject19 {
     /**
      * 
-     * @type {PortfolioAddItemRequest}
+     * @type {GoalMetricCurrentValueRequest}
      * @memberof InlineObject19
      */
-    'data'?: PortfolioAddItemRequest;
+    'data'?: GoalMetricCurrentValueRequest;
 }
 

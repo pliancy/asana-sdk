@@ -27,7 +27,7 @@ import { WorkspaceCompact } from './workspace-compact';
  */
 export interface ProjectResponseAllOf {
     /**
-     * Array of Custom Fields.
+     * Array of custom field values applied directly to the project itself. These represent the values set on the project, not the fields available for tasks in the project.
      * @type {Array<CustomFieldCompact>}
      * @memberof ProjectResponseAllOf
      */
@@ -69,12 +69,6 @@ export interface ProjectResponseAllOf {
      */
     'team'?: TeamCompact & object;
     /**
-     * The icon for a project.
-     * @type {string}
-     * @memberof ProjectResponseAllOf
-     */
-    'icon'?: ProjectResponseAllOfIconEnum;
-    /**
      * A url that points directly to the object within Asana.
      * @type {string}
      * @memberof ProjectResponseAllOf
@@ -99,44 +93,4 @@ export interface ProjectResponseAllOf {
      */
     'workspace'?: WorkspaceCompact & object;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ProjectResponseAllOfIconEnum {
-    List = 'list',
-    Board = 'board',
-    Timeline = 'timeline',
-    Calendar = 'calendar',
-    Rocket = 'rocket',
-    People = 'people',
-    Graph = 'graph',
-    Star = 'star',
-    Bug = 'bug',
-    LightBulb = 'light_bulb',
-    Globe = 'globe',
-    Gear = 'gear',
-    Notebook = 'notebook',
-    Computer = 'computer',
-    Check = 'check',
-    Target = 'target',
-    Html = 'html',
-    Megaphone = 'megaphone',
-    ChatBubbles = 'chat_bubbles',
-    Briefcase = 'briefcase',
-    PageLayout = 'page_layout',
-    MountainFlag = 'mountain_flag',
-    Puzzle = 'puzzle',
-    Presentation = 'presentation',
-    LineAndSymbols = 'line_and_symbols',
-    SpeedDial = 'speed_dial',
-    Ribbon = 'ribbon',
-    Shoe = 'shoe',
-    ShoppingBasket = 'shopping_basket',
-    Map = 'map',
-    Ticket = 'ticket',
-    Coins = 'coins'
-}
-
 

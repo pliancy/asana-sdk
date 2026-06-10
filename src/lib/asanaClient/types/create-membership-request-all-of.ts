@@ -27,15 +27,16 @@ export interface CreateMembershipRequestAllOf {
      */
     'member'?: string;
     /**
-     * The gid of the `goal` or `project` to add the member to.
+     * The gid of the `goal`, `project`, or `portfolio` to add the member to.
      * @type {string}
      * @memberof CreateMembershipRequestAllOf
      */
     'parent'?: string;
     /**
-     * The role given to the member. Optional argument, will default to `commenter` for goals and the default project role for projects. Can be `editor` or `commenter` for goals. Can be `admin`,`editor` or `commenter` for projects.
+     * *Deprecated: new integrations should use access_level* The role given to the member. Optional argument, will default to `commenter` for goals and the default project role for projects. Can be `editor` or `commenter` for goals. Can be `admin`,`editor` or `commenter` for projects.
      * @type {string}
      * @memberof CreateMembershipRequestAllOf
+     * @deprecated
      */
     'role'?: string;
 }

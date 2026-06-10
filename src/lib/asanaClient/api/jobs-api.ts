@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20013 } from '../types';
+import { InlineResponse20023 } from '../types';
 /**
  * JobsApi - axios parameter creator
  * @export
@@ -31,15 +31,15 @@ import { InlineResponse20013 } from '../types';
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the full record for a job.
+         * <b>Required scope: </b><code>jobs:read</code>  <table>   <tr>     <th>Field</th>     <th>Required Scope</th>   </tr>   <tr>     <td><code>new_task_template</code></td>     <td><code>task_templates:read</code></td>   </tr>   <tr>     <td><code>new_portfolio</code></td>     <td><code>portfolios:read</code></td>   </tr>   <tr>     <td><code>new_project</code></td>     <td><code>projects:read</code></td>   </tr>   <tr>     <td><code>new_task</code></td>     <td><code>tasks:read</code></td>   </tr>   <tr>     <td><code>new_project_template</code></td>     <td><code>project_templates:read</code></td>   </tr> </table>  Returns the full record for a job.
          * @summary Get a job by id
          * @param {string} jobGid Globally unique identifier for the job.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getJob: async (jobGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getJob: async (jobGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'jobGid' is not null or undefined
             assertParamExists('getJob', 'jobGid', jobGid)
             const localVarPath = `/jobs/{job_gid}`
@@ -57,7 +57,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["jobs:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -93,15 +93,15 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the full record for a job.
+         * <b>Required scope: </b><code>jobs:read</code>  <table>   <tr>     <th>Field</th>     <th>Required Scope</th>   </tr>   <tr>     <td><code>new_task_template</code></td>     <td><code>task_templates:read</code></td>   </tr>   <tr>     <td><code>new_portfolio</code></td>     <td><code>portfolios:read</code></td>   </tr>   <tr>     <td><code>new_project</code></td>     <td><code>projects:read</code></td>   </tr>   <tr>     <td><code>new_task</code></td>     <td><code>tasks:read</code></td>   </tr>   <tr>     <td><code>new_project_template</code></td>     <td><code>project_templates:read</code></td>   </tr> </table>  Returns the full record for a job.
          * @summary Get a job by id
          * @param {string} jobGid Globally unique identifier for the job.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
+        async getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getJob(jobGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -116,15 +116,15 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
-         * Returns the full record for a job.
+         * <b>Required scope: </b><code>jobs:read</code>  <table>   <tr>     <th>Field</th>     <th>Required Scope</th>   </tr>   <tr>     <td><code>new_task_template</code></td>     <td><code>task_templates:read</code></td>   </tr>   <tr>     <td><code>new_portfolio</code></td>     <td><code>portfolios:read</code></td>   </tr>   <tr>     <td><code>new_project</code></td>     <td><code>projects:read</code></td>   </tr>   <tr>     <td><code>new_task</code></td>     <td><code>tasks:read</code></td>   </tr>   <tr>     <td><code>new_project_template</code></td>     <td><code>project_templates:read</code></td>   </tr> </table>  Returns the full record for a job.
          * @summary Get a job by id
          * @param {string} jobGid Globally unique identifier for the job.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, options?: any): AxiosPromise<InlineResponse20013> {
+        getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, options?: any): AxiosPromise<InlineResponse20023> {
             return localVarFp.getJob(jobGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -138,16 +138,16 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
-     * Returns the full record for a job.
+     * <b>Required scope: </b><code>jobs:read</code>  <table>   <tr>     <th>Field</th>     <th>Required Scope</th>   </tr>   <tr>     <td><code>new_task_template</code></td>     <td><code>task_templates:read</code></td>   </tr>   <tr>     <td><code>new_portfolio</code></td>     <td><code>portfolios:read</code></td>   </tr>   <tr>     <td><code>new_project</code></td>     <td><code>projects:read</code></td>   </tr>   <tr>     <td><code>new_task</code></td>     <td><code>tasks:read</code></td>   </tr>   <tr>     <td><code>new_project_template</code></td>     <td><code>project_templates:read</code></td>   </tr> </table>  Returns the full record for a job.
      * @summary Get a job by id
      * @param {string} jobGid Globally unique identifier for the job.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof JobsApi
      */
-    public getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'new_task_template' | 'new_task_template.name' | 'resource_subtype' | 'status'>, options?: AxiosRequestConfig) {
+    public getJob(jobGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, options?: AxiosRequestConfig) {
         return JobsApiFp(this.configuration).getJob(jobGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

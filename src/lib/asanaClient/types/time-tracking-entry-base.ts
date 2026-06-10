@@ -13,7 +13,9 @@
  */
 
 
+import { ProjectCompact } from './project-compact';
 import { TaskCompact } from './task-compact';
+import { TimeTrackingCategoryCompact } from './time-tracking-category-compact';
 import { TimeTrackingEntryBaseAllOf } from './time-tracking-entry-base-all-of';
 import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 import { UserCompact } from './user-compact';

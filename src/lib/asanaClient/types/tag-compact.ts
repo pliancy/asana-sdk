@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { TagCompactAllOf } from './tag-compact-all-of';
 
 /**
- * @type TagCompact
+ * A *tag* is a label that can be attached to any task in Asana. It exists in a single workspace or organization.
  * @export
+ * @interface TagCompact
  */
-export type TagCompact = AsanaResource & TagCompactAllOf;
-
+export interface TagCompact {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TagCompact
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TagCompact
+     */
+    'resource_type'?: string;
+    /**
+     * Name of the tag. This is generally a short sentence fragment that fits on a line in the UI for maximum readability. However, it can be longer.
+     * @type {string}
+     * @memberof TagCompact
+     */
+    'name'?: string;
+}
 

@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { StoryCompact } from './story-compact';
+import { ProjectPortfolioSettingCompact } from './project-portfolio-setting-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { StoryCompact } from './story-compact';
 export interface InlineResponse20035 {
     /**
      * 
-     * @type {Array<StoryCompact>}
+     * @type {Array<ProjectPortfolioSettingCompact>}
      * @memberof InlineResponse20035
      */
-    'data'?: Array<StoryCompact>;
+    'data'?: Array<ProjectPortfolioSettingCompact>;
     /**
      * 
      * @type {NextPage}

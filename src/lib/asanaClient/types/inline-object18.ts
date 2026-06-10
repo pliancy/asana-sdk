@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { GoalMetricBase } from './goal-metric-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject18 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {GoalMetricBase}
      * @memberof InlineObject18
      */
-    'data'?: PortfolioRequest;
+    'data'?: GoalMetricBase;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { GoalRemoveSupportingRelationshipRequest } from './goal-remove-supporting-relationship-request';
+import { EnumOptionRequest } from './enum-option-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { GoalRemoveSupportingRelationshipRequest } from './goal-remove-supportin
 export interface InlineObject8 {
     /**
      * 
-     * @type {GoalRemoveSupportingRelationshipRequest}
+     * @type {EnumOptionRequest}
      * @memberof InlineObject8
      */
-    'data'?: GoalRemoveSupportingRelationshipRequest;
+    'data'?: EnumOptionRequest;
 }
 

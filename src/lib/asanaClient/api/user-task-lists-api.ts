@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20048 } from '../types';
+import { InlineResponse20068 } from '../types';
 /**
  * UserTaskListsApi - axios parameter creator
  * @export
@@ -31,11 +31,11 @@ import { InlineResponse20048 } from '../types';
 export const UserTaskListsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the full record for a user task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -57,7 +57,7 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tasks:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -83,12 +83,12 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns the full record for a user\'s task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user\'s task list.
          * @summary Get a user\'s task list
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -112,7 +112,7 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["tasks:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -152,29 +152,29 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UserTaskListsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the full record for a user task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskList(userTaskListGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the full record for a user\'s task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user\'s task list.
          * @summary Get a user\'s task list
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -189,28 +189,28 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
     const localVarFp = UserTaskListsApiFp(configuration)
     return {
         /**
-         * Returns the full record for a user task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20048> {
+        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20068> {
             return localVarFp.getUserTaskList(userTaskListGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the full record for a user\'s task list.
+         * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user\'s task list.
          * @summary Get a user\'s task list
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20048> {
+        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20068> {
             return localVarFp.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -224,11 +224,11 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
  */
 export class UserTaskListsApi extends BaseAPI {
     /**
-     * Returns the full record for a user task list.
+     * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.
      * @summary Get a user task list
      * @param {string} userTaskListGid Globally unique identifier for the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi
@@ -238,12 +238,12 @@ export class UserTaskListsApi extends BaseAPI {
     }
 
     /**
-     * Returns the full record for a user\'s task list.
+     * <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user\'s task list.
      * @summary Get a user\'s task list
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {string} workspace The workspace in which to get the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi

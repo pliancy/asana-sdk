@@ -13,7 +13,7 @@
  */
 
 
-import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-request';
+import { AddMembersRequest } from './add-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-
 export interface InlineObject50 {
     /**
      * 
-     * @type {TagCreateTagForWorkspaceRequest}
+     * @type {AddMembersRequest}
      * @memberof InlineObject50
      */
-    'data'?: TagCreateTagForWorkspaceRequest;
+    'data'?: AddMembersRequest;
 }
 

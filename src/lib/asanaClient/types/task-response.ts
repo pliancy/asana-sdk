@@ -15,6 +15,8 @@
 
 import { AsanaResource } from './asana-resource';
 import { CustomFieldResponse } from './custom-field-response';
+import { CustomTypeCompact } from './custom-type-compact';
+import { CustomTypeStatusOptionCompact } from './custom-type-status-option-compact';
 import { Like } from './like';
 import { ProjectCompact } from './project-compact';
 import { SectionCompact } from './section-compact';
@@ -23,7 +25,7 @@ import { TaskBase } from './task-base';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
 import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
 import { TaskCompact } from './task-compact';
-import { TaskCompactAllOfCreatedBy } from './task-compact-all-of-created-by';
+import { TaskCompactCreatedBy } from './task-compact-created-by';
 import { TaskResponseAllOf } from './task-response-all-of';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';

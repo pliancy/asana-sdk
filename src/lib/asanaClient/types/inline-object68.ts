@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRequest } from './team-request';
+import { TagCreateRequest } from './tag-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRequest } from './team-request';
 export interface InlineObject68 {
     /**
      * 
-     * @type {TeamRequest}
+     * @type {TagCreateRequest}
      * @memberof InlineObject68
      */
-    'data'?: TeamRequest;
+    'data'?: TagCreateRequest;
 }
 

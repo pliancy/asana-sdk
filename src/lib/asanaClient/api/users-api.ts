@@ -23,11 +23,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20049 } from '../types';
+import { InlineObject97 } from '../types';
 // @ts-ignore
-import { InlineResponse20050 } from '../types';
+import { InlineObject98 } from '../types';
 // @ts-ignore
-import { InlineResponse20051 } from '../types';
+import { InlineResponse20069 } from '../types';
+// @ts-ignore
+import { InlineResponse20070 } from '../types';
+// @ts-ignore
+import { InlineResponse20071 } from '../types';
+// @ts-ignore
+import { InlineResponse20072 } from '../types';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -35,15 +41,15 @@ import { InlineResponse20051 } from '../types';
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
+         * <b>Required scope: </b><code>users:read</code>  Returns all of a user\'s favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user\'s Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -69,7 +75,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -111,15 +117,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns the full user record for the single user with the provided ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser: async (userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUser: async (userGid: string, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userGid' is not null or undefined
             assertParamExists('getUser', 'userGid', userGid)
             const localVarPath = `/users/{user_gid}`
@@ -137,7 +144,67 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (workspace !== undefined) {
+                localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID in the specified workspace or organization.
+         * @summary Get a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserForWorkspace: async (workspaceGid: string, userGid: string, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workspaceGid' is not null or undefined
+            assertParamExists('getUserForWorkspace', 'workspaceGid', workspaceGid)
+            // verify required parameter 'userGid' is not null or undefined
+            assertParamExists('getUserForWorkspace', 'userGid', userGid)
+            const localVarPath = `/workspaces/{workspace_gid}/users/{user_gid}`
+                .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)))
+                .replace(`{${"user_gid"}}`, encodeURIComponent(String(userGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -163,18 +230,18 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
          * @summary Get multiple users
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers: async (workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsers: async (workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -189,7 +256,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -231,16 +298,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam: async (teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsersForTeam: async (teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamGid' is not null or undefined
             assertParamExists('getUsersForTeam', 'teamGid', teamGid)
             const localVarPath = `/teams/{team_gid}/users`
@@ -258,7 +325,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -288,16 +355,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace: async (workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsersForWorkspace: async (workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('getUsersForWorkspace', 'workspaceGid', workspaceGid)
             const localVarPath = `/workspaces/{workspace_gid}/users`
@@ -315,7 +382,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -344,6 +411,131 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * A specific, existing user can be updated by making a PUT request on the URL for that user. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated user record.
+         * @summary Update a user
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject97} inlineObject97 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUser: async (userGid: string, inlineObject97: InlineObject97, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userGid' is not null or undefined
+            assertParamExists('updateUser', 'userGid', userGid)
+            // verify required parameter 'inlineObject97' is not null or undefined
+            assertParamExists('updateUser', 'inlineObject97', inlineObject97)
+            const localVarPath = `/users/{user_gid}`
+                .replace(`{${"user_gid"}}`, encodeURIComponent(String(userGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (workspace !== undefined) {
+                localVarQueryParameter['workspace'] = workspace;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject97, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * An existing user can be updated by making a PUT request on the URL for that user in the specified workspace or organization. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.
+         * @summary Update a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject98} inlineObject98 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserForWorkspace: async (workspaceGid: string, userGid: string, inlineObject98: InlineObject98, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workspaceGid' is not null or undefined
+            assertParamExists('updateUserForWorkspace', 'workspaceGid', workspaceGid)
+            // verify required parameter 'userGid' is not null or undefined
+            assertParamExists('updateUserForWorkspace', 'userGid', userGid)
+            // verify required parameter 'inlineObject98' is not null or undefined
+            assertParamExists('updateUserForWorkspace', 'inlineObject98', inlineObject98)
+            const localVarPath = `/workspaces/{workspace_gid}/users/{user_gid}`
+                .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)))
+                .replace(`{${"user_gid"}}`, encodeURIComponent(String(userGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (optFields) {
+                localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject98, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -355,77 +547,122 @@ export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
+         * <b>Required scope: </b><code>users:read</code>  Returns all of a user\'s favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user\'s Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
+        async getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20071>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the full user record for the single user with the provided ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userGid, optPretty, optFields, options);
+        async getUser(userGid: string, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(userGid, optPretty, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID in the specified workspace or organization.
+         * @summary Get a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUserForWorkspace(workspaceGid: string, userGid: string, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserForWorkspace(workspaceGid, userGid, optPretty, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
          * @summary Get multiple users
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ErrorResponse>> {
+        async getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20069>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(workspace, team, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
+        async getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20072>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForTeam(teamGid, optPretty, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
+        async getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20072>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * A specific, existing user can be updated by making a PUT request on the URL for that user. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated user record.
+         * @summary Update a user
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject97} inlineObject97 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateUser(userGid: string, inlineObject97: InlineObject97, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(userGid, inlineObject97, optPretty, workspace, optFields, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * An existing user can be updated by making a PUT request on the URL for that user in the specified workspace or organization. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.
+         * @summary Update a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject98} inlineObject98 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateUserForWorkspace(workspaceGid: string, userGid: string, inlineObject98: InlineObject98, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserForWorkspace(workspaceGid, userGid, inlineObject98, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -439,73 +676,115 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = UsersApiFp(configuration)
     return {
         /**
-         * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
+         * <b>Required scope: </b><code>users:read</code>  Returns all of a user\'s favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user\'s Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
          * @summary Get a user\'s favorites
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
          * @param {string} workspace The workspace in which to get favorites.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20050> {
+        getFavoritesForUser(userGid: string, resourceType: 'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template', workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20071> {
             return localVarFp.getFavoritesForUser(userGid, resourceType, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the full user record for the single user with the provided ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.
          * @summary Get a user
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20049> {
-            return localVarFp.getUser(userGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        getUser(userGid: string, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20070> {
+            return localVarFp.getUser(userGid, optPretty, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
+         * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID in the specified workspace or organization.
+         * @summary Get a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserForWorkspace(workspaceGid: string, userGid: string, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20070> {
+            return localVarFp.getUserForWorkspace(workspaceGid, userGid, optPretty, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
          * @summary Get multiple users
          * @param {string} [workspace] The workspace or organization ID to filter users on.
          * @param {string} [team] The team ID to filter users on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<ErrorResponse> {
+        getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20069> {
             return localVarFp.getUsers(workspace, team, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a team
          * @param {string} teamGid Globally unique identifier for the team.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20051> {
+        getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20072> {
             return localVarFp.getUsersForTeam(teamGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+         * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
          * @summary Get users in a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20051> {
+        getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20072> {
             return localVarFp.getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A specific, existing user can be updated by making a PUT request on the URL for that user. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated user record.
+         * @summary Update a user
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject97} inlineObject97 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {string} [workspace] The workspace to filter results on.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUser(userGid: string, inlineObject97: InlineObject97, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20070> {
+            return localVarFp.updateUser(userGid, inlineObject97, optPretty, workspace, optFields, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * An existing user can be updated by making a PUT request on the URL for that user in the specified workspace or organization. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.
+         * @summary Update a user in a workspace or organization
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+         * @param {InlineObject98} inlineObject98 
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserForWorkspace(workspaceGid: string, userGid: string, inlineObject98: InlineObject98, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: any): AxiosPromise<InlineResponse20070> {
+            return localVarFp.updateUserForWorkspace(workspaceGid, userGid, inlineObject98, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -518,15 +797,15 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
  */
 export class UsersApi extends BaseAPI {
     /**
-     * Returns all of a user\'s favorites in the given workspace, of the given type. Results are given in order (The same order as Asana\'s sidebar).
+     * <b>Required scope: </b><code>users:read</code>  Returns all of a user\'s favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user\'s Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
      * @summary Get a user\'s favorites
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {'portfolio' | 'project' | 'tag' | 'task' | 'user' | 'project_template'} resourceType The resource type of favorites to be returned.
      * @param {string} workspace The workspace in which to get favorites.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
@@ -536,63 +815,111 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
-     * Returns the full user record for the single user with the provided ID.
+     * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.
      * @summary Get a user
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [workspace] The workspace to filter results on.
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUser(userGid: string, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUser(userGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getUser(userGid: string, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getUser(userGid, optPretty, workspace, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
+     * <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID in the specified workspace or organization.
+     * @summary Get a user in a workspace or organization
+     * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+     * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserForWorkspace(workspaceGid: string, userGid: string, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getUserForWorkspace(workspaceGid, userGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
      * @summary Get multiple users
      * @param {string} [workspace] The workspace or organization ID to filter users on.
      * @param {string} [team] The team ID to filter users on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+    public getUsers(workspace?: string, team?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'offset' | 'path' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'uri' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUsers(workspace, team, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+     * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
      * @summary Get users in a team
      * @param {string} teamGid Globally unique identifier for the team.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+    public getUsersForTeam(teamGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUsersForTeam(teamGid, optPretty, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+     * <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
      * @summary Get users in a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+    public getUsersForWorkspace(workspaceGid: string, optPretty?: boolean, offset?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUsersForWorkspace(workspaceGid, optPretty, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A specific, existing user can be updated by making a PUT request on the URL for that user. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated user record.
+     * @summary Update a user
+     * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+     * @param {InlineObject97} inlineObject97 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {string} [workspace] The workspace to filter results on.
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateUser(userGid: string, inlineObject97: InlineObject97, optPretty?: boolean, workspace?: string, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).updateUser(userGid, inlineObject97, optPretty, workspace, optFields, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * An existing user can be updated by making a PUT request on the URL for that user in the specified workspace or organization. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.
+     * @summary Update a user in a workspace or organization
+     * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+     * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
+     * @param {InlineObject98} inlineObject98 
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateUserForWorkspace(workspaceGid: string, userGid: string, inlineObject98: InlineObject98, optPretty?: boolean, optFields?: Array<'custom_fields' | 'custom_fields.date_value' | 'custom_fields.date_value.date' | 'custom_fields.date_value.date_time' | 'custom_fields.display_value' | 'custom_fields.enabled' | 'custom_fields.enum_options' | 'custom_fields.enum_options.color' | 'custom_fields.enum_options.enabled' | 'custom_fields.enum_options.name' | 'custom_fields.enum_value' | 'custom_fields.enum_value.color' | 'custom_fields.enum_value.enabled' | 'custom_fields.enum_value.name' | 'custom_fields.id_prefix' | 'custom_fields.input_restrictions' | 'custom_fields.is_formula_field' | 'custom_fields.multi_enum_values' | 'custom_fields.multi_enum_values.color' | 'custom_fields.multi_enum_values.enabled' | 'custom_fields.multi_enum_values.name' | 'custom_fields.name' | 'custom_fields.number_value' | 'custom_fields.representation_type' | 'custom_fields.text_value' | 'custom_fields.type' | 'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60' | 'workspaces' | 'workspaces.name'>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).updateUserForWorkspace(workspaceGid, userGid, inlineObject98, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

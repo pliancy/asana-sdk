@@ -23,19 +23,21 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject75 } from '../types';
+import { InlineObject101 } from '../types';
 // @ts-ignore
-import { InlineObject76 } from '../types';
+import { InlineObject102 } from '../types';
 // @ts-ignore
-import { InlineObject77 } from '../types';
+import { InlineObject103 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20055 } from '../types';
+import { InlineResponse20016 } from '../types';
 // @ts-ignore
-import { InlineResponse20056 } from '../types';
+import { InlineResponse20077 } from '../types';
 // @ts-ignore
-import { InlineResponse20057 } from '../types';
+import { InlineResponse20078 } from '../types';
+// @ts-ignore
+import { InlineResponse20079 } from '../types';
 /**
  * WorkspacesApi - axios parameter creator
  * @export
@@ -46,17 +48,17 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject76} inlineObject76 
+         * @param {InlineObject102} inlineObject102 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForWorkspace: async (workspaceGid: string, inlineObject76: InlineObject76, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addUserForWorkspace: async (workspaceGid: string, inlineObject102: InlineObject102, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('addUserForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject76' is not null or undefined
-            assertParamExists('addUserForWorkspace', 'inlineObject76', inlineObject76)
+            // verify required parameter 'inlineObject102' is not null or undefined
+            assertParamExists('addUserForWorkspace', 'inlineObject102', inlineObject102)
             const localVarPath = `/workspaces/{workspace_gid}/addUser`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -93,7 +95,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject76, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject102, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -101,11 +103,11 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Returns the full workspace record for a single workspace.
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.
          * @summary Get a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -127,7 +129,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["workspaces:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -153,12 +155,64 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Returns the compact records for all workspaces visible to the authorized user.
+         * Returns the full record for all events that have occurred since the sync token was created. The response is a list of events and the schema of each event is as described [here](/reference/events). Asana limits a single sync token to 1000 events. If more than 1000 events exist for a given domain, `has_more: true` will be returned in the response, indicating that there are more events to pull.
+         * @summary Get workspace events
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token. If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkspaceEvents: async (workspaceGid: string, optPretty?: boolean, sync?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workspaceGid' is not null or undefined
+            assertParamExists('getWorkspaceEvents', 'workspaceGid', workspaceGid)
+            const localVarPath = `/workspaces/{workspace_gid}/events`
+                .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication personalAccessToken required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (optPretty !== undefined) {
+                localVarQueryParameter['opt_pretty'] = optPretty;
+            }
+
+            if (sync !== undefined) {
+                localVarQueryParameter['sync'] = sync;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.
          * @summary Get multiple workspaces
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -177,7 +231,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["workspaces:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -211,19 +265,19 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
+         * Remove a user from a workspace or organization.  The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address.  When invoked using a **Service Account Token (SAT)**, this endpoint follows the same behavior as the [SCIM API Delete endpoint](/docs/scim). To learn more about how Asana handles user deprovisioning, refer to our [Help Center article on deprovisioning users](https://help.asana.com/s/article/user-deprovisioning).  When invoked using a **Personal Access Token (PAT)**, the endpoint behaves similarly, except that ownership of the user’s resources is transferred to the **PAT owner** instead of the admin [specified in the Admin Console](https://help.asana.com/s/article/user-deprovisioning#gl-deprovisioning).  **Note:** If you wish to retain access to a user’s private resources (i.e., those visible only to that user), you have to make them public manually (or ask the user to do so) before removal.  Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject77} inlineObject77 
+         * @param {InlineObject103} inlineObject103 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForWorkspace: async (workspaceGid: string, inlineObject77: InlineObject77, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeUserForWorkspace: async (workspaceGid: string, inlineObject103: InlineObject103, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('removeUserForWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject77' is not null or undefined
-            assertParamExists('removeUserForWorkspace', 'inlineObject77', inlineObject77)
+            // verify required parameter 'inlineObject103' is not null or undefined
+            assertParamExists('removeUserForWorkspace', 'inlineObject103', inlineObject103)
             const localVarPath = `/workspaces/{workspace_gid}/removeUser`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -256,7 +310,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject77, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject103, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -267,17 +321,17 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject75} inlineObject75 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkspace: async (workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWorkspace: async (workspaceGid: string, inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workspaceGid' is not null or undefined
             assertParamExists('updateWorkspace', 'workspaceGid', workspaceGid)
-            // verify required parameter 'inlineObject75' is not null or undefined
-            assertParamExists('updateWorkspace', 'inlineObject75', inlineObject75)
+            // verify required parameter 'inlineObject101' is not null or undefined
+            assertParamExists('updateWorkspace', 'inlineObject101', inlineObject101)
             const localVarPath = `/workspaces/{workspace_gid}`
                 .replace(`{${"workspace_gid"}}`, encodeURIComponent(String(workspaceGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -314,7 +368,7 @@ export const WorkspacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject75, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject101, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -335,68 +389,81 @@ export const WorkspacesApiFp = function(configuration?: Configuration) {
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject76} inlineObject76 
+         * @param {InlineObject102} inlineObject102 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserForWorkspace(workspaceGid: string, inlineObject76: InlineObject76, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20057>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForWorkspace(workspaceGid, inlineObject76, optPretty, optFields, options);
+        async addUserForWorkspace(workspaceGid: string, inlineObject102: InlineObject102, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20079>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addUserForWorkspace(workspaceGid, inlineObject102, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the full workspace record for a single workspace.
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.
          * @summary Get a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
+        async getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20078>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspace(workspaceGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact records for all workspaces visible to the authorized user.
-         * @summary Get multiple workspaces
+         * Returns the full record for all events that have occurred since the sync token was created. The response is a list of events and the schema of each event is as described [here](/reference/events). Asana limits a single sync token to 1000 events. If more than 1000 events exist for a given domain, `has_more: true` will be returned in the response, indicating that there are more events to pull.
+         * @summary Get workspace events
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token. If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
+        async getWorkspaceEvents(workspaceGid: string, optPretty?: boolean, sync?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaceEvents(workspaceGid, optPretty, sync, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.
+         * @summary Get multiple workspaces
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20077>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkspaces(optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
+         * Remove a user from a workspace or organization.  The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address.  When invoked using a **Service Account Token (SAT)**, this endpoint follows the same behavior as the [SCIM API Delete endpoint](/docs/scim). To learn more about how Asana handles user deprovisioning, refer to our [Help Center article on deprovisioning users](https://help.asana.com/s/article/user-deprovisioning).  When invoked using a **Personal Access Token (PAT)**, the endpoint behaves similarly, except that ownership of the user’s resources is transferred to the **PAT owner** instead of the admin [specified in the Admin Console](https://help.asana.com/s/article/user-deprovisioning#gl-deprovisioning).  **Note:** If you wish to retain access to a user’s private resources (i.e., those visible only to that user), you have to make them public manually (or ask the user to do so) before removal.  Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject77} inlineObject77 
+         * @param {InlineObject103} inlineObject103 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeUserForWorkspace(workspaceGid: string, inlineObject77: InlineObject77, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForWorkspace(workspaceGid, inlineObject77, optPretty, options);
+        async removeUserForWorkspace(workspaceGid: string, inlineObject103: InlineObject103, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeUserForWorkspace(workspaceGid, inlineObject103, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject75} inlineObject75 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkspace(workspaceGid, inlineObject75, optPretty, optFields, options);
+        async updateWorkspace(workspaceGid: string, inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20078>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkspace(workspaceGid, inlineObject101, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -413,64 +480,76 @@ export const WorkspacesApiFactory = function (configuration?: Configuration, bas
          * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
          * @summary Add a user to a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject76} inlineObject76 
+         * @param {InlineObject102} inlineObject102 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserForWorkspace(workspaceGid: string, inlineObject76: InlineObject76, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: any): AxiosPromise<InlineResponse20057> {
-            return localVarFp.addUserForWorkspace(workspaceGid, inlineObject76, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addUserForWorkspace(workspaceGid: string, inlineObject102: InlineObject102, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: any): AxiosPromise<InlineResponse20079> {
+            return localVarFp.addUserForWorkspace(workspaceGid, inlineObject102, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the full workspace record for a single workspace.
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.
          * @summary Get a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20056> {
+        getWorkspace(workspaceGid: string, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20078> {
             return localVarFp.getWorkspace(workspaceGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact records for all workspaces visible to the authorized user.
+         * Returns the full record for all events that have occurred since the sync token was created. The response is a list of events and the schema of each event is as described [here](/reference/events). Asana limits a single sync token to 1000 events. If more than 1000 events exist for a given domain, `has_more: true` will be returned in the response, indicating that there are more events to pull.
+         * @summary Get workspace events
+         * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+         * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+         * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token. If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkspaceEvents(workspaceGid: string, optPretty?: boolean, sync?: string, options?: any): AxiosPromise<InlineResponse20016> {
+            return localVarFp.getWorkspaceEvents(workspaceGid, optPretty, sync, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.
          * @summary Get multiple workspaces
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+         * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20055> {
+        getWorkspaces(optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20077> {
             return localVarFp.getWorkspaces(optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
+         * Remove a user from a workspace or organization.  The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address.  When invoked using a **Service Account Token (SAT)**, this endpoint follows the same behavior as the [SCIM API Delete endpoint](/docs/scim). To learn more about how Asana handles user deprovisioning, refer to our [Help Center article on deprovisioning users](https://help.asana.com/s/article/user-deprovisioning).  When invoked using a **Personal Access Token (PAT)**, the endpoint behaves similarly, except that ownership of the user’s resources is transferred to the **PAT owner** instead of the admin [specified in the Admin Console](https://help.asana.com/s/article/user-deprovisioning#gl-deprovisioning).  **Note:** If you wish to retain access to a user’s private resources (i.e., those visible only to that user), you have to make them public manually (or ask the user to do so) before removal.  Returns an empty data record.
          * @summary Remove a user from a workspace or organization
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject77} inlineObject77 
+         * @param {InlineObject103} inlineObject103 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeUserForWorkspace(workspaceGid: string, inlineObject77: InlineObject77, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeUserForWorkspace(workspaceGid, inlineObject77, optPretty, options).then((request) => request(axios, basePath));
+        removeUserForWorkspace(workspaceGid: string, inlineObject103: InlineObject103, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeUserForWorkspace(workspaceGid, inlineObject103, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
          * @summary Update a workspace
          * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-         * @param {InlineObject75} inlineObject75 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20056> {
-            return localVarFp.updateWorkspace(workspaceGid, inlineObject75, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateWorkspace(workspaceGid: string, inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: any): AxiosPromise<InlineResponse20078> {
+            return localVarFp.updateWorkspace(workspaceGid, inlineObject101, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -486,23 +565,23 @@ export class WorkspacesApi extends BaseAPI {
      * Add a user to a workspace or organization. The user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.
      * @summary Add a user to a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject76} inlineObject76 
+     * @param {InlineObject102} inlineObject102 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public addUserForWorkspace(workspaceGid: string, inlineObject76: InlineObject76, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).addUserForWorkspace(workspaceGid, inlineObject76, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addUserForWorkspace(workspaceGid: string, inlineObject102: InlineObject102, optPretty?: boolean, optFields?: Array<'email' | 'name' | 'photo' | 'photo.image_1024x1024' | 'photo.image_128x128' | 'photo.image_21x21' | 'photo.image_27x27' | 'photo.image_36x36' | 'photo.image_60x60'>, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).addUserForWorkspace(workspaceGid, inlineObject102, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the full workspace record for a single workspace.
+     * <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.
      * @summary Get a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
@@ -512,12 +591,26 @@ export class WorkspacesApi extends BaseAPI {
     }
 
     /**
-     * Returns the compact records for all workspaces visible to the authorized user.
+     * Returns the full record for all events that have occurred since the sync token was created. The response is a list of events and the schema of each event is as described [here](/reference/events). Asana limits a single sync token to 1000 events. If more than 1000 events exist for a given domain, `has_more: true` will be returned in the response, indicating that there are more events to pull.
+     * @summary Get workspace events
+     * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
+     * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+     * @param {string} [sync] A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token. If the sync token is too old (which may happen from time to time) the API will return a &#x60;412 Precondition Failed&#x60; error, and include a fresh sync token in the response.*
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkspacesApi
+     */
+    public getWorkspaceEvents(workspaceGid: string, optPretty?: boolean, sync?: string, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).getWorkspaceEvents(workspaceGid, optPretty, sync, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.
      * @summary Get multiple workspaces
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
-     * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+     * @param {Array<'email_domains' | 'is_organization' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
@@ -527,31 +620,31 @@ export class WorkspacesApi extends BaseAPI {
     }
 
     /**
-     * Remove a user from a workspace or organization. The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address. Returns an empty data record.
+     * Remove a user from a workspace or organization.  The user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address.  When invoked using a **Service Account Token (SAT)**, this endpoint follows the same behavior as the [SCIM API Delete endpoint](/docs/scim). To learn more about how Asana handles user deprovisioning, refer to our [Help Center article on deprovisioning users](https://help.asana.com/s/article/user-deprovisioning).  When invoked using a **Personal Access Token (PAT)**, the endpoint behaves similarly, except that ownership of the user’s resources is transferred to the **PAT owner** instead of the admin [specified in the Admin Console](https://help.asana.com/s/article/user-deprovisioning#gl-deprovisioning).  **Note:** If you wish to retain access to a user’s private resources (i.e., those visible only to that user), you have to make them public manually (or ask the user to do so) before removal.  Returns an empty data record.
      * @summary Remove a user from a workspace or organization
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject77} inlineObject77 
+     * @param {InlineObject103} inlineObject103 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public removeUserForWorkspace(workspaceGid: string, inlineObject77: InlineObject77, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).removeUserForWorkspace(workspaceGid, inlineObject77, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public removeUserForWorkspace(workspaceGid: string, inlineObject103: InlineObject103, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).removeUserForWorkspace(workspaceGid, inlineObject103, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. Currently the only field that can be modified for a workspace is its name. Returns the complete, updated workspace record.
      * @summary Update a workspace
      * @param {string} workspaceGid Globally unique identifier for the workspace or organization.
-     * @param {InlineObject75} inlineObject75 
+     * @param {InlineObject101} inlineObject101 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'email_domains' | 'is_organization' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkspacesApi
      */
-    public updateWorkspace(workspaceGid: string, inlineObject75: InlineObject75, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig) {
-        return WorkspacesApiFp(this.configuration).updateWorkspace(workspaceGid, inlineObject75, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateWorkspace(workspaceGid: string, inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'email_domains' | 'is_organization' | 'name'>, options?: AxiosRequestConfig) {
+        return WorkspacesApiFp(this.configuration).updateWorkspace(workspaceGid, inlineObject101, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

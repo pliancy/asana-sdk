@@ -13,7 +13,7 @@
  */
 
 
-import { UserTaskListCompact } from './user-task-list-compact';
+import { StatusUpdateResponse } from './status-update-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserTaskListCompact } from './user-task-list-compact';
 export interface InlineResponse20048 {
     /**
      * 
-     * @type {UserTaskListCompact}
+     * @type {StatusUpdateResponse}
      * @memberof InlineResponse20048
      */
-    'data'?: UserTaskListCompact;
+    'data'?: StatusUpdateResponse;
 }
 

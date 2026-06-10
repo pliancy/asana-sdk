@@ -13,13 +13,30 @@
  */
 
 
-import { AsanaResource } from './asana-resource';
-import { GoalMetricCurrentValueRequestAllOf } from './goal-metric-current-value-request-all-of';
 
 /**
- * @type GoalMetricCurrentValueRequest
+ * A generic Asana Resource, containing a globally unique identifier.
  * @export
+ * @interface GoalMetricCurrentValueRequest
  */
-export type GoalMetricCurrentValueRequest = AsanaResource & GoalMetricCurrentValueRequestAllOf;
-
+export interface GoalMetricCurrentValueRequest {
+    /**
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof GoalMetricCurrentValueRequest
+     */
+    'gid'?: string;
+    /**
+     * The base type of this resource.
+     * @type {string}
+     * @memberof GoalMetricCurrentValueRequest
+     */
+    'resource_type'?: string;
+    /**
+     * *Conditional*. This number is the current value of a goal metric of type number.
+     * @type {number}
+     * @memberof GoalMetricCurrentValueRequest
+     */
+    'current_number_value'?: number;
+}
 

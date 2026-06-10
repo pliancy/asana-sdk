@@ -15,6 +15,7 @@
 
 import { AuditLogEventActor } from './audit-log-event-actor';
 import { AuditLogEventContext } from './audit-log-event-context';
+import { AuditLogEventDetails } from './audit-log-event-details';
 import { AuditLogEventResource } from './audit-log-event-resource';
 
 /**
@@ -60,11 +61,11 @@ export interface AuditLogEvent {
      */
     'resource'?: AuditLogEventResource;
     /**
-     * Event specific details. The schema will vary depending on the `event_type`.
-     * @type {object}
+     * 
+     * @type {AuditLogEventDetails}
      * @memberof AuditLogEvent
      */
-    'details'?: object;
+    'details'?: AuditLogEventDetails;
     /**
      * 
      * @type {AuditLogEventContext}

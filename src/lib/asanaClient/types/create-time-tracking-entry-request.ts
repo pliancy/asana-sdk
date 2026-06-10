@@ -32,5 +32,40 @@ export interface CreateTimeTrackingEntryRequest {
      * @memberof CreateTimeTrackingEntryRequest
      */
     'entered_on'?: string;
+    /**
+     * *Optional*. The gid of the project which the time is attributable to.
+     * @type {string}
+     * @memberof CreateTimeTrackingEntryRequest
+     */
+    'attributable_to'?: string;
+    /**
+     * *Optional*. The current billable status of the entry.
+     * @type {string}
+     * @memberof CreateTimeTrackingEntryRequest
+     */
+    'billable_status'?: CreateTimeTrackingEntryRequestBillableStatusEnum;
+    /**
+     * *Optional*. The description of the entry.
+     * @type {string}
+     * @memberof CreateTimeTrackingEntryRequest
+     */
+    'description'?: string;
+    /**
+     * *Optional*. The gids of time tracking categories to assign to this time tracking entry. Existing categories will be overridden. Currently limited to a maximum of 1 category.
+     * @type {Array<string>}
+     * @memberof CreateTimeTrackingEntryRequest
+     */
+    'categories'?: Array<string>;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTimeTrackingEntryRequestBillableStatusEnum {
+    Billable = 'billable',
+    NonBillable = 'nonBillable',
+    NotApplicable = 'notApplicable'
+}
+
 

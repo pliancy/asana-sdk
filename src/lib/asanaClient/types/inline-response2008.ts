@@ -13,7 +13,8 @@
  */
 
 
-import { GoalRelationshipResponse } from './goal-relationship-response';
+import { AuditLogEvent } from './audit-log-event';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { GoalRelationshipResponse } from './goal-relationship-response';
 export interface InlineResponse2008 {
     /**
      * 
-     * @type {GoalRelationshipResponse}
+     * @type {Array<AuditLogEvent>}
      * @memberof InlineResponse2008
      */
-    'data'?: GoalRelationshipResponse;
+    'data'?: Array<AuditLogEvent>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse2008
+     */
+    'next_page'?: NextPage | null;
 }
 

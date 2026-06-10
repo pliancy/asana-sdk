@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRequest } from './team-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRequest } from './team-request';
 export interface InlineObject67 {
     /**
      * 
-     * @type {TeamRequest}
+     * @type {StoryBase}
      * @memberof InlineObject67
      */
-    'data'?: TeamRequest;
+    'data'?: StoryBase;
 }
 

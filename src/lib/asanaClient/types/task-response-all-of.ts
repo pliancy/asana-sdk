@@ -14,6 +14,8 @@
 
 
 import { CustomFieldResponse } from './custom-field-response';
+import { CustomTypeCompact } from './custom-type-compact';
+import { CustomTypeStatusOptionCompact } from './custom-type-status-option-compact';
 import { ProjectCompact } from './project-compact';
 import { SectionCompact } from './section-compact';
 import { TagCompact } from './tag-compact';
@@ -40,11 +42,23 @@ export interface TaskResponseAllOf {
      */
     'assignee_section'?: SectionCompact & object;
     /**
-     * Array of custom field values applied to the task. These represent the custom field values recorded on this project for a particular custom field. For example, these custom field values will contain an `enum_value` property for custom fields of type `enum`, a `text_value` property for custom fields of type `text`, and so on. Please note that the `gid` returned on each custom field value *is identical* to the `gid` of the custom field, which allows referencing the custom field metadata through the `/custom_fields/custom_field-gid` endpoint.
+     * Array of custom field values applied to the task. These represent the custom field values recorded on this project for a particular custom field. For example, these custom field values will contain an `enum_value` property for custom fields of type `enum`, a `text_value` property for custom fields of type `text`, and so on. Please note that the `gid` returned on each custom field value *is identical* to the `gid` of the custom field, which allows referencing the custom field metadata through the `/custom_fields/custom_field_gid` endpoint.
      * @type {Array<CustomFieldResponse>}
      * @memberof TaskResponseAllOf
      */
     'custom_fields'?: Array<CustomFieldResponse>;
+    /**
+     * 
+     * @type {CustomTypeCompact}
+     * @memberof TaskResponseAllOf
+     */
+    'custom_type'?: CustomTypeCompact;
+    /**
+     * 
+     * @type {CustomTypeStatusOptionCompact}
+     * @memberof TaskResponseAllOf
+     */
+    'custom_type_status_option'?: CustomTypeStatusOptionCompact;
     /**
      * Array of users following this task.
      * @type {Array<UserCompact>}

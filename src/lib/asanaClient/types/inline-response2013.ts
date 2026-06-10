@@ -13,7 +13,7 @@
  */
 
 
-import { OrganizationExportCompact } from './organization-export-compact';
+import { EnumOption } from './enum-option';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OrganizationExportCompact } from './organization-export-compact';
 export interface InlineResponse2013 {
     /**
      * 
-     * @type {OrganizationExportCompact}
+     * @type {EnumOption}
      * @memberof InlineResponse2013
      */
-    'data'?: OrganizationExportCompact;
+    'data'?: EnumOption;
 }
 

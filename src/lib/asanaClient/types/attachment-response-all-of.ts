@@ -34,13 +34,13 @@ export interface AttachmentResponseAllOf {
      */
     'download_url'?: string | null;
     /**
-     * 
+     * A stable URL for accessing the attachment through the Asana web application. This URL redirects to the file download location (e.g., an S3 link) if the user is authenticated and authorized to view the parent object (e.g., a task). Unauthorized users will receive a `403 Forbidden` response. This link is persistent and does not expire, but requires an active session to resolve.
      * @type {string}
      * @memberof AttachmentResponseAllOf
      */
     'permanent_url'?: string | null;
     /**
-     * The service hosting the attachment. Valid values are `asana`, `dropbox`, `gdrive`, `box`, and `vimeo`.
+     * The service hosting the attachment. Valid values are `asana`, `dropbox`, `gdrive`, `onedrive`, `box`, `vimeo`, and `external`.
      * @type {string}
      * @memberof AttachmentResponseAllOf
      */

@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { ProjectRequest } from './project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject43 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {ProjectRequest}
      * @memberof InlineObject43
      */
-    'data'?: SectionRequest;
+    'data'?: ProjectRequest;
 }
 

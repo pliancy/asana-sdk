@@ -18,6 +18,7 @@ import { EnumOption } from './enum-option';
 import { Like } from './like';
 import { Preview } from './preview';
 import { ProjectCompact } from './project-compact';
+import { ReactionSummaryItemCompact } from './reaction-summary-item-compact';
 import { SectionCompact } from './section-compact';
 import { StoryCompact } from './story-compact';
 import { StoryResponseDates } from './story-response-dates';
@@ -92,19 +93,25 @@ export interface StoryResponseAllOf {
      */
     'num_likes'?: number;
     /**
-     * *Conditional*. A collection of previews to be displayed in the story.  *Note: This property only exists for comment stories.*
+     * Summary of emoji reactions on this story.
+     * @type {Array<ReactionSummaryItemCompact>}
+     * @memberof StoryResponseAllOf
+     */
+    'reaction_summary'?: Array<ReactionSummaryItemCompact>;
+    /**
+     * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>attachments:read</code></p>  *Conditional*. A collection of previews to be displayed in the story.  *Note: This property only exists for comment stories.*
      * @type {Array<Preview>}
      * @memberof StoryResponseAllOf
      */
     'previews'?: Array<Preview>;
     /**
-     * *Conditional*\'
+     * *Conditional* The previous name of the task before a name change.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
     'old_name'?: string;
     /**
-     * *Conditional*
+     * *Conditional* The updated name of the task after a name change.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
@@ -188,25 +195,25 @@ export interface StoryResponseAllOf {
      */
     'custom_field'?: CustomFieldCompact;
     /**
-     * *Conditional*
+     * *Conditional* The previous value of a text-type field before it was updated.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
     'old_text_value'?: string;
     /**
-     * *Conditional*
+     * *Conditional* The new value of a text-type field after it was updated.
      * @type {string}
      * @memberof StoryResponseAllOf
      */
     'new_text_value'?: string;
     /**
-     * *Conditional*
+     * *Conditional* The previous value of a number-type custom field before the update.
      * @type {number}
      * @memberof StoryResponseAllOf
      */
     'old_number_value'?: number | null;
     /**
-     * *Conditional*
+     * *Conditional* The new value of a number-type custom field after the update.
      * @type {number}
      * @memberof StoryResponseAllOf
      */

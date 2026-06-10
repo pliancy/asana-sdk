@@ -13,8 +13,7 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
-import { NextPage } from './next-page';
+import { StoryResponse } from './story-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse20050 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {StoryResponse}
      * @memberof InlineResponse20050
      */
-    'data'?: Array<AsanaNamedResource>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20050
-     */
-    'next_page'?: NextPage | null;
+    'data'?: StoryResponse;
 }
 

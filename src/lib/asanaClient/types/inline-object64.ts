@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveTagRequest } from './task-remove-tag-request';
+import { StatusUpdateRequest } from './status-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveTagRequest } from './task-remove-tag-request';
 export interface InlineObject64 {
     /**
      * 
-     * @type {TaskRemoveTagRequest}
+     * @type {StatusUpdateRequest}
      * @memberof InlineObject64
      */
-    'data'?: TaskRemoveTagRequest;
+    'data'?: StatusUpdateRequest;
 }
 

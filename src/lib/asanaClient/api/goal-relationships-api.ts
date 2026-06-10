@@ -23,17 +23,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject6 } from '../types';
+import { InlineObject13 } from '../types';
 // @ts-ignore
-import { InlineObject7 } from '../types';
+import { InlineObject14 } from '../types';
 // @ts-ignore
-import { InlineObject8 } from '../types';
+import { InlineObject15 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse2008 } from '../types';
+import { InlineResponse20017 } from '../types';
 // @ts-ignore
-import { InlineResponse2009 } from '../types';
+import { InlineResponse20018 } from '../types';
 /**
  * GoalRelationshipsApi - axios parameter creator
  * @export
@@ -44,17 +44,17 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * Creates a goal relationship by adding a supporting resource to a given goal.  Returns the newly created goal relationship record.
          * @summary Add a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSupportingRelationship: async (goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addSupportingRelationship: async (goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalGid' is not null or undefined
             assertParamExists('addSupportingRelationship', 'goalGid', goalGid)
-            // verify required parameter 'inlineObject7' is not null or undefined
-            assertParamExists('addSupportingRelationship', 'inlineObject7', inlineObject7)
+            // verify required parameter 'inlineObject14' is not null or undefined
+            assertParamExists('addSupportingRelationship', 'inlineObject14', inlineObject14)
             const localVarPath = `/goals/{goal_gid}/addSupportingRelationship`
                 .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -91,7 +91,7 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject7, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject14, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -103,7 +103,7 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -156,9 +156,9 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
-         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -224,16 +224,16 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * Removes a goal relationship for a given parent goal.
          * @summary Removes a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject8} inlineObject8 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSupportingRelationship: async (goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeSupportingRelationship: async (goalGid: string, inlineObject15: InlineObject15, optPretty?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalGid' is not null or undefined
             assertParamExists('removeSupportingRelationship', 'goalGid', goalGid)
-            // verify required parameter 'inlineObject8' is not null or undefined
-            assertParamExists('removeSupportingRelationship', 'inlineObject8', inlineObject8)
+            // verify required parameter 'inlineObject15' is not null or undefined
+            assertParamExists('removeSupportingRelationship', 'inlineObject15', inlineObject15)
             const localVarPath = `/goals/{goal_gid}/removeSupportingRelationship`
                 .replace(`{${"goal_gid"}}`, encodeURIComponent(String(goalGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -266,7 +266,7 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject8, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject15, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -277,17 +277,17 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
          * An existing goal relationship can be updated by making a PUT request on the URL for that goal relationship. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal relationship record.
          * @summary Update a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
-         * @param {InlineObject6} inlineObject6 
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalRelationship: async (goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateGoalRelationship: async (goalRelationshipGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalRelationshipGid' is not null or undefined
             assertParamExists('updateGoalRelationship', 'goalRelationshipGid', goalRelationshipGid)
-            // verify required parameter 'inlineObject6' is not null or undefined
-            assertParamExists('updateGoalRelationship', 'inlineObject6', inlineObject6)
+            // verify required parameter 'inlineObject13' is not null or undefined
+            assertParamExists('updateGoalRelationship', 'inlineObject13', inlineObject13)
             const localVarPath = `/goal_relationships/{goal_relationship_gid}`
                 .replace(`{${"goal_relationship_gid"}}`, encodeURIComponent(String(goalRelationshipGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -324,7 +324,7 @@ export const GoalRelationshipsApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject6, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject13, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -345,14 +345,14 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * Creates a goal relationship by adding a supporting resource to a given goal.  Returns the newly created goal relationship record.
          * @summary Add a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options);
+        async addSupportingRelationship(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addSupportingRelationship(goalGid, inlineObject14, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -360,11 +360,11 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalRelationship(goalRelationshipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -374,13 +374,13 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
-         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
+        async getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20018>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalRelationships(supportedGoal, optPretty, limit, offset, resourceSubtype, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -388,27 +388,27 @@ export const GoalRelationshipsApiFp = function(configuration?: Configuration) {
          * Removes a goal relationship for a given parent goal.
          * @summary Removes a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject8} inlineObject8 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSupportingRelationship(goalGid, inlineObject8, optPretty, options);
+        async removeSupportingRelationship(goalGid: string, inlineObject15: InlineObject15, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeSupportingRelationship(goalGid, inlineObject15, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * An existing goal relationship can be updated by making a PUT request on the URL for that goal relationship. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal relationship record.
          * @summary Update a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
-         * @param {InlineObject6} inlineObject6 
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options);
+        async updateGoalRelationship(goalRelationshipGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoalRelationship(goalRelationshipGid, inlineObject13, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -425,25 +425,25 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * Creates a goal relationship by adding a supporting resource to a given goal.  Returns the newly created goal relationship record.
          * @summary Add a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject7} inlineObject7 
+         * @param {InlineObject14} inlineObject14 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options).then((request) => request(axios, basePath));
+        addSupportingRelationship(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse20017> {
+            return localVarFp.addSupportingRelationship(goalGid, inlineObject14, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the complete updated goal relationship record for a single goal relationship.
          * @summary Get a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
+        getGoalRelationship(goalRelationshipGid: string, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse20017> {
             return localVarFp.getGoalRelationship(goalRelationshipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -452,39 +452,39 @@ export const GoalRelationshipsApiFactory = function (configuration?: Configurati
          * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
-         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse2009> {
+        getGoalRelationships(supportedGoal: string, optPretty?: boolean, limit?: number, offset?: string, resourceSubtype?: string, optFields?: Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20018> {
             return localVarFp.getGoalRelationships(supportedGoal, optPretty, limit, offset, resourceSubtype, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Removes a goal relationship for a given parent goal.
          * @summary Removes a supporting goal relationship
          * @param {string} goalGid Globally unique identifier for the goal.
-         * @param {InlineObject8} inlineObject8 
+         * @param {InlineObject15} inlineObject15 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.removeSupportingRelationship(goalGid, inlineObject8, optPretty, options).then((request) => request(axios, basePath));
+        removeSupportingRelationship(goalGid: string, inlineObject15: InlineObject15, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.removeSupportingRelationship(goalGid, inlineObject15, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing goal relationship can be updated by making a PUT request on the URL for that goal relationship. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal relationship record.
          * @summary Update a goal relationship
          * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
-         * @param {InlineObject6} inlineObject6 
+         * @param {InlineObject13} inlineObject13 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse2008> {
-            return localVarFp.updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateGoalRelationship(goalRelationshipGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: any): AxiosPromise<InlineResponse20017> {
+            return localVarFp.updateGoalRelationship(goalRelationshipGid, inlineObject13, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -500,15 +500,15 @@ export class GoalRelationshipsApi extends BaseAPI {
      * Creates a goal relationship by adding a supporting resource to a given goal.  Returns the newly created goal relationship record.
      * @summary Add a supporting goal relationship
      * @param {string} goalGid Globally unique identifier for the goal.
-     * @param {InlineObject7} inlineObject7 
+     * @param {InlineObject14} inlineObject14 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public addSupportingRelationship(goalGid: string, inlineObject7: InlineObject7, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
-        return GoalRelationshipsApiFp(this.configuration).addSupportingRelationship(goalGid, inlineObject7, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public addSupportingRelationship(goalGid: string, inlineObject14: InlineObject14, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
+        return GoalRelationshipsApiFp(this.configuration).addSupportingRelationship(goalGid, inlineObject14, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -516,7 +516,7 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @summary Get a goal relationship
      * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
@@ -531,9 +531,9 @@ export class GoalRelationshipsApi extends BaseAPI {
      * @param {string} supportedGoal Globally unique identifier for the supported goal in the goal relationship.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. \&#39;Note: You can only pass in an offset that was returned to you via a previously paginated request.\&#39;
+     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [resourceSubtype] If provided, filter to goal relationships with a given resource_subtype.
-     * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'contribution_weight' | 'offset' | 'path' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
@@ -546,28 +546,28 @@ export class GoalRelationshipsApi extends BaseAPI {
      * Removes a goal relationship for a given parent goal.
      * @summary Removes a supporting goal relationship
      * @param {string} goalGid Globally unique identifier for the goal.
-     * @param {InlineObject8} inlineObject8 
+     * @param {InlineObject15} inlineObject15 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public removeSupportingRelationship(goalGid: string, inlineObject8: InlineObject8, optPretty?: boolean, options?: AxiosRequestConfig) {
-        return GoalRelationshipsApiFp(this.configuration).removeSupportingRelationship(goalGid, inlineObject8, optPretty, options).then((request) => request(this.axios, this.basePath));
+    public removeSupportingRelationship(goalGid: string, inlineObject15: InlineObject15, optPretty?: boolean, options?: AxiosRequestConfig) {
+        return GoalRelationshipsApiFp(this.configuration).removeSupportingRelationship(goalGid, inlineObject15, optPretty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * An existing goal relationship can be updated by making a PUT request on the URL for that goal relationship. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated goal relationship record.
      * @summary Update a goal relationship
      * @param {string} goalRelationshipGid Globally unique identifier for the goal relationship.
-     * @param {InlineObject6} inlineObject6 
+     * @param {InlineObject13} inlineObject13 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GoalRelationshipsApi
      */
-    public updateGoalRelationship(goalRelationshipGid: string, inlineObject6: InlineObject6, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
-        return GoalRelationshipsApiFp(this.configuration).updateGoalRelationship(goalRelationshipGid, inlineObject6, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateGoalRelationship(goalRelationshipGid: string, inlineObject13: InlineObject13, optPretty?: boolean, optFields?: Array<'contribution_weight' | 'resource_subtype' | 'supported_goal' | 'supported_goal.name' | 'supported_goal.owner' | 'supported_goal.owner.name' | 'supporting_resource' | 'supporting_resource.name'>, options?: AxiosRequestConfig) {
+        return GoalRelationshipsApiFp(this.configuration).updateGoalRelationship(goalRelationshipGid, inlineObject13, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

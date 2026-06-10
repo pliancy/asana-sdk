@@ -69,7 +69,7 @@ export interface TeamRequestAllOf {
      */
     'guest_invite_management_access_level'?: TeamRequestAllOfGuestInviteManagementAccessLevelEnum;
     /**
-     * Controls who can accept or deny join team requests for a Membership by Request team 
+     * Controls who can accept or deny join team requests for a Membership by Request team. This field can only be updated when the team\'s `visibility` field is `request_to_join`. 
      * @type {string}
      * @memberof TeamRequestAllOf
      */
@@ -80,6 +80,18 @@ export interface TeamRequestAllOf {
      * @memberof TeamRequestAllOf
      */
     'team_member_removal_access_level'?: TeamRequestAllOfTeamMemberRemovalAccessLevelEnum;
+    /**
+     * Controls who can create and share content with the team 
+     * @type {string}
+     * @memberof TeamRequestAllOf
+     */
+    'team_content_management_access_level'?: TeamRequestAllOfTeamContentManagementAccessLevelEnum;
+    /**
+     * Whether the team has been endorsed 
+     * @type {boolean}
+     * @memberof TeamRequestAllOf
+     */
+    'endorsed'?: boolean;
 }
 
 /**
@@ -137,6 +149,14 @@ export enum TeamRequestAllOfJoinRequestManagementAccessLevelEnum {
     */
 export enum TeamRequestAllOfTeamMemberRemovalAccessLevelEnum {
     AllTeamMembers = 'all_team_members',
+    OnlyTeamAdmins = 'only_team_admins'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamRequestAllOfTeamContentManagementAccessLevelEnum {
+    NoRestriction = 'no_restriction',
     OnlyTeamAdmins = 'only_team_admins'
 }
 

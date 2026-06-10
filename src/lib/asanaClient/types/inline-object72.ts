@@ -13,7 +13,7 @@
  */
 
 
-import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
+import { TaskCreateRequest } from './task-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-req
 export interface InlineObject72 {
     /**
      * 
-     * @type {UpdateTimeTrackingEntryRequest}
+     * @type {TaskCreateRequest}
      * @memberof InlineObject72
      */
-    'data'?: UpdateTimeTrackingEntryRequest;
+    'data'?: TaskCreateRequest;
 }
 

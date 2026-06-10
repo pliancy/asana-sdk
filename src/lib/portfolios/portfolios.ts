@@ -62,7 +62,7 @@ export class Portfolios {
             portfolioGid,
             { data },
             optPretty,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -78,7 +78,7 @@ export class Portfolios {
         const res = await this.portfoliosApi.createPortfolio(
             { data },
             optPretty,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -102,7 +102,7 @@ export class Portfolios {
             optPretty,
             limit,
             offset,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -117,7 +117,7 @@ export class Portfolios {
         const res = await this.portfoliosApi.getPortfolio(
             portfolioGid,
             optPretty,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -137,7 +137,7 @@ export class Portfolios {
             limit,
             offset,
             this.ownerGid,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data?.find((e) => e.name === portfolioName)
@@ -248,7 +248,7 @@ export class Portfolios {
             limit,
             offset,
             this.ownerGid,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -385,7 +385,7 @@ export class Portfolios {
             portfolioGid,
             { data: { members: `${userGids}` } },
             optPretty,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data
@@ -492,7 +492,7 @@ export class Portfolios {
             portfolioGid,
             { data },
             optPretty,
-            optFields,
+            optFields as any,
             options,
         )
         return res.data.data

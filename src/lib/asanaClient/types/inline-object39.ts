@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveFollowersRequest } from './remove-followers-request';
+import { ProjectBriefRequest } from './project-brief-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveFollowersRequest } from './remove-followers-request';
 export interface InlineObject39 {
     /**
      * 
-     * @type {RemoveFollowersRequest}
+     * @type {ProjectBriefRequest}
      * @memberof InlineObject39
      */
-    'data'?: RemoveFollowersRequest;
+    'data'?: ProjectBriefRequest;
 }
 

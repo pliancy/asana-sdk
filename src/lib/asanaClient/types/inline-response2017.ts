@@ -13,7 +13,7 @@
  */
 
 
-import { TaskResponse } from './task-response';
+import { OrganizationExportCompact } from './organization-export-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskResponse } from './task-response';
 export interface InlineResponse2017 {
     /**
      * 
-     * @type {TaskResponse}
+     * @type {OrganizationExportCompact}
      * @memberof InlineResponse2017
      */
-    'data'?: TaskResponse;
+    'data'?: OrganizationExportCompact;
 }
 

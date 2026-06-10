@@ -13,7 +13,7 @@
  */
 
 
-import { StoryResponse } from './story-response';
+import { ProjectPortfolioSettingResponse } from './project-portfolio-setting-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryResponse } from './story-response';
 export interface InlineResponse20034 {
     /**
      * 
-     * @type {StoryResponse}
+     * @type {ProjectPortfolioSettingResponse}
      * @memberof InlineResponse20034
      */
-    'data'?: StoryResponse;
+    'data'?: ProjectPortfolioSettingResponse;
 }
 

@@ -29,7 +29,7 @@ export interface WorkspaceMembershipResponseAllOf {
      */
     'user_task_list'?: UserTaskListCompact;
     /**
-     * Reflects if this user still a member of the workspace.
+     * Indicates whether the user is currently associated with the workspace. Returns `true` for users who have joined the workspace or have been invited but not yet accepted.
      * @type {boolean}
      * @memberof WorkspaceMembershipResponseAllOf
      */
@@ -47,9 +47,16 @@ export interface WorkspaceMembershipResponseAllOf {
      */
     'is_guest'?: boolean;
     /**
+     * Reflects if this user has view only license in the workspace.
+     * @type {boolean}
+     * @memberof WorkspaceMembershipResponseAllOf
+     */
+    'is_view_only'?: boolean;
+    /**
      * 
      * @type {WorkspaceMembershipResponseAllOfVacationDates}
      * @memberof WorkspaceMembershipResponseAllOf
+     * @deprecated
      */
     'vacation_dates'?: WorkspaceMembershipResponseAllOfVacationDates | null;
     /**

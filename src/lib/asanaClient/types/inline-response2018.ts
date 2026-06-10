@@ -13,7 +13,7 @@
  */
 
 
-import { TeamResponse } from './team-response';
+import { PortfolioResponse } from './portfolio-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamResponse } from './team-response';
 export interface InlineResponse2018 {
     /**
      * 
-     * @type {TeamResponse}
+     * @type {PortfolioResponse}
      * @memberof InlineResponse2018
      */
-    'data'?: TeamResponse;
+    'data'?: PortfolioResponse;
 }
 
