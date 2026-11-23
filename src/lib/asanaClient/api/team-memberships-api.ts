@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20057 } from '../types';
+import { InlineResponse20068 } from '../types';
 // @ts-ignore
-import { InlineResponse20058 } from '../types';
+import { InlineResponse20069 } from '../types';
 /**
  * TeamMembershipsApi - axios parameter creator
  * @export
@@ -37,7 +37,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -93,7 +93,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -164,7 +164,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -227,7 +227,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -303,11 +303,11 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20057>> {
+        async getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembership(teamMembershipGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -320,11 +320,11 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20069>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMemberships(optPretty, limit, offset, team, user, workspace, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -335,11 +335,11 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20069>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForTeam(teamGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -351,11 +351,11 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20069>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamMembershipsForUser(userGid, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -374,11 +374,11 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @summary Get a team membership
          * @param {string} teamMembershipGid 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20057> {
+        getTeamMembership(teamMembershipGid: string, optPretty?: boolean, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20068> {
             return localVarFp.getTeamMembership(teamMembershipGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -390,11 +390,11 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {string} [team] Globally unique identifier for the team.
          * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
          * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20058> {
+        getTeamMemberships(optPretty?: boolean, limit?: number, offset?: string, team?: string, user?: string, workspace?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20069> {
             return localVarFp.getTeamMemberships(optPretty, limit, offset, team, user, workspace, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -404,11 +404,11 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20058> {
+        getTeamMembershipsForTeam(teamGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20069> {
             return localVarFp.getTeamMembershipsForTeam(teamGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -419,11 +419,11 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20058> {
+        getTeamMembershipsForUser(userGid: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20069> {
             return localVarFp.getTeamMembershipsForUser(userGid, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -441,7 +441,7 @@ export class TeamMembershipsApi extends BaseAPI {
      * @summary Get a team membership
      * @param {string} teamMembershipGid 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'team' | 'team.name' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
@@ -459,7 +459,7 @@ export class TeamMembershipsApi extends BaseAPI {
      * @param {string} [team] Globally unique identifier for the team.
      * @param {string} [user] A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. This parameter must be used with the workspace parameter.
      * @param {string} [workspace] Globally unique identifier for the workspace. This parameter must be used with the user parameter.
-     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
@@ -475,7 +475,7 @@ export class TeamMembershipsApi extends BaseAPI {
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi
@@ -492,7 +492,7 @@ export class TeamMembershipsApi extends BaseAPI {
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'is_admin' | 'is_guest' | 'is_limited_access' | 'offset' | 'path' | 'team' | 'team.name' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamMembershipsApi

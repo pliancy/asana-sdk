@@ -13,7 +13,7 @@
  */
 
 
-import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-request';
+import { TaskRemoveTagRequest } from './task-remove-tag-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-req
 export interface InlineObject93 {
     /**
      * 
-     * @type {CreateTimeTrackingEntryRequest}
+     * @type {TaskRemoveTagRequest}
      * @memberof InlineObject93
      */
-    'data'?: CreateTimeTrackingEntryRequest;
+    'data'?: TaskRemoveTagRequest;
 }
 

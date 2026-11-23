@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
+import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceRemoveUserRequest } from './workspace-remove-user-request';
 export interface InlineObject103 {
     /**
      * 
-     * @type {WorkspaceRemoveUserRequest}
+     * @type {UpdateTimeTrackingEntryRequest}
      * @memberof InlineObject103
      */
-    'data'?: WorkspaceRemoveUserRequest;
+    'data'?: UpdateTimeTrackingEntryRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TagResponse } from './tag-response';
+import { RbacRoleResponse } from './rbac-role-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagResponse } from './tag-response';
 export interface InlineResponse20112 {
     /**
      * 
-     * @type {TagResponse}
+     * @type {RbacRoleResponse}
      * @memberof InlineResponse20112
      */
-    'data'?: TagResponse;
+    'data'?: RbacRoleResponse;
 }
 

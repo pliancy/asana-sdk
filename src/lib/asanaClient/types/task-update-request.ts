@@ -16,16 +16,15 @@
 import { AsanaResource } from './asana-resource';
 import { Like } from './like';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
-import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
 import { TaskCompactCreatedBy } from './task-compact-created-by';
+import { TaskMembership } from './task-membership';
 import { TaskRequestBase } from './task-request-base';
-import { TaskUpdateRequestAllOf } from './task-update-request-all-of';
 import { UserCompact } from './user-compact';
 
 /**
  * @type TaskUpdateRequest
  * @export
  */
-export type TaskUpdateRequest = TaskRequestBase & TaskUpdateRequestAllOf;
+export type TaskUpdateRequest = TaskRequestBase;
 
 

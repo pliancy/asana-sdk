@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject95 } from '../types';
+import { InlineObject104 } from '../types';
 // @ts-ignore
-import { InlineObject96 } from '../types';
+import { InlineObject105 } from '../types';
 // @ts-ignore
-import { InlineResponse20065 } from '../types';
+import { InlineResponse20076 } from '../types';
 // @ts-ignore
-import { InlineResponse20066 } from '../types';
+import { InlineResponse20077 } from '../types';
 /**
  * TimesheetApprovalStatusesApi - axios parameter creator
  * @export
@@ -37,17 +37,17 @@ import { InlineResponse20066 } from '../types';
 export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.
+         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.
          * @summary Create a timesheet approval status
-         * @param {InlineObject96} inlineObject96 
+         * @param {InlineObject105} inlineObject105 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimesheetApprovalStatus: async (inlineObject96: InlineObject96, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject96' is not null or undefined
-            assertParamExists('createTimesheetApprovalStatus', 'inlineObject96', inlineObject96)
+        createTimesheetApprovalStatus: async (inlineObject105: InlineObject105, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject105' is not null or undefined
+            assertParamExists('createTimesheetApprovalStatus', 'inlineObject105', inlineObject105)
             const localVarPath = `/timesheet_approval_statuses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -83,7 +83,7 @@ export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject96, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject105, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -95,7 +95,7 @@ export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configura
          * @summary Get a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -153,7 +153,7 @@ export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configura
          * @param {string} [approvalStatuses] Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -235,17 +235,17 @@ export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configura
          * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Updates the approval status of a timesheet approval status. The update supports state transitions such as submitting, recalling submission, approving, and rejecting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Invalid transitions will result in a 400 error.
          * @summary Update a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
-         * @param {InlineObject95} inlineObject95 
+         * @param {InlineObject104} inlineObject104 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimesheetApprovalStatus: async (timesheetApprovalStatusGid: string, inlineObject95: InlineObject95, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTimesheetApprovalStatus: async (timesheetApprovalStatusGid: string, inlineObject104: InlineObject104, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'timesheetApprovalStatusGid' is not null or undefined
             assertParamExists('updateTimesheetApprovalStatus', 'timesheetApprovalStatusGid', timesheetApprovalStatusGid)
-            // verify required parameter 'inlineObject95' is not null or undefined
-            assertParamExists('updateTimesheetApprovalStatus', 'inlineObject95', inlineObject95)
+            // verify required parameter 'inlineObject104' is not null or undefined
+            assertParamExists('updateTimesheetApprovalStatus', 'inlineObject104', inlineObject104)
             const localVarPath = `/timesheet_approval_statuses/{timesheet_approval_status_gid}`
                 .replace(`{${"timesheet_approval_status_gid"}}`, encodeURIComponent(String(timesheetApprovalStatusGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -282,7 +282,7 @@ export const TimesheetApprovalStatusesApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject95, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject104, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -300,16 +300,16 @@ export const TimesheetApprovalStatusesApiFp = function(configuration?: Configura
     const localVarAxiosParamCreator = TimesheetApprovalStatusesApiAxiosParamCreator(configuration)
     return {
         /**
-         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.
+         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.
          * @summary Create a timesheet approval status
-         * @param {InlineObject96} inlineObject96 
+         * @param {InlineObject105} inlineObject105 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTimesheetApprovalStatus(inlineObject96: InlineObject96, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimesheetApprovalStatus(inlineObject96, optPretty, optFields, options);
+        async createTimesheetApprovalStatus(inlineObject105: InlineObject105, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20076>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimesheetApprovalStatus(inlineObject105, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -317,11 +317,11 @@ export const TimesheetApprovalStatusesApiFp = function(configuration?: Configura
          * @summary Get a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimesheetApprovalStatus(timesheetApprovalStatusGid: string, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
+        async getTimesheetApprovalStatus(timesheetApprovalStatusGid: string, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20076>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimesheetApprovalStatus(timesheetApprovalStatusGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -336,11 +336,11 @@ export const TimesheetApprovalStatusesApiFp = function(configuration?: Configura
          * @param {string} [approvalStatuses] Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimesheetApprovalStatuses(workspace: string, optPretty?: boolean, user?: string, fromDate?: string, toDate?: string, approvalStatuses?: string, limit?: number, offset?: string, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20066>> {
+        async getTimesheetApprovalStatuses(workspace: string, optPretty?: boolean, user?: string, fromDate?: string, toDate?: string, approvalStatuses?: string, limit?: number, offset?: string, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20077>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimesheetApprovalStatuses(workspace, optPretty, user, fromDate, toDate, approvalStatuses, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -348,14 +348,14 @@ export const TimesheetApprovalStatusesApiFp = function(configuration?: Configura
          * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Updates the approval status of a timesheet approval status. The update supports state transitions such as submitting, recalling submission, approving, and rejecting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Invalid transitions will result in a 400 error.
          * @summary Update a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
-         * @param {InlineObject95} inlineObject95 
+         * @param {InlineObject104} inlineObject104 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject95: InlineObject95, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject95, optPretty, optFields, options);
+        async updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject104: InlineObject104, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20076>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject104, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -369,27 +369,27 @@ export const TimesheetApprovalStatusesApiFactory = function (configuration?: Con
     const localVarFp = TimesheetApprovalStatusesApiFp(configuration)
     return {
         /**
-         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.
+         * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.
          * @summary Create a timesheet approval status
-         * @param {InlineObject96} inlineObject96 
+         * @param {InlineObject105} inlineObject105 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimesheetApprovalStatus(inlineObject96: InlineObject96, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20065> {
-            return localVarFp.createTimesheetApprovalStatus(inlineObject96, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTimesheetApprovalStatus(inlineObject105: InlineObject105, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20076> {
+            return localVarFp.createTimesheetApprovalStatus(inlineObject105, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>timesheet_approval_statuses:read</code>  Returns the complete timesheet approval status record for a single timesheet approval status.
          * @summary Get a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimesheetApprovalStatus(timesheetApprovalStatusGid: string, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20065> {
+        getTimesheetApprovalStatus(timesheetApprovalStatusGid: string, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20076> {
             return localVarFp.getTimesheetApprovalStatus(timesheetApprovalStatusGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -403,25 +403,25 @@ export const TimesheetApprovalStatusesApiFactory = function (configuration?: Con
          * @param {string} [approvalStatuses] Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimesheetApprovalStatuses(workspace: string, optPretty?: boolean, user?: string, fromDate?: string, toDate?: string, approvalStatuses?: string, limit?: number, offset?: string, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20066> {
+        getTimesheetApprovalStatuses(workspace: string, optPretty?: boolean, user?: string, fromDate?: string, toDate?: string, approvalStatuses?: string, limit?: number, offset?: string, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20077> {
             return localVarFp.getTimesheetApprovalStatuses(workspace, optPretty, user, fromDate, toDate, approvalStatuses, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Updates the approval status of a timesheet approval status. The update supports state transitions such as submitting, recalling submission, approving, and rejecting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Invalid transitions will result in a 400 error.
          * @summary Update a timesheet approval status
          * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
-         * @param {InlineObject95} inlineObject95 
+         * @param {InlineObject104} inlineObject104 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject95: InlineObject95, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20065> {
-            return localVarFp.updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject95, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject104: InlineObject104, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: any): AxiosPromise<InlineResponse20076> {
+            return localVarFp.updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject104, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -434,17 +434,17 @@ export const TimesheetApprovalStatusesApiFactory = function (configuration?: Con
  */
 export class TimesheetApprovalStatusesApi extends BaseAPI {
     /**
-     * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.
+     * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user\'s timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.
      * @summary Create a timesheet approval status
-     * @param {InlineObject96} inlineObject96 
+     * @param {InlineObject105} inlineObject105 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimesheetApprovalStatusesApi
      */
-    public createTimesheetApprovalStatus(inlineObject96: InlineObject96, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return TimesheetApprovalStatusesApiFp(this.configuration).createTimesheetApprovalStatus(inlineObject96, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTimesheetApprovalStatus(inlineObject105: InlineObject105, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TimesheetApprovalStatusesApiFp(this.configuration).createTimesheetApprovalStatus(inlineObject105, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -452,7 +452,7 @@ export class TimesheetApprovalStatusesApi extends BaseAPI {
      * @summary Get a timesheet approval status
      * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimesheetApprovalStatusesApi
@@ -472,7 +472,7 @@ export class TimesheetApprovalStatusesApi extends BaseAPI {
      * @param {string} [approvalStatuses] Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimesheetApprovalStatusesApi
@@ -485,14 +485,14 @@ export class TimesheetApprovalStatusesApi extends BaseAPI {
      * <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Updates the approval status of a timesheet approval status. The update supports state transitions such as submitting, recalling submission, approving, and rejecting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Invalid transitions will result in a 400 error.
      * @summary Update a timesheet approval status
      * @param {string} timesheetApprovalStatusGid Globally unique identifier for the timesheet approval status.
-     * @param {InlineObject95} inlineObject95 
+     * @param {InlineObject104} inlineObject104 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimesheetApprovalStatusesApi
      */
-    public updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject95: InlineObject95, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
-        return TimesheetApprovalStatusesApiFp(this.configuration).updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject95, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTimesheetApprovalStatus(timesheetApprovalStatusGid: string, inlineObject104: InlineObject104, optPretty?: boolean, optFields?: Array<'approval_status' | 'created_at' | 'end_date' | 'start_date' | 'user' | 'user.name' | 'workspace' | 'workspace.name'>, options?: AxiosRequestConfig) {
+        return TimesheetApprovalStatusesApiFp(this.configuration).updateTimesheetApprovalStatus(timesheetApprovalStatusGid, inlineObject104, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

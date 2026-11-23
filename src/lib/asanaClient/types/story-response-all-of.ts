@@ -33,6 +33,18 @@ import { UserCompact } from './user-compact';
  */
 export interface StoryResponseAllOf {
     /**
+     * *Conditional*. The GID of this comment\'s envelope, distinct from the story `gid`. Request with `opt_fields=comment_gid` on story reads. For a top-level task comment, pass this value as `parent_comment` when creating a threaded reply. Null for a legacy comment without an envelope; absent on non-comment stories.
+     * @type {string}
+     * @memberof StoryResponseAllOf
+     */
+    'comment_gid'?: string | null;
+    /**
+     * *Conditional*. The GID of the object this comment is anchored to. For a top-level task comment this is the task GID; for a threaded reply this is the parent comment\'s envelope GID (`comment_gid`). Also present on sticker stories. Request with `opt_fields=anchor_gid` on story reads.
+     * @type {string}
+     * @memberof StoryResponseAllOf
+     */
+    'anchor_gid'?: string | null;
+    /**
      * 
      * @type {UserCompact}
      * @memberof StoryResponseAllOf

@@ -39,7 +39,7 @@ export interface GoalBase {
      */
     'name'?: string;
     /**
-     * The notes of the goal with formatting as HTML.
+     * The notes of the goal with formatting as HTML. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof GoalBase
      */

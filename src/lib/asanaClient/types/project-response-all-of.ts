@@ -14,6 +14,7 @@
 
 
 import { CustomFieldCompact } from './custom-field-compact';
+import { CustomTypeCompact } from './custom-type-compact';
 import { ProjectBriefCompact } from './project-brief-compact';
 import { ProjectTemplateCompact } from './project-template-compact';
 import { TeamCompact } from './team-compact';
@@ -92,5 +93,11 @@ export interface ProjectResponseAllOf {
      * @memberof ProjectResponseAllOf
      */
     'workspace'?: WorkspaceCompact & object;
+    /**
+     * 
+     * @type {CustomTypeCompact}
+     * @memberof ProjectResponseAllOf
+     */
+    'custom_type'?: CustomTypeCompact;
 }
 

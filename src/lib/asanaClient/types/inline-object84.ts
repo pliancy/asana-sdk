@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveTagRequest } from './task-remove-tag-request';
+import { TaskCreateRequest } from './task-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveTagRequest } from './task-remove-tag-request';
 export interface InlineObject84 {
     /**
      * 
-     * @type {TaskRemoveTagRequest}
+     * @type {TaskCreateRequest}
      * @memberof InlineObject84
      */
-    'data'?: TaskRemoveTagRequest;
+    'data'?: TaskCreateRequest;
 }
 

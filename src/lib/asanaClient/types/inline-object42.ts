@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
+import { ProjectPortfolioSettingUpdateRequest } from './project-portfolio-setting-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectTemplateInstantiateProjectRequest } from './project-template-ins
 export interface InlineObject42 {
     /**
      * 
-     * @type {ProjectTemplateInstantiateProjectRequest}
+     * @type {ProjectPortfolioSettingUpdateRequest}
      * @memberof InlineObject42
      */
-    'data'?: ProjectTemplateInstantiateProjectRequest;
+    'data'?: ProjectPortfolioSettingUpdateRequest;
 }
 

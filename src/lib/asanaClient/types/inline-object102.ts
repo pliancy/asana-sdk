@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceAddUserRequest } from './workspace-add-user-request';
+import { CreateTimeTrackingEntryRequest } from './create-time-tracking-entry-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceAddUserRequest } from './workspace-add-user-request';
 export interface InlineObject102 {
     /**
      * 
-     * @type {WorkspaceAddUserRequest}
+     * @type {CreateTimeTrackingEntryRequest}
      * @memberof InlineObject102
      */
-    'data'?: WorkspaceAddUserRequest;
+    'data'?: CreateTimeTrackingEntryRequest;
 }
 

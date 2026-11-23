@@ -13,7 +13,7 @@
  */
 
 
-import { SectionResponse } from './section-response';
+import { TaskCountResponse } from './task-count-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionResponse } from './section-response';
 export interface InlineResponse20046 {
     /**
      * 
-     * @type {SectionResponse}
+     * @type {TaskCountResponse}
      * @memberof InlineResponse20046
      */
-    'data'?: SectionResponse;
+    'data'?: TaskCountResponse;
 }
 

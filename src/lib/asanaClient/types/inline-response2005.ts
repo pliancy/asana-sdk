@@ -13,7 +13,7 @@
  */
 
 
-import { AllocationResponse } from './allocation-response';
+import { AiStudioSeatResponse } from './ai-studio-seat-response';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse2005 {
     /**
      * 
-     * @type {Array<AllocationResponse>}
+     * @type {Array<AiStudioSeatResponse>}
      * @memberof InlineResponse2005
      */
-    'data'?: Array<AllocationResponse>;
+    'data'?: Array<AiStudioSeatResponse>;
     /**
      * 
      * @type {NextPage}

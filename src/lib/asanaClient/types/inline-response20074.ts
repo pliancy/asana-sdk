@@ -13,7 +13,8 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { NextPage } from './next-page';
+import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20074 {
     /**
      * 
-     * @type {WebhookResponse}
+     * @type {Array<TimeTrackingEntryCompact>}
      * @memberof InlineResponse20074
      */
-    'data'?: WebhookResponse;
+    'data'?: Array<TimeTrackingEntryCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20074
+     */
+    'next_page'?: NextPage | null;
 }
 

@@ -13,7 +13,8 @@
  */
 
 
-import { TaskTemplateResponse } from './task-template-response';
+import { NextPage } from './next-page';
+import { SectionCompact } from './section-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TaskTemplateResponse } from './task-template-response';
 export interface InlineResponse20054 {
     /**
      * 
-     * @type {TaskTemplateResponse}
+     * @type {Array<SectionCompact>}
      * @memberof InlineResponse20054
      */
-    'data'?: TaskTemplateResponse;
+    'data'?: Array<SectionCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20054
+     */
+    'next_page'?: NextPage | null;
 }
 

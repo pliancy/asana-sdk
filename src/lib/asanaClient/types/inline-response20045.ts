@@ -13,7 +13,7 @@
  */
 
 
-import { RuleTriggerResponse } from './rule-trigger-response';
+import { ProjectCompact } from './project-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RuleTriggerResponse } from './rule-trigger-response';
 export interface InlineResponse20045 {
     /**
      * 
-     * @type {RuleTriggerResponse}
+     * @type {Array<ProjectCompact>}
      * @memberof InlineResponse20045
      */
-    'data'?: RuleTriggerResponse;
+    'data'?: Array<ProjectCompact>;
 }
 

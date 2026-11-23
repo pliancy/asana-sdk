@@ -13,7 +13,7 @@
  */
 
 
-import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-request';
+import { TaskStoryCreateRequest } from './task-story-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-
 export interface InlineObject70 {
     /**
      * 
-     * @type {TagCreateTagForWorkspaceRequest}
+     * @type {TaskStoryCreateRequest}
      * @memberof InlineObject70
      */
-    'data'?: TagCreateTagForWorkspaceRequest;
+    'data'?: TaskStoryCreateRequest;
 }
 

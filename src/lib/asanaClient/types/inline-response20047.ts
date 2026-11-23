@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { SectionCompact } from './section-compact';
+import { RateOrPlaceholderCompact } from './rate-or-placeholder-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { SectionCompact } from './section-compact';
 export interface InlineResponse20047 {
     /**
      * 
-     * @type {Array<SectionCompact>}
+     * @type {Array<RateOrPlaceholderCompact>}
      * @memberof InlineResponse20047
      */
-    'data'?: Array<SectionCompact>;
+    'data'?: Array<RateOrPlaceholderCompact>;
     /**
      * 
      * @type {NextPage}

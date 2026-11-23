@@ -15,6 +15,7 @@
 
 import { CustomFieldCompact } from './custom-field-compact';
 import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { CustomTypeCompact } from './custom-type-compact';
 import { PortfolioBase } from './portfolio-base';
 import { PortfolioResponseAllOf } from './portfolio-response-all-of';
 import { ProjectTemplateCompact } from './project-template-compact';

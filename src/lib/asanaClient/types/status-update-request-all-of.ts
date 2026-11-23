@@ -21,7 +21,7 @@
  */
 export interface StatusUpdateRequestAllOf {
     /**
-     * 
+     * The id of parent to send this status update to. This can be a project, goal or portfolio.
      * @type {string}
      * @memberof StatusUpdateRequestAllOf
      */

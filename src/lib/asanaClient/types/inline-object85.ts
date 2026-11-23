@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddFollowersRequest } from './task-add-followers-request';
+import { TaskSetParentRequest } from './task-set-parent-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddFollowersRequest } from './task-add-followers-request';
 export interface InlineObject85 {
     /**
      * 
-     * @type {TaskAddFollowersRequest}
+     * @type {TaskSetParentRequest}
      * @memberof InlineObject85
      */
-    'data'?: TaskAddFollowersRequest;
+    'data'?: TaskSetParentRequest;
 }
 

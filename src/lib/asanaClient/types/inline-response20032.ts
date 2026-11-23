@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectMembershipNormalResponse } from './project-membership-normal-response';
+import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectMembershipNormalResponse } from './project-membership-normal-res
 export interface InlineResponse20032 {
     /**
      * 
-     * @type {ProjectMembershipNormalResponse}
+     * @type {DeprecatedPortfolioMembershipCompact}
      * @memberof InlineResponse20032
      */
-    'data'?: ProjectMembershipNormalResponse;
+    'data'?: DeprecatedPortfolioMembershipCompact;
 }
 

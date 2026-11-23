@@ -14,6 +14,7 @@
 
 
 
+export * from './api/aistudio-usage-apiapi';
 export * from './api/access-requests-api';
 export * from './api/agents-api';
 export * from './api/allocations-api';
@@ -30,6 +31,7 @@ export * from './api/goal-relationships-api';
 export * from './api/goals-api';
 export * from './api/jobs-api';
 export * from './api/memberships-api';
+export * from './api/notifications-api';
 export * from './api/ooo-entries-api';
 export * from './api/organization-exports-api';
 export * from './api/portfolio-memberships-api';
@@ -42,11 +44,13 @@ export * from './api/project-templates-api';
 export * from './api/projects-api';
 export * from './api/rates-api';
 export * from './api/reactions-api';
+export * from './api/records-api';
 export * from './api/roles-api';
 export * from './api/rules-api';
 export * from './api/sections-api';
 export * from './api/status-updates-api';
 export * from './api/stories-api';
+export * from './api/tables-api';
 export * from './api/tags-api';
 export * from './api/task-templates-api';
 export * from './api/tasks-api';

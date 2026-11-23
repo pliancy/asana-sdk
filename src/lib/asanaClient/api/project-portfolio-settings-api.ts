@@ -23,11 +23,11 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject40 } from '../types';
+import { InlineObject42 } from '../types';
 // @ts-ignore
-import { InlineResponse20034 } from '../types';
+import { InlineResponse20038 } from '../types';
 // @ts-ignore
-import { InlineResponse20035 } from '../types';
+import { InlineResponse20039 } from '../types';
 /**
  * ProjectPortfolioSettingsApi - axios parameter creator
  * @export
@@ -39,7 +39,7 @@ export const ProjectPortfolioSettingsApiAxiosParamCreator = function (configurat
          * @summary Get a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -93,7 +93,7 @@ export const ProjectPortfolioSettingsApiAxiosParamCreator = function (configurat
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -155,7 +155,7 @@ export const ProjectPortfolioSettingsApiAxiosParamCreator = function (configurat
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -214,17 +214,17 @@ export const ProjectPortfolioSettingsApiAxiosParamCreator = function (configurat
          * <b>Required scope: </b><code>project_portfolio_settings:write</code>  An existing project portfolio setting can be updated by making a PUT request on the URL for that setting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project portfolio setting record.
          * @summary Update a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
-         * @param {InlineObject40} inlineObject40 
+         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProjectPortfolioSetting: async (projectPortfolioSettingGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateProjectPortfolioSetting: async (projectPortfolioSettingGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectPortfolioSettingGid' is not null or undefined
             assertParamExists('updateProjectPortfolioSetting', 'projectPortfolioSettingGid', projectPortfolioSettingGid)
-            // verify required parameter 'inlineObject40' is not null or undefined
-            assertParamExists('updateProjectPortfolioSetting', 'inlineObject40', inlineObject40)
+            // verify required parameter 'inlineObject42' is not null or undefined
+            assertParamExists('updateProjectPortfolioSetting', 'inlineObject42', inlineObject42)
             const localVarPath = `/project_portfolio_settings/{project_portfolio_setting_gid}`
                 .replace(`{${"project_portfolio_setting_gid"}}`, encodeURIComponent(String(projectPortfolioSettingGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -261,7 +261,7 @@ export const ProjectPortfolioSettingsApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject40, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject42, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -283,11 +283,11 @@ export const ProjectPortfolioSettingsApiFp = function(configuration?: Configurat
          * @summary Get a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectPortfolioSetting(projectPortfolioSettingGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+        async getProjectPortfolioSetting(projectPortfolioSettingGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectPortfolioSetting(projectPortfolioSettingGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -298,11 +298,11 @@ export const ProjectPortfolioSettingsApiFp = function(configuration?: Configurat
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectPortfolioSettingsForPortfolio(portfolioGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getProjectPortfolioSettingsForPortfolio(portfolioGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectPortfolioSettingsForPortfolio(portfolioGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -313,11 +313,11 @@ export const ProjectPortfolioSettingsApiFp = function(configuration?: Configurat
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProjectPortfolioSettingsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getProjectPortfolioSettingsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectPortfolioSettingsForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -325,14 +325,14 @@ export const ProjectPortfolioSettingsApiFp = function(configuration?: Configurat
          * <b>Required scope: </b><code>project_portfolio_settings:write</code>  An existing project portfolio setting can be updated by making a PUT request on the URL for that setting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project portfolio setting record.
          * @summary Update a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
-         * @param {InlineObject40} inlineObject40 
+         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject40, optPretty, optFields, options);
+        async updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject42, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -350,11 +350,11 @@ export const ProjectPortfolioSettingsApiFactory = function (configuration?: Conf
          * @summary Get a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectPortfolioSetting(projectPortfolioSettingGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: any): AxiosPromise<InlineResponse20034> {
+        getProjectPortfolioSetting(projectPortfolioSettingGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: any): AxiosPromise<InlineResponse20038> {
             return localVarFp.getProjectPortfolioSetting(projectPortfolioSettingGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -364,11 +364,11 @@ export const ProjectPortfolioSettingsApiFactory = function (configuration?: Conf
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectPortfolioSettingsForPortfolio(portfolioGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: any): AxiosPromise<InlineResponse20035> {
+        getProjectPortfolioSettingsForPortfolio(portfolioGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.getProjectPortfolioSettingsForPortfolio(portfolioGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -378,25 +378,25 @@ export const ProjectPortfolioSettingsApiFactory = function (configuration?: Conf
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProjectPortfolioSettingsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: any): AxiosPromise<InlineResponse20035> {
+        getProjectPortfolioSettingsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.getProjectPortfolioSettingsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>project_portfolio_settings:write</code>  An existing project portfolio setting can be updated by making a PUT request on the URL for that setting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project portfolio setting record.
          * @summary Update a project portfolio setting
          * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
-         * @param {InlineObject40} inlineObject40 
+         * @param {InlineObject42} inlineObject42 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: any): AxiosPromise<InlineResponse20034> {
-            return localVarFp.updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject40, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: any): AxiosPromise<InlineResponse20038> {
+            return localVarFp.updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject42, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -413,7 +413,7 @@ export class ProjectPortfolioSettingsApi extends BaseAPI {
      * @summary Get a project portfolio setting
      * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectPortfolioSettingsApi
@@ -429,7 +429,7 @@ export class ProjectPortfolioSettingsApi extends BaseAPI {
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectPortfolioSettingsApi
@@ -445,7 +445,7 @@ export class ProjectPortfolioSettingsApi extends BaseAPI {
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'is_access_control_inherited' | 'offset' | 'path' | 'portfolio' | 'project' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectPortfolioSettingsApi
@@ -458,14 +458,14 @@ export class ProjectPortfolioSettingsApi extends BaseAPI {
      * <b>Required scope: </b><code>project_portfolio_settings:write</code>  An existing project portfolio setting can be updated by making a PUT request on the URL for that setting. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated project portfolio setting record.
      * @summary Update a project portfolio setting
      * @param {string} projectPortfolioSettingGid Globally unique identifier for the project portfolio setting.
-     * @param {InlineObject40} inlineObject40 
+     * @param {InlineObject42} inlineObject42 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectPortfolioSettingsApi
      */
-    public updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject40: InlineObject40, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig) {
-        return ProjectPortfolioSettingsApiFp(this.configuration).updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject40, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateProjectPortfolioSetting(projectPortfolioSettingGid: string, inlineObject42: InlineObject42, optPretty?: boolean, optFields?: Array<'created_at' | 'is_access_control_inherited' | 'portfolio' | 'project'>, options?: AxiosRequestConfig) {
+        return ProjectPortfolioSettingsApiFp(this.configuration).updateProjectPortfolioSetting(projectPortfolioSettingGid, inlineObject42, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

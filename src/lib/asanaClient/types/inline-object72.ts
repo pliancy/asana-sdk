@@ -13,7 +13,7 @@
  */
 
 
-import { TaskCreateRequest } from './task-create-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskCreateRequest } from './task-create-request';
 export interface InlineObject72 {
     /**
      * 
-     * @type {TaskCreateRequest}
+     * @type {StoryBase}
      * @memberof InlineObject72
      */
-    'data'?: TaskCreateRequest;
+    'data'?: StoryBase;
 }
 

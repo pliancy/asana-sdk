@@ -29,7 +29,7 @@ export interface TeamResponseAllOf {
      */
     'description'?: string;
     /**
-     * [Opt In](/docs/inputoutput-options). The description of the team with formatting as HTML. 
+     * [Opt In](/docs/inputoutput-options). The description of the team with formatting as HTML. See [rich text](/docs/rich-text#reading-rich-text). 
      * @type {string}
      * @memberof TeamResponseAllOf
      */

@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { RecordItemUpdateRequest } from './record-item-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject60 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {RecordItemUpdateRequest}
      * @memberof InlineObject60
      */
-    'data'?: SectionRequest;
+    'data'?: RecordItemUpdateRequest;
 }
 

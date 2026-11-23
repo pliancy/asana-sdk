@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse2008 } from '../types';
+import { InlineResponse20010 } from '../types';
 /**
  * AuditLogAPIApi - axios parameter creator
  * @export
@@ -141,7 +141,7 @@ export const AuditLogAPIApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2008>> {
+        async getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuditLogEvents(workspaceGid, startAt, endAt, eventType, actorType, actorGid, resourceGid, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -170,7 +170,7 @@ export const AuditLogAPIApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse2008> {
+        getAuditLogEvents(workspaceGid: string, startAt?: string, endAt?: string, eventType?: string, actorType?: 'user' | 'asana' | 'asana_support' | 'anonymous' | 'external_administrator', actorGid?: string, resourceGid?: string, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20010> {
             return localVarFp.getAuditLogEvents(workspaceGid, startAt, endAt, eventType, actorType, actorGid, resourceGid, limit, offset, options).then((request) => request(axios, basePath));
         },
     };

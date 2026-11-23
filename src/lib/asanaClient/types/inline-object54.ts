@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request';
+import { AddFollowersRequest } from './add-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request
 export interface InlineObject54 {
     /**
      * 
-     * @type {ProjectSaveAsTemplateRequest}
+     * @type {AddFollowersRequest}
      * @memberof InlineObject54
      */
-    'data'?: ProjectSaveAsTemplateRequest;
+    'data'?: AddFollowersRequest;
 }
 

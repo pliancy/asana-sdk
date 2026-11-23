@@ -39,19 +39,25 @@ export interface UpdateTimeTrackingEntryRequest {
      */
     'attributable_to'?: string;
     /**
-     * *Optional*. The current billable status of the entry.
+     * *Optional*. The gid of the user which the time is attributed to.
+     * @type {string}
+     * @memberof UpdateTimeTrackingEntryRequest
+     */
+    'assignee'?: string;
+    /**
+     * *Optional*. The current billable status of the entry. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {string}
      * @memberof UpdateTimeTrackingEntryRequest
      */
     'billable_status'?: UpdateTimeTrackingEntryRequestBillableStatusEnum;
     /**
-     * *Optional*. The description of the entry.
+     * *Optional*. The description of the entry. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {string}
      * @memberof UpdateTimeTrackingEntryRequest
      */
     'description'?: string;
     /**
-     * *Optional*. The gids of time tracking categories to assign to this time tracking entry. Existing categories will be overridden. Currently limited to a maximum of 1 category.
+     * *Optional*. The gids of time tracking categories to assign to this time tracking entry. Existing categories will be overridden. Currently limited to a maximum of 1 category. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {Array<string>}
      * @memberof UpdateTimeTrackingEntryRequest
      */

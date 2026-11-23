@@ -13,7 +13,7 @@
  */
 
 
-import { TaskResponse } from './task-response';
+import { TableResponse } from './table-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskResponse } from './task-response';
 export interface InlineResponse20113 {
     /**
      * 
-     * @type {TaskResponse}
+     * @type {TableResponse}
      * @memberof InlineResponse20113
      */
-    'data'?: TaskResponse;
+    'data'?: TableResponse;
 }
 

@@ -16,7 +16,7 @@
 import { TaskCompactCreatedBy } from './task-compact-created-by';
 
 /**
- * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>tasks:read</code></p>  The *task* is the basic object around which many operations in Asana are centered.
+ * The *task* is the basic object around which many operations in Asana are centered.
  * @export
  * @interface TaskCompact
  */

@@ -21,10 +21,27 @@
  */
 export interface RbacRoleRequestAllOf {
     /**
+     * The base role type of the role.
+     * @type {string}
+     * @memberof RbacRoleRequestAllOf
+     */
+    'base_role_type': RbacRoleRequestAllOfBaseRoleTypeEnum;
+    /**
      * *Create-only*. The GID of the workspace this role is associated with. Once created, roles cannot be moved to a different workspace. This attribute can only be specified at creation time.
      * @type {string}
      * @memberof RbacRoleRequestAllOf
      */
     'workspace': string;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RbacRoleRequestAllOfBaseRoleTypeEnum {
+    Guest = 'guest',
+    Member = 'member',
+    Admin = 'admin'
+}
+
 

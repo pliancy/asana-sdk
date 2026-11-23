@@ -13,7 +13,7 @@
  */
 
 
-import { RateRequest } from './rate-request';
+import { RemoveFollowersRequest } from './remove-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RateRequest } from './rate-request';
 export interface InlineObject55 {
     /**
      * 
-     * @type {RateRequest}
+     * @type {RemoveFollowersRequest}
      * @memberof InlineObject55
      */
-    'data'?: RateRequest;
+    'data'?: RemoveFollowersRequest;
 }
 

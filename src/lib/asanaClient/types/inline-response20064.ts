@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { TimeTrackingCategoryCompact } from './time-tracking-category-compact';
+import { TaskTemplateResponse } from './task-template-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { TimeTrackingCategoryCompact } from './time-tracking-category-compact';
 export interface InlineResponse20064 {
     /**
      * 
-     * @type {Array<TimeTrackingCategoryCompact>}
+     * @type {TaskTemplateResponse}
      * @memberof InlineResponse20064
      */
-    'data'?: Array<TimeTrackingCategoryCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20064
-     */
-    'next_page'?: NextPage | null;
+    'data'?: TaskTemplateResponse;
 }
 

@@ -137,6 +137,7 @@ export class Portfolios {
             limit,
             offset,
             this.ownerGid,
+            undefined,
             optFields as any,
             options,
         )
@@ -248,6 +249,7 @@ export class Portfolios {
             limit,
             offset,
             this.ownerGid,
+            undefined,
             optFields as any,
             options,
         )

@@ -13,7 +13,7 @@
  */
 
 
-import { TaskAddProjectRequest } from './task-add-project-request';
+import { TaskCreateRequest } from './task-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskAddProjectRequest } from './task-add-project-request';
 export interface InlineObject81 {
     /**
      * 
-     * @type {TaskAddProjectRequest}
+     * @type {TaskCreateRequest}
      * @memberof InlineObject81
      */
-    'data'?: TaskAddProjectRequest;
+    'data'?: TaskCreateRequest;
 }
 

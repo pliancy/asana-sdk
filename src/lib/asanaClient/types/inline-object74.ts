@@ -13,7 +13,7 @@
  */
 
 
-import { TaskDuplicateRequest } from './task-duplicate-request';
+import { TableUpdateRequest } from './table-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskDuplicateRequest } from './task-duplicate-request';
 export interface InlineObject74 {
     /**
      * 
-     * @type {TaskDuplicateRequest}
+     * @type {TableUpdateRequest}
      * @memberof InlineObject74
      */
-    'data'?: TaskDuplicateRequest;
+    'data'?: TableUpdateRequest;
 }
 

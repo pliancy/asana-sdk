@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { TagCompact } from './tag-compact';
+import { RuleTriggerResponse } from './rule-trigger-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { TagCompact } from './tag-compact';
 export interface InlineResponse20052 {
     /**
      * 
-     * @type {Array<TagCompact>}
+     * @type {RuleTriggerResponse}
      * @memberof InlineResponse20052
      */
-    'data'?: Array<TagCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20052
-     */
-    'next_page'?: NextPage | null;
+    'data'?: RuleTriggerResponse;
 }
 

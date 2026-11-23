@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookRequest } from './webhook-request';
+import { TeamRemoveUserRequest } from './team-remove-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookRequest } from './webhook-request';
 export interface InlineObject99 {
     /**
      * 
-     * @type {WebhookRequest}
+     * @type {TeamRemoveUserRequest}
      * @memberof InlineObject99
      */
-    'data'?: WebhookRequest;
+    'data'?: TeamRemoveUserRequest;
 }
 

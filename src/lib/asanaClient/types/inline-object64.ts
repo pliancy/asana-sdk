@@ -13,7 +13,7 @@
  */
 
 
-import { StatusUpdateRequest } from './status-update-request';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StatusUpdateRequest } from './status-update-request';
 export interface InlineObject64 {
     /**
      * 
-     * @type {StatusUpdateRequest}
+     * @type {SectionRequest}
      * @memberof InlineObject64
      */
-    'data'?: StatusUpdateRequest;
+    'data'?: SectionRequest;
 }
 

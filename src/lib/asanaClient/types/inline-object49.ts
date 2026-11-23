@@ -13,7 +13,7 @@
  */
 
 
-import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-request';
+import { ProjectRequest } from './project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-r
 export interface InlineObject49 {
     /**
      * 
-     * @type {RemoveCustomFieldSettingRequest}
+     * @type {ProjectRequest}
      * @memberof InlineObject49
      */
-    'data'?: RemoveCustomFieldSettingRequest;
+    'data'?: ProjectRequest;
 }
 

@@ -16,9 +16,9 @@
 import { AsanaResource } from './asana-resource';
 import { Like } from './like';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
-import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
 import { TaskCompactCreatedBy } from './task-compact-created-by';
 import { TaskCreateRequestAllOf } from './task-create-request-all-of';
+import { TaskMembership } from './task-membership';
 import { TaskRequestBase } from './task-request-base';
 import { UserCompact } from './user-compact';
 

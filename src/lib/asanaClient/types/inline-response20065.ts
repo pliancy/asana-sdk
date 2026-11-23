@@ -13,7 +13,8 @@
  */
 
 
-import { TimesheetApprovalStatusResponse } from './timesheet-approval-status-response';
+import { NextPage } from './next-page';
+import { TaskCompact } from './task-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TimesheetApprovalStatusResponse } from './timesheet-approval-status-res
 export interface InlineResponse20065 {
     /**
      * 
-     * @type {TimesheetApprovalStatusResponse}
+     * @type {Array<TaskCompact>}
      * @memberof InlineResponse20065
      */
-    'data'?: TimesheetApprovalStatusResponse;
+    'data'?: Array<TaskCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20065
+     */
+    'next_page'?: NextPage | null;
 }
 

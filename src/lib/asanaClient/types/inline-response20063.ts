@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
+import { TaskTemplateCompact } from './task-template-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TimeTrackingEntryCompact } from './time-tracking-entry-compact';
 export interface InlineResponse20063 {
     /**
      * 
-     * @type {Array<TimeTrackingEntryCompact>}
+     * @type {Array<TaskTemplateCompact>}
      * @memberof InlineResponse20063
      */
-    'data'?: Array<TimeTrackingEntryCompact>;
+    'data'?: Array<TaskTemplateCompact>;
     /**
      * 
      * @type {NextPage}

@@ -15,7 +15,7 @@
 
 
 /**
- * A generic Asana Resource, containing a globally unique identifier.
+ * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>custom_types:read</code></p>  A generic Asana Resource, containing a globally unique identifier.
  * @export
  * @interface CustomTypeStatusOptionCompact
  */

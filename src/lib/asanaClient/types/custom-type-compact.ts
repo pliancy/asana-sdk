@@ -15,7 +15,7 @@
 
 
 /**
- * Custom Types extend the types of Asana Objects, currently only Custom Tasks are supported.
+ * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>custom_types:read</code></p>  Custom Types extend the types of Asana Objects.
  * @export
  * @interface CustomTypeCompact
  */
@@ -38,5 +38,25 @@ export interface CustomTypeCompact {
      * @memberof CustomTypeCompact
      */
     'name'?: string;
+    /**
+     * *Read-only*. A stable identifier present when this custom type was created by Asana as part of an Asana product (for example, a Command ticket type or a Service queue type). `null` for custom types created by users, and for Asana-created types that do not have a public identifier yet. New values may be added over time as Asana products introduce new types; integrations should tolerate unrecognized values.
+     * @type {string}
+     * @memberof CustomTypeCompact
+     */
+    'asana_created_type_identifier'?: CustomTypeCompactAsanaCreatedTypeIdentifierEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CustomTypeCompactAsanaCreatedTypeIdentifierEnum {
+    CommandTicket = 'COMMAND_TICKET',
+    CommandRelease = 'COMMAND_RELEASE',
+    CommandTeamspace = 'COMMAND_TEAMSPACE',
+    ServiceTicket = 'SERVICE_TICKET',
+    ServiceConversation = 'SERVICE_CONVERSATION',
+    ServiceQueue = 'SERVICE_QUEUE'
+}
+
 

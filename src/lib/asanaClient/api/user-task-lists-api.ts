@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20068 } from '../types';
+import { InlineResponse20079 } from '../types';
 /**
  * UserTaskListsApi - axios parameter creator
  * @export
@@ -35,7 +35,7 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -88,7 +88,7 @@ export const UserTaskListsApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -156,11 +156,11 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
+        async getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20079>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskList(userTaskListGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -170,11 +170,11 @@ export const UserTaskListsApiFp = function(configuration?: Configuration) {
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
+        async getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20079>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -193,11 +193,11 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @summary Get a user task list
          * @param {string} userTaskListGid Globally unique identifier for the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20068> {
+        getUserTaskList(userTaskListGid: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20079> {
             return localVarFp.getUserTaskList(userTaskListGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -206,11 +206,11 @@ export const UserTaskListsApiFactory = function (configuration?: Configuration, 
          * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
          * @param {string} workspace The workspace in which to get the user task list.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20068> {
+        getUserTaskListForUser(userGid: string, workspace: string, optPretty?: boolean, optFields?: Array<'name' | 'owner' | 'workspace'>, options?: any): AxiosPromise<InlineResponse20079> {
             return localVarFp.getUserTaskListForUser(userGid, workspace, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -228,7 +228,7 @@ export class UserTaskListsApi extends BaseAPI {
      * @summary Get a user task list
      * @param {string} userTaskListGid Globally unique identifier for the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi
@@ -243,7 +243,7 @@ export class UserTaskListsApi extends BaseAPI {
      * @param {string} userGid A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user.
      * @param {string} workspace The workspace in which to get the user task list.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'name' | 'owner' | 'workspace'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserTaskListsApi

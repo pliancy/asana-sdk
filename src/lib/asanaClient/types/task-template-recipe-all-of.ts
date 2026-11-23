@@ -32,7 +32,7 @@ export interface TaskTemplateRecipeAllOf {
      */
     'description'?: string;
     /**
-     * HTML description of the task that will be created from this template.
+     * HTML description of the task that will be created from this template. See [rich text](/docs/rich-text#reading-rich-text).
      * @type {string}
      * @memberof TaskTemplateRecipeAllOf
      */

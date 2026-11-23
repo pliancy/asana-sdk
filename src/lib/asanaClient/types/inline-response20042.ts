@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { RateOrPlaceholderCompact } from './rate-or-placeholder-compact';
+import { ProjectTemplateResponse } from './project-template-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { RateOrPlaceholderCompact } from './rate-or-placeholder-compact';
 export interface InlineResponse20042 {
     /**
      * 
-     * @type {Array<RateOrPlaceholderCompact>}
+     * @type {ProjectTemplateResponse}
      * @memberof InlineResponse20042
      */
-    'data'?: Array<RateOrPlaceholderCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20042
-     */
-    'next_page'?: NextPage | null;
+    'data'?: ProjectTemplateResponse;
 }
 

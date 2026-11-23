@@ -13,7 +13,8 @@
  */
 
 
-import { WorkspaceMembershipResponse } from './workspace-membership-response';
+import { NextPage } from './next-page';
+import { TimeTrackingCategoryCompact } from './time-tracking-category-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { WorkspaceMembershipResponse } from './workspace-membership-response';
 export interface InlineResponse20075 {
     /**
      * 
-     * @type {WorkspaceMembershipResponse}
+     * @type {Array<TimeTrackingCategoryCompact>}
      * @memberof InlineResponse20075
      */
-    'data'?: WorkspaceMembershipResponse;
+    'data'?: Array<TimeTrackingCategoryCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20075
+     */
+    'next_page'?: NextPage | null;
 }
 

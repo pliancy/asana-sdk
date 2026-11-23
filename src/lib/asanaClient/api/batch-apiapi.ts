@@ -25,7 +25,7 @@ import { ErrorResponse } from '../types';
 // @ts-ignore
 import { InlineObject3 } from '../types';
 // @ts-ignore
-import { InlineResponse2009 } from '../types';
+import { InlineResponse20011 } from '../types';
 /**
  * BatchAPIApi - axios parameter creator
  * @export
@@ -37,7 +37,7 @@ export const BatchAPIApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Submit parallel requests
          * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -101,11 +101,11 @@ export const BatchAPIApiFp = function(configuration?: Configuration) {
          * @summary Submit parallel requests
          * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2009>> {
+        async createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createBatchRequest(inlineObject3, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -124,11 +124,11 @@ export const BatchAPIApiFactory = function (configuration?: Configuration, baseP
          * @summary Submit parallel requests
          * @param {InlineObject3} inlineObject3 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: any): AxiosPromise<InlineResponse2009> {
+        createBatchRequest(inlineObject3: InlineObject3, optPretty?: boolean, optFields?: Array<'body' | 'headers' | 'status_code'>, options?: any): AxiosPromise<InlineResponse20011> {
             return localVarFp.createBatchRequest(inlineObject3, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -146,7 +146,7 @@ export class BatchAPIApi extends BaseAPI {
      * @summary Submit parallel requests
      * @param {InlineObject3} inlineObject3 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'body' | 'headers' | 'status_code'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BatchAPIApi

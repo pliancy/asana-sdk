@@ -13,7 +13,7 @@
  */
 
 
-import { TaskTemplateCompact } from './task-template-compact';
+import { SectionResponse } from './section-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskTemplateCompact } from './task-template-compact';
 export interface InlineResponse20053 {
     /**
      * 
-     * @type {Array<TaskTemplateCompact>}
+     * @type {SectionResponse}
      * @memberof InlineResponse20053
      */
-    'data'?: Array<TaskTemplateCompact>;
+    'data'?: SectionResponse;
 }
 

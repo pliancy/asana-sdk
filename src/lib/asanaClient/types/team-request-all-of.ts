@@ -27,7 +27,7 @@ export interface TeamRequestAllOf {
      */
     'description'?: string;
     /**
-     * The description of the team with formatting as HTML. 
+     * The description of the team with formatting as HTML. See [rich text](/docs/rich-text). 
      * @type {string}
      * @memberof TeamRequestAllOf
      */

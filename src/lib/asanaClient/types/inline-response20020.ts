@@ -13,7 +13,7 @@
  */
 
 
-import { GoalCompact } from './goal-compact';
+import { GoalRelationshipCompact } from './goal-relationship-compact';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse20020 {
     /**
      * 
-     * @type {Array<GoalCompact>}
+     * @type {Array<GoalRelationshipCompact>}
      * @memberof InlineResponse20020
      */
-    'data'?: Array<GoalCompact>;
+    'data'?: Array<GoalRelationshipCompact>;
     /**
      * 
      * @type {NextPage}

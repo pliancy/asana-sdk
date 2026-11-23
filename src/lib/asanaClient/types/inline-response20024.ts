@@ -13,8 +13,7 @@
  */
 
 
-import { MembershipCompact } from './membership-compact';
-import { NextPage } from './next-page';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse20024 {
     /**
      * 
-     * @type {Array<MembershipCompact>}
+     * @type {CustomFieldSettingResponse}
      * @memberof InlineResponse20024
      */
-    'data'?: Array<MembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20024
-     */
-    'next_page'?: NextPage | null;
+    'data'?: CustomFieldSettingResponse;
 }
 

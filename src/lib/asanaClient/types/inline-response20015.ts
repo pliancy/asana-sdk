@@ -13,7 +13,8 @@
  */
 
 
-import { CustomTypeResponse } from './custom-type-response';
+import { CustomFieldResponse } from './custom-field-response';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { CustomTypeResponse } from './custom-type-response';
 export interface InlineResponse20015 {
     /**
      * 
-     * @type {CustomTypeResponse}
+     * @type {Array<CustomFieldResponse>}
      * @memberof InlineResponse20015
      */
-    'data'?: CustomTypeResponse;
+    'data'?: Array<CustomFieldResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20015
+     */
+    'next_page'?: NextPage | null;
 }
 

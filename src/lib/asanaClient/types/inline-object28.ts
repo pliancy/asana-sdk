@@ -13,7 +13,7 @@
  */
 
 
-import { OrganizationExportRequest } from './organization-export-request';
+import { OooEntryBase } from './ooo-entry-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OrganizationExportRequest } from './organization-export-request';
 export interface InlineObject28 {
     /**
      * 
-     * @type {OrganizationExportRequest}
+     * @type {OooEntryBase}
      * @memberof InlineObject28
      */
-    'data'?: OrganizationExportRequest;
+    'data'?: OooEntryBase;
 }
 

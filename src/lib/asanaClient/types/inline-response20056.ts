@@ -13,7 +13,8 @@
  */
 
 
-import { TaskCompact } from './task-compact';
+import { NextPage } from './next-page';
+import { StatusUpdateCompact } from './status-update-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TaskCompact } from './task-compact';
 export interface InlineResponse20056 {
     /**
      * 
-     * @type {Array<TaskCompact>}
+     * @type {Array<StatusUpdateCompact>}
      * @memberof InlineResponse20056
      */
-    'data'?: Array<TaskCompact>;
+    'data'?: Array<StatusUpdateCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20056
+     */
+    'next_page'?: NextPage | null;
 }
 

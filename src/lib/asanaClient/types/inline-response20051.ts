@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { StoryCompact } from './story-compact';
+import { RbacRoleCompact } from './rbac-role-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { StoryCompact } from './story-compact';
 export interface InlineResponse20051 {
     /**
      * 
-     * @type {Array<StoryCompact>}
+     * @type {Array<RbacRoleCompact>}
      * @memberof InlineResponse20051
      */
-    'data'?: Array<StoryCompact>;
+    'data'?: Array<RbacRoleCompact>;
     /**
      * 
      * @type {NextPage}

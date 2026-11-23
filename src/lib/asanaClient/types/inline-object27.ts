@@ -13,7 +13,7 @@
  */
 
 
-import { OooEntryCreateRequest } from './ooo-entry-create-request';
+import { MarkNotificationsRequest } from './mark-notifications-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OooEntryCreateRequest } from './ooo-entry-create-request';
 export interface InlineObject27 {
     /**
      * 
-     * @type {OooEntryCreateRequest & object}
+     * @type {MarkNotificationsRequest}
      * @memberof InlineObject27
      */
-    'data'?: OooEntryCreateRequest & object;
+    'data': MarkNotificationsRequest;
 }
 

@@ -15,22 +15,22 @@
 
 
 /**
- * 
+ * A single AI Studio run (rule execution), representing the credits consumed by one execution of an AI Studio rule.
  * @export
- * @interface TaskUpdateRequestAllOf
+ * @interface AiStudioRunCompact
  */
-export interface TaskUpdateRequestAllOf {
+export interface AiStudioRunCompact {
     /**
-     * *Conditional:* You can only set custom_type if task `resource_subtype` is `custom`. GID or globally-unique identifier of a task\'s custom type.
+     * Globally unique identifier of the resource, as a string.
      * @type {string}
-     * @memberof TaskUpdateRequestAllOf
+     * @memberof AiStudioRunCompact
      */
-    'custom_type'?: string | null;
+    'gid'?: string;
     /**
-     * *Conditional:* You can only set custom_type_status_option if task `resource_subtype` is `custom` GID or globally-unique identifier of a custom type\'s status option.
+     * The base type of this resource.
      * @type {string}
-     * @memberof TaskUpdateRequestAllOf
+     * @memberof AiStudioRunCompact
      */
-    'custom_type_status_option'?: string | null;
+    'resource_type'?: string;
 }
 

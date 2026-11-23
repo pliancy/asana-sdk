@@ -13,7 +13,8 @@
  */
 
 
-import { TimeTrackingCategoryResponse } from './time-tracking-category-response';
+import { NextPage } from './next-page';
+import { TagCompact } from './tag-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TimeTrackingCategoryResponse } from './time-tracking-category-response'
 export interface InlineResponse20062 {
     /**
      * 
-     * @type {TimeTrackingCategoryResponse}
+     * @type {Array<TagCompact>}
      * @memberof InlineResponse20062
      */
-    'data'?: TimeTrackingCategoryResponse;
+    'data'?: Array<TagCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20062
+     */
+    'next_page'?: NextPage | null;
 }
 

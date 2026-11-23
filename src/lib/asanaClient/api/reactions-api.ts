@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20043 } from '../types';
+import { InlineResponse20048 } from '../types';
 /**
  * ReactionsApi - axios parameter creator
  * @export
@@ -118,7 +118,7 @@ export const ReactionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getReactionsOnObject(target: string, emojiBase: string, optPretty?: boolean, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+        async getReactionsOnObject(target: string, emojiBase: string, optPretty?: boolean, limit?: number, offset?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReactionsOnObject(target, emojiBase, optPretty, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -143,7 +143,7 @@ export const ReactionsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getReactionsOnObject(target: string, emojiBase: string, optPretty?: boolean, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20043> {
+        getReactionsOnObject(target: string, emojiBase: string, optPretty?: boolean, limit?: number, offset?: string, options?: any): AxiosPromise<InlineResponse20048> {
             return localVarFp.getReactionsOnObject(target, emojiBase, optPretty, limit, offset, options).then((request) => request(axios, basePath));
         },
     };

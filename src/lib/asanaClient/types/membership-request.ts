@@ -21,7 +21,7 @@
  */
 export interface MembershipRequest {
     /**
-     * Sets the access level for the member. Goals can have access levels `viewer`, `commenter`, `editor` or `admin`. Projects can have access levels `admin`, `editor` or `commenter`. Portfolios can have access levels `admin`, `editor` or `viewer`. Custom Fields can have access levels `admin`, `editor` or `user`.
+     * Sets the access level for the member. Goals can have access levels `viewer`, `commenter`, `editor` or `admin`. Projects can have access levels `admin`, `editor` or `commenter`. Portfolios can have access levels `admin`, `editor` or `viewer`. Custom Fields can have access levels `admin`, `editor` or `user`. Tables accept `admin`, `editor`, or `viewer` on creation. Records accept `admin`, `editor`, `commenter`, or `viewer`.
      * @type {string}
      * @memberof MembershipRequest
      */

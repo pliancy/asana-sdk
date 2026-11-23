@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependentsRequest } from './modify-dependents-request';
+import { TagCreateTagForWorkspaceRequest } from './tag-create-tag-for-workspace-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependentsRequest } from './modify-dependents-request';
 export interface InlineObject79 {
     /**
      * 
-     * @type {ModifyDependentsRequest}
+     * @type {TagCreateTagForWorkspaceRequest}
      * @memberof InlineObject79
      */
-    'data'?: ModifyDependentsRequest;
+    'data'?: TagCreateTagForWorkspaceRequest;
 }
 

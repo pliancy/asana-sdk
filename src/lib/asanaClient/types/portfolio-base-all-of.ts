@@ -50,6 +50,12 @@ export interface PortfolioBaseAllOf {
      * @memberof PortfolioBaseAllOf
      */
     'default_access_level'?: PortfolioBaseAllOfDefaultAccessLevelEnum;
+    /**
+     * Defines whether the portfolio is public to its workspace members. `true` if the portfolio is public to workspace members, `false` if it\'s visible only to members of the portfolio. New portfolios are private by default.
+     * @type {boolean}
+     * @memberof PortfolioBaseAllOf
+     */
+    'public'?: boolean;
 }
 
 /**

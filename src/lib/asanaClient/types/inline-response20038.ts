@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectTemplateResponse } from './project-template-response';
+import { ProjectPortfolioSettingResponse } from './project-portfolio-setting-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectTemplateResponse } from './project-template-response';
 export interface InlineResponse20038 {
     /**
      * 
-     * @type {ProjectTemplateResponse}
+     * @type {ProjectPortfolioSettingResponse}
      * @memberof InlineResponse20038
      */
-    'data'?: ProjectTemplateResponse;
+    'data'?: ProjectPortfolioSettingResponse;
 }
 

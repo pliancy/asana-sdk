@@ -13,7 +13,7 @@
  */
 
 
-import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
+import { MarkNotificationsResponse } from './mark-notifications-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-mem
 export interface InlineResponse20028 {
     /**
      * 
-     * @type {DeprecatedPortfolioMembershipCompact}
+     * @type {MarkNotificationsResponse}
      * @memberof InlineResponse20028
      */
-    'data'?: DeprecatedPortfolioMembershipCompact;
+    'data'?: MarkNotificationsResponse;
 }
 

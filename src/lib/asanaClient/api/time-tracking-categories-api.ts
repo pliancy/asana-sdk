@@ -23,17 +23,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject91 } from '../types';
+import { InlineObject100 } from '../types';
 // @ts-ignore
-import { InlineObject92 } from '../types';
+import { InlineObject101 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20062 } from '../types';
+import { InlineResponse20073 } from '../types';
 // @ts-ignore
-import { InlineResponse20063 } from '../types';
+import { InlineResponse20074 } from '../types';
 // @ts-ignore
-import { InlineResponse20064 } from '../types';
+import { InlineResponse20075 } from '../types';
 /**
  * TimeTrackingCategoriesApi - axios parameter creator
  * @export
@@ -43,15 +43,15 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
         /**
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Creates a new time tracking category in a given workspace.  Returns the record of the newly created time tracking category.
          * @summary Create a time tracking category
-         * @param {InlineObject92} inlineObject92 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimeTrackingCategory: async (inlineObject92: InlineObject92, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject92' is not null or undefined
-            assertParamExists('createTimeTrackingCategory', 'inlineObject92', inlineObject92)
+        createTimeTrackingCategory: async (inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject101' is not null or undefined
+            assertParamExists('createTimeTrackingCategory', 'inlineObject101', inlineObject101)
             const localVarPath = `/time_tracking_categories`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -87,7 +87,7 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject92, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject101, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -149,7 +149,7 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
          * @param {boolean} [isArchived] Filter by archived status. If not provided, defaults to returning non-archived categories.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -216,7 +216,7 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
          * @summary Get a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -272,11 +272,11 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
          * @param {string} [endDate] The end date for filtering time tracking entries by their entry date.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingEntriesForTimeTrackingCategory: async (timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTimeTrackingEntriesForTimeTrackingCategory: async (timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'timeTrackingCategoryGid' is not null or undefined
             assertParamExists('getTimeTrackingEntriesForTimeTrackingCategory', 'timeTrackingCategoryGid', timeTrackingCategoryGid)
             const localVarPath = `/time_tracking_categories/{time_tracking_category_gid}/time_tracking_entries`
@@ -343,17 +343,17 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Updates the properties of a time tracking category. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated time tracking category record.
          * @summary Update a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
-         * @param {InlineObject91} inlineObject91 
+         * @param {InlineObject100} inlineObject100 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimeTrackingCategory: async (timeTrackingCategoryGid: string, inlineObject91: InlineObject91, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTimeTrackingCategory: async (timeTrackingCategoryGid: string, inlineObject100: InlineObject100, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'timeTrackingCategoryGid' is not null or undefined
             assertParamExists('updateTimeTrackingCategory', 'timeTrackingCategoryGid', timeTrackingCategoryGid)
-            // verify required parameter 'inlineObject91' is not null or undefined
-            assertParamExists('updateTimeTrackingCategory', 'inlineObject91', inlineObject91)
+            // verify required parameter 'inlineObject100' is not null or undefined
+            assertParamExists('updateTimeTrackingCategory', 'inlineObject100', inlineObject100)
             const localVarPath = `/time_tracking_categories/{time_tracking_category_gid}`
                 .replace(`{${"time_tracking_category_gid"}}`, encodeURIComponent(String(timeTrackingCategoryGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -390,7 +390,7 @@ export const TimeTrackingCategoriesApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject91, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject100, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -410,14 +410,14 @@ export const TimeTrackingCategoriesApiFp = function(configuration?: Configuratio
         /**
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Creates a new time tracking category in a given workspace.  Returns the record of the newly created time tracking category.
          * @summary Create a time tracking category
-         * @param {InlineObject92} inlineObject92 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTimeTrackingCategory(inlineObject92: InlineObject92, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimeTrackingCategory(inlineObject92, optPretty, optFields, options);
+        async createTimeTrackingCategory(inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20073>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimeTrackingCategory(inlineObject101, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -440,11 +440,11 @@ export const TimeTrackingCategoriesApiFp = function(configuration?: Configuratio
          * @param {boolean} [isArchived] Filter by archived status. If not provided, defaults to returning non-archived categories.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeTrackingCategories(workspace: string, optPretty?: boolean, isArchived?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
+        async getTimeTrackingCategories(workspace: string, optPretty?: boolean, isArchived?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20075>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeTrackingCategories(workspace, optPretty, isArchived, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -453,11 +453,11 @@ export const TimeTrackingCategoriesApiFp = function(configuration?: Configuratio
          * @summary Get a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
+        async getTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20073>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeTrackingCategory(timeTrackingCategoryGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -470,11 +470,11 @@ export const TimeTrackingCategoriesApiFp = function(configuration?: Configuratio
          * @param {string} [endDate] The end date for filtering time tracking entries by their entry date.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20063>> {
+        async getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20074>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid, optPretty, startDate, endDate, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -482,14 +482,14 @@ export const TimeTrackingCategoriesApiFp = function(configuration?: Configuratio
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Updates the properties of a time tracking category. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated time tracking category record.
          * @summary Update a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
-         * @param {InlineObject91} inlineObject91 
+         * @param {InlineObject100} inlineObject100 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject91: InlineObject91, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject91, optPretty, optFields, options);
+        async updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject100: InlineObject100, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20073>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject100, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -505,14 +505,14 @@ export const TimeTrackingCategoriesApiFactory = function (configuration?: Config
         /**
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Creates a new time tracking category in a given workspace.  Returns the record of the newly created time tracking category.
          * @summary Create a time tracking category
-         * @param {InlineObject92} inlineObject92 
+         * @param {InlineObject101} inlineObject101 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimeTrackingCategory(inlineObject92: InlineObject92, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20062> {
-            return localVarFp.createTimeTrackingCategory(inlineObject92, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createTimeTrackingCategory(inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20073> {
+            return localVarFp.createTimeTrackingCategory(inlineObject101, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>time_tracking_categories:delete</code>  Deletes a specific, existing time tracking category.  Returns an empty data record.
@@ -533,11 +533,11 @@ export const TimeTrackingCategoriesApiFactory = function (configuration?: Config
          * @param {boolean} [isArchived] Filter by archived status. If not provided, defaults to returning non-archived categories.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingCategories(workspace: string, optPretty?: boolean, isArchived?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20064> {
+        getTimeTrackingCategories(workspace: string, optPretty?: boolean, isArchived?: boolean, limit?: number, offset?: string, optFields?: Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20075> {
             return localVarFp.getTimeTrackingCategories(workspace, optPretty, isArchived, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -545,11 +545,11 @@ export const TimeTrackingCategoriesApiFactory = function (configuration?: Config
          * @summary Get a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20062> {
+        getTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20073> {
             return localVarFp.getTimeTrackingCategory(timeTrackingCategoryGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -561,25 +561,25 @@ export const TimeTrackingCategoriesApiFactory = function (configuration?: Config
          * @param {string} [endDate] The end date for filtering time tracking entries by their entry date.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20063> {
+        getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20074> {
             return localVarFp.getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid, optPretty, startDate, endDate, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>time_tracking_categories:write</code>  Updates the properties of a time tracking category. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated time tracking category record.
          * @summary Update a time tracking category
          * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
-         * @param {InlineObject91} inlineObject91 
+         * @param {InlineObject100} inlineObject100 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject91: InlineObject91, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20062> {
-            return localVarFp.updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject91, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject100: InlineObject100, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: any): AxiosPromise<InlineResponse20073> {
+            return localVarFp.updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject100, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -594,15 +594,15 @@ export class TimeTrackingCategoriesApi extends BaseAPI {
     /**
      * <b>Required scope: </b><code>time_tracking_categories:write</code>  Creates a new time tracking category in a given workspace.  Returns the record of the newly created time tracking category.
      * @summary Create a time tracking category
-     * @param {InlineObject92} inlineObject92 
+     * @param {InlineObject101} inlineObject101 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingCategoriesApi
      */
-    public createTimeTrackingCategory(inlineObject92: InlineObject92, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig) {
-        return TimeTrackingCategoriesApiFp(this.configuration).createTimeTrackingCategory(inlineObject92, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createTimeTrackingCategory(inlineObject101: InlineObject101, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig) {
+        return TimeTrackingCategoriesApiFp(this.configuration).createTimeTrackingCategory(inlineObject101, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -626,7 +626,7 @@ export class TimeTrackingCategoriesApi extends BaseAPI {
      * @param {boolean} [isArchived] Filter by archived status. If not provided, defaults to returning non-archived categories.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'is_archived' | 'name' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingCategoriesApi
@@ -640,7 +640,7 @@ export class TimeTrackingCategoriesApi extends BaseAPI {
      * @summary Get a time tracking category
      * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingCategoriesApi
@@ -658,12 +658,12 @@ export class TimeTrackingCategoriesApi extends BaseAPI {
      * @param {string} [endDate] The end date for filtering time tracking entries by their entry date.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingCategoriesApi
      */
-    public getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'attributable_to' | 'attributable_to.name' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig) {
+    public getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid: string, optPretty?: boolean, startDate?: string, endDate?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'attributable_to' | 'attributable_to.name' | 'attributable_to.resource_subtype' | 'categories' | 'categories.color' | 'categories.name' | 'created_by' | 'created_by.name' | 'duration_minutes' | 'entered_on' | 'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig) {
         return TimeTrackingCategoriesApiFp(this.configuration).getTimeTrackingEntriesForTimeTrackingCategory(timeTrackingCategoryGid, optPretty, startDate, endDate, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -671,14 +671,14 @@ export class TimeTrackingCategoriesApi extends BaseAPI {
      * <b>Required scope: </b><code>time_tracking_categories:write</code>  Updates the properties of a time tracking category. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated time tracking category record.
      * @summary Update a time tracking category
      * @param {string} timeTrackingCategoryGid Globally unique identifier for the time tracking category.
-     * @param {InlineObject91} inlineObject91 
+     * @param {InlineObject100} inlineObject100 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'color' | 'is_archived' | 'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimeTrackingCategoriesApi
      */
-    public updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject91: InlineObject91, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig) {
-        return TimeTrackingCategoriesApiFp(this.configuration).updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject91, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateTimeTrackingCategory(timeTrackingCategoryGid: string, inlineObject100: InlineObject100, optPretty?: boolean, optFields?: Array<'color' | 'is_archived' | 'name'>, options?: AxiosRequestConfig) {
+        return TimeTrackingCategoriesApiFp(this.configuration).updateTimeTrackingCategory(timeTrackingCategoryGid, inlineObject100, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

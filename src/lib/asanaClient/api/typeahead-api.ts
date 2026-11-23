@@ -23,7 +23,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20067 } from '../types';
+import { InlineResponse20078 } from '../types';
 /**
  * TypeaheadApi - axios parameter creator
  * @export
@@ -39,7 +39,7 @@ export const TypeaheadApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -123,11 +123,11 @@ export const TypeaheadApiFp = function(configuration?: Configuration) {
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'actor' | 'agent' | 'custom_field' | 'goal' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'team' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20067>> {
+        async typeaheadForWorkspace(workspaceGid: string, resourceType: 'actor' | 'agent' | 'custom_field' | 'goal' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'team' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20078>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -150,11 +150,11 @@ export const TypeaheadApiFactory = function (configuration?: Configuration, base
          * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
          * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeaheadForWorkspace(workspaceGid: string, resourceType: 'actor' | 'agent' | 'custom_field' | 'goal' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'team' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: any): AxiosPromise<InlineResponse20067> {
+        typeaheadForWorkspace(workspaceGid: string, resourceType: 'actor' | 'agent' | 'custom_field' | 'goal' | 'project' | 'project_template' | 'portfolio' | 'tag' | 'task' | 'team' | 'user', type?: 'custom_field' | 'portfolio' | 'project' | 'tag' | 'task' | 'user', query?: string, count?: number, optPretty?: boolean, optFields?: Array<'name'>, options?: any): AxiosPromise<InlineResponse20078> {
             return localVarFp.typeaheadForWorkspace(workspaceGid, resourceType, type, query, count, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -176,7 +176,7 @@ export class TypeaheadApi extends BaseAPI {
      * @param {string} [query] The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
      * @param {number} [count] The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TypeaheadApi

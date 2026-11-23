@@ -13,7 +13,7 @@
  */
 
 
-import { TimeTrackingCategoryUpdateRequest } from './time-tracking-category-update-request';
+import { TaskRemoveProjectRequest } from './task-remove-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimeTrackingCategoryUpdateRequest } from './time-tracking-category-upda
 export interface InlineObject91 {
     /**
      * 
-     * @type {TimeTrackingCategoryUpdateRequest}
+     * @type {TaskRemoveProjectRequest}
      * @memberof InlineObject91
      */
-    'data'?: TimeTrackingCategoryUpdateRequest;
+    'data'?: TaskRemoveProjectRequest;
 }
 

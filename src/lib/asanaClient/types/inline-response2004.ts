@@ -13,7 +13,8 @@
  */
 
 
-import { AllocationResponse } from './allocation-response';
+import { AiStudioRunResponse } from './ai-studio-run-response';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { AllocationResponse } from './allocation-response';
 export interface InlineResponse2004 {
     /**
      * 
-     * @type {AllocationResponse}
+     * @type {Array<AiStudioRunResponse>}
      * @memberof InlineResponse2004
      */
-    'data'?: AllocationResponse;
+    'data'?: Array<AiStudioRunResponse>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse2004
+     */
+    'next_page'?: NextPage | null;
 }
 

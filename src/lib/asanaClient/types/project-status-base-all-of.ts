@@ -27,7 +27,7 @@ export interface ProjectStatusBaseAllOf {
      */
     'text'?: string;
     /**
-     * [Opt In](/docs/inputoutput-options). The text content of the status update with formatting as HTML.
+     * [Opt In](/docs/inputoutput-options). The text content of the status update with formatting as HTML. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof ProjectStatusBaseAllOf
      */

@@ -38,5 +38,21 @@ export interface PortfolioCompact {
      * @memberof PortfolioCompact
      */
     'name'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof PortfolioCompact
+     */
+    'resource_subtype'?: PortfolioCompactResourceSubtypeEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PortfolioCompactResourceSubtypeEnum {
+    DefaultPortfolio = 'default_portfolio',
+    Custom = 'custom'
+}
+
 

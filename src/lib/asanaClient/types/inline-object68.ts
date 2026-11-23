@@ -13,7 +13,7 @@
  */
 
 
-import { TagCreateRequest } from './tag-create-request';
+import { StatusUpdateRequest } from './status-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagCreateRequest } from './tag-create-request';
 export interface InlineObject68 {
     /**
      * 
-     * @type {TagCreateRequest}
+     * @type {StatusUpdateRequest}
      * @memberof InlineObject68
      */
-    'data'?: TagCreateRequest;
+    'data'?: StatusUpdateRequest;
 }
 

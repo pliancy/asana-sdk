@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRemoveUserRequest } from './team-remove-user-request';
+import { TaskAddProjectRequest } from './task-add-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRemoveUserRequest } from './team-remove-user-request';
 export interface InlineObject90 {
     /**
      * 
-     * @type {TeamRemoveUserRequest}
+     * @type {TaskAddProjectRequest}
      * @memberof InlineObject90
      */
-    'data'?: TeamRemoveUserRequest;
+    'data'?: TaskAddProjectRequest;
 }
 

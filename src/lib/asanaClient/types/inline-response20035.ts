@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { ProjectPortfolioSettingCompact } from './project-portfolio-setting-compact';
+import { ProjectBriefResponse } from './project-brief-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { ProjectPortfolioSettingCompact } from './project-portfolio-setting-comp
 export interface InlineResponse20035 {
     /**
      * 
-     * @type {Array<ProjectPortfolioSettingCompact>}
+     * @type {ProjectBriefResponse}
      * @memberof InlineResponse20035
      */
-    'data'?: Array<ProjectPortfolioSettingCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20035
-     */
-    'next_page'?: NextPage | null;
+    'data'?: ProjectBriefResponse;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioRequest } from './portfolio-request';
+import { OooEntryCreateRequest } from './ooo-entry-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioRequest } from './portfolio-request';
 export interface InlineObject29 {
     /**
      * 
-     * @type {PortfolioRequest}
+     * @type {OooEntryCreateRequest & object}
      * @memberof InlineObject29
      */
-    'data'?: PortfolioRequest;
+    'data'?: OooEntryCreateRequest & object;
 }
 

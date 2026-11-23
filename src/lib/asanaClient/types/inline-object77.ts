@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependenciesRequest } from './modify-dependencies-request';
+import { TagCreateRequest } from './tag-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependenciesRequest } from './modify-dependencies-request';
 export interface InlineObject77 {
     /**
      * 
-     * @type {ModifyDependenciesRequest}
+     * @type {TagCreateRequest}
      * @memberof InlineObject77
      */
-    'data'?: ModifyDependenciesRequest;
+    'data'?: TagCreateRequest;
 }
 
