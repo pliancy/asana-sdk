@@ -13,8 +13,8 @@
  */
 
 
-import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
 import { NextPage } from './next-page';
+import { NotificationResponse } from './notification-response';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse20027 {
     /**
      * 
-     * @type {Array<DeprecatedPortfolioMembershipCompact>}
+     * @type {Array<NotificationResponse>}
      * @memberof InlineResponse20027
      */
-    'data'?: Array<DeprecatedPortfolioMembershipCompact>;
+    'data'?: Array<NotificationResponse>;
     /**
      * 
      * @type {NextPage}

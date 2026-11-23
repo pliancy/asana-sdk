@@ -13,7 +13,7 @@
  */
 
 
-import { TaskSetParentRequest } from './task-set-parent-request';
+import { RemoveCustomFieldSettingRequest } from './remove-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskSetParentRequest } from './task-set-parent-request';
 export interface InlineObject76 {
     /**
      * 
-     * @type {TaskSetParentRequest}
+     * @type {RemoveCustomFieldSettingRequest}
      * @memberof InlineObject76
      */
-    'data'?: TaskSetParentRequest;
+    'data'?: RemoveCustomFieldSettingRequest;
 }
 

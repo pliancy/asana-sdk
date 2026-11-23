@@ -13,7 +13,7 @@
  */
 
 
-import { TagBase } from './tag-base';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TagBase } from './tag-base';
 export interface InlineObject69 {
     /**
      * 
-     * @type {TagBase}
+     * @type {StoryBase}
      * @memberof InlineObject69
      */
-    'data'?: TagBase;
+    'data'?: StoryBase;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TimeTrackingCategoryCreateRequest } from './time-tracking-category-create-request';
+import { TaskAddTagRequest } from './task-add-tag-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimeTrackingCategoryCreateRequest } from './time-tracking-category-crea
 export interface InlineObject92 {
     /**
      * 
-     * @type {TimeTrackingCategoryCreateRequest}
+     * @type {TaskAddTagRequest}
      * @memberof InlineObject92
      */
-    'data'?: TimeTrackingCategoryCreateRequest;
+    'data'?: TaskAddTagRequest;
 }
 

@@ -85,7 +85,7 @@ export interface ProjectBaseAllOf {
      */
     'due_on'?: string | null;
     /**
-     * [Opt In](/docs/inputoutput-options). The notes of the project with formatting as HTML.
+     * [Opt In](/docs/inputoutput-options). The notes of the project with formatting as HTML. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof ProjectBaseAllOf
      */

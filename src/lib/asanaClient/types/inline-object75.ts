@@ -13,7 +13,7 @@
  */
 
 
-import { TaskCreateRequest } from './task-create-request';
+import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskCreateRequest } from './task-create-request';
 export interface InlineObject75 {
     /**
      * 
-     * @type {TaskCreateRequest}
+     * @type {AddCustomFieldSettingRequest}
      * @memberof InlineObject75
      */
-    'data'?: TaskCreateRequest;
+    'data'?: AddCustomFieldSettingRequest;
 }
 

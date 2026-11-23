@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { PortfolioCompact } from './portfolio-compact';
+import { OooEntryResponse } from './ooo-entry-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { PortfolioCompact } from './portfolio-compact';
 export interface InlineResponse20029 {
     /**
      * 
-     * @type {Array<PortfolioCompact>}
+     * @type {OooEntryResponse}
      * @memberof InlineResponse20029
      */
-    'data'?: Array<PortfolioCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20029
-     */
-    'next_page'?: NextPage | null;
+    'data'?: OooEntryResponse;
 }
 

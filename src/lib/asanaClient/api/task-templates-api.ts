@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject71 } from '../types';
+import { InlineObject80 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20023 } from '../types';
+import { InlineResponse20025 } from '../types';
 // @ts-ignore
-import { InlineResponse20053 } from '../types';
+import { InlineResponse20063 } from '../types';
 // @ts-ignore
-import { InlineResponse20054 } from '../types';
+import { InlineResponse20064 } from '../types';
 /**
  * TaskTemplatesApi - axios parameter creator
  * @export
@@ -90,7 +90,7 @@ export const TaskTemplatesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -144,11 +144,11 @@ export const TaskTemplatesApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [project] The project to filter task templates on.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskTemplates: async (optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTaskTemplates: async (optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/task_templates`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -205,12 +205,12 @@ export const TaskTemplatesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Instantiate a task from a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject71} [inlineObject71] 
+         * @param {Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject80} [inlineObject80] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateTask: async (taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject71?: InlineObject71, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        instantiateTask: async (taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject80?: InlineObject80, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskTemplateGid' is not null or undefined
             assertParamExists('instantiateTask', 'taskTemplateGid', taskTemplateGid)
             const localVarPath = `/task_templates/{task_template_gid}/instantiateTask`
@@ -249,7 +249,7 @@ export const TaskTemplatesApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject71, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject80, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -283,11 +283,11 @@ export const TaskTemplatesApiFp = function(configuration?: Configuration) {
          * @summary Get a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskTemplate(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
+        async getTaskTemplate(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskTemplate(taskTemplateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -298,11 +298,11 @@ export const TaskTemplatesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [project] The project to filter task templates on.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
+        async getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20063>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskTemplates(optPretty, limit, offset, project, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -311,13 +311,13 @@ export const TaskTemplatesApiFp = function(configuration?: Configuration) {
          * @summary Instantiate a task from a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject71} [inlineObject71] 
+         * @param {Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject80} [inlineObject80] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject71?: InlineObject71, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20023>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject71, options);
+        async instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject80?: InlineObject80, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject80, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -346,11 +346,11 @@ export const TaskTemplatesApiFactory = function (configuration?: Configuration, 
          * @summary Get a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskTemplate(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: any): AxiosPromise<InlineResponse20054> {
+        getTaskTemplate(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: any): AxiosPromise<InlineResponse20064> {
             return localVarFp.getTaskTemplate(taskTemplateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -360,11 +360,11 @@ export const TaskTemplatesApiFactory = function (configuration?: Configuration, 
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [project] The project to filter task templates on.
-         * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: any): AxiosPromise<InlineResponse20053> {
+        getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>, options?: any): AxiosPromise<InlineResponse20063> {
             return localVarFp.getTaskTemplates(optPretty, limit, offset, project, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -372,13 +372,13 @@ export const TaskTemplatesApiFactory = function (configuration?: Configuration, 
          * @summary Instantiate a task from a task template
          * @param {string} taskTemplateGid Globally unique identifier for the task template.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject71} [inlineObject71] 
+         * @param {Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject80} [inlineObject80] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject71?: InlineObject71, options?: any): AxiosPromise<InlineResponse20023> {
-            return localVarFp.instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject71, options).then((request) => request(axios, basePath));
+        instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject80?: InlineObject80, options?: any): AxiosPromise<InlineResponse20025> {
+            return localVarFp.instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject80, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -408,7 +408,7 @@ export class TaskTemplatesApi extends BaseAPI {
      * @summary Get a task template
      * @param {string} taskTemplateGid Globally unique identifier for the task template.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskTemplatesApi
@@ -424,12 +424,12 @@ export class TaskTemplatesApi extends BaseAPI {
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [project] The project to filter task templates on.
-     * @param {Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskTemplatesApi
      */
-    public getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'project' | 'template'>, options?: AxiosRequestConfig) {
+    public getTaskTemplates(optPretty?: boolean, limit?: number, offset?: string, project?: string, optFields?: Array<'created_at' | 'created_by' | 'name' | 'offset' | 'path' | 'project' | 'template' | 'uri'>, options?: AxiosRequestConfig) {
         return TaskTemplatesApiFp(this.configuration).getTaskTemplates(optPretty, limit, offset, project, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -438,13 +438,13 @@ export class TaskTemplatesApi extends BaseAPI {
      * @summary Instantiate a task from a task template
      * @param {string} taskTemplateGid Globally unique identifier for the task template.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-     * @param {InlineObject71} [inlineObject71] 
+     * @param {Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+     * @param {InlineObject80} [inlineObject80] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskTemplatesApi
      */
-    public instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_project' | 'new_project.name' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject71?: InlineObject71, options?: AxiosRequestConfig) {
-        return TaskTemplatesApiFp(this.configuration).instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject71, options).then((request) => request(this.axios, this.basePath));
+    public instantiateTask(taskTemplateGid: string, optPretty?: boolean, optFields?: Array<'dates_rollup_progress' | 'dates_rollup_progress.total_tasks' | 'dates_rollup_progress.updated_tasks' | 'new_graph_export' | 'new_graph_export.completed_at' | 'new_graph_export.created_at' | 'new_graph_export.download_url' | 'new_portfolio' | 'new_portfolio.name' | 'new_portfolio.resource_subtype' | 'new_project' | 'new_project.name' | 'new_project.resource_subtype' | 'new_project_template' | 'new_project_template.name' | 'new_resource_export' | 'new_resource_export.completed_at' | 'new_resource_export.created_at' | 'new_resource_export.download_url' | 'new_task' | 'new_task.created_by' | 'new_task.name' | 'new_task.resource_subtype' | 'resource_subtype' | 'status'>, inlineObject80?: InlineObject80, options?: AxiosRequestConfig) {
+        return TaskTemplatesApiFp(this.configuration).instantiateTask(taskTemplateGid, optPretty, optFields, inlineObject80, options).then((request) => request(this.axios, this.basePath));
     }
 }

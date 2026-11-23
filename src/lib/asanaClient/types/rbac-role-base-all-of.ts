@@ -55,7 +55,8 @@ export enum RbacRoleBaseAllOfBaseRoleTypeEnum {
     Guest = 'guest',
     Member = 'member',
     Admin = 'admin',
-    SuperAdmin = 'super_admin'
+    SuperAdmin = 'super_admin',
+    Csm = 'csm'
 }
 
 

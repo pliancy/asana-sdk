@@ -23,19 +23,19 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject60 } from '../types';
+import { InlineObject64 } from '../types';
 // @ts-ignore
-import { InlineObject61 } from '../types';
+import { InlineObject65 } from '../types';
 // @ts-ignore
-import { InlineObject62 } from '../types';
+import { InlineObject66 } from '../types';
 // @ts-ignore
-import { InlineObject63 } from '../types';
+import { InlineObject67 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20046 } from '../types';
+import { InlineResponse20053 } from '../types';
 // @ts-ignore
-import { InlineResponse20047 } from '../types';
+import { InlineResponse20054 } from '../types';
 /**
  * SectionsApi - axios parameter creator
  * @export
@@ -47,11 +47,11 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject62} [inlineObject62] 
+         * @param {InlineObject66} [inlineObject66] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTaskForSection: async (sectionGid: string, optPretty?: boolean, inlineObject62?: InlineObject62, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addTaskForSection: async (sectionGid: string, optPretty?: boolean, inlineObject66?: InlineObject66, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('addTaskForSection', 'sectionGid', sectionGid)
             const localVarPath = `/sections/{section_gid}/addTask`
@@ -86,7 +86,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject62, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject66, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -94,16 +94,16 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Creates a new section in a project. Returns the full record of the newly created section.
+         * <b>Required scope: </b><code>projects:write</code>  Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject61} [inlineObject61] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject65} [inlineObject65] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSectionForProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject61?: InlineObject61, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSectionForProject: async (projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject65?: InlineObject65, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('createSectionForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/sections`
@@ -121,7 +121,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -142,7 +142,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject61, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject65, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -150,7 +150,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -175,7 +175,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -197,15 +197,15 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Returns the complete record for a single section.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the complete record for a single section.
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('getSection', 'sectionGid', sectionGid)
             const localVarPath = `/sections/{section_gid}`
@@ -223,7 +223,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -249,17 +249,17 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Returns the compact records for all sections in the specified project.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the compact records for all sections in the specified project.
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSectionsForProject: async (projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSectionsForProject: async (projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('getSectionsForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/sections`
@@ -277,7 +277,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -311,15 +311,15 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject63} [inlineObject63] 
+         * @param {InlineObject67} [inlineObject67] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertSectionForProject: async (projectGid: string, optPretty?: boolean, inlineObject63?: InlineObject63, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        insertSectionForProject: async (projectGid: string, optPretty?: boolean, inlineObject67?: InlineObject67, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'projectGid' is not null or undefined
             assertParamExists('insertSectionForProject', 'projectGid', projectGid)
             const localVarPath = `/projects/{project_gid}/sections/insert`
@@ -337,7 +337,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -354,7 +354,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject63, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject67, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -362,16 +362,16 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject60} [inlineObject60] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject64} [inlineObject64] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject60?: InlineObject60, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSection: async (sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject64?: InlineObject64, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sectionGid' is not null or undefined
             assertParamExists('updateSection', 'sectionGid', sectionGid)
             const localVarPath = `/sections/{section_gid}`
@@ -389,7 +389,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:write"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -410,7 +410,7 @@ export const SectionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject60, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject64, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -432,30 +432,30 @@ export const SectionsApiFp = function(configuration?: Configuration) {
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject62} [inlineObject62] 
+         * @param {InlineObject66} [inlineObject66] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject62?: InlineObject62, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addTaskForSection(sectionGid, optPretty, inlineObject62, options);
+        async addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject66?: InlineObject66, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTaskForSection(sectionGid, optPretty, inlineObject66, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Creates a new section in a project. Returns the full record of the newly created section.
+         * <b>Required scope: </b><code>projects:write</code>  Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject61} [inlineObject61] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject65} [inlineObject65] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject61?: InlineObject61, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSectionForProject(projectGid, optPretty, optFields, inlineObject61, options);
+        async createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject65?: InlineObject65, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSectionForProject(projectGid, optPretty, optFields, inlineObject65, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -467,58 +467,58 @@ export const SectionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the complete record for a single section.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the complete record for a single section.
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
+        async getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSection(sectionGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the compact records for all sections in the specified project.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the compact records for all sections in the specified project.
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
+        async getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject63} [inlineObject63] 
+         * @param {InlineObject67} [inlineObject67] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject63?: InlineObject63, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.insertSectionForProject(projectGid, optPretty, inlineObject63, options);
+        async insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject67?: InlineObject67, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.insertSectionForProject(projectGid, optPretty, inlineObject67, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject60} [inlineObject60] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject64} [inlineObject64] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject60?: InlineObject60, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSection(sectionGid, optPretty, optFields, inlineObject60, options);
+        async updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject64?: InlineObject64, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSection(sectionGid, optPretty, optFields, inlineObject64, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -536,28 +536,28 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
          * @summary Add task to section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject62} [inlineObject62] 
+         * @param {InlineObject66} [inlineObject66] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject62?: InlineObject62, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.addTaskForSection(sectionGid, optPretty, inlineObject62, options).then((request) => request(axios, basePath));
+        addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject66?: InlineObject66, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.addTaskForSection(sectionGid, optPretty, inlineObject66, options).then((request) => request(axios, basePath));
         },
         /**
-         * Creates a new section in a project. Returns the full record of the newly created section.
+         * <b>Required scope: </b><code>projects:write</code>  Creates a new section in a project. Returns the full record of the newly created section.
          * @summary Create a section in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject61} [inlineObject61] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject65} [inlineObject65] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject61?: InlineObject61, options?: any): AxiosPromise<InlineResponse20046> {
-            return localVarFp.createSectionForProject(projectGid, optPretty, optFields, inlineObject61, options).then((request) => request(axios, basePath));
+        createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject65?: InlineObject65, options?: any): AxiosPromise<InlineResponse20053> {
+            return localVarFp.createSectionForProject(projectGid, optPretty, optFields, inlineObject65, options).then((request) => request(axios, basePath));
         },
         /**
-         * A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
          * @summary Delete a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -568,55 +568,55 @@ export const SectionsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteSection(sectionGid, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the complete record for a single section.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the complete record for a single section.
          * @summary Get a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: any): AxiosPromise<InlineResponse20046> {
+        getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, options?: any): AxiosPromise<InlineResponse20053> {
             return localVarFp.getSection(sectionGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the compact records for all sections in the specified project.
+         * <b>Required scope: </b><code>projects:read</code>  Returns the compact records for all sections in the specified project.
          * @summary Get sections in a project
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20047> {
+        getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>, options?: any): AxiosPromise<InlineResponse20054> {
             return localVarFp.getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
+         * <b>Required scope: </b><code>projects:write</code>  Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
          * @summary Move or Insert sections
          * @param {string} projectGid Globally unique identifier for the project.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {InlineObject63} [inlineObject63] 
+         * @param {InlineObject67} [inlineObject67] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject63?: InlineObject63, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.insertSectionForProject(projectGid, optPretty, inlineObject63, options).then((request) => request(axios, basePath));
+        insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject67?: InlineObject67, options?: any): AxiosPromise<InlineResponse2001> {
+            return localVarFp.insertSectionForProject(projectGid, optPretty, inlineObject67, options).then((request) => request(axios, basePath));
         },
         /**
-         * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
+         * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
          * @summary Update a section
          * @param {string} sectionGid The globally unique identifier for the section.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-         * @param {InlineObject60} [inlineObject60] 
+         * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+         * @param {InlineObject64} [inlineObject64] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject60?: InlineObject60, options?: any): AxiosPromise<InlineResponse20046> {
-            return localVarFp.updateSection(sectionGid, optPretty, optFields, inlineObject60, options).then((request) => request(axios, basePath));
+        updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject64?: InlineObject64, options?: any): AxiosPromise<InlineResponse20053> {
+            return localVarFp.updateSection(sectionGid, optPretty, optFields, inlineObject64, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -633,32 +633,32 @@ export class SectionsApi extends BaseAPI {
      * @summary Add task to section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {InlineObject62} [inlineObject62] 
+     * @param {InlineObject66} [inlineObject66] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject62?: InlineObject62, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).addTaskForSection(sectionGid, optPretty, inlineObject62, options).then((request) => request(this.axios, this.basePath));
+    public addTaskForSection(sectionGid: string, optPretty?: boolean, inlineObject66?: InlineObject66, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).addTaskForSection(sectionGid, optPretty, inlineObject66, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Creates a new section in a project. Returns the full record of the newly created section.
+     * <b>Required scope: </b><code>projects:write</code>  Creates a new section in a project. Returns the full record of the newly created section.
      * @summary Create a section in a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-     * @param {InlineObject61} [inlineObject61] 
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+     * @param {InlineObject65} [inlineObject65] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject61?: InlineObject61, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).createSectionForProject(projectGid, optPretty, optFields, inlineObject61, options).then((request) => request(this.axios, this.basePath));
+    public createSectionForProject(projectGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject65?: InlineObject65, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).createSectionForProject(projectGid, optPretty, optFields, inlineObject65, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
+     * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be deleted by making a DELETE request on the URL for that section.  Note that sections must be empty to be deleted.  The last remaining section cannot be deleted.  Returns an empty data block.
      * @summary Delete a section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
@@ -671,61 +671,61 @@ export class SectionsApi extends BaseAPI {
     }
 
     /**
-     * Returns the complete record for a single section.
+     * <b>Required scope: </b><code>projects:read</code>  Returns the complete record for a single section.
      * @summary Get a section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, options?: AxiosRequestConfig) {
+    public getSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, options?: AxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSection(sectionGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the compact records for all sections in the specified project.
+     * <b>Required scope: </b><code>projects:read</code>  Returns the compact records for all sections in the specified project.
      * @summary Get sections in a project
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'projects' | 'projects.name' | 'uri'>, options?: AxiosRequestConfig) {
+    public getSectionsForProject(projectGid: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'created_at' | 'name' | 'offset' | 'path' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype' | 'uri'>, options?: AxiosRequestConfig) {
         return SectionsApiFp(this.configuration).getSectionsForProject(projectGid, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
+     * <b>Required scope: </b><code>projects:write</code>  Move sections relative to each other. One of `before_section` or `after_section` is required.  Sections cannot be moved between projects.  Returns an empty data block.
      * @summary Move or Insert sections
      * @param {string} projectGid Globally unique identifier for the project.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {InlineObject63} [inlineObject63] 
+     * @param {InlineObject67} [inlineObject67] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject63?: InlineObject63, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).insertSectionForProject(projectGid, optPretty, inlineObject63, options).then((request) => request(this.axios, this.basePath));
+    public insertSectionForProject(projectGid: string, optPretty?: boolean, inlineObject67?: InlineObject67, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).insertSectionForProject(projectGid, optPretty, inlineObject67, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
+     * <b>Required scope: </b><code>projects:write</code>  A specific, existing section can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `name` field.)  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated section record.
      * @summary Update a section
      * @param {string} sectionGid The globally unique identifier for the section.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-     * @param {InlineObject60} [inlineObject60] 
+     * @param {Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+     * @param {InlineObject64} [inlineObject64] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SectionsApi
      */
-    public updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'projects' | 'projects.name'>, inlineObject60?: InlineObject60, options?: AxiosRequestConfig) {
-        return SectionsApiFp(this.configuration).updateSection(sectionGid, optPretty, optFields, inlineObject60, options).then((request) => request(this.axios, this.basePath));
+    public updateSection(sectionGid: string, optPretty?: boolean, optFields?: Array<'created_at' | 'name' | 'project' | 'project.name' | 'project.resource_subtype' | 'projects' | 'projects.name' | 'projects.resource_subtype'>, inlineObject64?: InlineObject64, options?: AxiosRequestConfig) {
+        return SectionsApiFp(this.configuration).updateSection(sectionGid, optPretty, optFields, inlineObject64, options).then((request) => request(this.axios, this.basePath));
     }
 }

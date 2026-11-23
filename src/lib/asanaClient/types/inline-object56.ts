@@ -13,7 +13,7 @@
  */
 
 
-import { RateUpdateRequest } from './rate-update-request';
+import { ProjectSaveAsTemplateRequest } from './project-save-as-template-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RateUpdateRequest } from './rate-update-request';
 export interface InlineObject56 {
     /**
      * 
-     * @type {RateUpdateRequest}
+     * @type {ProjectSaveAsTemplateRequest}
      * @memberof InlineObject56
      */
-    'data'?: RateUpdateRequest;
+    'data'?: ProjectSaveAsTemplateRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-task-request';
+import { StoryBase } from './story-base';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-
 export interface InlineObject71 {
     /**
      * 
-     * @type {TaskTemplateInstantiateTaskRequest}
+     * @type {StoryBase}
      * @memberof InlineObject71
      */
-    'data'?: TaskTemplateInstantiateTaskRequest;
+    'data'?: StoryBase;
 }
 

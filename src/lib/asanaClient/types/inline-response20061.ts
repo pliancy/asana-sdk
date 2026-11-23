@@ -13,8 +13,8 @@
  */
 
 
+import { CustomFieldTableSettingResponse } from './custom-field-table-setting-response';
 import { NextPage } from './next-page';
-import { TimePeriodCompact } from './time-period-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TimePeriodCompact } from './time-period-compact';
 export interface InlineResponse20061 {
     /**
      * 
-     * @type {Array<TimePeriodCompact>}
+     * @type {Array<CustomFieldTableSettingResponse>}
      * @memberof InlineResponse20061
      */
-    'data'?: Array<TimePeriodCompact>;
+    'data'?: Array<CustomFieldTableSettingResponse>;
     /**
      * 
      * @type {NextPage}

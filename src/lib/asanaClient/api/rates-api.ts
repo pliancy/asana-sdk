@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject55 } from '../types';
+import { InlineObject57 } from '../types';
 // @ts-ignore
-import { InlineObject56 } from '../types';
+import { InlineObject58 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20042 } from '../types';
+import { InlineResponse20047 } from '../types';
 // @ts-ignore
 import { InlineResponse20110 } from '../types';
 /**
@@ -41,15 +41,15 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creates a new rate for a `parent` + `resource` combination.
          * @summary Create a rate
-         * @param {InlineObject55} inlineObject55 
+         * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRate: async (inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject55' is not null or undefined
-            assertParamExists('createRate', 'inlineObject55', inlineObject55)
+        createRate: async (inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject57' is not null or undefined
+            assertParamExists('createRate', 'inlineObject57', inlineObject57)
             const localVarPath = `/rates`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject55, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject57, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -144,11 +144,11 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get a rate
          * @param {string} rateGid Globally unique identifier for the rate.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRate: async (rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRate: async (rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'rateGid' is not null or undefined
             assertParamExists('getRate', 'rateGid', rateGid)
             const localVarPath = `/rates/{rate_gid}`
@@ -199,7 +199,7 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} [resource] Globally unique identifier for &#x60;user&#x60; or &#x60;placeholder&#x60;.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -263,17 +263,17 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
          * An existing rate can be updated by making a PUT request on the URL for that rate. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `rate` field.)  Returns the complete updated rate record.
          * @summary Update a rate
          * @param {string} rateGid Globally unique identifier for the rate.
-         * @param {InlineObject56} inlineObject56 
+         * @param {InlineObject58} inlineObject58 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRate: async (rateGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateRate: async (rateGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'rateGid' is not null or undefined
             assertParamExists('updateRate', 'rateGid', rateGid)
-            // verify required parameter 'inlineObject56' is not null or undefined
-            assertParamExists('updateRate', 'inlineObject56', inlineObject56)
+            // verify required parameter 'inlineObject58' is not null or undefined
+            assertParamExists('updateRate', 'inlineObject58', inlineObject58)
             const localVarPath = `/rates/{rate_gid}`
                 .replace(`{${"rate_gid"}}`, encodeURIComponent(String(rateGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -310,7 +310,7 @@ export const RatesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject56, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject58, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -330,14 +330,14 @@ export const RatesApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new rate for a `parent` + `resource` combination.
          * @summary Create a rate
-         * @param {InlineObject55} inlineObject55 
+         * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createRate(inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRate(inlineObject55, optPretty, optFields, options);
+        async createRate(inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRate(inlineObject57, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -357,11 +357,11 @@ export const RatesApiFp = function(configuration?: Configuration) {
          * @summary Get a rate
          * @param {string} rateGid Globally unique identifier for the rate.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
+        async getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRate(rateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,11 +373,11 @@ export const RatesApiFp = function(configuration?: Configuration) {
          * @param {string} [resource] Globally unique identifier for &#x60;user&#x60; or &#x60;placeholder&#x60;.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRates(optPretty?: boolean, parent?: string, resource?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async getRates(optPretty?: boolean, parent?: string, resource?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRates(optPretty, parent, resource, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -385,14 +385,14 @@ export const RatesApiFp = function(configuration?: Configuration) {
          * An existing rate can be updated by making a PUT request on the URL for that rate. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `rate` field.)  Returns the complete updated rate record.
          * @summary Update a rate
          * @param {string} rateGid Globally unique identifier for the rate.
-         * @param {InlineObject56} inlineObject56 
+         * @param {InlineObject58} inlineObject58 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRate(rateGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRate(rateGid, inlineObject56, optPretty, optFields, options);
+        async updateRate(rateGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20110>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRate(rateGid, inlineObject58, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -408,14 +408,14 @@ export const RatesApiFactory = function (configuration?: Configuration, basePath
         /**
          * Creates a new rate for a `parent` + `resource` combination.
          * @summary Create a rate
-         * @param {InlineObject55} inlineObject55 
+         * @param {InlineObject57} inlineObject57 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRate(inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
-            return localVarFp.createRate(inlineObject55, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createRate(inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
+            return localVarFp.createRate(inlineObject57, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a rate.
@@ -433,11 +433,11 @@ export const RatesApiFactory = function (configuration?: Configuration, basePath
          * @summary Get a rate
          * @param {string} rateGid Globally unique identifier for the rate.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
+        getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
             return localVarFp.getRate(rateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -448,25 +448,25 @@ export const RatesApiFactory = function (configuration?: Configuration, basePath
          * @param {string} [resource] Globally unique identifier for &#x60;user&#x60; or &#x60;placeholder&#x60;.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRates(optPretty?: boolean, parent?: string, resource?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20042> {
+        getRates(optPretty?: boolean, parent?: string, resource?: string, limit?: number, offset?: string, optFields?: Array<'offset' | 'path' | 'uri'>, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.getRates(optPretty, parent, resource, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * An existing rate can be updated by making a PUT request on the URL for that rate. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `rate` field.)  Returns the complete updated rate record.
          * @summary Update a rate
          * @param {string} rateGid Globally unique identifier for the rate.
-         * @param {InlineObject56} inlineObject56 
+         * @param {InlineObject58} inlineObject58 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRate(rateGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
-            return localVarFp.updateRate(rateGid, inlineObject56, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateRate(rateGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: any): AxiosPromise<InlineResponse20110> {
+            return localVarFp.updateRate(rateGid, inlineObject58, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -481,15 +481,15 @@ export class RatesApi extends BaseAPI {
     /**
      * Creates a new rate for a `parent` + `resource` combination.
      * @summary Create a rate
-     * @param {InlineObject55} inlineObject55 
+     * @param {InlineObject57} inlineObject57 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RatesApi
      */
-    public createRate(inlineObject55: InlineObject55, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
-        return RatesApiFp(this.configuration).createRate(inlineObject55, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createRate(inlineObject57: InlineObject57, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
+        return RatesApiFp(this.configuration).createRate(inlineObject57, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -510,12 +510,12 @@ export class RatesApi extends BaseAPI {
      * @summary Get a rate
      * @param {string} rateGid Globally unique identifier for the rate.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RatesApi
      */
-    public getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
+    public getRate(rateGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
         return RatesApiFp(this.configuration).getRate(rateGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -527,7 +527,7 @@ export class RatesApi extends BaseAPI {
      * @param {string} [resource] Globally unique identifier for &#x60;user&#x60; or &#x60;placeholder&#x60;.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'offset' | 'path' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RatesApi
@@ -540,14 +540,14 @@ export class RatesApi extends BaseAPI {
      * An existing rate can be updated by making a PUT request on the URL for that rate. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. (note that at this time, the only field that can be updated is the `rate` field.)  Returns the complete updated rate record.
      * @summary Update a rate
      * @param {string} rateGid Globally unique identifier for the rate.
-     * @param {InlineObject56} inlineObject56 
+     * @param {InlineObject58} inlineObject58 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RatesApi
      */
-    public updateRate(rateGid: string, inlineObject56: InlineObject56, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
-        return RatesApiFp(this.configuration).updateRate(rateGid, inlineObject56, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateRate(rateGid: string, inlineObject58: InlineObject58, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'currency_code' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'rate' | 'resource' | 'resource.name'>, options?: AxiosRequestConfig) {
+        return RatesApiFp(this.configuration).updateRate(rateGid, inlineObject58, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

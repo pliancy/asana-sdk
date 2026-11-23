@@ -13,8 +13,8 @@
  */
 
 
+import { MembershipCompact } from './membership-compact';
 import { NextPage } from './next-page';
-import { OooEntryResponse } from './ooo-entry-response';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { OooEntryResponse } from './ooo-entry-response';
 export interface InlineResponse20026 {
     /**
      * 
-     * @type {Array<OooEntryResponse>}
+     * @type {Array<MembershipCompact>}
      * @memberof InlineResponse20026
      */
-    'data'?: Array<OooEntryResponse>;
+    'data'?: Array<MembershipCompact>;
     /**
      * 
      * @type {NextPage}

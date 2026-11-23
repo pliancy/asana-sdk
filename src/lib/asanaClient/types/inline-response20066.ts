@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { TimesheetApprovalStatusCompact } from './timesheet-approval-status-compact';
+import { TaskCompact } from './task-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { TimesheetApprovalStatusCompact } from './timesheet-approval-status-comp
 export interface InlineResponse20066 {
     /**
      * 
-     * @type {Array<TimesheetApprovalStatusCompact>}
+     * @type {Array<TaskCompact>}
      * @memberof InlineResponse20066
      */
-    'data'?: Array<TimesheetApprovalStatusCompact>;
+    'data'?: Array<TaskCompact>;
     /**
      * 
      * @type {NextPage}

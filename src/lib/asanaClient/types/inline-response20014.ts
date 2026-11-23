@@ -13,8 +13,7 @@
  */
 
 
-import { CustomTypeResponse } from './custom-type-response';
-import { NextPage } from './next-page';
+import { CustomFieldSettingResponse } from './custom-field-setting-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse20014 {
     /**
      * 
-     * @type {Array<CustomTypeResponse>}
+     * @type {Array<CustomFieldSettingResponse>}
      * @memberof InlineResponse20014
      */
-    'data'?: Array<CustomTypeResponse>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20014
-     */
-    'next_page'?: NextPage | null;
+    'data'?: Array<CustomFieldSettingResponse>;
 }
 

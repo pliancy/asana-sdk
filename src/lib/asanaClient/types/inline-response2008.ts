@@ -13,8 +13,7 @@
  */
 
 
-import { AuditLogEvent } from './audit-log-event';
-import { NextPage } from './next-page';
+import { AttachmentResponse } from './attachment-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse2008 {
     /**
      * 
-     * @type {Array<AuditLogEvent>}
+     * @type {AttachmentResponse}
      * @memberof InlineResponse2008
      */
-    'data'?: Array<AuditLogEvent>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse2008
-     */
-    'next_page'?: NextPage | null;
+    'data'?: AttachmentResponse;
 }
 

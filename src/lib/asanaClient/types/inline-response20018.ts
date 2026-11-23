@@ -13,26 +13,31 @@
  */
 
 
-import { GoalRelationshipCompact } from './goal-relationship-compact';
-import { NextPage } from './next-page';
+import { EventResponse } from './event-response';
 
 /**
- * 
+ * The full record for all events that have occurred since the sync token was created.
  * @export
  * @interface InlineResponse20018
  */
 export interface InlineResponse20018 {
     /**
      * 
-     * @type {Array<GoalRelationshipCompact>}
+     * @type {Array<EventResponse>}
      * @memberof InlineResponse20018
      */
-    'data'?: Array<GoalRelationshipCompact>;
+    'data'?: Array<EventResponse>;
     /**
-     * 
-     * @type {NextPage}
+     * A sync token to be used with the next call to the /events endpoint.
+     * @type {string}
      * @memberof InlineResponse20018
      */
-    'next_page'?: NextPage | null;
+    'sync'?: string;
+    /**
+     * Indicates whether there are more events to pull.
+     * @type {boolean}
+     * @memberof InlineResponse20018
+     */
+    'has_more'?: boolean;
 }
 

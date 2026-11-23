@@ -47,6 +47,12 @@ export interface CustomFieldResponseAllOf {
      */
     'is_formula_field'?: boolean;
     /**
+     * *Conditional*. This flag describes whether a custom field is a lookup custom field.
+     * @type {boolean}
+     * @memberof CustomFieldResponseAllOf
+     */
+    'is_lookup_field'?: boolean;
+    /**
      * *Conditional*. This flag describes whether a custom field is read only.
      * @type {boolean}
      * @memberof CustomFieldResponseAllOf
@@ -71,7 +77,7 @@ export interface CustomFieldResponseAllOf {
      */
     'reference_value'?: Array<AsanaNamedResource>;
     /**
-     * *Conditional*. Only relevant for custom fields of type `text`. This is the HTML representation of the text value of a custom field, corresponding to the `text_value` plain-text field.
+     * *Conditional*. Only relevant for custom fields of type `text`. This is the HTML representation of the text value of a custom field, corresponding to the `text_value` plain-text field. See [rich text](/docs/rich-text#reading-rich-text).
      * @type {string}
      * @memberof CustomFieldResponseAllOf
      */
@@ -119,7 +125,9 @@ export enum CustomFieldResponseAllOfInputRestrictionsEnum {
     Task = 'task',
     Project = 'project',
     Portfolio = 'portfolio',
-    Goal = 'goal'
+    Goal = 'goal',
+    Team = 'team',
+    Record = 'record'
 }
 /**
     * @export

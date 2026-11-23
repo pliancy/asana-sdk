@@ -13,7 +13,7 @@
  */
 
 
-import { ModifyDependentsRequest } from './modify-dependents-request';
+import { TaskTemplateInstantiateTaskRequest } from './task-template-instantiate-task-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ModifyDependentsRequest } from './modify-dependents-request';
 export interface InlineObject80 {
     /**
      * 
-     * @type {ModifyDependentsRequest}
+     * @type {TaskTemplateInstantiateTaskRequest}
      * @memberof InlineObject80
      */
-    'data'?: ModifyDependentsRequest;
+    'data'?: TaskTemplateInstantiateTaskRequest;
 }
 

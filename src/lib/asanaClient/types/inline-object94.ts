@@ -13,7 +13,7 @@
  */
 
 
-import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-request';
+import { TaskAddFollowersRequest } from './task-add-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UpdateTimeTrackingEntryRequest } from './update-time-tracking-entry-req
 export interface InlineObject94 {
     /**
      * 
-     * @type {UpdateTimeTrackingEntryRequest}
+     * @type {TaskAddFollowersRequest}
      * @memberof InlineObject94
      */
-    'data'?: UpdateTimeTrackingEntryRequest;
+    'data'?: TaskAddFollowersRequest;
 }
 

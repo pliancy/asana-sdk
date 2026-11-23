@@ -13,7 +13,7 @@
  */
 
 
-import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request';
+import { PortfolioAddItemRequest } from './portfolio-add-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AddCustomFieldSettingRequest } from './add-custom-field-setting-request
 export interface InlineObject33 {
     /**
      * 
-     * @type {AddCustomFieldSettingRequest}
+     * @type {PortfolioAddItemRequest}
      * @memberof InlineObject33
      */
-    'data'?: AddCustomFieldSettingRequest;
+    'data'?: PortfolioAddItemRequest;
 }
 

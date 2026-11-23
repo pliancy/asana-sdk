@@ -13,8 +13,7 @@
  */
 
 
-import { AsanaNamedResource } from './asana-named-resource';
-import { NextPage } from './next-page';
+import { TimePeriodBase } from './time-period-base';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse20071 {
     /**
      * 
-     * @type {Array<AsanaNamedResource>}
+     * @type {TimePeriodBase}
      * @memberof InlineResponse20071
      */
-    'data'?: Array<AsanaNamedResource>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20071
-     */
-    'next_page'?: NextPage | null;
+    'data'?: TimePeriodBase;
 }
 

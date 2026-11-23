@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectBriefRequest } from './project-brief-request';
+import { PortfolioDuplicateRequest } from './portfolio-duplicate-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectBriefRequest } from './project-brief-request';
 export interface InlineObject39 {
     /**
      * 
-     * @type {ProjectBriefRequest}
+     * @type {PortfolioDuplicateRequest}
      * @memberof InlineObject39
      */
-    'data'?: ProjectBriefRequest;
+    'data'?: PortfolioDuplicateRequest;
 }
 

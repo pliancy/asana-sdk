@@ -13,7 +13,8 @@
  */
 
 
-import { ProjectBriefResponse } from './project-brief-response';
+import { DeprecatedPortfolioMembershipCompact } from './deprecated-portfolio-membership-compact';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { ProjectBriefResponse } from './project-brief-response';
 export interface InlineResponse20031 {
     /**
      * 
-     * @type {ProjectBriefResponse}
+     * @type {Array<DeprecatedPortfolioMembershipCompact>}
      * @memberof InlineResponse20031
      */
-    'data'?: ProjectBriefResponse;
+    'data'?: Array<DeprecatedPortfolioMembershipCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20031
+     */
+    'next_page'?: NextPage | null;
 }
 

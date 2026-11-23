@@ -16,7 +16,7 @@
 import { AsanaResource } from './asana-resource';
 import { Like } from './like';
 import { TaskBaseAllOfExternal } from './task-base-all-of-external';
-import { TaskBaseAllOfMemberships } from './task-base-all-of-memberships';
+import { TaskMembership } from './task-membership';
 import { UserCompact } from './user-compact';
 
 /**
@@ -98,7 +98,7 @@ export interface TaskBaseAllOf {
      */
     'external'?: TaskBaseAllOfExternal;
     /**
-     * [Opt In](/docs/inputoutput-options). The notes of the text with formatting as HTML.
+     * [Opt In](/docs/inputoutput-options). The notes of the text with formatting as HTML. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof TaskBaseAllOf
      */
@@ -115,6 +115,12 @@ export interface TaskBaseAllOf {
      * @memberof TaskBaseAllOf
      */
     'hearts'?: Array<Like>;
+    /**
+     * [Opt In](/docs/inputoutput-options). True when one or more descendant subtasks have dates outside the task\'s own date range. This field reflects the latest computed rollup state and returns false when no rollup has been computed.
+     * @type {boolean}
+     * @memberof TaskBaseAllOf
+     */
+    'has_subtasks_date_mismatch'?: boolean;
     /**
      * [Opt In](/docs/inputoutput-options). In some contexts tasks can be rendered as a visual separator; for instance, subtasks can appear similar to [sections](/reference/sections) without being true `section` objects. If a `task` object is rendered this way in any context it will have the property `is_rendered_as_separator` set to `true`. This parameter only applies to regular tasks with `resource_subtype` of `default_task`. Tasks with `resource_subtype` of `milestone`, `approval`, or custom task types will not have this property and cannot be rendered as separators.
      * @type {boolean}
@@ -135,10 +141,10 @@ export interface TaskBaseAllOf {
     'likes'?: Array<Like>;
     /**
      * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>projects:read</code>, <code>project_sections:read</code></p>  *Create-only*. Array of projects this task is associated with and the section it is in. At task creation time, this array can be used to add the task to specific sections. After task creation, these associations can be modified using the `addProject` and `removeProject` endpoints. Note that over time, more types of memberships may be added to this property.
-     * @type {Array<TaskBaseAllOfMemberships>}
+     * @type {Array<TaskMembership>}
      * @memberof TaskBaseAllOf
      */
-    'memberships'?: Array<TaskBaseAllOfMemberships>;
+    'memberships'?: Array<TaskMembership>;
     /**
      * The time at which this task was last modified.  The following conditions will change `modified_at`:  - story is created on a task - story is trashed on a task - attachment is trashed on a task - task is assigned or unassigned - custom field value is changed - the task itself is trashed - Or if any of the following fields are updated:   - completed   - name   - due_date   - description   - attachments   - items   - schedule_status  The following conditions will _not_ change `modified_at`:  - moving to a new container (project, portfolio, etc) - comments being added to the task (but the stories they generate   _will_ affect `modified_at`)
      * @type {string}

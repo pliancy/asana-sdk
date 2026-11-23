@@ -13,7 +13,7 @@
  */
 
 
-import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { BudgetResponse } from './budget-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CustomFieldSettingResponse } from './custom-field-setting-response';
 export interface InlineResponse20012 {
     /**
      * 
-     * @type {Array<CustomFieldSettingResponse>}
+     * @type {Array<BudgetResponse>}
      * @memberof InlineResponse20012
      */
-    'data'?: Array<CustomFieldSettingResponse>;
+    'data'?: Array<BudgetResponse>;
 }
 

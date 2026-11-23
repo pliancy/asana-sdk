@@ -23,15 +23,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject26 } from '../types';
+import { InlineObject28 } from '../types';
 // @ts-ignore
-import { InlineObject27 } from '../types';
+import { InlineObject29 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20025 } from '../types';
+import { InlineResponse20029 } from '../types';
 // @ts-ignore
-import { InlineResponse20026 } from '../types';
+import { InlineResponse20030 } from '../types';
 /**
  * OooEntriesApi - axios parameter creator
  * @export
@@ -41,15 +41,15 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
         /**
          * <b>Required scope: </b><code>ooo_entries:write</code>  Creates a new OOO entry.  Returns the full record of the newly created OOO entry.
          * @summary Create an OOO entry
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOooEntry: async (inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject27' is not null or undefined
-            assertParamExists('createOooEntry', 'inlineObject27', inlineObject27)
+        createOooEntry: async (inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject29' is not null or undefined
+            assertParamExists('createOooEntry', 'inlineObject29', inlineObject29)
             const localVarPath = `/ooo_entries`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -85,7 +85,7 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject27, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject29, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -149,7 +149,7 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startDate] An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
          * @param {string} [endDate] An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -230,7 +230,7 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
          * @summary Get an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -281,17 +281,17 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
          * <b>Required scope: </b><code>ooo_entries:write</code>  An existing OOO entry can be updated by making a PUT request on the URL for that OOO entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated OOO entry record.
          * @summary Update an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateOooEntry: async (oooEntryGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateOooEntry: async (oooEntryGid: string, inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'oooEntryGid' is not null or undefined
             assertParamExists('updateOooEntry', 'oooEntryGid', oooEntryGid)
-            // verify required parameter 'inlineObject26' is not null or undefined
-            assertParamExists('updateOooEntry', 'inlineObject26', inlineObject26)
+            // verify required parameter 'inlineObject28' is not null or undefined
+            assertParamExists('updateOooEntry', 'inlineObject28', inlineObject28)
             const localVarPath = `/ooo_entries/{ooo_entry_gid}`
                 .replace(`{${"ooo_entry_gid"}}`, encodeURIComponent(String(oooEntryGid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -328,7 +328,7 @@ export const OooEntriesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject26, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject28, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -348,14 +348,14 @@ export const OooEntriesApiFp = function(configuration?: Configuration) {
         /**
          * <b>Required scope: </b><code>ooo_entries:write</code>  Creates a new OOO entry.  Returns the full record of the newly created OOO entry.
          * @summary Create an OOO entry
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOooEntry(inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOooEntry(inlineObject27, optPretty, optFields, options);
+        async createOooEntry(inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOooEntry(inlineObject29, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -380,11 +380,11 @@ export const OooEntriesApiFp = function(configuration?: Configuration) {
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startDate] An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
          * @param {string} [endDate] An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOooEntries(user: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, startDate?: string, endDate?: string, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+        async getOooEntries(user: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, startDate?: string, endDate?: string, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20030>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOooEntries(user, workspace, optPretty, limit, offset, startDate, endDate, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -393,11 +393,11 @@ export const OooEntriesApiFp = function(configuration?: Configuration) {
          * @summary Get an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOooEntry(oooEntryGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
+        async getOooEntry(oooEntryGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOooEntry(oooEntryGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -405,14 +405,14 @@ export const OooEntriesApiFp = function(configuration?: Configuration) {
          * <b>Required scope: </b><code>ooo_entries:write</code>  An existing OOO entry can be updated by making a PUT request on the URL for that OOO entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated OOO entry record.
          * @summary Update an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateOooEntry(oooEntryGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20025>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOooEntry(oooEntryGid, inlineObject26, optPretty, optFields, options);
+        async updateOooEntry(oooEntryGid: string, inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOooEntry(oooEntryGid, inlineObject28, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -428,14 +428,14 @@ export const OooEntriesApiFactory = function (configuration?: Configuration, bas
         /**
          * <b>Required scope: </b><code>ooo_entries:write</code>  Creates a new OOO entry.  Returns the full record of the newly created OOO entry.
          * @summary Create an OOO entry
-         * @param {InlineObject27} inlineObject27 
+         * @param {InlineObject29} inlineObject29 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOooEntry(inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20025> {
-            return localVarFp.createOooEntry(inlineObject27, optPretty, optFields, options).then((request) => request(axios, basePath));
+        createOooEntry(inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20029> {
+            return localVarFp.createOooEntry(inlineObject29, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>ooo_entries:delete</code>  A specific, existing OOO entry can be deleted by making a DELETE request on the URL for that OOO entry.  Returns an empty data record.
@@ -458,11 +458,11 @@ export const OooEntriesApiFactory = function (configuration?: Configuration, bas
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [startDate] An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
          * @param {string} [endDate] An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOooEntries(user: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, startDate?: string, endDate?: string, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20026> {
+        getOooEntries(user: string, workspace: string, optPretty?: boolean, limit?: number, offset?: string, startDate?: string, endDate?: string, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20030> {
             return localVarFp.getOooEntries(user, workspace, optPretty, limit, offset, startDate, endDate, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -470,25 +470,25 @@ export const OooEntriesApiFactory = function (configuration?: Configuration, bas
          * @summary Get an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOooEntry(oooEntryGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20025> {
+        getOooEntry(oooEntryGid: string, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20029> {
             return localVarFp.getOooEntry(oooEntryGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * <b>Required scope: </b><code>ooo_entries:write</code>  An existing OOO entry can be updated by making a PUT request on the URL for that OOO entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated OOO entry record.
          * @summary Update an OOO entry
          * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
-         * @param {InlineObject26} inlineObject26 
+         * @param {InlineObject28} inlineObject28 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateOooEntry(oooEntryGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20025> {
-            return localVarFp.updateOooEntry(oooEntryGid, inlineObject26, optPretty, optFields, options).then((request) => request(axios, basePath));
+        updateOooEntry(oooEntryGid: string, inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: any): AxiosPromise<InlineResponse20029> {
+            return localVarFp.updateOooEntry(oooEntryGid, inlineObject28, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -503,15 +503,15 @@ export class OooEntriesApi extends BaseAPI {
     /**
      * <b>Required scope: </b><code>ooo_entries:write</code>  Creates a new OOO entry.  Returns the full record of the newly created OOO entry.
      * @summary Create an OOO entry
-     * @param {InlineObject27} inlineObject27 
+     * @param {InlineObject29} inlineObject29 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OooEntriesApi
      */
-    public createOooEntry(inlineObject27: InlineObject27, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
-        return OooEntriesApiFp(this.configuration).createOooEntry(inlineObject27, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createOooEntry(inlineObject29: InlineObject29, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return OooEntriesApiFp(this.configuration).createOooEntry(inlineObject29, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -537,7 +537,7 @@ export class OooEntriesApi extends BaseAPI {
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [startDate] An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
      * @param {string} [endDate] An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'offset' | 'path' | 'start_date' | 'uri' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OooEntriesApi
@@ -551,7 +551,7 @@ export class OooEntriesApi extends BaseAPI {
      * @summary Get an OOO entry
      * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OooEntriesApi
@@ -564,14 +564,14 @@ export class OooEntriesApi extends BaseAPI {
      * <b>Required scope: </b><code>ooo_entries:write</code>  An existing OOO entry can be updated by making a PUT request on the URL for that OOO entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated OOO entry record.
      * @summary Update an OOO entry
      * @param {string} oooEntryGid Globally unique identifier for the OOO entry.
-     * @param {InlineObject26} inlineObject26 
+     * @param {InlineObject28} inlineObject28 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OooEntriesApi
      */
-    public updateOooEntry(oooEntryGid: string, inlineObject26: InlineObject26, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
-        return OooEntriesApiFp(this.configuration).updateOooEntry(oooEntryGid, inlineObject26, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
+    public updateOooEntry(oooEntryGid: string, inlineObject28: InlineObject28, optPretty?: boolean, optFields?: Array<'created_by' | 'created_by.name' | 'end_date' | 'start_date' | 'user' | 'user.name'>, options?: AxiosRequestConfig) {
+        return OooEntriesApiFp(this.configuration).updateOooEntry(oooEntryGid, inlineObject28, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

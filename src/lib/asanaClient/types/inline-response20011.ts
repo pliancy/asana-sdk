@@ -13,8 +13,7 @@
  */
 
 
-import { CustomFieldSettingResponse } from './custom-field-setting-response';
-import { NextPage } from './next-page';
+import { BatchResponse } from './batch-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { NextPage } from './next-page';
 export interface InlineResponse20011 {
     /**
      * 
-     * @type {Array<CustomFieldSettingResponse>}
+     * @type {Array<BatchResponse>}
      * @memberof InlineResponse20011
      */
-    'data'?: Array<CustomFieldSettingResponse>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20011
-     */
-    'next_page'?: NextPage | null;
+    'data'?: Array<BatchResponse>;
 }
 

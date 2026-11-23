@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { WorkspaceCompact } from './workspace-compact';
+import { TimesheetApprovalStatusCompact } from './timesheet-approval-status-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineResponse20077 {
     /**
      * 
-     * @type {Array<WorkspaceCompact>}
+     * @type {Array<TimesheetApprovalStatusCompact>}
      * @memberof InlineResponse20077
      */
-    'data'?: Array<WorkspaceCompact>;
+    'data'?: Array<TimesheetApprovalStatusCompact>;
     /**
      * 
      * @type {NextPage}

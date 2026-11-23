@@ -27,11 +27,10 @@ export interface PortfolioRequestAllOf {
      */
     'workspace'?: string;
     /**
-     * *Deprecated:* new integrations use `privacy_setting` instead.
-     * @type {boolean}
+     * *Conditional:* You can only set custom_type if portfolio `resource_subtype` is `custom`. GID or globally-unique identifier of a portfolio\'s custom type. The type must be valid for portfolios, and some Asana-created custom types cannot be assigned via the API; attempting either returns an error explaining which condition failed.
+     * @type {string}
      * @memberof PortfolioRequestAllOf
-     * @deprecated
      */
-    'public'?: boolean;
+    'custom_type'?: string | null;
 }
 

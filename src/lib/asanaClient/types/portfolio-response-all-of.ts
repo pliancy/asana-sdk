@@ -15,6 +15,7 @@
 
 import { CustomFieldCompact } from './custom-field-compact';
 import { CustomFieldSettingResponse } from './custom-field-setting-response';
+import { CustomTypeCompact } from './custom-type-compact';
 import { ProjectTemplateCompact } from './project-template-compact';
 import { StatusUpdateCompact } from './status-update-compact';
 import { UserCompact } from './user-compact';
@@ -81,12 +82,6 @@ export interface PortfolioResponseAllOf {
      */
     'permalink_url'?: string;
     /**
-     * True if the portfolio is public to its workspace members.
-     * @type {boolean}
-     * @memberof PortfolioResponseAllOf
-     */
-    'public'?: boolean;
-    /**
      * The privacy setting of the portfolio. *Note: Administrators in your organization may restrict the values of `privacy_setting`.*
      * @type {string}
      * @memberof PortfolioResponseAllOf
@@ -98,6 +93,12 @@ export interface PortfolioResponseAllOf {
      * @memberof PortfolioResponseAllOf
      */
     'project_templates'?: Array<ProjectTemplateCompact>;
+    /**
+     * 
+     * @type {CustomTypeCompact}
+     * @memberof PortfolioResponseAllOf
+     */
+    'custom_type'?: CustomTypeCompact;
 }
 
 /**

@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookResponse } from './webhook-response';
+import { TeamResponse } from './team-response';
 
 /**
  * 
@@ -23,15 +23,9 @@ import { WebhookResponse } from './webhook-response';
 export interface InlineResponse20116 {
     /**
      * 
-     * @type {WebhookResponse}
+     * @type {TeamResponse}
      * @memberof InlineResponse20116
      */
-    'data'?: WebhookResponse;
-    /**
-     * The secret to be used to verify future webhook event signatures.
-     * @type {string}
-     * @memberof InlineResponse20116
-     */
-    'X-Hook-Secret'?: string;
+    'data'?: TeamResponse;
 }
 

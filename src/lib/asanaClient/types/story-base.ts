@@ -51,7 +51,7 @@ export interface StoryBase {
      */
     'text'?: string;
     /**
-     * [Opt In](/docs/inputoutput-options). HTML formatted text for a comment. This will not include the name of the creator.
+     * [Opt In](/docs/inputoutput-options). HTML formatted text for a comment. This will not include the name of the creator. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof StoryBase
      */

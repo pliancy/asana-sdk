@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioDuplicateRequest } from './portfolio-duplicate-request';
+import { AddMembersRequest } from './add-members-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioDuplicateRequest } from './portfolio-duplicate-request';
 export interface InlineObject37 {
     /**
      * 
-     * @type {PortfolioDuplicateRequest}
+     * @type {AddMembersRequest}
      * @memberof InlineObject37
      */
-    'data'?: PortfolioDuplicateRequest;
+    'data'?: AddMembersRequest;
 }
 

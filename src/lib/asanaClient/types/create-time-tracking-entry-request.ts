@@ -39,19 +39,25 @@ export interface CreateTimeTrackingEntryRequest {
      */
     'attributable_to'?: string;
     /**
-     * *Optional*. The current billable status of the entry.
+     * *Optional*. The gid of the user this entry\'s logged time is attributed to. Defaults to the current user; can only be set to another user if you\'re their time reviewer or an admin. Reviewer-submitter relationships require the Timesheets and Budgets add-on.
+     * @type {string}
+     * @memberof CreateTimeTrackingEntryRequest
+     */
+    'assignee'?: string;
+    /**
+     * *Optional*. The current billable status of the entry. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {string}
      * @memberof CreateTimeTrackingEntryRequest
      */
     'billable_status'?: CreateTimeTrackingEntryRequestBillableStatusEnum;
     /**
-     * *Optional*. The description of the entry.
+     * *Optional*. The description of the entry. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {string}
      * @memberof CreateTimeTrackingEntryRequest
      */
     'description'?: string;
     /**
-     * *Optional*. The gids of time tracking categories to assign to this time tracking entry. Existing categories will be overridden. Currently limited to a maximum of 1 category.
+     * *Optional*. The gids of time tracking categories to assign to this time tracking entry. Existing categories will be overridden. Currently limited to a maximum of 1 category. This field requires the Timesheets and Budgets add-on; including it without the add-on returns a `402 Payment Required` error.
      * @type {Array<string>}
      * @memberof CreateTimeTrackingEntryRequest
      */

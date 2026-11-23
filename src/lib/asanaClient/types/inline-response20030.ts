@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { ProjectCompact } from './project-compact';
+import { OooEntryResponse } from './ooo-entry-response';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { ProjectCompact } from './project-compact';
 export interface InlineResponse20030 {
     /**
      * 
-     * @type {Array<ProjectCompact>}
+     * @type {Array<OooEntryResponse>}
      * @memberof InlineResponse20030
      */
-    'data'?: Array<ProjectCompact>;
+    'data'?: Array<OooEntryResponse>;
     /**
      * 
      * @type {NextPage}

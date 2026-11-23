@@ -14,6 +14,7 @@
 
 
 import { GraphExportCompact } from './graph-export-compact';
+import { JobCompactDatesRollupProgress } from './job-compact-dates-rollup-progress';
 import { PortfolioCompact } from './portfolio-compact';
 import { ProjectCompact } from './project-compact';
 import { ProjectTemplateCompact } from './project-template-compact';
@@ -50,6 +51,12 @@ export interface JobCompact {
      * @memberof JobCompact
      */
     'status'?: JobCompactStatusEnum;
+    /**
+     * 
+     * @type {JobCompactDatesRollupProgress}
+     * @memberof JobCompact
+     */
+    'dates_rollup_progress'?: JobCompactDatesRollupProgress;
     /**
      * 
      * @type {PortfolioCompact}

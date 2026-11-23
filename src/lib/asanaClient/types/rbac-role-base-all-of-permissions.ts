@@ -128,6 +128,60 @@ export interface RbacRoleBaseAllOfPermissions {
      * @memberof RbacRoleBaseAllOfPermissions
      */
     'create_and_edit_ai_teammates'?: boolean;
+    /**
+     * Controls whether users with this role can share teams with the organization
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'share_teams_with_org'?: boolean;
+    /**
+     * Controls whether users with this role can create goals
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'create_goal'?: boolean;
+    /**
+     * Controls whether users with this role can create projects
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'create_project'?: boolean;
+    /**
+     * Controls whether users with this role can create read-only links
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'create_read_only_link'?: boolean;
+    /**
+     * Controls whether users with this role can create portfolios
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'create_portfolio'?: boolean;
+    /**
+     * Controls whether users with this role can view public teams
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'view_public_teams'?: boolean;
+    /**
+     * Controls whether users with this role can view projects shared with the organization
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'view_shared_with_org_projects'?: boolean;
+    /**
+     * Controls whether users with this role can view tasks shared with the organization
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'view_shared_with_org_tasks'?: boolean;
+    /**
+     * Controls whether users with this role can view portfolios shared with the organization
+     * @type {boolean}
+     * @memberof RbacRoleBaseAllOfPermissions
+     */
+    'view_shared_with_org_portfolios'?: boolean;
 }
 
 /**

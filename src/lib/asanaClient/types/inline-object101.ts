@@ -13,7 +13,7 @@
  */
 
 
-import { WorkspaceCompact } from './workspace-compact';
+import { TimeTrackingCategoryCreateRequest } from './time-tracking-category-create-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WorkspaceCompact } from './workspace-compact';
 export interface InlineObject101 {
     /**
      * 
-     * @type {WorkspaceCompact}
+     * @type {TimeTrackingCategoryCreateRequest}
      * @memberof InlineObject101
      */
-    'data'?: WorkspaceCompact;
+    'data'?: TimeTrackingCategoryCreateRequest;
 }
 

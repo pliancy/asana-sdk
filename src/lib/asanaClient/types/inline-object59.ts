@@ -13,7 +13,7 @@
  */
 
 
-import { RuleTriggerRequest } from './rule-trigger-request';
+import { RecordItemRequest } from './record-item-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RuleTriggerRequest } from './rule-trigger-request';
 export interface InlineObject59 {
     /**
      * 
-     * @type {RuleTriggerRequest}
+     * @type {RecordItemRequest}
      * @memberof InlineObject59
      */
-    'data'?: RuleTriggerRequest;
+    'data'?: RecordItemRequest;
 }
 

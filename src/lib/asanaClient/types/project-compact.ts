@@ -38,5 +38,21 @@ export interface ProjectCompact {
      * @memberof ProjectCompact
      */
     'name'?: string;
+    /**
+     * The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.
+     * @type {string}
+     * @memberof ProjectCompact
+     */
+    'resource_subtype'?: ProjectCompactResourceSubtypeEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ProjectCompactResourceSubtypeEnum {
+    DefaultProject = 'default_project',
+    Custom = 'custom'
+}
+
 

@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectUpdateRequest } from './project-update-request';
+import { ProjectTemplateInstantiateProjectRequest } from './project-template-instantiate-project-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectUpdateRequest } from './project-update-request';
 export interface InlineObject44 {
     /**
      * 
-     * @type {ProjectUpdateRequest}
+     * @type {ProjectTemplateInstantiateProjectRequest}
      * @memberof InlineObject44
      */
-    'data'?: ProjectUpdateRequest;
+    'data'?: ProjectTemplateInstantiateProjectRequest;
 }
 

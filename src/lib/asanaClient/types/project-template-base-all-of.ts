@@ -31,7 +31,7 @@ export interface ProjectTemplateBaseAllOf {
      */
     'description'?: string;
     /**
-     * The description of the project template with formatting as HTML.
+     * The description of the project template with formatting as HTML. See [rich text](/docs/rich-text#reading-rich-text).
      * @type {string}
      * @memberof ProjectTemplateBaseAllOf
      */

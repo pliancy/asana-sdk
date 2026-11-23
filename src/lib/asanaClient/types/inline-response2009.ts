@@ -13,7 +13,8 @@
  */
 
 
-import { BatchResponse } from './batch-response';
+import { AttachmentCompact } from './attachment-compact';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { BatchResponse } from './batch-response';
 export interface InlineResponse2009 {
     /**
      * 
-     * @type {Array<BatchResponse>}
+     * @type {Array<AttachmentCompact>}
      * @memberof InlineResponse2009
      */
-    'data'?: Array<BatchResponse>;
+    'data'?: Array<AttachmentCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse2009
+     */
+    'next_page'?: NextPage | null;
 }
 

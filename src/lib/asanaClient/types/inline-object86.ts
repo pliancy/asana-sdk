@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
+import { ModifyDependenciesRequest } from './modify-dependencies-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
 export interface InlineObject86 {
     /**
      * 
-     * @type {TaskRemoveFollowersRequest}
+     * @type {ModifyDependenciesRequest & object}
      * @memberof InlineObject86
      */
-    'data'?: TaskRemoveFollowersRequest;
+    'data'?: ModifyDependenciesRequest & object;
 }
 

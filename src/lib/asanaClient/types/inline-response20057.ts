@@ -13,7 +13,7 @@
  */
 
 
-import { TeamMembershipCompact } from './team-membership-compact';
+import { StoryResponse } from './story-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamMembershipCompact } from './team-membership-compact';
 export interface InlineResponse20057 {
     /**
      * 
-     * @type {TeamMembershipCompact}
+     * @type {StoryResponse}
      * @memberof InlineResponse20057
      */
-    'data'?: TeamMembershipCompact;
+    'data'?: StoryResponse;
 }
 

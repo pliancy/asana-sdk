@@ -16,6 +16,7 @@
 import { CustomFieldResponse } from './custom-field-response';
 import { CustomTypeCompact } from './custom-type-compact';
 import { CustomTypeStatusOptionCompact } from './custom-type-status-option-compact';
+import { EffectiveTaskMembership } from './effective-task-membership';
 import { ProjectCompact } from './project-compact';
 import { SectionCompact } from './section-compact';
 import { TagCompact } from './tag-compact';
@@ -42,7 +43,7 @@ export interface TaskResponseAllOf {
      */
     'assignee_section'?: SectionCompact & object;
     /**
-     * Array of custom field values applied to the task. These represent the custom field values recorded on this project for a particular custom field. For example, these custom field values will contain an `enum_value` property for custom fields of type `enum`, a `text_value` property for custom fields of type `text`, and so on. Please note that the `gid` returned on each custom field value *is identical* to the `gid` of the custom field, which allows referencing the custom field metadata through the `/custom_fields/custom_field_gid` endpoint.
+     * Array of custom field values applied to the task. These represent the custom field values recorded on this project for a particular custom field. For example, these custom field values will contain an `enum_value` property for custom fields of type `enum`, a `text_value` property for custom fields of type `text`, and so on. Please note that the `gid` returned on each custom field value *is identical* to the `gid` of the custom field, which allows referencing the custom field metadata through the `/custom_fields/custom_field_gid` endpoint. The array includes custom fields from projects the task belongs to directly and from projects inherited from its full ancestor chain.
      * @type {Array<CustomFieldResponse>}
      * @memberof TaskResponseAllOf
      */
@@ -72,11 +73,17 @@ export interface TaskResponseAllOf {
      */
     'parent'?: TaskCompact & object;
     /**
-     * *Create-only.* Array of projects this task is associated with. At task creation time, this array can be used to add the task to many projects at once. After task creation, these associations can be modified using the addProject and removeProject endpoints.
+     * *Create-only.* Array of projects this task is directly associated with. At task creation time, this array can be used to add the task to many projects at once. After task creation, these associations can be modified using the addProject and removeProject endpoints.
      * @type {Array<ProjectCompact>}
      * @memberof TaskResponseAllOf
      */
     'projects'?: Array<ProjectCompact>;
+    /**
+     * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>projects:read</code>, <code>project_sections:read</code></p>  Opt-in, read-only. The union of direct and inherited memberships for this task. If the task is both directly associated with and inherits the same project, the direct membership takes precedence.
+     * @type {Array<EffectiveTaskMembership>}
+     * @memberof TaskResponseAllOf
+     */
+    'effective_memberships'?: Array<EffectiveTaskMembership>;
     /**
      * Array of tags associated with this task. In order to change tags on an existing task use `addTag` and `removeTag`.
      * @type {Array<TagCompact>}

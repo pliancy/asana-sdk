@@ -13,7 +13,7 @@
  */
 
 
-import { AttachmentCompact } from './attachment-compact';
+import { AllocationResponse } from './allocation-response';
 import { NextPage } from './next-page';
 
 /**
@@ -24,10 +24,10 @@ import { NextPage } from './next-page';
 export interface InlineResponse2007 {
     /**
      * 
-     * @type {Array<AttachmentCompact>}
+     * @type {Array<AllocationResponse>}
      * @memberof InlineResponse2007
      */
-    'data'?: Array<AttachmentCompact>;
+    'data'?: Array<AllocationResponse>;
     /**
      * 
      * @type {NextPage}

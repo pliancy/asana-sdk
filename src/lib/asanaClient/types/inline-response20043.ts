@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { ReactionCompact } from './reaction-compact';
+import { ProjectTemplateCompact } from './project-template-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { ReactionCompact } from './reaction-compact';
 export interface InlineResponse20043 {
     /**
      * 
-     * @type {Array<ReactionCompact>}
+     * @type {Array<ProjectTemplateCompact>}
      * @memberof InlineResponse20043
      */
-    'data'?: Array<ReactionCompact>;
+    'data'?: Array<ProjectTemplateCompact>;
     /**
      * 
      * @type {NextPage}

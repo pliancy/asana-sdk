@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { UserCompact } from './user-compact';
+import { TeamMembershipCompact } from './team-membership-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { UserCompact } from './user-compact';
 export interface InlineResponse20069 {
     /**
      * 
-     * @type {Array<UserCompact>}
+     * @type {Array<TeamMembershipCompact>}
      * @memberof InlineResponse20069
      */
-    'data'?: Array<UserCompact>;
+    'data'?: Array<TeamMembershipCompact>;
     /**
      * 
      * @type {NextPage}

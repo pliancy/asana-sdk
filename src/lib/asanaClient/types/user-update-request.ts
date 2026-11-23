@@ -13,13 +13,13 @@
  */
 
 
-import { PortfolioUpdateRequestAllOf } from './portfolio-update-request-all-of';
 import { UserCompact } from './user-compact';
+import { UserUpdateRequestAllOf } from './user-update-request-all-of';
 
 /**
  * @type UserUpdateRequest
  * @export
  */
-export type UserUpdateRequest = PortfolioUpdateRequestAllOf & UserCompact;
+export type UserUpdateRequest = UserCompact & UserUpdateRequestAllOf;
 
 

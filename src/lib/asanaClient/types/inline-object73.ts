@@ -13,7 +13,7 @@
  */
 
 
-import { TaskUpdateRequest } from './task-update-request';
+import { TableRequest } from './table-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskUpdateRequest } from './task-update-request';
 export interface InlineObject73 {
     /**
      * 
-     * @type {TaskUpdateRequest}
+     * @type {TableRequest}
      * @memberof InlineObject73
      */
-    'data'?: TaskUpdateRequest;
+    'data'?: TableRequest;
 }
 

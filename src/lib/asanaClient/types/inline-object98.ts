@@ -13,7 +13,7 @@
  */
 
 
-import { UserUpdateRequest } from './user-update-request';
+import { TeamAddUserRequest } from './team-add-user-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UserUpdateRequest } from './user-update-request';
 export interface InlineObject98 {
     /**
      * 
-     * @type {UserUpdateRequest}
+     * @type {TeamAddUserRequest}
      * @memberof InlineObject98
      */
-    'data'?: UserUpdateRequest;
+    'data'?: TeamAddUserRequest;
 }
 

@@ -14,7 +14,7 @@
 
 
 import { NextPage } from './next-page';
-import { StatusUpdateCompact } from './status-update-compact';
+import { RecordItemCompact } from './record-item-compact';
 
 /**
  * 
@@ -24,10 +24,10 @@ import { StatusUpdateCompact } from './status-update-compact';
 export interface InlineResponse20049 {
     /**
      * 
-     * @type {Array<StatusUpdateCompact>}
+     * @type {Array<RecordItemCompact>}
      * @memberof InlineResponse20049
      */
-    'data'?: Array<StatusUpdateCompact>;
+    'data'?: Array<RecordItemCompact>;
     /**
      * 
      * @type {NextPage}

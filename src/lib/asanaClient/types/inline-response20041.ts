@@ -13,7 +13,8 @@
  */
 
 
-import { TaskCountResponse } from './task-count-response';
+import { NextPage } from './next-page';
+import { ProjectStatusCompact } from './project-status-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { TaskCountResponse } from './task-count-response';
 export interface InlineResponse20041 {
     /**
      * 
-     * @type {TaskCountResponse}
+     * @type {Array<ProjectStatusCompact>}
      * @memberof InlineResponse20041
      */
-    'data'?: TaskCountResponse;
+    'data'?: Array<ProjectStatusCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20041
+     */
+    'next_page'?: NextPage | null;
 }
 

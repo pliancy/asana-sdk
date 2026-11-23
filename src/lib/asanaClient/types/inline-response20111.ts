@@ -13,7 +13,7 @@
  */
 
 
-import { RbacRoleResponse } from './rbac-role-response';
+import { RecordItemResponse } from './record-item-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RbacRoleResponse } from './rbac-role-response';
 export interface InlineResponse20111 {
     /**
      * 
-     * @type {RbacRoleResponse}
+     * @type {RecordItemResponse}
      * @memberof InlineResponse20111
      */
-    'data'?: RbacRoleResponse;
+    'data'?: RecordItemResponse;
 }
 

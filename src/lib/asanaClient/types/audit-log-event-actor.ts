@@ -21,7 +21,7 @@
  */
 export interface AuditLogEventActor {
     /**
-     * The type of actor. Can be one of `user`, `asana`, `asana_support`, `anonymous`, or `external_administrator`.
+     * The type of actor. Can be one of `user`, `asana`, `asana_support`, `anonymous`, `external_administrator`, or `data_retention_policy`.
      * @type {string}
      * @memberof AuditLogEventActor
      */
@@ -55,7 +55,8 @@ export enum AuditLogEventActorActorTypeEnum {
     Asana = 'asana',
     AsanaSupport = 'asana_support',
     Anonymous = 'anonymous',
-    ExternalAdministrator = 'external_administrator'
+    ExternalAdministrator = 'external_administrator',
+    DataRetentionPolicy = 'data_retention_policy'
 }
 
 

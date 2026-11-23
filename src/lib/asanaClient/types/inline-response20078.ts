@@ -13,19 +13,19 @@
  */
 
 
-import { WorkspaceResponse } from './workspace-response';
+import { AsanaNamedResource } from './asana-named-resource';
 
 /**
- * 
+ * A generic list of objects, such as those returned by the typeahead search endpoint.
  * @export
  * @interface InlineResponse20078
  */
 export interface InlineResponse20078 {
     /**
      * 
-     * @type {WorkspaceResponse}
+     * @type {Array<AsanaNamedResource>}
      * @memberof InlineResponse20078
      */
-    'data'?: WorkspaceResponse;
+    'data'?: Array<AsanaNamedResource>;
 }
 

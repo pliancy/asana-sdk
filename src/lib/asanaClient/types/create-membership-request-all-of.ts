@@ -27,7 +27,7 @@ export interface CreateMembershipRequestAllOf {
      */
     'member'?: string;
     /**
-     * The gid of the `goal`, `project`, or `portfolio` to add the member to.
+     * The gid of the `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record` to add the member to.
      * @type {string}
      * @memberof CreateMembershipRequestAllOf
      */

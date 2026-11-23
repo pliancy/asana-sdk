@@ -13,7 +13,7 @@
  */
 
 
-import { TimePeriodBase } from './time-period-base';
+import { CustomFieldTableSettingResponse } from './custom-field-table-setting-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TimePeriodBase } from './time-period-base';
 export interface InlineResponse20060 {
     /**
      * 
-     * @type {TimePeriodBase}
+     * @type {CustomFieldTableSettingResponse}
      * @memberof InlineResponse20060
      */
-    'data'?: TimePeriodBase;
+    'data'?: CustomFieldTableSettingResponse;
 }
 

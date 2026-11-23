@@ -13,7 +13,7 @@
  */
 
 
-import { WebhookUpdateRequest } from './webhook-update-request';
+import { TimeTrackingCategoryUpdateRequest } from './time-tracking-category-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { WebhookUpdateRequest } from './webhook-update-request';
 export interface InlineObject100 {
     /**
      * 
-     * @type {WebhookUpdateRequest}
+     * @type {TimeTrackingCategoryUpdateRequest}
      * @memberof InlineObject100
      */
-    'data'?: WebhookUpdateRequest;
+    'data'?: TimeTrackingCategoryUpdateRequest;
 }
 

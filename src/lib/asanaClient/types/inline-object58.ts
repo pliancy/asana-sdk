@@ -13,7 +13,7 @@
  */
 
 
-import { RbacRoleUpdateRequest } from './rbac-role-update-request';
+import { RateUpdateRequest } from './rate-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { RbacRoleUpdateRequest } from './rbac-role-update-request';
 export interface InlineObject58 {
     /**
      * 
-     * @type {RbacRoleUpdateRequest}
+     * @type {RateUpdateRequest}
      * @memberof InlineObject58
      */
-    'data'?: RbacRoleUpdateRequest;
+    'data'?: RateUpdateRequest;
 }
 

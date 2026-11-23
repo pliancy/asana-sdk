@@ -13,7 +13,7 @@
  */
 
 
-import { OooEntryBase } from './ooo-entry-base';
+import { MarkNotificationsRequest } from './mark-notifications-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OooEntryBase } from './ooo-entry-base';
 export interface InlineObject26 {
     /**
      * 
-     * @type {OooEntryBase}
+     * @type {MarkNotificationsRequest}
      * @memberof InlineObject26
      */
-    'data'?: OooEntryBase;
+    'data': MarkNotificationsRequest;
 }
 

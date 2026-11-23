@@ -27,7 +27,7 @@ export interface ProjectBriefBaseAllOf {
      */
     'title'?: string;
     /**
-     * HTML formatted text for the project brief.
+     * HTML formatted text for the project brief. See [rich text](/docs/rich-text).
      * @type {string}
      * @memberof ProjectBriefBaseAllOf
      */

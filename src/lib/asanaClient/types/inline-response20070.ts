@@ -13,7 +13,8 @@
  */
 
 
-import { UserResponse } from './user-response';
+import { NextPage } from './next-page';
+import { TeamCompact } from './team-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { UserResponse } from './user-response';
 export interface InlineResponse20070 {
     /**
      * 
-     * @type {UserResponse}
+     * @type {Array<TeamCompact>}
      * @memberof InlineResponse20070
      */
-    'data'?: UserResponse;
+    'data'?: Array<TeamCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20070
+     */
+    'next_page'?: NextPage | null;
 }
 

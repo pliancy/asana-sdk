@@ -23,13 +23,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineObject64 } from '../types';
+import { InlineObject68 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20048 } from '../types';
+import { InlineResponse20055 } from '../types';
 // @ts-ignore
-import { InlineResponse20049 } from '../types';
+import { InlineResponse20056 } from '../types';
 /**
  * StatusUpdatesApi - axios parameter creator
  * @export
@@ -39,17 +39,15 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStatusForObject: async (inlineObject64: InlineObject64, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject64' is not null or undefined
-            assertParamExists('createStatusForObject', 'inlineObject64', inlineObject64)
+        createStatusForObject: async (inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject68' is not null or undefined
+            assertParamExists('createStatusForObject', 'inlineObject68', inlineObject68)
             const localVarPath = `/status_updates`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -74,14 +72,6 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['opt_pretty'] = optPretty;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
             if (optFields) {
                 localVarQueryParameter['opt_fields'] = optFields.join(COLLECTION_FORMATS.csv);
             }
@@ -93,7 +83,7 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject64, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject68, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -103,7 +93,7 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -150,13 +140,13 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatus: async (statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStatus: async (statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'statusUpdateGid' is not null or undefined
             assertParamExists('getStatus', 'statusUpdateGid', statusUpdateGid)
             const localVarPath = `/status_updates/{status_update_gid}`
@@ -207,11 +197,11 @@ export const StatusUpdatesApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusesForObject: async (parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStatusesForObject: async (parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'parent' is not null or undefined
             assertParamExists('getStatusesForObject', 'parent', parent)
             const localVarPath = `/status_updates`;
@@ -284,22 +274,20 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStatusForObject(inlineObject64: InlineObject64, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStatusForObject(inlineObject64, optPretty, limit, offset, optFields, options);
+        async createStatusForObject(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createStatusForObject(inlineObject68, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -311,13 +299,13 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatus(statusUpdateGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -329,11 +317,11 @@ export const StatusUpdatesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+        async getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -350,21 +338,19 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
         /**
          * Creates a new status update on an object. Returns the full record of the newly created status update.
          * @summary Create a status update
-         * @param {InlineObject64} inlineObject64 
+         * @param {InlineObject68} inlineObject68 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-         * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStatusForObject(inlineObject64: InlineObject64, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20048> {
-            return localVarFp.createStatusForObject(inlineObject64, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
+        createStatusForObject(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20055> {
+            return localVarFp.createStatusForObject(inlineObject68, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific, existing status update.  Returns an empty data record.
          * @summary Delete a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -375,13 +361,13 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
         /**
          * Returns the complete record for a single status update.
          * @summary Get a status update
-         * @param {string} statusUpdateGid The status update to get.
+         * @param {string} statusUpdateGid Globally unique identifier for the status update.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20048> {
+        getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: any): AxiosPromise<InlineResponse20055> {
             return localVarFp.getStatus(statusUpdateGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -392,11 +378,11 @@ export const StatusUpdatesApiFactory = function (configuration?: Configuration, 
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
          * @param {string} [createdSince] Only return statuses that have been created since the given time.
-         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20049> {
+        getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: any): AxiosPromise<InlineResponse20056> {
             return localVarFp.getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -412,23 +398,21 @@ export class StatusUpdatesApi extends BaseAPI {
     /**
      * Creates a new status update on an object. Returns the full record of the newly created status update.
      * @summary Create a status update
-     * @param {InlineObject64} inlineObject64 
+     * @param {InlineObject68} inlineObject68 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
-     * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public createStatusForObject(inlineObject64: InlineObject64, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
-        return StatusUpdatesApiFp(this.configuration).createStatusForObject(inlineObject64, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    public createStatusForObject(inlineObject68: InlineObject68, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+        return StatusUpdatesApiFp(this.configuration).createStatusForObject(inlineObject68, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes a specific, existing status update.  Returns an empty data record.
      * @summary Delete a status update
-     * @param {string} statusUpdateGid The status update to get.
+     * @param {string} statusUpdateGid Globally unique identifier for the status update.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -441,14 +425,14 @@ export class StatusUpdatesApi extends BaseAPI {
     /**
      * Returns the complete record for a single status update.
      * @summary Get a status update
-     * @param {string} statusUpdateGid The status update to get.
+     * @param {string} statusUpdateGid Globally unique identifier for the status update.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
+    public getStatus(statusUpdateGid: string, optPretty?: boolean, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title'>, options?: AxiosRequestConfig) {
         return StatusUpdatesApiFp(this.configuration).getStatus(statusUpdateGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -460,12 +444,12 @@ export class StatusUpdatesApi extends BaseAPI {
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
      * @param {string} [createdSince] Only return statuses that have been created since the given time.
-     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StatusUpdatesApi
      */
-    public getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig) {
+    public getStatusesForObject(parent: string, optPretty?: boolean, limit?: number, offset?: string, createdSince?: string, optFields?: Array<'author' | 'author.name' | 'created_at' | 'created_by' | 'created_by.name' | 'hearted' | 'hearts' | 'hearts.user' | 'hearts.user.name' | 'html_text' | 'liked' | 'likes' | 'likes.user' | 'likes.user.name' | 'modified_at' | 'num_hearts' | 'num_likes' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'reaction_summary' | 'reaction_summary.count' | 'reaction_summary.emoji_base' | 'reaction_summary.reacted' | 'reaction_summary.variant' | 'resource_subtype' | 'status_type' | 'text' | 'title' | 'uri'>, options?: AxiosRequestConfig) {
         return StatusUpdatesApiFp(this.configuration).getStatusesForObject(parent, optPretty, limit, offset, createdSince, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

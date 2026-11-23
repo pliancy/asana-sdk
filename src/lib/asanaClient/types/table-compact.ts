@@ -13,26 +13,30 @@
  */
 
 
-import { ProjectCompact } from './project-compact';
-import { SectionCompact } from './section-compact';
 
 /**
- * 
+ * A *table* is a container for structured records (rows), with columns defined by custom field settings.
  * @export
- * @interface TaskBaseAllOfMemberships
+ * @interface TableCompact
  */
-export interface TaskBaseAllOfMemberships {
+export interface TableCompact {
     /**
-     * 
-     * @type {ProjectCompact}
-     * @memberof TaskBaseAllOfMemberships
+     * Globally unique identifier of the resource, as a string.
+     * @type {string}
+     * @memberof TableCompact
      */
-    'project'?: ProjectCompact;
+    'gid'?: string;
     /**
-     * 
-     * @type {SectionCompact}
-     * @memberof TaskBaseAllOfMemberships
+     * The base type of this resource.
+     * @type {string}
+     * @memberof TableCompact
      */
-    'section'?: SectionCompact;
+    'resource_type'?: string;
+    /**
+     * The name of the table.
+     * @type {string}
+     * @memberof TableCompact
+     */
+    'name'?: string;
 }
 

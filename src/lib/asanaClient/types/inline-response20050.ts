@@ -13,7 +13,7 @@
  */
 
 
-import { StoryResponse } from './story-response';
+import { RecordItemCompact } from './record-item-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryResponse } from './story-response';
 export interface InlineResponse20050 {
     /**
      * 
-     * @type {StoryResponse}
+     * @type {Array<RecordItemCompact>}
      * @memberof InlineResponse20050
      */
-    'data'?: StoryResponse;
+    'data'?: Array<RecordItemCompact>;
 }
 

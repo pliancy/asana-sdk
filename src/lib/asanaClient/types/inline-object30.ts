@@ -13,7 +13,7 @@
  */
 
 
-import { PortfolioUpdateRequest } from './portfolio-update-request';
+import { OrganizationExportRequest } from './organization-export-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { PortfolioUpdateRequest } from './portfolio-update-request';
 export interface InlineObject30 {
     /**
      * 
-     * @type {PortfolioUpdateRequest}
+     * @type {OrganizationExportRequest}
      * @memberof InlineObject30
      */
-    'data'?: PortfolioUpdateRequest;
+    'data'?: OrganizationExportRequest;
 }
 

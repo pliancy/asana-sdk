@@ -29,9 +29,9 @@ import { InlineObject2 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse2004 } from '../types';
+import { InlineResponse2006 } from '../types';
 // @ts-ignore
-import { InlineResponse2005 } from '../types';
+import { InlineResponse2007 } from '../types';
 /**
  * AllocationsApi - axios parameter creator
  * @export
@@ -43,11 +43,11 @@ export const AllocationsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Create an allocation
          * @param {InlineObject2} inlineObject2 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAllocation: async (inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAllocation: async (inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'inlineObject2' is not null or undefined
             assertParamExists('createAllocation', 'inlineObject2', inlineObject2)
             const localVarPath = `/allocations`;
@@ -144,11 +144,11 @@ export const AllocationsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get an allocation
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllocation: async (allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllocation: async (allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'allocationGid' is not null or undefined
             assertParamExists('getAllocation', 'allocationGid', allocationGid)
             const localVarPath = `/allocations/{allocation_gid}`
@@ -200,11 +200,11 @@ export const AllocationsApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} [workspace] Globally unique identifier for the workspace.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllocations: async (optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllocations: async (optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/allocations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -270,11 +270,11 @@ export const AllocationsApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {InlineObject1} inlineObject1 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAllocation: async (allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAllocation: async (allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'allocationGid' is not null or undefined
             assertParamExists('updateAllocation', 'allocationGid', allocationGid)
             // verify required parameter 'inlineObject1' is not null or undefined
@@ -337,11 +337,11 @@ export const AllocationsApiFp = function(configuration?: Configuration) {
          * @summary Create an allocation
          * @param {InlineObject2} inlineObject2 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAllocation(inlineObject2, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -362,11 +362,11 @@ export const AllocationsApiFp = function(configuration?: Configuration) {
          * @summary Get an allocation
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllocation(allocationGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -379,11 +379,11 @@ export const AllocationsApiFp = function(configuration?: Configuration) {
          * @param {string} [workspace] Globally unique identifier for the workspace.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2005>> {
+        async getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2007>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllocations(optPretty, parent, assignee, workspace, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -393,11 +393,11 @@ export const AllocationsApiFp = function(configuration?: Configuration) {
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {InlineObject1} inlineObject1 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAllocation(allocationGid, inlineObject1, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -416,11 +416,11 @@ export const AllocationsApiFactory = function (configuration?: Configuration, ba
          * @summary Create an allocation
          * @param {InlineObject2} inlineObject2 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2004> {
+        createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.createAllocation(inlineObject2, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -439,11 +439,11 @@ export const AllocationsApiFactory = function (configuration?: Configuration, ba
          * @summary Get an allocation
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2004> {
+        getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.getAllocation(allocationGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -455,11 +455,11 @@ export const AllocationsApiFactory = function (configuration?: Configuration, ba
          * @param {string} [workspace] Globally unique identifier for the workspace.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: any): AxiosPromise<InlineResponse2005> {
+        getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: any): AxiosPromise<InlineResponse2007> {
             return localVarFp.getAllocations(optPretty, parent, assignee, workspace, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -468,11 +468,11 @@ export const AllocationsApiFactory = function (configuration?: Configuration, ba
          * @param {string} allocationGid Globally unique identifier for the allocation.
          * @param {InlineObject1} inlineObject1 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2004> {
+        updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.updateAllocation(allocationGid, inlineObject1, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -490,12 +490,12 @@ export class AllocationsApi extends BaseAPI {
      * @summary Create an allocation
      * @param {InlineObject2} inlineObject2 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AllocationsApi
      */
-    public createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
+    public createAllocation(inlineObject2: InlineObject2, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
         return AllocationsApiFp(this.configuration).createAllocation(inlineObject2, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -517,12 +517,12 @@ export class AllocationsApi extends BaseAPI {
      * @summary Get an allocation
      * @param {string} allocationGid Globally unique identifier for the allocation.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AllocationsApi
      */
-    public getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
+    public getAllocation(allocationGid: string, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
         return AllocationsApiFp(this.configuration).getAllocation(allocationGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -535,12 +535,12 @@ export class AllocationsApi extends BaseAPI {
      * @param {string} [workspace] Globally unique identifier for the workspace.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AllocationsApi
      */
-    public getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: AxiosRequestConfig) {
+    public getAllocations(optPretty?: boolean, parent?: string, assignee?: string, workspace?: string, limit?: number, offset?: string, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'offset' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'path' | 'resource_subtype' | 'start_date' | 'uri'>, options?: AxiosRequestConfig) {
         return AllocationsApiFp(this.configuration).getAllocations(optPretty, parent, assignee, workspace, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -550,12 +550,12 @@ export class AllocationsApi extends BaseAPI {
      * @param {string} allocationGid Globally unique identifier for the allocation.
      * @param {InlineObject1} inlineObject1 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AllocationsApi
      */
-    public updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
+    public updateAllocation(allocationGid: string, inlineObject1: InlineObject1, optPretty?: boolean, optFields?: Array<'assignee' | 'assignee.name' | 'created_by' | 'created_by.name' | 'effort' | 'effort.type' | 'effort.value' | 'end_date' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'resource_subtype' | 'start_date'>, options?: AxiosRequestConfig) {
         return AllocationsApiFp(this.configuration).updateAllocation(allocationGid, inlineObject1, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

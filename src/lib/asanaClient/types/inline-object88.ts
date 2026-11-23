@@ -13,7 +13,7 @@
  */
 
 
-import { TeamRequest } from './team-request';
+import { ModifyDependentsRequest } from './modify-dependents-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TeamRequest } from './team-request';
 export interface InlineObject88 {
     /**
      * 
-     * @type {TeamRequest}
+     * @type {ModifyDependentsRequest & object}
      * @memberof InlineObject88
      */
-    'data'?: TeamRequest;
+    'data'?: ModifyDependentsRequest & object;
 }
 

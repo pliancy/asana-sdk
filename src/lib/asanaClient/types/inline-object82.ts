@@ -13,7 +13,7 @@
  */
 
 
-import { TaskRemoveProjectRequest } from './task-remove-project-request';
+import { TaskUpdateRequest } from './task-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { TaskRemoveProjectRequest } from './task-remove-project-request';
 export interface InlineObject82 {
     /**
      * 
-     * @type {TaskRemoveProjectRequest}
+     * @type {TaskUpdateRequest}
      * @memberof InlineObject82
      */
-    'data'?: TaskRemoveProjectRequest;
+    'data'?: TaskUpdateRequest;
 }
 

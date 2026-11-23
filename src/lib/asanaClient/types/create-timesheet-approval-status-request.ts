@@ -33,13 +33,13 @@ export interface CreateTimesheetApprovalStatusRequest {
      */
     'workspace': string;
     /**
-     * The start date of the timesheet week (must be a Monday).
+     * The start date of the timesheet week (must be a Monday or Sunday).
      * @type {string}
      * @memberof CreateTimesheetApprovalStatusRequest
      */
     'start_date': string;
     /**
-     * The end date of the timesheet week (must be the following Sunday).
+     * The end date of the timesheet week (must be the following Sunday for Monday starts, or the following Saturday for Sunday starts).
      * @type {string}
      * @memberof CreateTimesheetApprovalStatusRequest
      */

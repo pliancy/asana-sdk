@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectPortfolioSettingUpdateRequest } from './project-portfolio-setting-update-request';
+import { ProjectBriefRequest } from './project-brief-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectPortfolioSettingUpdateRequest } from './project-portfolio-settin
 export interface InlineObject40 {
     /**
      * 
-     * @type {ProjectPortfolioSettingUpdateRequest}
+     * @type {ProjectBriefRequest}
      * @memberof InlineObject40
      */
-    'data'?: ProjectPortfolioSettingUpdateRequest;
+    'data'?: ProjectBriefRequest;
 }
 

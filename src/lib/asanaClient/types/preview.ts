@@ -45,7 +45,7 @@ export interface Preview {
      */
     'header_link'?: string;
     /**
-     * HTML formatted text for the body of the preview.
+     * HTML formatted text for the body of the preview. See [rich text](/docs/rich-text#reading-rich-text).
      * @type {string}
      * @memberof Preview
      */

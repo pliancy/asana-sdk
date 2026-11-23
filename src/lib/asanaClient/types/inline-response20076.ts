@@ -13,8 +13,7 @@
  */
 
 
-import { NextPage } from './next-page';
-import { WorkspaceMembershipCompact } from './workspace-membership-compact';
+import { TimesheetApprovalStatusResponse } from './timesheet-approval-status-response';
 
 /**
  * 
@@ -24,15 +23,9 @@ import { WorkspaceMembershipCompact } from './workspace-membership-compact';
 export interface InlineResponse20076 {
     /**
      * 
-     * @type {Array<WorkspaceMembershipCompact>}
+     * @type {TimesheetApprovalStatusResponse}
      * @memberof InlineResponse20076
      */
-    'data'?: Array<WorkspaceMembershipCompact>;
-    /**
-     * 
-     * @type {NextPage}
-     * @memberof InlineResponse20076
-     */
-    'next_page'?: NextPage | null;
+    'data'?: TimesheetApprovalStatusResponse;
 }
 

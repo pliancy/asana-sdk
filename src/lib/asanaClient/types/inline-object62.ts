@@ -13,7 +13,7 @@
  */
 
 
-import { SectionTaskInsertRequest } from './section-task-insert-request';
+import { RbacRoleUpdateRequest } from './rbac-role-update-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionTaskInsertRequest } from './section-task-insert-request';
 export interface InlineObject62 {
     /**
      * 
-     * @type {SectionTaskInsertRequest}
+     * @type {RbacRoleUpdateRequest}
      * @memberof InlineObject62
      */
-    'data'?: SectionTaskInsertRequest;
+    'data'?: RbacRoleUpdateRequest;
 }
 

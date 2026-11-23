@@ -13,7 +13,7 @@
  */
 
 
-import { OooEntryResponse } from './ooo-entry-response';
+import { JobCompact } from './job-compact';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { OooEntryResponse } from './ooo-entry-response';
 export interface InlineResponse20025 {
     /**
      * 
-     * @type {OooEntryResponse}
+     * @type {JobCompact}
      * @memberof InlineResponse20025
      */
-    'data'?: OooEntryResponse;
+    'data'?: JobCompact;
 }
 

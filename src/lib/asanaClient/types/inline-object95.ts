@@ -13,7 +13,7 @@
  */
 
 
-import { UpdateTimesheetApprovalStatusRequest } from './update-timesheet-approval-status-request';
+import { TaskRemoveFollowersRequest } from './task-remove-followers-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { UpdateTimesheetApprovalStatusRequest } from './update-timesheet-approva
 export interface InlineObject95 {
     /**
      * 
-     * @type {UpdateTimesheetApprovalStatusRequest}
+     * @type {TaskRemoveFollowersRequest}
      * @memberof InlineObject95
      */
-    'data'?: UpdateTimesheetApprovalStatusRequest;
+    'data'?: TaskRemoveFollowersRequest;
 }
 

@@ -13,7 +13,7 @@
  */
 
 
-import { StoryBase } from './story-base';
+import { SectionRequest } from './section-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryBase } from './story-base';
 export interface InlineObject65 {
     /**
      * 
-     * @type {StoryBase}
+     * @type {SectionRequest}
      * @memberof InlineObject65
      */
-    'data'?: StoryBase;
+    'data'?: SectionRequest;
 }
 

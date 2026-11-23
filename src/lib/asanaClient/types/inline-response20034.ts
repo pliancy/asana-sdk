@@ -13,7 +13,8 @@
  */
 
 
-import { ProjectPortfolioSettingResponse } from './project-portfolio-setting-response';
+import { NextPage } from './next-page';
+import { PortfolioItemCompact } from './portfolio-item-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { ProjectPortfolioSettingResponse } from './project-portfolio-setting-res
 export interface InlineResponse20034 {
     /**
      * 
-     * @type {ProjectPortfolioSettingResponse}
+     * @type {Array<PortfolioItemCompact>}
      * @memberof InlineResponse20034
      */
-    'data'?: ProjectPortfolioSettingResponse;
+    'data'?: Array<PortfolioItemCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20034
+     */
+    'next_page'?: NextPage | null;
 }
 

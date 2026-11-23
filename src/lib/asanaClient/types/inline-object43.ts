@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectRequest } from './project-request';
+import { ProjectStatusRequest } from './project-status-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectRequest } from './project-request';
 export interface InlineObject43 {
     /**
      * 
-     * @type {ProjectRequest}
+     * @type {ProjectStatusRequest}
      * @memberof InlineObject43
      */
-    'data'?: ProjectRequest;
+    'data'?: ProjectStatusRequest;
 }
 

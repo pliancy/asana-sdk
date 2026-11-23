@@ -13,7 +13,8 @@
  */
 
 
-import { UserCompact } from './user-compact';
+import { NextPage } from './next-page';
+import { TimePeriodCompact } from './time-period-compact';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { UserCompact } from './user-compact';
 export interface InlineResponse20072 {
     /**
      * 
-     * @type {Array<UserCompact>}
+     * @type {Array<TimePeriodCompact>}
      * @memberof InlineResponse20072
      */
-    'data'?: Array<UserCompact>;
+    'data'?: Array<TimePeriodCompact>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20072
+     */
+    'next_page'?: NextPage | null;
 }
 

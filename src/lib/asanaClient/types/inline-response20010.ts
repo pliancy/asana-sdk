@@ -13,7 +13,8 @@
  */
 
 
-import { BudgetResponse } from './budget-response';
+import { AuditLogEvent } from './audit-log-event';
+import { NextPage } from './next-page';
 
 /**
  * 
@@ -23,9 +24,15 @@ import { BudgetResponse } from './budget-response';
 export interface InlineResponse20010 {
     /**
      * 
-     * @type {Array<BudgetResponse>}
+     * @type {Array<AuditLogEvent>}
      * @memberof InlineResponse20010
      */
-    'data'?: Array<BudgetResponse>;
+    'data'?: Array<AuditLogEvent>;
+    /**
+     * 
+     * @type {NextPage}
+     * @memberof InlineResponse20010
+     */
+    'next_page'?: NextPage | null;
 }
 

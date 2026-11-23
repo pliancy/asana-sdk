@@ -29,7 +29,7 @@ import { InlineObject5 } from '../types';
 // @ts-ignore
 import { InlineResponse2001 } from '../types';
 // @ts-ignore
-import { InlineResponse20010 } from '../types';
+import { InlineResponse20012 } from '../types';
 // @ts-ignore
 import { InlineResponse2011 } from '../types';
 /**
@@ -139,11 +139,11 @@ export const BudgetsApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Get a budget
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBudget: async (budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getBudget: async (budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'budgetGid' is not null or undefined
             assertParamExists('getBudget', 'budgetGid', budgetGid)
             const localVarPath = `/budgets/{budget_gid}`
@@ -242,11 +242,11 @@ export const BudgetsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {InlineObject5} inlineObject5 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateBudget: async (budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateBudget: async (budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'budgetGid' is not null or undefined
             assertParamExists('updateBudget', 'budgetGid', budgetGid)
             // verify required parameter 'inlineObject5' is not null or undefined
@@ -333,11 +333,11 @@ export const BudgetsApiFp = function(configuration?: Configuration) {
          * @summary Get a budget
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
+        async getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBudget(budgetGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -349,7 +349,7 @@ export const BudgetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBudgets(parent: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20010>> {
+        async getBudgets(parent: string, optPretty?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20012>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBudgets(parent, optPretty, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -359,11 +359,11 @@ export const BudgetsApiFp = function(configuration?: Configuration) {
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {InlineObject5} inlineObject5 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
+        async updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2011>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateBudget(budgetGid, inlineObject5, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -404,11 +404,11 @@ export const BudgetsApiFactory = function (configuration?: Configuration, basePa
          * @summary Get a budget
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: any): AxiosPromise<InlineResponse2011> {
+        getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: any): AxiosPromise<InlineResponse2011> {
             return localVarFp.getBudget(budgetGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
@@ -419,7 +419,7 @@ export const BudgetsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBudgets(parent: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse20010> {
+        getBudgets(parent: string, optPretty?: boolean, options?: any): AxiosPromise<InlineResponse20012> {
             return localVarFp.getBudgets(parent, optPretty, options).then((request) => request(axios, basePath));
         },
         /**
@@ -428,11 +428,11 @@ export const BudgetsApiFactory = function (configuration?: Configuration, basePa
          * @param {string} budgetGid Globally unique identifier for the budget.
          * @param {InlineObject5} inlineObject5 
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: any): AxiosPromise<InlineResponse2011> {
+        updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: any): AxiosPromise<InlineResponse2011> {
             return localVarFp.updateBudget(budgetGid, inlineObject5, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
     };
@@ -476,12 +476,12 @@ export class BudgetsApi extends BaseAPI {
      * @summary Get a budget
      * @param {string} budgetGid Globally unique identifier for the budget.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BudgetsApi
      */
-    public getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig) {
+    public getBudget(budgetGid: string, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig) {
         return BudgetsApiFp(this.configuration).getBudget(budgetGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -504,12 +504,12 @@ export class BudgetsApi extends BaseAPI {
      * @param {string} budgetGid Globally unique identifier for the budget.
      * @param {InlineObject5} inlineObject5 
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BudgetsApi
      */
-    public updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig) {
+    public updateBudget(budgetGid: string, inlineObject5: InlineObject5, optPretty?: boolean, optFields?: Array<'actual' | 'actual.billable_status_filter' | 'actual.units' | 'actual.value' | 'budget_type' | 'estimate' | 'estimate.billable_status_filter' | 'estimate.enabled' | 'estimate.source' | 'estimate.units' | 'estimate.value' | 'parent' | 'parent.name' | 'parent.resource_subtype' | 'total' | 'total.enabled' | 'total.units' | 'total.value'>, options?: AxiosRequestConfig) {
         return BudgetsApiFp(this.configuration).updateBudget(budgetGid, inlineObject5, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

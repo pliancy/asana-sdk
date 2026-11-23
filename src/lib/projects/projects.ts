@@ -163,6 +163,7 @@ export class Projects {
             this.workspaceGid,
             team,
             archived,
+            undefined,
             optFields,
             options,
         )
@@ -185,6 +186,7 @@ export class Projects {
             this.workspaceGid,
             team,
             archived,
+            undefined,
             optFields,
             options,
         )
@@ -204,6 +206,7 @@ export class Projects {
             optPretty,
             limit,
             offset,
+            undefined,
             optFields,
             options,
         )

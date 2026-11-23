@@ -55,12 +55,18 @@ export interface TimeTrackingEntryCompact {
     'attributable_to'?: ProjectCompact & object;
     /**
      * 
-     * @type {UserCompact}
+     * @type {UserCompact & object}
      * @memberof TimeTrackingEntryCompact
      */
-    'created_by'?: UserCompact;
+    'assignee'?: UserCompact & object;
     /**
-     * The categories linked to this time tracking entry.
+     * 
+     * @type {UserCompact & object}
+     * @memberof TimeTrackingEntryCompact
+     */
+    'created_by'?: UserCompact & object;
+    /**
+     * <p><strong style={{ color: \"#4573D2\" }}>Full object requires scope: </strong><code>time_tracking_categories:read</code></p>  The categories linked to this time tracking entry.
      * @type {Array<TimeTrackingCategoryCompact>}
      * @memberof TimeTrackingEntryCompact
      */

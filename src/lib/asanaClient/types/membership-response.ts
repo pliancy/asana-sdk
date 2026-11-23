@@ -14,13 +14,15 @@
 
 
 import { CustomFieldMembershipCompact } from './custom-field-membership-compact';
-import { CustomTypeCompact } from './custom-type-compact';
 import { CustomTypeMembershipCompact } from './custom-type-membership-compact';
 import { GoalCompact } from './goal-compact';
 import { GoalMembershipResponse } from './goal-membership-response';
 import { MemberCompact } from './member-compact';
 import { PortfolioMembershipCompact } from './portfolio-membership-compact';
 import { ProjectMembershipCompactResponse } from './project-membership-compact-response';
+import { RecordItemCompact } from './record-item-compact';
+import { RecordMembershipCompact } from './record-membership-compact';
+import { TableMembershipCompact } from './table-membership-compact';
 import { UserCompact } from './user-compact';
 import { WorkspaceCompact } from './workspace-compact';
 
@@ -56,10 +58,10 @@ export interface MembershipResponse {
     'member'?: MemberCompact;
     /**
      * 
-     * @type {CustomTypeCompact}
+     * @type {RecordItemCompact}
      * @memberof MembershipResponse
      */
-    'parent'?: CustomTypeCompact;
+    'parent'?: RecordItemCompact;
     /**
      * *Deprecated: Describes if the member is a commenter or editor in goal.*
      * @type {string}
@@ -68,7 +70,7 @@ export interface MembershipResponse {
      */
     'role'?: MembershipResponseRoleEnum;
     /**
-     * Whether the member has admin, editor, user, or viewer access to the custom type.
+     * The member\'s access level in the record.
      * @type {string}
      * @memberof MembershipResponse
      */
@@ -108,7 +110,7 @@ export enum MembershipResponseRoleEnum {
 export enum MembershipResponseAccessLevelEnum {
     Admin = 'admin',
     Editor = 'editor',
-    User = 'user',
+    Commenter = 'commenter',
     Viewer = 'viewer'
 }
 

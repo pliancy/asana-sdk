@@ -83,6 +83,12 @@ export interface CustomFieldCompact {
      */
     'is_formula_field'?: boolean;
     /**
+     * *Conditional*. This flag describes whether a custom field is a lookup custom field.
+     * @type {boolean}
+     * @memberof CustomFieldCompact
+     */
+    'is_lookup_field'?: boolean;
+    /**
      * 
      * @type {CustomFieldCompactDateValue}
      * @memberof CustomFieldCompact
@@ -156,7 +162,9 @@ export enum CustomFieldCompactInputRestrictionsEnum {
     Task = 'task',
     Project = 'project',
     Portfolio = 'portfolio',
-    Goal = 'goal'
+    Goal = 'goal',
+    Team = 'team',
+    Record = 'record'
 }
 
 

@@ -13,7 +13,7 @@
  */
 
 
-import { StoryBase } from './story-base';
+import { ProjectSectionInsertRequest } from './project-section-insert-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { StoryBase } from './story-base';
 export interface InlineObject67 {
     /**
      * 
-     * @type {StoryBase}
+     * @type {ProjectSectionInsertRequest}
      * @memberof InlineObject67
      */
-    'data'?: StoryBase;
+    'data'?: ProjectSectionInsertRequest;
 }
 

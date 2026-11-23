@@ -32,5 +32,11 @@ export interface GoalUpdateRequestAllOf {
      * @memberof GoalUpdateRequestAllOf
      */
     'custom_fields'?: { [key: string]: string; };
+    /**
+     * An object where each key is the GID of a text custom field and the corresponding value is a rich text HTML string. Only text-type custom fields support this parameter. Values must be wrapped in <body></body> tags. See the [custom fields guide](/docs/custom-fields-guide) and [rich text](/docs/rich-text) for details on supported formatting.
+     * @type {{ [key: string]: string; }}
+     * @memberof GoalUpdateRequestAllOf
+     */
+    'html_custom_fields'?: { [key: string]: string; };
 }
 

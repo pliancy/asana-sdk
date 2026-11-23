@@ -13,7 +13,7 @@
  */
 
 
-import { AttachmentResponse } from './attachment-response';
+import { AllocationResponse } from './allocation-response';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { AttachmentResponse } from './attachment-response';
 export interface InlineResponse2006 {
     /**
      * 
-     * @type {AttachmentResponse}
+     * @type {AllocationResponse}
      * @memberof InlineResponse2006
      */
-    'data'?: AttachmentResponse;
+    'data'?: AllocationResponse;
 }
 

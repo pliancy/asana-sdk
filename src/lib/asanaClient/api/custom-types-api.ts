@@ -23,9 +23,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../types';
 // @ts-ignore
-import { InlineResponse20014 } from '../types';
+import { InlineResponse20016 } from '../types';
 // @ts-ignore
-import { InlineResponse20015 } from '../types';
+import { InlineResponse20017 } from '../types';
 /**
  * CustomTypesApi - axios parameter creator
  * @export
@@ -33,15 +33,15 @@ import { InlineResponse20015 } from '../types';
 export const CustomTypesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the complete custom type record for a single custom type.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.
          * @summary Get a custom type
          * @param {string} customTypeGid Globally unique identifier for the custom type.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomType: async (customTypeGid: string, optPretty?: boolean, optFields?: Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomType: async (customTypeGid: string, optPretty?: boolean, optFields?: Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customTypeGid' is not null or undefined
             assertParamExists('getCustomType', 'customTypeGid', customTypeGid)
             const localVarPath = `/custom_types/{custom_type_gid}`
@@ -59,7 +59,7 @@ export const CustomTypesApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["custom_types:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -85,19 +85,18 @@ export const CustomTypesApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
          * @summary Get all custom types associated with an object
-         * @param {string} project Globally unique identifier for the project, which is used as a filter when retrieving all custom types.
+         * @param {string} [project] Globally unique identifier for the project, used as a filter when retrieving custom types.
+         * @param {string} [workspace] The workspace to filter results on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomTypes: async (project: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'project' is not null or undefined
-            assertParamExists('getCustomTypes', 'project', project)
+        getCustomTypes: async (project?: string, workspace?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/custom_types`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -112,7 +111,7 @@ export const CustomTypesApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["custom_types:read"], configuration)
 
             // authentication personalAccessToken required
             // http bearer authentication required
@@ -120,6 +119,10 @@ export const CustomTypesApiAxiosParamCreator = function (configuration?: Configu
 
             if (project !== undefined) {
                 localVarQueryParameter['project'] = project;
+            }
+
+            if (workspace !== undefined) {
+                localVarQueryParameter['workspace'] = workspace;
             }
 
             if (optPretty !== undefined) {
@@ -160,31 +163,32 @@ export const CustomTypesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomTypesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the complete custom type record for a single custom type.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.
          * @summary Get a custom type
          * @param {string} customTypeGid Globally unique identifier for the custom type.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20015>> {
+        async getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20017>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomType(customTypeGid, optPretty, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
          * @summary Get all custom types associated with an object
-         * @param {string} project Globally unique identifier for the project, which is used as a filter when retrieving all custom types.
+         * @param {string} [project] Globally unique identifier for the project, used as a filter when retrieving custom types.
+         * @param {string} [workspace] The workspace to filter results on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomTypes(project: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20014>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomTypes(project, optPretty, limit, offset, optFields, options);
+        async getCustomTypes(project?: string, workspace?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20016>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomTypes(project, workspace, optPretty, limit, offset, optFields, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -198,30 +202,31 @@ export const CustomTypesApiFactory = function (configuration?: Configuration, ba
     const localVarFp = CustomTypesApiFp(configuration)
     return {
         /**
-         * Returns the complete custom type record for a single custom type.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.
          * @summary Get a custom type
          * @param {string} customTypeGid Globally unique identifier for the custom type.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-         * @param {Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: any): AxiosPromise<InlineResponse20015> {
+        getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: any): AxiosPromise<InlineResponse20017> {
             return localVarFp.getCustomType(customTypeGid, optPretty, optFields, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
+         * <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
          * @summary Get all custom types associated with an object
-         * @param {string} project Globally unique identifier for the project, which is used as a filter when retrieving all custom types.
+         * @param {string} [project] Globally unique identifier for the project, used as a filter when retrieving custom types.
+         * @param {string} [workspace] The workspace to filter results on.
          * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
          * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
          * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-         * @param {Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+         * @param {Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomTypes(project: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20014> {
-            return localVarFp.getCustomTypes(project, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
+        getCustomTypes(project?: string, workspace?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: any): AxiosPromise<InlineResponse20016> {
+            return localVarFp.getCustomTypes(project, workspace, optPretty, limit, offset, optFields, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -234,32 +239,33 @@ export const CustomTypesApiFactory = function (configuration?: Configuration, ba
  */
 export class CustomTypesApi extends BaseAPI {
     /**
-     * Returns the complete custom type record for a single custom type.
+     * <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.
      * @summary Get a custom type
      * @param {string} customTypeGid Globally unique identifier for the custom type.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
-     * @param {Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomTypesApi
      */
-    public getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: AxiosRequestConfig) {
+    public getCustomType(customTypeGid: string, optPretty?: boolean, optFields?: Array<'asana_created_type_identifier' | 'name' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name'>, options?: AxiosRequestConfig) {
         return CustomTypesApiFp(this.configuration).getCustomType(customTypeGid, optPretty, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
+     * <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.
      * @summary Get all custom types associated with an object
-     * @param {string} project Globally unique identifier for the project, which is used as a filter when retrieving all custom types.
+     * @param {string} [project] Globally unique identifier for the project, used as a filter when retrieving custom types.
+     * @param {string} [workspace] The workspace to filter results on.
      * @param {boolean} [optPretty] Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
      * @param {number} [limit] Results per page. The number of objects to return per page. The value must be between 1 and 100.
      * @param {string} [offset] Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-     * @param {Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+     * @param {Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>} [optFields] This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomTypesApi
      */
-    public getCustomTypes(project: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: AxiosRequestConfig) {
-        return CustomTypesApiFp(this.configuration).getCustomTypes(project, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
+    public getCustomTypes(project?: string, workspace?: string, optPretty?: boolean, limit?: number, offset?: string, optFields?: Array<'asana_created_type_identifier' | 'name' | 'offset' | 'path' | 'status_options' | 'status_options.color' | 'status_options.completion_state' | 'status_options.enabled' | 'status_options.name' | 'uri'>, options?: AxiosRequestConfig) {
+        return CustomTypesApiFp(this.configuration).getCustomTypes(project, workspace, optPretty, limit, offset, optFields, options).then((request) => request(this.axios, this.basePath));
     }
 }

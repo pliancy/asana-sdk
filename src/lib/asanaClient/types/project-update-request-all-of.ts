@@ -27,6 +27,12 @@ export interface ProjectUpdateRequestAllOf {
      */
     'custom_fields'?: { [key: string]: string; };
     /**
+     * An object where each key is the GID of a text custom field and the corresponding value is a rich text HTML string. Only text-type custom fields support this parameter. Values must be wrapped in <body></body> tags. See the [custom fields guide](/docs/custom-fields-guide) and [rich text](/docs/rich-text) for details on supported formatting.
+     * @type {{ [key: string]: string; }}
+     * @memberof ProjectUpdateRequestAllOf
+     */
+    'html_custom_fields'?: { [key: string]: string; };
+    /**
      * *Create-only*. Comma separated string of users. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project.
      * @type {string}
      * @memberof ProjectUpdateRequestAllOf
@@ -45,5 +51,11 @@ export interface ProjectUpdateRequestAllOf {
      * @deprecated
      */
     'team'?: string;
+    /**
+     * *Conditional:* You can only set custom_type if project `resource_subtype` is `custom`. GID or globally-unique identifier of a project\'s custom type. The type must be valid for projects, and some Asana-created custom types cannot be assigned via the API; attempting either returns an error explaining which condition failed.
+     * @type {string}
+     * @memberof ProjectUpdateRequestAllOf
+     */
+    'custom_type'?: string | null;
 }
 

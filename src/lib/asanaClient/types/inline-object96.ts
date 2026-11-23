@@ -13,7 +13,7 @@
  */
 
 
-import { CreateTimesheetApprovalStatusRequest } from './create-timesheet-approval-status-request';
+import { TeamRequest } from './team-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { CreateTimesheetApprovalStatusRequest } from './create-timesheet-approva
 export interface InlineObject96 {
     /**
      * 
-     * @type {CreateTimesheetApprovalStatusRequest}
+     * @type {TeamRequest}
      * @memberof InlineObject96
      */
-    'data'?: CreateTimesheetApprovalStatusRequest;
+    'data'?: TeamRequest;
 }
 

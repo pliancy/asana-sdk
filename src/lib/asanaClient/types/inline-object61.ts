@@ -13,7 +13,7 @@
  */
 
 
-import { SectionRequest } from './section-request';
+import { RbacRoleRequest } from './rbac-role-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { SectionRequest } from './section-request';
 export interface InlineObject61 {
     /**
      * 
-     * @type {SectionRequest}
+     * @type {RbacRoleRequest}
      * @memberof InlineObject61
      */
-    'data'?: SectionRequest;
+    'data'?: RbacRoleRequest;
 }
 

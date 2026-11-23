@@ -13,7 +13,7 @@
  */
 
 
-import { ProjectSectionInsertRequest } from './project-section-insert-request';
+import { RuleTriggerRequest } from './rule-trigger-request';
 
 /**
  * 
@@ -23,9 +23,9 @@ import { ProjectSectionInsertRequest } from './project-section-insert-request';
 export interface InlineObject63 {
     /**
      * 
-     * @type {ProjectSectionInsertRequest}
+     * @type {RuleTriggerRequest}
      * @memberof InlineObject63
      */
-    'data'?: ProjectSectionInsertRequest;
+    'data'?: RuleTriggerRequest;
 }
 
